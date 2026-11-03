@@ -1,0 +1,35 @@
+# Product final review A
+
+**Disposition: PASS for the documentation proposal. No blocking substantive defect found.** This is a source/architecture review, not a repository-check result, acceptance decision, deployment qualification, or authorization to publish the unavailable central repository.
+
+Reviewed 2026-11-03 in one bounded read-only pass. Inspected expanded `shared-research-integration-plan.md` in Runtime, Orchestrator and Platform publication directories, plus their AGENTS and index changes. Compared file contents against independently verified inventory HEADs:
+
+| Product | Pinned source |
+| --- | --- |
+| Runtime | `4bdc93a43b58469f60ca10c0dca512824650c8ac` |
+| Orchestrator | `981dd836ca3d35b764561bdc11dc2e0544d83416` |
+| Platform | `7f6eb3746c07dc01751c29a8dbc62e50b5f7ad6d` |
+
+Publication checkouts lack those historical Git objects, so comparisons used the retained pinned source directories instead of assuming `git diff <base>` succeeded. No product files or commits were changed. No product tests or full documentation gates were rerun.
+
+## Findings
+
+No finding warrants blocking these proposed documentation changes. Two narrowly scoped corrections would prevent an unintended reading of accepted Platform semantics:
+
+1. **Low / scope clarification — Platform lines 65–73.** “Practical sequence before substantial implementation” followed by “First freeze” entitlement/deployment fields could be read as a general Platform implementation prerequisite. Accepted ADR-0007 already admits the first Project Management slice while the other tactical models remain proposed. The surrounding proposed-status/no-new-gate text makes the intended limited scope clear enough to pass, but the heading should not imply that already-admitted work waits for unrelated contexts. **Exact correction:** change the heading to `Practical sequence for entitlement and deployment integration`; change the first sentence to `For the selected entitlement or deployment slice, first freeze the meanings and owner mapping of the fields that slice consumes.` No new decision or test is needed. Source: Platform `docs/decisions/0007-platform-strategic-context-map-and-first-project-management-slice.md`, especially the admitted first slice and remaining tactical boundaries.
+
+2. **Low / credential-boundary clarification — Platform lines 78–79.** “Managed BYOC retains ... without ... raw provider credentials” is broader than ADR-0005's actual custody rule. Customer-owned secret infrastructure and scoped AR injection remain valid; Platform and Orchestrator do not receive those credentials. **Exact correction:** replace the sentence with `Managed BYOC retains customer-side acceptance and short-lived writer fencing. Platform has no standing customer-cloud administration or decryption path; raw provider credentials stay out of Platform and Orchestrator, with AR using the declared customer-owned secret reference or ephemeral injection boundary.` Source: accepted Platform `docs/decisions/0005-managed-customer-installation-control.md`, “Connectivity and offline behavior” and “Workspace, secrets, diagnostics, and support.” This is clarification of the existing owner boundary, not a new security design.
+
+## Verified substantive alignment
+
+- **Runtime ordinary delivery and fleet remain separate.** The draft preserves v3 S1–S5, C0–C3 capacity ownership, native-team custody, existing feed semantics and independent ordinary-runtime progress. It neither promotes Stage K to active-worker evidence nor introduces a second scheduler, port, journal or process supervisor. Cross-pool allowance conservation and finite fairness assumptions are correctly routed to C0/C1/C2. Gap handling is conditional on the existing contract, correcting the earlier overbroad recommendation.
+- **The active-agent objective remains an unqualified target.** Workload inventories distinguish executions, sessions, pending work, viewers, pools and resource demand. The drafts require one large tenant as well as distributed tenant load. None uses idle identities, controller fixtures or package counts as proof of thousands of active agents.
+- **Orchestrator preserves accepted product semantics.** ADR-0045's soft limits/hard quotas and reservation lifecycle remain the baseline; OD-024 retains detailed unresolved semantics. ADR-0114's selected roles and transport/storage responsibilities, and ADR-0115's Fully Local V1 obligations, remain intact. No compact in-process deployment is silently substituted for required process boundaries. The proposal distinguishes product scheduling/continuation from Runtime capacity and physical reclaim.
+- **Platform preserves split authority and release scope.** Desired, customer-accepted and observed revision are distinct. Commercial entitlements do not become operational budgets. Installation completion, scope admission, Run state and physical cleanup remain independent. Fully Local and self-hosted capability stay in accepted scope; no Kubernetes requirement is imported into local use. The deployment manifest retains actual readiness authority. Managed SaaS, self-hosted and Fully Local have separate composition/qualification obligations without separate business implementations.
+- **Pending central publication is truthful.** Every product describes `agent-teams-ai/engineering-research/docs/competitors/paperclip.md` as a planned destination, not a working published citation. No product claims completed migration. Central availability is not made a new implementation or qualification gate. The upstream Paperclip SHA remains an inspectable source identity; the drafts clearly say no new competitor benchmark was executed.
+- **Research ownership remains local where required.** All five Runtime reusable research reports are byte-identical to the pinned source. All 16 existing Orchestrator research reports checked are unchanged. All ten Platform-Orchestrator review documents are unchanged. Accepted decision directories remain byte-identical across all three comparisons; Platform deployment-profile artifacts also remain unchanged. No accepted ADR is rewritten and no qualification status is promoted.
+- **Navigation and implementation scope are proportional.** AGENTS changes add a proposed-research route; indexes add local document links. Existing instructions remain intact. Every relative Markdown link in the three expanded plans resolves locally. The drafts add zero production code and expressly reuse existing owner acceptance, failure traces and composition mechanisms instead of creating shared product domains or new research gates.
+
+## Handoff limits
+
+This pass does not certify full Docs Protocol, lint, immutability, architecture or CI gates. The root integration owner should report the actual checks separately. It also does not make the central repository available or resolve the cancelled authentication flow. The local proposal is useful and reviewable while that destination remains pending; no alternate remote publication or completed-migration claim is justified by this review.
