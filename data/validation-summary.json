@@ -1,0 +1,186 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-11-04",
+  "scope": "Prepared central documentation and published product documentation drafts; not a competitor or product runtime benchmark.",
+  "central": {
+    "docsProtocolCoordinate": "@agent-teams/docs-protocol@0.6.2",
+    "node": "24.22.1",
+    "pnpm": "11.25.0",
+    "catalogCheck": {
+      "status": "passed",
+      "documents": 26
+    },
+    "infoFindContext": {
+      "status": "passed",
+      "contextIncludedDocuments": 26,
+      "contextTruncated": false
+    },
+    "sourceProvenance": {
+      "status": "passed",
+      "sourceHashes": 73,
+      "markdownSources": 72,
+      "yamlSources": 1,
+      "rawImports": 5
+    },
+    "scoreArithmetic": {
+      "criteria": 30,
+      "scored": {
+        "paperclip": 19,
+        "agentTeamsTarget": 19
+      },
+      "coverage": "63.3% each",
+      "currentAggregate": null,
+      "historicalOnly": {
+        "paperclip": "7.625",
+        "agentTeamsTarget": "8.250"
+      }
+    },
+    "evaluationSchema": {
+      "metaValidation": "passed",
+      "compilation": "passed",
+      "engine": "Ajv 8.20.0 draft 2020-12",
+      "instanceValidation": "not claimed; maintained assessments are Markdown",
+      "formatValidation": "not supplied by schema-compilation check"
+    },
+    "links": {
+      "checkedFiles": 29,
+      "localLinks": 119,
+      "pinnedSourceLinks": 121,
+      "historicalSourcePathsNotMaterialized": 4,
+      "errors": []
+    },
+    "cleanDeliveryCopy": {
+      "frozenOfflineInstall": "passed",
+      "docsCheck": "passed",
+      "catalogDocuments": 26,
+      "liveOrCompletedAuthoringStateIncluded": false
+    }
+  },
+  "productLocalDocumentation": {
+    "agent-runtime": {
+      "status": "passed",
+      "catalogDocuments": 112,
+      "frozenGovernanceTests": 5
+    },
+    "agent-teams-orchestrator": {
+      "status": "passed",
+      "catalogDocuments": 239,
+      "documentationTestsPassed": 41,
+      "documentationTestsSkipped": 1,
+      "skipReason": "Windows-only",
+      "skillTests": 4,
+      "additionalChecks": [
+        "architecture-model",
+        "markdownlint",
+        "Vale",
+        "CSpell",
+        "docs-impact"
+      ]
+    },
+    "agent-teams-platform": {
+      "status": "passed",
+      "catalogDocuments": 41,
+      "qualificationTests": 7,
+      "additionalChecks": [
+        "markdownlint",
+        "deployment-references",
+        "domain-materialization"
+      ]
+    }
+  },
+  "notExecuted": [
+    "competitor tests",
+    "common active-agent capacity campaign",
+    "adversarial whole-product tenant assessment",
+    "whole-product install/upgrade campaign",
+    "comparable production-LOC change exercise"
+  ],
+  "publication": {
+    "centralRepositoryCreated": true,
+    "centralDraftCreated": true,
+    "preparedImportsRemotelyMigrated": false,
+    "productDraftPrs": [
+      248,
+      94,
+      59
+    ],
+    "productionLocAdded": 0,
+    "backgroundRefreshActivated": false
+  },
+  "qualificationBoundary": "No product profile, managed Docs admission or fleet qualification is promoted by these documentation checks.",
+  "verifiedAtUtc": "2026-11-03T23:19:36Z",
+  "githubActions": {
+    "observedAtUtc": "2026-11-03T23:19:36Z",
+    "runtime": [
+      {
+        "name": "Documentation Protocol",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41736342665"
+      },
+      {
+        "name": "CI",
+        "status": "queued",
+        "conclusion": null,
+        "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41736342300"
+      },
+      {
+        "name": "Node Default and Compatibility",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41736342154"
+      }
+    ],
+    "orchestrator": [
+      {
+        "name": "Dependency Review",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/actions/runs/41736359435"
+      },
+      {
+        "name": "Documentation",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/actions/runs/41736359342"
+      },
+      {
+        "name": "Documentation Protocol",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/actions/runs/41736359833"
+      },
+      {
+        "name": "Architecture",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/actions/runs/41736359266"
+      }
+    ],
+    "platform": [
+      {
+        "name": "Documentation Protocol",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/agent-teams-ai/agent-teams-platform/actions/runs/41736366655"
+      },
+      {
+        "name": "Node 26 Compatibility",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/agent-teams-ai/agent-teams-platform/actions/runs/41736365971"
+      },
+      {
+        "name": "Architecture",
+        "status": "completed",
+        "conclusion": "success",
+        "url": "https://github.com/agent-teams-ai/agent-teams-platform/actions/runs/41736365968"
+      }
+    ],
+    "orchestratorRetry": {
+      "jobId": 126266455805,
+      "reason": "PostgreSQL initdb fixture exceeded existing 60-second timeout before assertions; same source passed Node24. Retried without source, pin or gate changes.",
+      "result": "Architecture workflow success"
+    }
+  }
+}

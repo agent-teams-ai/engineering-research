@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "imports": [
+    {
+      "repository": "agent-teams-ai/agent-runtime",
+      "path": "docs/spikes/agent-runtime-industry-architecture-research.md",
+      "sourceRevision": "4bdc93a43b58469f60ca10c0dca512824650c8ac",
+      "sourceUrl": "https://github.com/agent-teams-ai/agent-runtime/blob/4bdc93a43b58469f60ca10c0dca512824650c8ac/docs/spikes/agent-runtime-industry-architecture-research.md",
+      "documentId": "evidence.agent-runtime.industry-architecture-research",
+      "sha256": "3cb0a56f47137d6bffc555ff1ab046746ced69ab4ccd60c8b0d56f3687bdb266",
+      "sizeBytes": 65298,
+      "rawSnapshot": "evidence/imports/agent-runtime/agent-runtime-industry-architecture-research.md",
+      "centralDocument": "docs/studies/agent-runtime-industry-architecture-research.md",
+      "importedOn": "2026-11-04",
+      "originalMetadata": "id: evidence.agent-runtime.industry-architecture-research\ntype: evidence\nstatus: evidence-reference\nowner: architecture/qualification\nsummary: Primary-source industry lessons and historical failure cases informing the greenfield foundation; no comparative runtime benchmark.",
+      "upstreamRevalidated": false
+    },
+    {
+      "repository": "agent-teams-ai/agent-runtime",
+      "path": "docs/spikes/agent-runtime-framework-research.md",
+      "sourceRevision": "4bdc93a43b58469f60ca10c0dca512824650c8ac",
+      "sourceUrl": "https://github.com/agent-teams-ai/agent-runtime/blob/4bdc93a43b58469f60ca10c0dca512824650c8ac/docs/spikes/agent-runtime-framework-research.md",
+      "documentId": "evidence.agent-runtime.modular.frameworks",
+      "sha256": "3e7f7b3d411931c7c8872fdee2eab308268e60f003d5bb1015720f33d8fd0956",
+      "sizeBytes": 44846,
+      "rawSnapshot": "evidence/imports/agent-runtime/agent-runtime-framework-research.md",
+      "centralDocument": "docs/studies/agent-runtime-framework-research.md",
+      "importedOn": "2026-11-04",
+      "originalMetadata": "id: evidence.agent-runtime.modular.frameworks\ntype: evidence\nstatus: evidence-reference\nowner: architecture/qualification\nsummary: Pinned SDK research and limits for OpenAI Agents, Google ADK and Microsoft Agent Framework.",
+      "upstreamRevalidated": false
+    },
+    {
+      "repository": "agent-teams-ai/agent-runtime",
+      "path": "docs/spikes/agent-runtime-library-research.md",
+      "sourceRevision": "4bdc93a43b58469f60ca10c0dca512824650c8ac",
+      "sourceUrl": "https://github.com/agent-teams-ai/agent-runtime/blob/4bdc93a43b58469f60ca10c0dca512824650c8ac/docs/spikes/agent-runtime-library-research.md",
+      "documentId": "evidence.agent-runtime.modular.libraries",
+      "sha256": "1073d1ea51ef7bc8865000a076363c3905582f3f955ae144b9be943021cce785",
+      "sizeBytes": 31042,
+      "rawSnapshot": "evidence/imports/agent-runtime/agent-runtime-library-research.md",
+      "centralDocument": "docs/studies/agent-runtime-library-research.md",
+      "importedOn": "2026-11-04",
+      "originalMetadata": "id: evidence.agent-runtime.modular.libraries\ntype: evidence\nstatus: evidence-reference\nowner: architecture/qualification\nsummary: Pinned AI SDK, Mastra, PydanticAI and OpenHands modularity evidence and alternatives.",
+      "upstreamRevalidated": false
+    },
+    {
+      "repository": "agent-teams-ai/agent-runtime",
+      "path": "docs/spikes/agent-runtime-durability-research.md",
+      "sourceRevision": "4bdc93a43b58469f60ca10c0dca512824650c8ac",
+      "sourceUrl": "https://github.com/agent-teams-ai/agent-runtime/blob/4bdc93a43b58469f60ca10c0dca512824650c8ac/docs/spikes/agent-runtime-durability-research.md",
+      "documentId": "evidence.agent-runtime.modular.durability",
+      "sha256": "aec3a96e409a501a573afab2bf6c9cd9ed65059a69f83f1f13f5dc8b197dc3a0",
+      "sizeBytes": 38781,
+      "rawSnapshot": "evidence/imports/agent-runtime/agent-runtime-durability-research.md",
+      "centralDocument": "docs/studies/agent-runtime-durability-research.md",
+      "importedOn": "2026-11-04",
+      "originalMetadata": "id: evidence.agent-runtime.modular.durability\ntype: evidence\nstatus: evidence-reference\nowner: architecture/qualification\nsummary: Pinned LangGraph, Temporal and Restate lessons without changing runtime operation authority.",
+      "upstreamRevalidated": false
+    },
+    {
+      "repository": "agent-teams-ai/agent-runtime",
+      "path": "docs/spikes/agent-runtime-antipattern-register.md",
+      "sourceRevision": "4bdc93a43b58469f60ca10c0dca512824650c8ac",
+      "sourceUrl": "https://github.com/agent-teams-ai/agent-runtime/blob/4bdc93a43b58469f60ca10c0dca512824650c8ac/docs/spikes/agent-runtime-antipattern-register.md",
+      "documentId": "evidence.agent-runtime.modular.antipatterns",
+      "sha256": "b66f40680ecba7cff635c4d7a225faf87d88dc7fa9fa0aaa1fd5698c503c54db",
+      "sizeBytes": 20180,
+      "rawSnapshot": "evidence/imports/agent-runtime/agent-runtime-antipattern-register.md",
+      "centralDocument": "docs/studies/agent-runtime-antipattern-register.md",
+      "importedOn": "2026-11-04",
+      "originalMetadata": "id: evidence.agent-runtime.modular.antipatterns\ntype: evidence\nstatus: evidence-reference\nowner: architecture/qualification\nsummary: Source-backed historical lessons, good patterns and concrete rejecting cases for runtime library review.",
+      "upstreamRevalidated": false
+    }
+  ]
+}

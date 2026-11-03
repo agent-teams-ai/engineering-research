@@ -1,0 +1,156 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:agent-teams:research:evaluation-record:draft:1",
+  "title": "Draft scoped technical assessment record",
+  "description": "Structural draft only. Semantic review and repository document ownership remain required.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "methodVersion", "assessmentId", "board", "assessmentBasis", "assumptions", "unresolvedChoices", "comparisonScope", "subject", "scenarioId", "review", "sources", "claims", "cells"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "methodVersion": { "type": "string", "minLength": 1 },
+    "assessmentId": { "type": "string", "minLength": 1 },
+    "board": { "enum": ["current-implementation", "documented-target", "conditional-architecture"] },
+    "assessmentBasis": { "enum": ["observed-implementation", "prospective-behavior-assuming-correct-implementation"] },
+    "assumptions": { "$ref": "#/$defs/textList" },
+    "unresolvedChoices": { "$ref": "#/$defs/textList" },
+    "comparisonScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "criterionIds", "mandatoryCriterionIds", "weightingPolicy", "ordinalRankAllowed"],
+      "description": "One identical scope for every row of an ordinal board. Cross-record identity and complete scored-mask checks require review or an existing validator; pairwise masks cannot generate a global order.",
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "criterionIds": { "type": "array", "items": { "$ref": "#/$defs/criterionId" }, "minItems": 1, "uniqueItems": true },
+        "mandatoryCriterionIds": { "type": "array", "items": { "$ref": "#/$defs/criterionId" }, "uniqueItems": true },
+        "weightingPolicy": { "type": "string", "minLength": 1 },
+        "ordinalRankAllowed": { "type": "boolean" }
+      }
+    },
+    "subject": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "cohort", "edition", "revision", "deployment", "configuration"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "cohort": { "enum": ["product", "component", "infrastructure-reference"] },
+        "edition": { "type": "string", "minLength": 1 },
+        "revision": { "type": ["string", "null"], "description": "Exact version/SHA when reviewed; null for an unpinned watchlist entry." },
+        "deployment": { "type": "string", "minLength": 1 },
+        "configuration": { "type": "string", "minLength": 1 }
+      }
+    },
+    "scenarioId": { "type": "string", "minLength": 1 },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["owner", "reviewer", "reviewedOn", "reviewDue", "depth", "rankStatus"],
+      "properties": {
+        "owner": { "type": "string", "minLength": 1 },
+        "reviewer": { "type": ["string", "null"] },
+        "reviewedOn": { "type": "string", "format": "date" },
+        "reviewDue": { "type": "string", "format": "date" },
+        "depth": { "enum": ["watchlist", "documentation", "targeted-source", "scoped-reproduction", "deployment-qualified"] },
+        "rankStatus": { "enum": ["unranked", "advisory-comparable", "capacity-comparable"] },
+        "limitations": { "$ref": "#/$defs/textList" },
+        "supersedes": { "type": ["string", "null"] }
+      }
+    },
+    "sources": { "type": "array", "items": { "$ref": "#/$defs/source" } },
+    "claims": { "type": "array", "items": { "$ref": "#/$defs/claim" } },
+    "cells": { "type": "array", "items": { "$ref": "#/$defs/cell" }, "minItems": 1 },
+    "actions": { "$ref": "#/$defs/textList" },
+    "corrections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["date", "claimId", "reason", "replacement"],
+        "properties": {
+          "date": { "type": "string", "format": "date" },
+          "claimId": { "type": "string" },
+          "reason": { "type": "string", "minLength": 1 },
+          "replacement": { "type": ["string", "null"] }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "board": { "const": "current-implementation" } }, "required": ["board"] },
+      "then": { "properties": { "assessmentBasis": { "const": "observed-implementation" } } },
+      "else": { "properties": { "assessmentBasis": { "const": "prospective-behavior-assuming-correct-implementation" }, "assumptions": { "minItems": 1 } } }
+    }
+  ],
+  "$defs": {
+    "criterionId": { "enum": ["E1", "E2", "E3", "E4", "E5", "C1", "C2", "C3", "C4", "C5", "S1", "S2", "S3", "S4", "S5", "D1", "D2", "D3", "D4", "D5", "M1", "M2", "M3", "M4", "M5", "P1", "P2", "P3", "P4", "P5"] },
+    "textList": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "locator", "revision", "retrievedOn", "origin", "independentReproduction"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "kind": { "enum": ["design", "official-documentation", "pinned-source", "maintainer-test-artifact", "reviewer-reproduced-test", "deployment-observation"] },
+        "locator": { "type": "string", "minLength": 1 },
+        "revision": { "type": ["string", "null"] },
+        "retrievedOn": { "type": "string", "format": "date" },
+        "origin": { "type": "string", "description": "Evidence origin, so multiple summaries are not counted as independent sources." },
+        "independentReproduction": { "type": "boolean" },
+        "artifactDigest": { "type": ["string", "null"] },
+        "limitations": { "$ref": "#/$defs/textList" }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "statement", "state", "sourceIds", "counterevidence", "scope", "confidence"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "statement": { "type": "string", "minLength": 1 },
+        "state": { "enum": ["supported", "vendor-documented", "historical-fixed", "documented-limit", "hypothesis", "contradicted", "retracted", "unknown"] },
+        "sourceIds": { "$ref": "#/$defs/textList" },
+        "counterevidence": { "$ref": "#/$defs/textList" },
+        "scope": { "type": "string", "minLength": 1 },
+        "confidence": { "enum": ["high", "medium", "low", "unknown"] },
+        "ownerRecord": { "type": ["string", "null"] }
+      }
+    },
+    "cell": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["criterionId", "status", "score", "claimIds", "confidence", "rationale", "limitations"],
+      "properties": {
+        "criterionId": { "$ref": "#/$defs/criterionId" },
+        "status": { "enum": ["scored", "unknown", "not-applicable"] },
+        "score": { "type": ["integer", "null"], "minimum": 0, "maximum": 10 },
+        "plausibleRange": {
+          "type": ["array", "null"],
+          "items": { "type": "integer", "minimum": 0, "maximum": 10 },
+          "minItems": 2,
+          "maxItems": 2,
+          "description": "Reviewer uncertainty bounds, not a statistical interval. Validator must verify lower <= score <= upper."
+        },
+        "claimIds": { "$ref": "#/$defs/textList" },
+        "confidence": { "enum": ["high", "medium", "low", "unknown"] },
+        "rationale": { "type": "string", "minLength": 1 },
+        "limitations": { "$ref": "#/$defs/textList" },
+        "qualification": { "enum": ["pass", "fail", "unknown", "not-applicable"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "scored" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "score": { "type": "integer", "minimum": 0, "maximum": 10 },
+              "claimIds": { "minItems": 1 },
+              "confidence": { "enum": ["high", "medium", "low"] }
+            }
+          },
+          "else": { "properties": { "score": { "type": "null" }, "plausibleRange": { "type": "null" } } }
+        }
+      ]
+    }
+  }
+}

@@ -14,8 +14,9 @@
     "docs:find": "agent-teams-docs find",
     "docs:context": "agent-teams-docs context",
     "docs:new": "agent-teams-docs new",
-    "docs:check": "agent-teams-docs check",
-    "check": "pnpm docs:check"
+    "docs:check": "pnpm docs:protocol:check",
+    "check": "pnpm docs:check",
+    "docs:protocol:check": "agent-teams-docs check"
   },
   "devDependencies": {
     "@agent-teams/docs-protocol": "0.6.2"
