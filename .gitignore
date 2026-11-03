@@ -1,0 +1,8 @@
+node_modules/
+.docs-protocol/cache/
+.docs-protocol/transactions/
+.foundation/transactions/
+.DS_Store
+.agent-teams-local/
+**/.foundation-retired-evidence-/
+.ordinary-edit-*

@@ -1,0 +1,55 @@
+schemaVersion: 3
+projectId: "agent-teams-ai/engineering-research"
+catalog:
+  metadataSchemaPath: .docs-protocol/metadata.schema.json
+  ownerCatalog: {path: .docs-protocol/owners.yaml, contract: foundation.owner-map/v1}
+  collections:
+    - {kind: markdown-tree, root: docs}
+  excludedPrefixes: []
+authoring:
+  mode: create-only
+  ownerSets:
+    schemaVersion: 1
+    sets:
+      documentation: ["research/maintainers"]
+  artifactTypes:
+    - type: index
+      initialStatus: active
+      identity: {kind: explicit, format: qualified, grammar: {prefixSegments: [docs], minSuffixSegments: 1, maxSuffixSegments: 1}}
+      placement: {kind: qualified-leaf-index, root: docs, requiredBasename: README.md}
+      template: {kind: fenced-markdown-body, path: .docs-protocol/templates/index.md}
+      heading: {kind: title}
+      reachability: {kind: manual-fixed-index, indexPath: docs/README.md}
+      ownerSetId: documentation
+    - type: research
+      initialStatus: active
+      identity: {kind: explicit, format: qualified, grammar: {prefixSegments: [research, competitors], minSuffixSegments: 1, maxSuffixSegments: 8}}
+      placement: {kind: collection, directory: docs/competitors, filename: slug}
+      template: {kind: fenced-markdown-body, path: .docs-protocol/templates/research.md}
+      heading: {kind: title}
+      reachability: {kind: manual-fixed-index, indexPath: docs/competitors/README.md}
+      ownerSetId: documentation
+    - type: methodology
+      initialStatus: active
+      identity: {kind: explicit, format: qualified, grammar: {prefixSegments: [research, methodology], minSuffixSegments: 1, maxSuffixSegments: 8}}
+      placement: {kind: collection, directory: docs/methodology, filename: slug}
+      template: {kind: fenced-markdown-body, path: .docs-protocol/templates/methodology.md}
+      heading: {kind: title}
+      reachability: {kind: manual-fixed-index, indexPath: docs/methodology/README.md}
+      ownerSetId: documentation
+    - type: study
+      initialStatus: active
+      identity: {kind: explicit, format: qualified, grammar: {prefixSegments: [research, studies], minSuffixSegments: 1, maxSuffixSegments: 8}}
+      placement: {kind: collection, directory: docs/studies, filename: slug}
+      template: {kind: fenced-markdown-body, path: .docs-protocol/templates/study.md}
+      heading: {kind: title}
+      reachability: {kind: manual-fixed-index, indexPath: docs/studies/README.md}
+      ownerSetId: documentation
+    - type: lesson
+      initialStatus: active
+      identity: {kind: explicit, format: qualified, grammar: {prefixSegments: [research, lessons], minSuffixSegments: 1, maxSuffixSegments: 8}}
+      placement: {kind: collection, directory: docs/lessons, filename: slug}
+      template: {kind: fenced-markdown-body, path: .docs-protocol/templates/lesson.md}
+      heading: {kind: title}
+      reachability: {kind: manual-fixed-index, indexPath: docs/lessons/README.md}
+      ownerSetId: documentation

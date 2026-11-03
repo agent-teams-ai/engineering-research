@@ -1,0 +1,23 @@
+{
+  "name": "@agent-teams/engineering-research",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Shared, source-backed engineering research for Agent Teams projects.",
+  "type": "module",
+  "packageManager": "pnpm@11.25.0",
+  "engines": {
+    "node": ">=24.21.0 <25 || >=26.10.0 <27"
+  },
+  "scripts": {
+    "docs:init": "agent-teams-docs init",
+    "docs:info": "agent-teams-docs info",
+    "docs:find": "agent-teams-docs find",
+    "docs:context": "agent-teams-docs context",
+    "docs:new": "agent-teams-docs new",
+    "docs:check": "agent-teams-docs check",
+    "check": "pnpm docs:check"
+  },
+  "devDependencies": {
+    "@agent-teams/docs-protocol": "0.6.2"
+  }
+}
