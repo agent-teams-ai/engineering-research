@@ -29,7 +29,7 @@ Separate factual corrections from score-policy changes. A source correction can 
 
 ## Initial review queue
 
-These dates are a maintenance proposal, not an active background schedule. The initial review anchor is 2026-11-03. The prepared repository was assembled on 2026-11-04. A historical imported study keeps its original review date even when this queue requests a new review.
+These dates are claim-review windows. A separate weekly triage task is enabled as described below; enabling it does not constitute a completed review. The initial review anchor is 2026-11-03. The initial corpus was assembled on 2026-11-04. A historical imported study keeps its original review date even when this queue requests a new review.
 
 | Scope | Next review / trigger | Concrete action |
 | --- | --- | --- |
@@ -44,7 +44,11 @@ The baseline cadence is weekly triage and claim-specific review windows, not wee
 
 ## Automation boundary
 
-The central repository is available and its initial draft is open. Background triage has not yet been activated. After corpus publication and reciprocal routes are verified, one scheduled weekly triage may inspect relevant upstream changes and prepare a source-linked draft PR. It must preserve edition/commit identities, report uncertainty, leave scores unchanged without reviewed evidence, and never merge, adopt product policy or post messages to other people without the applicable authorization.
+An existing assistant task, **Обновлять технические исследования**, was enabled on 2026-11-03 UTC after central corpus publication and access verification. It performs weekly change triage on Wednesdays, beginning **2026-11-11 around 10:00 Europe/Kiev** (a flexible schedule, not an exact execution SLA). Its creation and enabled schedule were confirmed; no scheduled run has yet executed, and future execution or delivery success is not claimed.
+
+Each run checks actual central PR #1 disposition. After merge it uses the current default branch; while the initial PR remains open, a material update becomes a separate dependent draft from its current head. A closed-unmerged initial PR is reported rather than treated as acceptance. The task inspects relevant upstream diffs and due claims, preserves edition/commit identities and historical dates, and prepares source-linked draft updates only for material changes. It leaves scores unchanged without sufficient reviewed evidence; substantial disputes require two independent critics. If nothing material changed, it reports the inspected revisions without creating an empty PR.
+
+The task may push coherent documentation commits and open draft PRs under the owner's continuing research request. It cannot merge, adopt an ADR, change production code, promote qualification, alter access, or send messages to other people. Product decisions stay with their existing owners. This task is an existing assistant capability; no scheduler service, crawler or scoring engine is implemented in this repository.
 
 Use existing GitHub notifications, the available research assistant and ordinary repository files before adding a custom collector. Add maintained tooling only after missed updates or measured reviewer effort expose a real gap. There is no custom scraper, scoring engine or always-running service in this repository.
 

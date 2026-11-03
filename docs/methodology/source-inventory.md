@@ -27,8 +27,8 @@ Paperclip assessment source: [`61e8d5c7eb097664958e00c30ccd88bb51359043`](https:
 
 | Disposition | Count | Meaning |
 | --- | ---: | --- |
-| Prepared whole evidence imports | 5 | Runtime reports with exact raw originals and transformed maintained copies; source bodies retained |
-| Prepared shared extracts | 3 | Orchestrator reusable evidence; decisions/pins/gates retained locally |
+| Draft-published whole evidence imports | 5 | Runtime reports with exact raw originals and transformed maintained copies; source bodies retained |
+| Draft-published shared extracts | 3 | Orchestrator reusable evidence; decisions/pins/gates retained locally |
 | Owner-local links | 27 | Product-specific plans, models, reviews or qualification |
 | Immutable historical links | 23 | Dated archives and original evidence remain at source |
 | Unmerged draft-evidence links | 15 | Extension Foundation PR55 at its exact head, not main |

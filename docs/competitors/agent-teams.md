@@ -65,3 +65,7 @@ The first row is navigational, not a new decision. Verify exact current owner st
 The selected architecture has credible potential to improve bounded scheduling, reusable boundaries and explicit deployment ownership. Paperclip remains a strong reference for native execution correctness and already implemented integration breadth. The material risk on our side is implementation/composition cost and unresolved owner contracts. A useful next step is a small real vertical slice with the actual selected role/process/store boundaries, followed by the owning failure and capacity campaign—not another general framework.
 
 The dossier proposes no additional release gate, package, provider or accepted ADR. Follow-through is reviewable in [Runtime #248](https://github.com/agent-teams-ai/agent-runtime/pull/248), [Orchestrator #94](https://github.com/agent-teams-ai/agent-teams-orchestrator/pull/94), and [Platform #59](https://github.com/agent-teams-ai/agent-teams-platform/pull/59); the central publication dependency remains open.
+
+## Published owner follow-through
+
+The source-pinned assessment above keeps its original subject revisions. Proposed local application of the shared findings is now published in the [Runtime v3, Orchestrator and Platform integration documents](../methodology/research-migration.md#product-applicability-routes). Those draft documents route work to existing owner decisions and acceptance plans; their publication does not change a score, accept a contract or establish fleet capacity.

@@ -2,7 +2,7 @@
 
 Shared technical research for Agent Teams: competitor assessments, reusable engineering evidence, failure lessons, and the reasoning behind proposed improvements. Product repositories retain their accepted decisions, contracts, implementation plans, and qualification evidence.
 
-**Delivery status:** the initial corpus is being published in [central draft PR #1](https://github.com/agent-teams-ai/engineering-research/pull/1). Product integration drafts are [Runtime #248](https://github.com/agent-teams-ai/agent-runtime/pull/248), [Orchestrator #94](https://github.com/agent-teams-ai/agent-teams-orchestrator/pull/94), and [Platform #59](https://github.com/agent-teams-ai/agent-teams-platform/pull/59). These changes are reviewable drafts; the research corpus is not yet merged into the default branch.
+**Delivery status:** the initial corpus is published in [central draft PR #1](https://github.com/agent-teams-ai/engineering-research/pull/1). Product integration drafts are [Runtime #248](https://github.com/agent-teams-ai/agent-runtime/pull/248), [Orchestrator #94](https://github.com/agent-teams-ai/agent-teams-orchestrator/pull/94), and [Platform #59](https://github.com/agent-teams-ai/agent-teams-platform/pull/59). These changes are reviewable drafts; the research corpus is not yet merged into the default branch.
 
 ## Start with the question
 
@@ -45,10 +45,10 @@ pnpm check
 
 Read [AGENTS.md](AGENTS.md) and the repository [authoring workflow](.agents/skills/docs-authoring/SKILL.md) before changing the catalog. New documents use reviewed `docs:new` preview/apply plans; existing documents are ordinary reviewed edits. Every document has a stable ID, owner, status, summary, and direct index route. Evidence identity and local links receive focused checks in addition to the catalog check.
 
-This initial delivery uses Markdown, JSON records, and existing Docs Protocol tooling. It adds no application, portal, crawler, scheduler service, or custom scoring engine. Background refresh has not been activated; the [maintenance queue](docs/methodology/research-maintenance.md) defines the next reviews and publication boundary.
+This initial delivery uses Markdown, JSON records, and existing Docs Protocol tooling. It adds no application, portal, crawler, scheduler service, or custom scoring engine. An existing assistant task is enabled for weekly change triage, starting 2026-11-11 around 10:00 Europe/Kiev; the [maintenance workflow](docs/methodology/research-maintenance.md) defines its bounded scope, review queue and draft-only publication. No scheduled run has yet executed.
 
 ## Repository admission and publication
 
 The repository is documentation-only and starts **pending_classification**. Portable Docs Protocol is configured at the published coordinate `@agent-teams/docs-protocol@0.6.2`; managed organization admission is separately pending. This does not claim a docs-only exemption, production Foundation admission, branch protections, or a published release.
 
-The [migration record](docs/methodology/research-migration.md) gives the concrete publication sequence. Source snapshots and hashes are preserved. The central draft is open; each coherent commit is pushed immediately, followed by verified central commit links in the product drafts. Keep all PRs draft until their actual review and checks are complete.
+The [migration record](docs/methodology/research-migration.md) gives the concrete publication sequence. Source snapshots and hashes are preserved. The central draft is open and the corpus is published. Each coherent commit is pushed immediately; product drafts link to an immutable central evidence snapshot. Keep all PRs draft until their actual review and checks are complete.

@@ -51,4 +51,4 @@ Central catalog, navigation, source/provenance and arithmetic checks are recorde
 
 ## Remaining limits
 
-The central repository and [draft PR #1](https://github.com/agent-teams-ai/engineering-research/pull/1) exist. Corpus and reciprocal-route publication are in progress; a prepared import is not a completed migration. Full-product evidence remains partial, no complete TOP ranking is claimed, and background maintenance has not been activated. These publication and evidence gaps remain explicit rather than being converted into technical scores or product defects.
+The central repository and [draft PR #1](https://github.com/agent-teams-ai/engineering-research/pull/1) exist. The corpus is published at `12c40892e805944719d6fbec14d2c26874803b2c`; reciprocal routes and their checks are recorded in the [migration ledger](research-migration.md). Full-product evidence remains partial, no complete TOP ranking is claimed, and scheduled triage has been enabled through an existing assistant task without any claim of an executed future review. These publication and evidence gaps remain explicit rather than being converted into technical scores or product defects.

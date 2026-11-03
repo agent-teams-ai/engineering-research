@@ -2,33 +2,70 @@
   "asOf": "2026-11-04",
   "central": {
     "repository": "agent-teams-ai/engineering-research",
-    "status": "draft-publication-in-progress",
+    "status": "published-draft",
     "draftPr": 1,
     "classification": "pending_classification",
     "managedDocsAdmission": "pending",
     "branch": "docs/shared-research-2026-11-04",
     "url": "https://github.com/agent-teams-ai/engineering-research/pull/1",
-    "merged": false
+    "merged": false,
+    "contentRevision": "12c40892e805944719d6fbec14d2c26874803b2c",
+    "contentFilesVerified": 62,
+    "reciprocalRoutes": "published-draft-and-verified"
   },
   "productDrafts": [
     {
       "repository": "agent-teams-ai/agent-runtime",
       "pr": 248,
       "branch": "docs/shared-research-2026-11-04",
-      "sha": "df7e02aa7b0ad428071b5c1d1d4f5240c6f754e7"
+      "sha": "715425189f7f9ea5308e34f0e74787bdd16f7f65",
+      "url": "https://github.com/agent-teams-ai/agent-runtime/pull/248",
+      "draft": true,
+      "merged": false,
+      "integrationDocument": "docs/spikes/shared-research-integration-plan.md",
+      "integrationUrl": "https://github.com/agent-teams-ai/agent-runtime/blob/715425189f7f9ea5308e34f0e74787bdd16f7f65/docs/spikes/shared-research-integration-plan.md"
     },
     {
       "repository": "agent-teams-ai/agent-teams-orchestrator",
       "pr": 94,
       "branch": "docs/shared-research-2026-11-04",
-      "sha": "c992e90c806c414fdec559c6f1a7520a90d0867d"
+      "sha": "310bf70db7814370ef93e17e59de2380f93a4c4c",
+      "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/pull/94",
+      "draft": true,
+      "merged": false,
+      "integrationDocument": "docs/research/shared-research-integration-plan.md",
+      "integrationUrl": "https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/310bf70db7814370ef93e17e59de2380f93a4c4c/docs/research/shared-research-integration-plan.md"
     },
     {
       "repository": "agent-teams-ai/agent-teams-platform",
       "pr": 59,
       "branch": "docs/shared-research-2026-11-04",
-      "sha": "9c3dd49fc5a3f687d8344ef30075e7f02aea54a0"
+      "sha": "ff664eae6d53b77977b0ef57eb3556b2ba606f82",
+      "url": "https://github.com/agent-teams-ai/agent-teams-platform/pull/59",
+      "draft": true,
+      "merged": false,
+      "integrationDocument": "docs/architecture/shared-research-integration-plan.md",
+      "integrationUrl": "https://github.com/agent-teams-ai/agent-teams-platform/blob/ff664eae6d53b77977b0ef57eb3556b2ba606f82/docs/architecture/shared-research-integration-plan.md"
     }
   ],
-  "backgroundRefresh": "not-activated"
+  "backgroundRefresh": {
+    "status": "enabled-not-yet-executed",
+    "mechanism": "existing-assistant-task",
+    "title": "Обновлять технические исследования",
+    "cadence": "weekly on Wednesday",
+    "firstScheduledLocal": "2026-11-11T10:00:00",
+    "timezone": "Europe/Kiev",
+    "timingMode": "flexible_schedule",
+    "enabledAtUtc": "2026-11-03T23:39:44.972983Z",
+    "mutationBoundary": "source-linked documentation draft PRs; no merge, automatic score acceptance or product qualification"
+  },
+  "reciprocalVerification": {
+    "centralEvidenceRevision": "12c40892e805944719d6fbec14d2c26874803b2c",
+    "productFilesVerified": 11,
+    "originalBodiesPreserved": 8,
+    "originalHeadingsAndMetadataPreserved": true,
+    "sourceHashesPreserved": true,
+    "localDocumentationGates": "passed in all three repositories",
+    "hostedChecks": "see dated validation summary and live PR checks"
+  }
 }

@@ -27,4 +27,4 @@ This map routes readers and agents by task. The repository separates shared sour
 
 ## Delivery boundary
 
-The central corpus is being published in [draft PR #1](https://github.com/agent-teams-ai/engineering-research/pull/1). Product draft PRs are [Runtime #248](https://github.com/agent-teams-ai/agent-runtime/pull/248), [Orchestrator #94](https://github.com/agent-teams-ai/agent-teams-orchestrator/pull/94), and [Platform #59](https://github.com/agent-teams-ai/agent-teams-platform/pull/59). Source bodies remain intact while reciprocal links and provenance are verified against the published central commit.
+The central corpus is published in [draft PR #1](https://github.com/agent-teams-ai/engineering-research/pull/1). Product draft PRs are [Runtime #248](https://github.com/agent-teams-ai/agent-runtime/pull/248), [Orchestrator #94](https://github.com/agent-teams-ai/agent-teams-orchestrator/pull/94), and [Platform #59](https://github.com/agent-teams-ai/agent-teams-platform/pull/59). Historical source bodies are retained. The [migration ledger](methodology/research-migration.md) records the immutable central snapshot, reciprocal product routes and their verification.

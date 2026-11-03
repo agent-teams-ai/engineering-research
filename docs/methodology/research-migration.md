@@ -8,15 +8,15 @@ summary: Provenance-preserving transfer, owner-local decisions and delivery depe
 
 # Research Migration
 
-Status: **central draft PR #1 open; corpus and reciprocal links being published**. The source inventory contains 73 source-document records (72 Markdown and one YAML) at exact repository commits. This delivery prepares five Runtime reports as provenance-preserving imports, three reusable Orchestrator extracts, and an index of existing Extension Foundation plugin research. Other material remains with its semantic or evidence owner.
+Status: **central corpus and reciprocal product routes published and verified in draft PRs**. The source inventory contains 73 source-document records (72 Markdown and one YAML) at exact repository commits. This delivery publishes five Runtime reports as provenance-preserving imports, three reusable Orchestrator extracts, and an index of existing Extension Foundation plugin research. Other material remains with its semantic or evidence owner.
 
 The machine-readable [migration inventory](../../data/source-inventory.json) records the original repository/path/commit, original stable ID where present, original SHA-256 and size, disposition, central destination and actual transfer status. The [source inventory guide](source-inventory.md) explains its scope. It is not a manifest of files already removed from source repositories.
 
-## Prepared imports and intentional non-moves
+## Published imports and intentional non-moves
 
 | Source family | Central treatment | Source repository treatment |
 | --- | --- | --- |
-| Runtime industry, framework, library, durability, antipattern reports | Five maintained import documents under `docs/studies/`, each with original-date/source notice; exact original bytes retained under `evidence/imports/agent-runtime/` | Original bodies remain unchanged during draft publication; their IDs, used anchors and owner references are preserved |
+| Runtime industry, framework, library, durability, antipattern reports | Five maintained import documents under `docs/studies/`, each with original-date/source notice; exact original bytes retained under `evidence/imports/agent-runtime/` | Original bodies remain unchanged during draft publication; their IDs, all original heading anchors and owner references are preserved |
 | Runtime modular architecture synthesis, experiments, review and October archive | Immutable source discovery and owner links | Remain Runtime-owned; no plan, gate, qualification or historical review is transferred |
 | Orchestrator identity-provider, composition/scale and persistence-tooling research | Three focused shared-evidence extracts, preserving historical dates and version pins | Product recommendations, acceptance scenarios, ADR reconciliation and exact adopted pins stay local |
 | Other Orchestrator research | Source-inventory discovery | Remains local where it owns a domain decision, migration, experiment, or release gate |
@@ -27,7 +27,11 @@ Imports retain the original report body and lesson IDs, with explicit historical
 
 ## Why the old reports remain intact in the product PRs
 
-The central GitHub repository exists and [draft PR #1](https://github.com/agent-teams-ai/engineering-research/pull/1) is open. The product draft PRs retain historical source bodies and add owner-local applicability. Imports and extracts remain marked prepared until their actual publication is verified; reciprocal routes will name an immutable central commit. Draft publication is separate from merging or accepting a product decision.
+The central corpus is published in [draft PR #1](https://github.com/agent-teams-ai/engineering-research/pull/1), with the complete initial evidence snapshot at [`12c40892`](https://github.com/agent-teams-ai/engineering-research/tree/12c40892e805944719d6fbec14d2c26874803b2c). All 62 intended files in that snapshot were checked against the independently read GitHub tree and matched their local Git blob hashes; no extra files or truncated tree were observed. Later draft commits update publication and validation records without changing the assessed upstream identities.
+
+The five imports are recorded as `published-central-import-draft`, the three extracts as `published-shared-extract-draft`, and source-only discovery as `indexed-owner-source` or its historical/draft equivalent. Product notices add an immutable central evidence link and a maintained draft discovery route while preserving every original historical body byte, heading anchor, relation ID and date. The original complete files remain byte-identical in the raw central snapshots. This retention avoids breaking existing readers; it is not a second independently maintained research authority.
+
+Product recommendations, accepted decisions and qualification remain local. Draft publication is separate from merging or accepting a product decision.
 
 Published draft PRs:
 
@@ -35,16 +39,33 @@ Published draft PRs:
 - [Orchestrator #94](https://github.com/agent-teams-ai/agent-teams-orchestrator/pull/94): owner-specific usage, coordination, authority and view follow-through.
 - [Platform #59](https://github.com/agent-teams-ai/agent-teams-platform/pull/59): deployment convergence, commercial mapping and authorized view follow-through.
 
-## Concrete publication sequence
+## Product applicability routes
 
-1. Create the empty `agent-teams-ai/engineering-research` repository with the organization's intended visibility. Keep repository classification `pending_classification`; complete managed documentation admission through its existing route rather than declaring an exemption.
-2. Publish a minimal baseline branch containing the repository identity and authoring setup, then open a draft PR for the research body. Do not represent a locally prepared archive as an existing GitHub PR.
-3. Publish coherent commits immediately in this order: authoring/index setup; scoring/source methodology; preserved existing research and provenance; Paperclip/Agent Teams comparison; lessons/decision cards and review resolutions. These are proposed commit boundaries, not commits already created.
-4. Verify the central commit's files, IDs, anchors and imported hashes. Update the product PRs with real immutable central evidence links plus a maintained discovery route. Record the actual central commit in this ledger.
-5. Mark the local source bodies as historical/current-route pointers only through reviewed owner changes that preserve every original heading anchor and relation ID by default. Shortening requires an explicit verified inbound-reference inventory and retained redirects/anchors; do not assume no external reader uses an old section. Do not delete an evidence archive or accepted decision to make the repository look centralized.
-6. Review and run the owning documentation checks; keep PRs draft until the actual required review is complete. No merge is included in this task.
+These pinned owner documents describe proposed local follow-through. They are not accepted ADRs or qualification records.
 
-Each commit is a reviewable unit and is pushed as soon as created. The prepared central content has not accumulated local commits that could be mistaken for pushed work. Product commits are published in their respective draft branches.
+| Owner | Published document | Draft review |
+| --- | --- | --- |
+| Runtime v3 | [Local research applicability](https://github.com/agent-teams-ai/agent-runtime/blob/715425189f7f9ea5308e34f0e74787bdd16f7f65/docs/spikes/shared-research-integration-plan.md) | [#248](https://github.com/agent-teams-ai/agent-runtime/pull/248) |
+| Orchestrator | [Local research applicability](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/310bf70db7814370ef93e17e59de2380f93a4c4c/docs/research/shared-research-integration-plan.md) | [#94](https://github.com/agent-teams-ai/agent-teams-orchestrator/pull/94) |
+| Platform | [Local research applicability](https://github.com/agent-teams-ai/agent-teams-platform/blob/ff664eae6d53b77977b0ef57eb3556b2ba606f82/docs/architecture/shared-research-integration-plan.md) | [#59](https://github.com/agent-teams-ai/agent-teams-platform/pull/59) |
+
+## Published delivery sequence
+
+| Published unit | Immutable revision / review route |
+| --- | --- |
+| Empty repository initialized with identity README | [`e4446513`](https://github.com/agent-teams-ai/engineering-research/commit/e44465139c2b9c32fc3c3fb73f3890fe3877ad4b) |
+| Portable catalog, templates and agent navigation; central draft opened immediately | [`362ec56a`](https://github.com/agent-teams-ai/engineering-research/commit/362ec56a09f6a4ac92041a202fb22977508b93e1), [PR #1](https://github.com/agent-teams-ai/engineering-research/pull/1) |
+| Scoring, source inventory, maintenance and native documentation CI | [`4d1a4db3`](https://github.com/agent-teams-ai/engineering-research/commit/4d1a4db3c9c144b7df15d83028dedfcb79b82c69) |
+| Five full imports, three extracts, existing-study discovery and exact raw originals | [`22f38b31`](https://github.com/agent-teams-ai/engineering-research/commit/22f38b31d934046ce5d64cbf0cf2bd8354eb76cc) |
+| Paperclip/Agent Teams assessment, owner decision cards and independent review | [`12c40892`](https://github.com/agent-teams-ai/engineering-research/commit/12c40892e805944719d6fbec14d2c26874803b2c) |
+| Reciprocal source notices and owner-local applicability | Product draft heads in [publication status](../../data/publication-status.json) |
+| Catalog, provenance, link and hosted checks | [Validation summary](../../data/validation-summary.json) |
+
+Each coherent commit was pushed immediately after creation. The central and product PRs remain drafts as requested; no merge is part of this delivery. The default branch contains only the initial bootstrap until the central draft is reviewed and merged. Immutable evidence URLs already resolve; the draft branch is explicitly a discovery route, not an adopted default-branch document.
+
+Before any later source shortening, inventory inbound references and retain all used anchors and relation IDs. Do not delete an evidence archive or accepted decision to make the repository look centralized. A later reviewed merge should update maintained discovery links to the default branch while leaving pinned evidence URLs intact.
+
+Repository classification stays `pending_classification`; managed documentation admission and remote required-check protection remain separate organization-owned onboarding work. Native portable Docs Protocol success does not supply those outcomes or a documentation-only exemption.
 
 ## Transformation invariants
 
@@ -59,4 +80,4 @@ Each commit is a reviewable unit and is pushed as soon as created. The prepared 
 
 ## Completion definition
 
-Migration is complete only when the central remote/draft PR exists, the intended content is published, reciprocal product routes resolve to verified files, provenance is intact, and the changed owners' checks pass. Repository creation is complete. Publication and reciprocal-route verification are in progress; the completion evidence is recorded in [publication status](../../data/publication-status.json) and [validation summary](../../data/validation-summary.json).
+Draft migration is complete only when the central draft exists, its intended content is published, reciprocal product routes resolve to verified files, provenance is intact, and changed documentation gates pass. Corpus publication, reciprocal routes, retained-body proofs and all three local documentation gates have passed. The initial central hosted check passed; exact product and central hosted observations are recorded in [publication status](../../data/publication-status.json) and [validation summary](../../data/validation-summary.json). Merge, managed admission and product qualification are separate outcomes.

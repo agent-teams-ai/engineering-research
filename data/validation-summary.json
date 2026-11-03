@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "asOf": "2026-11-04",
-  "scope": "Prepared central documentation and published product documentation drafts; not a competitor or product runtime benchmark.",
+  "scope": "Published central research draft and reciprocal product documentation drafts; not a competitor or product runtime benchmark.",
   "central": {
     "docsProtocolCoordinate": "@agent-teams/docs-protocol@0.6.2",
     "node": "24.22.1",
@@ -44,9 +44,10 @@
     },
     "links": {
       "checkedFiles": 29,
-      "localLinks": 119,
-      "pinnedSourceLinks": 121,
-      "historicalSourcePathsNotMaterialized": 4,
+      "localLinks": 132,
+      "pinnedSourceLinks": 128,
+      "historicalSourcePathsNotMaterialized": 0,
+      "historicalUnchecked": [],
       "errors": []
     },
     "cleanDeliveryCopy": {
@@ -54,13 +55,28 @@
       "docsCheck": "passed",
       "catalogDocuments": 26,
       "liveOrCompletedAuthoringStateIncluded": false
+    },
+    "remoteContentVerification": {
+      "revision": "12c40892e805944719d6fbec14d2c26874803b2c",
+      "files": 62,
+      "gitBlobHashes": "all matched independently read GitHub tree",
+      "treeTruncated": false,
+      "unexpectedFiles": []
+    },
+    "hostedAtInitialEvidenceRevision": {
+      "head": "12c40892e805944719d6fbec14d2c26874803b2c",
+      "name": "Research Documentation",
+      "conclusion": "success",
+      "url": "https://github.com/agent-teams-ai/engineering-research/actions/runs/41740413171",
+      "qualification": "native portable Docs Protocol only"
     }
   },
   "productLocalDocumentation": {
     "agent-runtime": {
       "status": "passed",
       "catalogDocuments": 112,
-      "frozenGovernanceTests": 5
+      "frozenGovernanceTests": 5,
+      "validatedHead": "715425189f7f9ea5308e34f0e74787bdd16f7f65"
     },
     "agent-teams-orchestrator": {
       "status": "passed",
@@ -75,7 +91,8 @@
         "Vale",
         "CSpell",
         "docs-impact"
-      ]
+      ],
+      "validatedHead": "310bf70db7814370ef93e17e59de2380f93a4c4c"
     },
     "agent-teams-platform": {
       "status": "passed",
@@ -85,7 +102,8 @@
         "markdownlint",
         "deployment-references",
         "domain-materialization"
-      ]
+      ],
+      "validatedHead": "ff664eae6d53b77977b0ef57eb3556b2ba606f82"
     }
   },
   "notExecuted": [
@@ -98,18 +116,34 @@
   "publication": {
     "centralRepositoryCreated": true,
     "centralDraftCreated": true,
-    "preparedImportsRemotelyMigrated": false,
+    "centralDraftPr": "https://github.com/agent-teams-ai/engineering-research/pull/1",
+    "draftContentPublished": true,
+    "reciprocalRoutesVerified": true,
+    "merged": false,
     "productDraftPrs": [
-      248,
-      94,
-      59
+      "https://github.com/agent-teams-ai/agent-runtime/pull/248",
+      "https://github.com/agent-teams-ai/agent-teams-orchestrator/pull/94",
+      "https://github.com/agent-teams-ai/agent-teams-platform/pull/59"
     ],
     "productionLocAdded": 0,
-    "backgroundRefreshActivated": false
+    "backgroundRefreshActivated": true,
+    "backgroundRefreshExecution": "not yet executed",
+    "latestHeadHostedChecks": "See the exact live PR checks and the PR description; this committed record reports only the dated observations below."
   },
   "qualificationBoundary": "No product profile, managed Docs admission or fleet qualification is promoted by these documentation checks.",
-  "verifiedAtUtc": "2026-11-03T23:19:36Z",
-  "githubActions": {
+  "verifiedAtUtc": "2026-11-03T23:45:11Z",
+  "productSourcePreservation": {
+    "reports": 8,
+    "proof": "Each report has one additive notice; removing it restores original source SHA-256 and all historical body bytes. Metadata and original heading sequence are unchanged.",
+    "status": "passed"
+  },
+  "reciprocalLinks": {
+    "centralEvidenceRevision": "12c40892e805944719d6fbec14d2c26874803b2c",
+    "productFiles": 11,
+    "referencesToPublishedCentralTargets": 42,
+    "errors": []
+  },
+  "previousProductHostedObservation": {
     "observedAtUtc": "2026-11-03T23:19:36Z",
     "runtime": [
       {
@@ -181,6 +215,106 @@
       "jobId": 126266455805,
       "reason": "PostgreSQL initdb fixture exceeded existing 60-second timeout before assertions; same source passed Node24. Retried without source, pin or gate changes.",
       "result": "Architecture workflow success"
+    }
+  },
+  "githubActions": {
+    "observedAtUtc": "2026-11-03T23:49:04Z",
+    "centralInitialEvidence": {
+      "head": "12c40892e805944719d6fbec14d2c26874803b2c",
+      "name": "Research Documentation",
+      "conclusion": "success",
+      "url": "https://github.com/agent-teams-ai/engineering-research/actions/runs/41740413171",
+      "qualification": "native portable Docs Protocol only"
+    },
+    "products": {
+      "runtime": {
+        "repository": "agent-teams-ai/agent-runtime",
+        "head": "715425189f7f9ea5308e34f0e74787bdd16f7f65",
+        "runs": [
+          {
+            "id": 41740831687,
+            "name": "CI",
+            "status": "pending",
+            "conclusion": null,
+            "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41740831687"
+          },
+          {
+            "id": 41740832096,
+            "name": "Documentation Protocol",
+            "status": "completed",
+            "conclusion": "success",
+            "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41740832096"
+          },
+          {
+            "id": 41740831635,
+            "name": "Node Default and Compatibility",
+            "status": "in_progress",
+            "conclusion": null,
+            "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41740831635"
+          }
+        ]
+      },
+      "orchestrator": {
+        "repository": "agent-teams-ai/agent-teams-orchestrator",
+        "head": "310bf70db7814370ef93e17e59de2380f93a4c4c",
+        "runs": [
+          {
+            "id": 41741115877,
+            "name": "Documentation Protocol",
+            "status": "completed",
+            "conclusion": "success",
+            "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/actions/runs/41741115877"
+          },
+          {
+            "id": 41741115440,
+            "name": "Dependency Review",
+            "status": "completed",
+            "conclusion": "success",
+            "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/actions/runs/41741115440"
+          },
+          {
+            "id": 41741115317,
+            "name": "Documentation",
+            "status": "completed",
+            "conclusion": "success",
+            "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/actions/runs/41741115317"
+          },
+          {
+            "id": 41741115403,
+            "name": "Architecture",
+            "status": "completed",
+            "conclusion": "success",
+            "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/actions/runs/41741115403"
+          }
+        ]
+      },
+      "platform": {
+        "repository": "agent-teams-ai/agent-teams-platform",
+        "head": "ff664eae6d53b77977b0ef57eb3556b2ba606f82",
+        "runs": [
+          {
+            "id": 41740838058,
+            "name": "Documentation Protocol",
+            "status": "completed",
+            "conclusion": "success",
+            "url": "https://github.com/agent-teams-ai/agent-teams-platform/actions/runs/41740838058"
+          },
+          {
+            "id": 41740837560,
+            "name": "Node 26 Compatibility",
+            "status": "completed",
+            "conclusion": "success",
+            "url": "https://github.com/agent-teams-ai/agent-teams-platform/actions/runs/41740837560"
+          },
+          {
+            "id": 41740837739,
+            "name": "Architecture",
+            "status": "completed",
+            "conclusion": "success",
+            "url": "https://github.com/agent-teams-ai/agent-teams-platform/actions/runs/41740837739"
+          }
+        ]
+      }
     }
   }
 }
