@@ -44,8 +44,8 @@
     },
     "links": {
       "checkedFiles": 29,
-      "localLinks": 132,
-      "pinnedSourceLinks": 128,
+      "localLinks": 139,
+      "pinnedSourceLinks": 131,
       "historicalSourcePathsNotMaterialized": 0,
       "historicalUnchecked": [],
       "errors": []
@@ -69,6 +69,12 @@
       "conclusion": "success",
       "url": "https://github.com/agent-teams-ai/engineering-research/actions/runs/41740413171",
       "qualification": "native portable Docs Protocol only"
+    },
+    "hostedAtPublicationRevision": {
+      "head": "57df9f9ff322146e85633052a3f6b482b8dee01f",
+      "name": "Research Documentation",
+      "conclusion": "success",
+      "url": "https://github.com/agent-teams-ai/engineering-research/actions/runs/41742211671"
     }
   },
   "productLocalDocumentation": {
@@ -128,7 +134,8 @@
     "productionLocAdded": 0,
     "backgroundRefreshActivated": true,
     "backgroundRefreshExecution": "not yet executed",
-    "latestHeadHostedChecks": "See the exact live PR checks and the PR description; this committed record reports only the dated observations below."
+    "latestHeadHostedChecks": "See the exact live PR checks and the PR description; this committed record reports only the dated observations below.",
+    "allRequestedHostedChecksPassed": false
   },
   "qualificationBoundary": "No product profile, managed Docs admission or fleet qualification is promoted by these documentation checks.",
   "verifiedAtUtc": "2026-11-03T23:45:11Z",
@@ -315,6 +322,36 @@
           }
         ]
       }
+    },
+    "runtimeTrustedIdentity": {
+      "status": "completed",
+      "conclusion": "failure",
+      "head": "715425189f7f9ea5308e34f0e74787bdd16f7f65",
+      "runId": 41741968756,
+      "jobId": 126285436973,
+      "error": "Owner source commits require exact raw author AND committer name/email",
+      "implementation": "6d843f3a2c3f616aa2f4b902a866b1ff1a18f9c6",
+      "interpretation": "deterministic retained canonical-only policy; not a transient or product test failure"
+    },
+    "runtimeScheduling": {
+      "observedAtUtc": "2026-11-04T00:05:00Z",
+      "oldRun": 41736342300,
+      "oldAggregateJob": 126281804808,
+      "oldAggregateStatus": "queued",
+      "newRun": 41740831687,
+      "newRunStatus": "pending",
+      "newRunJobs": 0,
+      "requiredRunner": "ubicloud-standard-8-ubuntu-2404",
+      "causality": "shared concurrency handoff is supported inference; scheduler blocker ID not reported"
     }
+  },
+  "runtimeCanonicalHandoff": {
+    "patches": 3,
+    "eachResultingTreeEqualsPublishedSource": true,
+    "sourceHead": "715425189f7f9ea5308e34f0e74787bdd16f7f65",
+    "base": "4bdc93a43b58469f60ca10c0dca512824650c8ac",
+    "productionAndWorkflowLocAdded": 0,
+    "canonicalCommitsCreated": 0,
+    "replacementPrCreated": false
   }
 }

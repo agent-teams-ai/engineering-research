@@ -52,3 +52,7 @@ Central catalog, navigation, source/provenance and arithmetic checks are recorde
 ## Remaining limits
 
 The central repository and [draft PR #1](https://github.com/agent-teams-ai/engineering-research/pull/1) exist. The corpus is published at `12c40892e805944719d6fbec14d2c26874803b2c`; reciprocal routes and their checks are recorded in the [migration ledger](research-migration.md). Full-product evidence remains partial, no complete TOP ranking is claimed, and scheduled triage has been enabled through an existing assistant task without any claim of an executed future review. These publication and evidence gaps remain explicit rather than being converted into technical scores or product defects.
+
+## Delivery follow-up
+
+Two independent reviewers checked the Runtime identity failure. The second review caught the need to align both base and head callers after any future adoption; repository inspection then showed that the caller also participates in a retained CI trust contract. The [publication handoff](research-migration.md#runtime-hosted-identity-blocker-and-prepared-handoff) therefore preserves the current gates and supplies exact documentation patches for canonical publication through an authenticated Git route. This unresolved delivery dependency does not change the research scores or qualify a deployment.

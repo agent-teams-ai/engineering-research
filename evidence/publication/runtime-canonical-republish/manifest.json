@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "status": "prepared-and-index-verified-not-canonically-committed-or-pushed",
+  "originalPr": "https://github.com/agent-teams-ai/agent-runtime/pull/248",
+  "baseRevision": "4bdc93a43b58469f60ca10c0dca512824650c8ac",
+  "sourceHead": "715425189f7f9ea5308e34f0e74787bdd16f7f65",
+  "finalTree": "20e0404d2e30f98a8303fbb6ff049278a96fd9bc",
+  "preservation": "Retain original PR248 and branch as provenance; use a fresh branch from independently rechecked main. No force push or accepted-policy/workflow change is part of this handoff.",
+  "newLocalCommitIdentity": {
+    "authorName": "iliya",
+    "authorEmail": "iliyazelenkog@gmail.com",
+    "committerName": "iliya",
+    "committerEmail": "iliyazelenkog@gmail.com"
+  },
+  "publicationPrerequisite": "Authenticated native Git or an API supporting explicit author and committer. Never paste credentials into documentation or chat. The current connected plugin does not expose these fields.",
+  "applyRule": "Apply each patch in order to its verified base, create one canonical commit with its recorded message and push immediately before starting the next patch. If current main differs, reconcile and revalidate; do not overwrite newer changes.",
+  "productionLocAdded": 0,
+  "workflowLinesChanged": 0,
+  "patches": [
+    {
+      "file": "01-integration-plan.patch",
+      "sourceParent": "4bdc93a43b58469f60ca10c0dca512824650c8ac",
+      "sourceCommit": "6e3adde961b2daf2112d936e8e0357f54a465f19",
+      "message": "docs(research): start shared research integration plan",
+      "sha256": "45dc171cda2ae260d824d5b89661efa72efce93aee359ca8051d8f55ef368c94",
+      "sizeBytes": 2946,
+      "resultTree": "a2513e1b32c41aebb1dba3b67ef924d6120be6ed",
+      "exactTreeReproduction": "passed"
+    },
+    {
+      "file": "02-review-clarifications.patch",
+      "sourceParent": "6e3adde961b2daf2112d936e8e0357f54a465f19",
+      "sourceCommit": "df7e02aa7b0ad428071b5c1d1d4f5240c6f754e7",
+      "message": "docs(research): map shared findings to runtime delivery owners",
+      "sha256": "a758930097b9a6117344b97657823b07fca14905183def334b97487ed87a3325",
+      "sizeBytes": 9731,
+      "resultTree": "a1b46298b59c83376481117c2ddda7b13f5d8dd8",
+      "exactTreeReproduction": "passed"
+    },
+    {
+      "file": "03-central-routes.patch",
+      "sourceParent": "df7e02aa7b0ad428071b5c1d1d4f5240c6f754e7",
+      "sourceCommit": "715425189f7f9ea5308e34f0e74787bdd16f7f65",
+      "message": "docs: connect published research and preserve source provenance",
+      "sha256": "4c8db95ccb4aa60b933998d40411dd7308c7b7c660b9596ac7726be8f2066470",
+      "sizeBytes": 14086,
+      "resultTree": "20e0404d2e30f98a8303fbb6ff049278a96fd9bc",
+      "exactTreeReproduction": "passed"
+    }
+  ],
+  "validation": "All three patches applied to an isolated temporary Git index; every resulting tree exactly equals its source published commit tree. No commits or pushes were made by this validation."
+}

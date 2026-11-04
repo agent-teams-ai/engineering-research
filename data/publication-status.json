@@ -67,5 +67,21 @@
     "sourceHashesPreserved": true,
     "localDocumentationGates": "passed in all three repositories",
     "hostedChecks": "see dated validation summary and live PR checks"
+  },
+  "overallDelivery": {
+    "status": "blocked-runtime-hosted-identity-and-pending-general-ci",
+    "researchDraftPublication": "complete",
+    "reciprocalDocumentationRoutes": "verified",
+    "runtimeIdentity": {
+      "status": "failed-completed-observation",
+      "head": "715425189f7f9ea5308e34f0e74787bdd16f7f65",
+      "run": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41741968756",
+      "job": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41741968756/job/126285436973",
+      "cause": "Base-owned pinned verifier requires canonical iliya for raw author and committer; plugin commits use centrally approved alias Илия.",
+      "requiredCapability": "Authenticated publication supporting explicit canonical author and committer.",
+      "recommendedHandoff": "evidence/publication/runtime-canonical-republish/manifest.json",
+      "handoffStatus": "prepared and exact-tree verified; no canonical replacement commits or PR claimed"
+    },
+    "researchPrsMerged": false
   }
 }
