@@ -4,7 +4,7 @@ Shared technical research for Agent Teams: competitor assessments, reusable engi
 
 **Delivery status:** the initial corpus is published in [central draft PR #1](https://github.com/agent-teams-ai/engineering-research/pull/1). Product integration drafts are [Runtime #248](https://github.com/agent-teams-ai/agent-runtime/pull/248), [Orchestrator #94](https://github.com/agent-teams-ai/agent-teams-orchestrator/pull/94), and [Platform #59](https://github.com/agent-teams-ai/agent-teams-platform/pull/59). These changes are reviewable drafts; the research corpus is not yet merged into the default branch.
 
-**End-to-end delivery:** shared research and reciprocal drafts are published and verified. Runtime's hosted author-identity gate remains blocked by its older verifier; the [migration ledger](docs/methodology/research-migration.md#runtime-hosted-identity-blocker-and-prepared-handoff) contains the exact cause and a byte-verified canonical publication handoff. This delivery is not reported as all-green.
+**End-to-end delivery:** shared research and reciprocal drafts are published and verified. Runtime's author-identity check now passes on its refreshed draft head; its required macOS check is still waiting for runner capacity. The [migration ledger](docs/methodology/research-migration.md#current-hosted-verification) records the current exact-head checks and preserves the resolved blocker as history. All required checks are not yet complete.
 
 ## Start with the question
 

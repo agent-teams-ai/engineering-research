@@ -75,6 +75,14 @@
       "name": "Research Documentation",
       "conclusion": "success",
       "url": "https://github.com/agent-teams-ai/engineering-research/actions/runs/41742211671"
+    },
+    "precedingPublicationVerification": {
+      "head": "53c635d2e0a92810d389199da597d6c128adedaf",
+      "files": 66,
+      "gitBlobHashes": "All 66 restored files matched the independently read GitHub tree before current delivery edits.",
+      "treeTruncated": false,
+      "hostedCheck": "https://github.com/agent-teams-ai/engineering-research/actions/runs/41744860709",
+      "hostedConclusion": "success"
     }
   },
   "productLocalDocumentation": {
@@ -82,7 +90,13 @@
       "status": "passed",
       "catalogDocuments": 112,
       "frozenGovernanceTests": 5,
-      "validatedHead": "715425189f7f9ea5308e34f0e74787bdd16f7f65"
+      "validatedHead": "715425189f7f9ea5308e34f0e74787bdd16f7f65",
+      "currentHeadContentEquivalence": {
+        "head": "4f5811c9d41dcf4201992be689385df6e73b492d",
+        "researchFiles": 8,
+        "gitBlobsIdenticalToValidatedHead": true,
+        "scope": "Research documentation only; original local gate is not relabeled as a new-head local execution."
+      }
     },
     "agent-teams-orchestrator": {
       "status": "passed",
@@ -343,7 +357,8 @@
       "newRunJobs": 0,
       "requiredRunner": "ubicloud-standard-8-ubuntu-2404",
       "causality": "shared concurrency handoff is supported inference; scheduler blocker ID not reported"
-    }
+    },
+    "recordScope": "Historical observations retained at their original heads and times; currentHostedObservation is the latest check."
   },
   "runtimeCanonicalHandoff": {
     "patches": 3,
@@ -352,6 +367,381 @@
     "base": "4bdc93a43b58469f60ca10c0dca512824650c8ac",
     "productionAndWorkflowLocAdded": 0,
     "canonicalCommitsCreated": 0,
-    "replacementPrCreated": false
+    "replacementPrCreated": false,
+    "status": "historical-contingency-superseded-by-in-place-adoption",
+    "supersedingRuntimeHead": "4f5811c9d41dcf4201992be689385df6e73b492d"
+  },
+  "currentHostedObservation": {
+    "observedAtUtc": "2026-11-04T19:06:08Z",
+    "subjects": [
+      {
+        "key": "central",
+        "repository": "agent-teams-ai/engineering-research",
+        "pr": 1,
+        "head": "53c635d2e0a92810d389199da597d6c128adedaf",
+        "runs": [
+          {
+            "id": 41744860709,
+            "name": "Research Documentation",
+            "status": "completed",
+            "conclusion": "success",
+            "event": "pull_request",
+            "url": "https://github.com/agent-teams-ai/engineering-research/actions/runs/41744860709",
+            "head": "53c635d2e0a92810d389199da597d6c128adedaf"
+          }
+        ],
+        "statuses": []
+      },
+      {
+        "key": "runtime",
+        "repository": "agent-teams-ai/agent-runtime",
+        "pr": 248,
+        "head": "4f5811c9d41dcf4201992be689385df6e73b492d",
+        "runs": [
+          {
+            "id": 41891065189,
+            "name": "Commit author identity",
+            "status": "completed",
+            "conclusion": "success",
+            "event": "pull_request_target",
+            "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41891065189",
+            "head": "4f5811c9d41dcf4201992be689385df6e73b492d"
+          },
+          {
+            "id": 41891065119,
+            "name": "CI",
+            "status": "queued",
+            "conclusion": null,
+            "event": "pull_request",
+            "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41891065119",
+            "head": "4f5811c9d41dcf4201992be689385df6e73b492d"
+          },
+          {
+            "id": 41891065619,
+            "name": "Documentation Protocol",
+            "status": "completed",
+            "conclusion": "success",
+            "event": "pull_request",
+            "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41891065619",
+            "head": "4f5811c9d41dcf4201992be689385df6e73b492d"
+          },
+          {
+            "id": 41891064757,
+            "name": "Node Default and Compatibility",
+            "status": "completed",
+            "conclusion": "success",
+            "event": "pull_request",
+            "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41891064757",
+            "head": "4f5811c9d41dcf4201992be689385df6e73b492d"
+          },
+          {
+            "id": 41891056578,
+            "name": "Documentation Protocol",
+            "status": "completed",
+            "conclusion": "skipped",
+            "event": "push",
+            "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41891056578",
+            "head": "4f5811c9d41dcf4201992be689385df6e73b492d"
+          }
+        ],
+        "statuses": [
+          {
+            "state": "success",
+            "context": "commit-author-identity",
+            "description": "Trusted commit author identity: success",
+            "createdAt": "2026-11-04T18:50:45Z",
+            "url": null
+          }
+        ]
+      },
+      {
+        "key": "orchestrator",
+        "repository": "agent-teams-ai/agent-teams-orchestrator",
+        "pr": 94,
+        "head": "310bf70db7814370ef93e17e59de2380f93a4c4c",
+        "runs": [
+          {
+            "id": 41742526549,
+            "name": "Commit author identity",
+            "status": "completed",
+            "conclusion": "success",
+            "event": "pull_request_target",
+            "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/actions/runs/41742526549",
+            "head": "310bf70db7814370ef93e17e59de2380f93a4c4c"
+          },
+          {
+            "id": 41741972810,
+            "name": "Commit author identity",
+            "status": "completed",
+            "conclusion": "success",
+            "event": "pull_request_target",
+            "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/actions/runs/41741972810",
+            "head": "310bf70db7814370ef93e17e59de2380f93a4c4c"
+          },
+          {
+            "id": 41741115877,
+            "name": "Documentation Protocol",
+            "status": "completed",
+            "conclusion": "success",
+            "event": "pull_request",
+            "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/actions/runs/41741115877",
+            "head": "310bf70db7814370ef93e17e59de2380f93a4c4c"
+          },
+          {
+            "id": 41741115440,
+            "name": "Dependency Review",
+            "status": "completed",
+            "conclusion": "success",
+            "event": "pull_request",
+            "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/actions/runs/41741115440",
+            "head": "310bf70db7814370ef93e17e59de2380f93a4c4c"
+          },
+          {
+            "id": 41741115317,
+            "name": "Documentation",
+            "status": "completed",
+            "conclusion": "success",
+            "event": "pull_request",
+            "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/actions/runs/41741115317",
+            "head": "310bf70db7814370ef93e17e59de2380f93a4c4c"
+          },
+          {
+            "id": 41741115403,
+            "name": "Architecture",
+            "status": "completed",
+            "conclusion": "success",
+            "event": "pull_request",
+            "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/actions/runs/41741115403",
+            "head": "310bf70db7814370ef93e17e59de2380f93a4c4c"
+          },
+          {
+            "id": 41741111507,
+            "name": "Commit author identity",
+            "status": "completed",
+            "conclusion": "success",
+            "event": "pull_request_target",
+            "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/actions/runs/41741111507",
+            "head": "310bf70db7814370ef93e17e59de2380f93a4c4c"
+          },
+          {
+            "id": 41741107208,
+            "name": "Documentation Protocol",
+            "status": "completed",
+            "conclusion": "skipped",
+            "event": "push",
+            "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/actions/runs/41741107208",
+            "head": "310bf70db7814370ef93e17e59de2380f93a4c4c"
+          }
+        ],
+        "statuses": [
+          {
+            "state": "success",
+            "context": "commit-author-identity",
+            "description": "Trusted commit author identity: success",
+            "createdAt": "2026-11-03T23:52:50Z",
+            "url": null
+          }
+        ]
+      },
+      {
+        "key": "platform",
+        "repository": "agent-teams-ai/agent-teams-platform",
+        "pr": 59,
+        "head": "ff664eae6d53b77977b0ef57eb3556b2ba606f82",
+        "runs": [
+          {
+            "id": 41742528371,
+            "name": "Commit author identity",
+            "status": "completed",
+            "conclusion": "success",
+            "event": "pull_request_target",
+            "url": "https://github.com/agent-teams-ai/agent-teams-platform/actions/runs/41742528371",
+            "head": "ff664eae6d53b77977b0ef57eb3556b2ba606f82"
+          },
+          {
+            "id": 41741974804,
+            "name": "Commit author identity",
+            "status": "completed",
+            "conclusion": "success",
+            "event": "pull_request_target",
+            "url": "https://github.com/agent-teams-ai/agent-teams-platform/actions/runs/41741974804",
+            "head": "ff664eae6d53b77977b0ef57eb3556b2ba606f82"
+          },
+          {
+            "id": 41740838058,
+            "name": "Documentation Protocol",
+            "status": "completed",
+            "conclusion": "success",
+            "event": "pull_request",
+            "url": "https://github.com/agent-teams-ai/agent-teams-platform/actions/runs/41740838058",
+            "head": "ff664eae6d53b77977b0ef57eb3556b2ba606f82"
+          },
+          {
+            "id": 41740837560,
+            "name": "Node 26 Compatibility",
+            "status": "completed",
+            "conclusion": "success",
+            "event": "pull_request",
+            "url": "https://github.com/agent-teams-ai/agent-teams-platform/actions/runs/41740837560",
+            "head": "ff664eae6d53b77977b0ef57eb3556b2ba606f82"
+          },
+          {
+            "id": 41740837739,
+            "name": "Architecture",
+            "status": "completed",
+            "conclusion": "success",
+            "event": "pull_request",
+            "url": "https://github.com/agent-teams-ai/agent-teams-platform/actions/runs/41740837739",
+            "head": "ff664eae6d53b77977b0ef57eb3556b2ba606f82"
+          },
+          {
+            "id": 41740835154,
+            "name": "Commit author identity",
+            "status": "completed",
+            "conclusion": "success",
+            "event": "pull_request_target",
+            "url": "https://github.com/agent-teams-ai/agent-teams-platform/actions/runs/41740835154",
+            "head": "ff664eae6d53b77977b0ef57eb3556b2ba606f82"
+          },
+          {
+            "id": 41740832314,
+            "name": "PR #59",
+            "status": "completed",
+            "conclusion": "success",
+            "event": "dynamic",
+            "url": "https://github.com/agent-teams-ai/agent-teams-platform/actions/runs/41740832314",
+            "head": "ff664eae6d53b77977b0ef57eb3556b2ba606f82"
+          },
+          {
+            "id": 41740831203,
+            "name": "Documentation Protocol",
+            "status": "completed",
+            "conclusion": "skipped",
+            "event": "push",
+            "url": "https://github.com/agent-teams-ai/agent-teams-platform/actions/runs/41740831203",
+            "head": "ff664eae6d53b77977b0ef57eb3556b2ba606f82"
+          }
+        ],
+        "statuses": [
+          {
+            "state": "success",
+            "context": "commit-author-identity",
+            "description": "Trusted commit author identity: success",
+            "createdAt": "2026-11-03T23:53:02Z",
+            "url": null
+          }
+        ]
+      }
+    ],
+    "runtimeRequiredChecks": [
+      {
+        "context": "check",
+        "status": "success"
+      },
+      {
+        "context": "docs-protocol / docs-protocol-check",
+        "status": "success"
+      },
+      {
+        "context": "postgres-durability",
+        "status": "success"
+      },
+      {
+        "context": "runtime-macos",
+        "status": "not-yet-emitted"
+      },
+      {
+        "context": "commit-author-identity",
+        "status": "success"
+      }
+    ],
+    "runtimeProtectionRule": "https://github.com/agent-teams-ai/agent-runtime/rules/19979781",
+    "unfinishedRuntimeJobs": [
+      {
+        "id": 126788274126,
+        "name": "macos-product / packages (filesystem-custody)",
+        "status": "queued",
+        "conclusion": null,
+        "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41891065119/job/126788274126"
+      },
+      {
+        "id": 126788274087,
+        "name": "macos-product / packages (runtime-configuration)",
+        "status": "queued",
+        "conclusion": null,
+        "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41891065119/job/126788274087"
+      },
+      {
+        "id": 126788273966,
+        "name": "macos-product / packages (agent-execution-2)",
+        "status": "queued",
+        "conclusion": null,
+        "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41891065119/job/126788273966"
+      },
+      {
+        "id": 126788273917,
+        "name": "macos-product / packages (agent-execution-1)",
+        "status": "in_progress",
+        "conclusion": null,
+        "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41891065119/job/126788273917"
+      },
+      {
+        "id": 126788273843,
+        "name": "macos-product / packages (provider-access)",
+        "status": "queued",
+        "conclusion": null,
+        "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41891065119/job/126788273843"
+      },
+      {
+        "id": 126788273836,
+        "name": "macos-product / packages (runtime-security)",
+        "status": "queued",
+        "conclusion": null,
+        "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41891065119/job/126788273836"
+      },
+      {
+        "id": 126788273773,
+        "name": "macos-product / packages (agent-execution-3)",
+        "status": "queued",
+        "conclusion": null,
+        "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41891065119/job/126788273773"
+      }
+    ],
+    "runtimeIdentityCallerAndContract": {
+      "base": "4e12b68b751d0b6fbb1e629235f789d01aa910b2",
+      "head": "4f5811c9d41dcf4201992be689385df6e73b492d",
+      "sameCallerBlob": "5c1ae8528a4569e6f9a40ce932c4ef658c31e7bc",
+      "implementation": "77a0f46cbfc7688cbabbe12ee819e50ba6f64234",
+      "callerSha256": "01ef896ea4d0c3ae9acf5a9416218104b5088450474a0a42cf50ed557f51b7c3",
+      "matchesRetainedPlatformContract": true
+    },
+    "allRequestedHostedChecksPassed": false,
+    "interpretation": "Identity is repaired; required Runtime macOS aggregate remains unfinished. Central subsequent edits still require their own hosted documentation check."
+  },
+  "deliveryReconciliationVerification": {
+    "scope": "Five delivery-status files; assessed source corpus unchanged",
+    "localNativeCheck": {
+      "command": "pnpm check",
+      "result": "success",
+      "catalogDocuments": 26,
+      "adoption": "valid",
+      "node": "24.22.1",
+      "pnpm": "11.25.0"
+    },
+    "focusedChecks": {
+      "maintainedMarkdownFiles": 29,
+      "localLinks": 139,
+      "headingLinks": 3,
+      "catalogIdsUnchanged": true,
+      "rawImportsVerified": 5,
+      "handoffPatchHashesVerified": 3,
+      "handoffArtifactsByteIdentical": 4,
+      "productFilesWithCentralReferences": 11,
+      "centralReferences": 42,
+      "uniqueCentralTargets": 14,
+      "runtimeDocumentBlobsUnchanged": 8,
+      "errors": []
+    },
+    "reusedEvidence": "Historical 73-source hash proof, 131 pinned external source paths and patch-tree reproduction retained at original revisions; not re-executed in this follow-up."
   }
 }
