@@ -71,7 +71,7 @@
     "hostedChecks": "see dated validation summary and live PR checks"
   },
   "overallDelivery": {
-    "status": "pending-required-runtime-macos-check",
+    "status": "published-drafts-required-checks-verified",
     "researchDraftPublication": "complete",
     "reciprocalDocumentationRoutes": "verified",
     "runtimeIdentity": {
@@ -87,14 +87,23 @@
     "runtimeGeneralCi": {
       "head": "4f5811c9d41dcf4201992be689385df6e73b492d",
       "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41891065119",
-      "status": "queued",
-      "conclusion": null,
-      "remainingRequiredContext": "runtime-macos",
-      "interpretation": "macOS matrix partly executed; unfinished jobs are not a successful required aggregate."
+      "status": "completed",
+      "conclusion": "success",
+      "runtimeMacos": {
+        "status": "success",
+        "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41891065119/job/126838928530"
+      },
+      "remainingRequiredContext": null
     },
-    "researchPrsMerged": false
+    "researchPrsMerged": false,
+    "verificationScope": "Exact observed product heads and preceding central publication; the live central PR records CI for this subsequent status-update commit.",
+    "observedCentralPublication": {
+      "head": "7c6ec5f337c7379d040ca4dc0575aec9bdfd81da",
+      "url": "https://github.com/agent-teams-ai/engineering-research/actions/runs/41894112779",
+      "conclusion": "success"
+    }
   },
-  "verifiedAtUtc": "2026-11-04T19:06:08Z",
+  "verifiedAtUtc": "2026-11-04T20:20:56Z",
   "historicalDeliveryBlocker": {
     "status": "blocked-runtime-hosted-identity-and-pending-general-ci",
     "researchDraftPublication": "complete",
