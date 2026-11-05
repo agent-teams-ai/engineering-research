@@ -1,0 +1,70 @@
+diff --git a/AGENTS.md b/AGENTS.md
+index fda2fd3076f18208e117cc3fda246033fd6e6055..ed98d3ab72c6e82da64cf747dab8f2671b18d523 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -5,6 +5,8 @@ own teams, tasks, business workflows, or other orchestrator domain semantics.
+ 
+ Start here:
+ 
++- [Proposed shared research integration](docs/spikes/shared-research-integration-plan.md)
++
+ - Repository overview: [README.md](README.md)
+ - Canonical architecture reading order: [docs/README.md](docs/README.md)
+ - Contained-turn vs subscription-runtime (named anti-patterns `SR-AP-1` … `SR-AP-11`):
+diff --git a/docs/README.md b/docs/README.md
+index 62bc4b0a970fc3084fd4f64f012eda6d25d5b909..210468ecd3e46cf66b32f4f27500f2ce2e2cd497 100644
+--- a/docs/README.md
++++ b/docs/README.md
+@@ -8,6 +8,8 @@ summary: Canonical reading order for Agent Runtime architecture and evidence.
+ 
+ # Agent Runtime architecture
+ 
++- [Shared Research Integration Plan](spikes/shared-research-integration-plan.md)
++
+ Read documents in this order:
+ 
+ 1. `decisions/0001-runtime-profile-and-activation-boundaries.md` - canonical
+diff --git a/docs/spikes/shared-research-integration-plan.md b/docs/spikes/shared-research-integration-plan.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..8110de049c0c289e0e2c6a12cd2a62c685c05a7e
+--- /dev/null
++++ b/docs/spikes/shared-research-integration-plan.md
+@@ -0,0 +1,38 @@
++---
++id: qualification.shared-research-integration
++type: qualification-plan
++status: proposed
++owner: architecture/qualification
++summary: Proposed evidence and qualification mapping for shared research into ordinary runtime and capacity delivery.
++related:
++  - runtime.architecture.architecture-program-plan
++  - runtime.architecture.capacity-admission-delivery-plan
++---
++
++# Shared Research Integration Plan
++
++## Target tuple
++
++Proposed qualification mapping dated 2026-11-03. Ordinary runtime v3 S1-S5
++remains separate from the [capacity C0-C3 delivery](../architecture/capacity-admission-delivery-plan.md).
++The planned shared source is `agent-teams-ai/engineering-research`,
++`docs/competitors/paperclip.md`; publication is pending.
++
++## Required evidence
++
++Extend existing owner-local acceptance with long-history receipt cost,
++single-large-tenant contention, bounded admission, stop under saturation and
++honest physical-cleanup observations. Reuse the current capacity plan and
++native-team boundary; this proposal creates no second scheduler or port.
++
++## Negative gates
++
++Reject unsupported fleet claims from source inspection, model-only tests,
++module count or ordinary S1-S5 completion. Preserve original research bytes
++and historical evidence until a published central destination is verified.
++
++## Promotion rule
++
++[The architecture program](../architecture/agent-runtime-architecture-program-plan.md)
++and existing accepted decisions own implementation. This proposal alone
++qualifies no profile and accepts no new contract.

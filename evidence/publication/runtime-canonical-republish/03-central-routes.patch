@@ -1,0 +1,160 @@
+diff --git a/docs/spikes/agent-runtime-antipattern-register.md b/docs/spikes/agent-runtime-antipattern-register.md
+index ffd9e2543b794cbcfefdd3ca64a81e6020cde918..97cab20dbd83d386ad1b3b18582b523874cd326e 100644
+--- a/docs/spikes/agent-runtime-antipattern-register.md
++++ b/docs/spikes/agent-runtime-antipattern-register.md
+@@ -8,6 +8,17 @@ summary: Source-backed historical lessons, good patterns and concrete rejecting
+ 
+ # Agent Runtime Antipattern Register
+ 
++<!-- shared-research-route:start -->
++**Shared research route, 2026-11-04:** the [maintained central study](https://github.com/agent-teams-ai/engineering-research/blob/12c40892e805944719d6fbec14d2c26874803b2c/docs/studies/agent-runtime-antipattern-register.md)
++is published in [Engineering Research draft PR #1](https://github.com/agent-teams-ai/engineering-research/pull/1). The
++[import provenance manifest](https://github.com/agent-teams-ai/engineering-research/blob/12c40892e805944719d6fbec14d2c26874803b2c/data/import-provenance.json) records the
++original source identity, hash and unchanged snapshot. This local report retains
++its original metadata, dates, body, lesson IDs and heading anchors. Runtime
++applicability, decisions and qualification remain owned here; central publication
++is not a new upstream review or adoption. Use the [shared research index](https://github.com/agent-teams-ai/engineering-research/blob/docs/shared-research-2026-11-04/docs/README.md)
++for maintained discovery; cite the pinned study for this reviewed version.
++<!-- shared-research-route:end -->
++
+ ## Observed target
+ 
+ Design-review register для greenfield agent-runtime, baseline `c59fe8364071530d09b48eda47d41620f3f59c25`, **27.10.2026**. Это память о причинах ошибок и полезных находках. Реестр не объявляет соответствующие ошибки найденными у нас и не утверждает, что исправленные upstream defects остаются актуальными.
+diff --git a/docs/spikes/agent-runtime-durability-research.md b/docs/spikes/agent-runtime-durability-research.md
+index b019599404dc7b3bc86c75dd79eaee5bde1345a4..d5566fdba6f5ab26685d3c94b9e69268f1eeb072 100644
+--- a/docs/spikes/agent-runtime-durability-research.md
++++ b/docs/spikes/agent-runtime-durability-research.md
+@@ -8,6 +8,17 @@ summary: Pinned LangGraph, Temporal and Restate lessons without changing runtime
+ 
+ # Agent Runtime Durability Research
+ 
++<!-- shared-research-route:start -->
++**Shared research route, 2026-11-04:** the [maintained central study](https://github.com/agent-teams-ai/engineering-research/blob/12c40892e805944719d6fbec14d2c26874803b2c/docs/studies/agent-runtime-durability-research.md)
++is published in [Engineering Research draft PR #1](https://github.com/agent-teams-ai/engineering-research/pull/1). The
++[import provenance manifest](https://github.com/agent-teams-ai/engineering-research/blob/12c40892e805944719d6fbec14d2c26874803b2c/data/import-provenance.json) records the
++original source identity, hash and unchanged snapshot. This local report retains
++its original metadata, dates, body, lesson IDs and heading anchors. Runtime
++applicability, decisions and qualification remain owned here; central publication
++is not a new upstream review or adoption. Use the [shared research index](https://github.com/agent-teams-ai/engineering-research/blob/docs/shared-research-2026-11-04/docs/README.md)
++for maintained discovery; cite the pinned study for this reviewed version.
++<!-- shared-research-route:end -->
++
+ ## Observed target
+ 
+ Primary-source research dated 2026-10-27, baseline `c59fe8364071530d09b48eda47d41620f3f59c25`; exact upstream source identities and limits are recorded below. Related synthesis: [Agent Runtime Modular Research](../architecture/agent-runtime-modular-research.md).
+diff --git a/docs/spikes/agent-runtime-framework-research.md b/docs/spikes/agent-runtime-framework-research.md
+index d8d1e1f5bb1b84fb688c6d65bf025f285421098f..c5754d8dcb5b2177d1277f5792e345251099b80a 100644
+--- a/docs/spikes/agent-runtime-framework-research.md
++++ b/docs/spikes/agent-runtime-framework-research.md
+@@ -8,6 +8,17 @@ summary: Pinned SDK research and limits for OpenAI Agents, Google ADK and Micros
+ 
+ # Agent Runtime Framework Research
+ 
++<!-- shared-research-route:start -->
++**Shared research route, 2026-11-04:** the [maintained central study](https://github.com/agent-teams-ai/engineering-research/blob/12c40892e805944719d6fbec14d2c26874803b2c/docs/studies/agent-runtime-framework-research.md)
++is published in [Engineering Research draft PR #1](https://github.com/agent-teams-ai/engineering-research/pull/1). The
++[import provenance manifest](https://github.com/agent-teams-ai/engineering-research/blob/12c40892e805944719d6fbec14d2c26874803b2c/data/import-provenance.json) records the
++original source identity, hash and unchanged snapshot. This local report retains
++its original metadata, dates, body, lesson IDs and heading anchors. Runtime
++applicability, decisions and qualification remain owned here; central publication
++is not a new upstream review or adoption. Use the [shared research index](https://github.com/agent-teams-ai/engineering-research/blob/docs/shared-research-2026-11-04/docs/README.md)
++for maintained discovery; cite the pinned study for this reviewed version.
++<!-- shared-research-route:end -->
++
+ ## Observed target
+ 
+ Primary-source research dated 2026-10-27, baseline `c59fe8364071530d09b48eda47d41620f3f59c25`; exact upstream source identities and limits are recorded below. Related synthesis: [Agent Runtime Modular Research](../architecture/agent-runtime-modular-research.md).
+diff --git a/docs/spikes/agent-runtime-industry-architecture-research.md b/docs/spikes/agent-runtime-industry-architecture-research.md
+index d29d59cb4fa5c1785245484aab09b4fd2898a942..018affffbe4b88ddcf65e2e0882560c312f6fc3e 100644
+--- a/docs/spikes/agent-runtime-industry-architecture-research.md
++++ b/docs/spikes/agent-runtime-industry-architecture-research.md
+@@ -8,6 +8,17 @@ summary: Primary-source industry lessons and historical failure cases informing
+ 
+ # Agent Runtime Industry Architecture Research
+ 
++<!-- shared-research-route:start -->
++**Shared research route, 2026-11-04:** the [maintained central study](https://github.com/agent-teams-ai/engineering-research/blob/12c40892e805944719d6fbec14d2c26874803b2c/docs/studies/agent-runtime-industry-architecture-research.md)
++is published in [Engineering Research draft PR #1](https://github.com/agent-teams-ai/engineering-research/pull/1). The
++[import provenance manifest](https://github.com/agent-teams-ai/engineering-research/blob/12c40892e805944719d6fbec14d2c26874803b2c/data/import-provenance.json) records the
++original source identity, hash and unchanged snapshot. This local report retains
++its original metadata, dates, body, lesson IDs and heading anchors. Runtime
++applicability, decisions and qualification remain owned here; central publication
++is not a new upstream review or adoption. Use the [shared research index](https://github.com/agent-teams-ai/engineering-research/blob/docs/shared-research-2026-11-04/docs/README.md)
++for maintained discovery; cite the pinned study for this reviewed version.
++<!-- shared-research-route:end -->
++
+ ## Observed target
+ 
+ Дата источников и проверки статусов: **26 октября 2026 года**. Приложение к исследованию архитектурного фундамента `agent-teams-ai/agent-runtime`; связан с [целевым планом](../architecture/agent-runtime-greenfield-foundation-plan.md) и [решениями/review](../architecture/agent-runtime-foundation-decisions-and-review.md). Исследованный runtime baseline — `518f1449acf6dda793662783ec9d918d4007c563`; это не аудит уже реализованного нового runtime. Сравниваются **52 разных проекта, протокола и инфраструктурных компонента**, сгруппированных по назначению. Подпроекты одного продукта не раздувают счётчик: Ray Core/Serve, Cloudflare Agents/Durable Objects и Dagger/container-use учтены каждый одной строкой.
+diff --git a/docs/spikes/agent-runtime-library-research.md b/docs/spikes/agent-runtime-library-research.md
+index e6e2bdc5dda4abaa7a844f19ece9c1d9c4084acc..db32e80f86d6d47ff30f7acd1f3e46c17097be73 100644
+--- a/docs/spikes/agent-runtime-library-research.md
++++ b/docs/spikes/agent-runtime-library-research.md
+@@ -8,6 +8,17 @@ summary: Pinned AI SDK, Mastra, PydanticAI and OpenHands modularity evidence and
+ 
+ # Agent Runtime Library Research
+ 
++<!-- shared-research-route:start -->
++**Shared research route, 2026-11-04:** the [maintained central study](https://github.com/agent-teams-ai/engineering-research/blob/12c40892e805944719d6fbec14d2c26874803b2c/docs/studies/agent-runtime-library-research.md)
++is published in [Engineering Research draft PR #1](https://github.com/agent-teams-ai/engineering-research/pull/1). The
++[import provenance manifest](https://github.com/agent-teams-ai/engineering-research/blob/12c40892e805944719d6fbec14d2c26874803b2c/data/import-provenance.json) records the
++original source identity, hash and unchanged snapshot. This local report retains
++its original metadata, dates, body, lesson IDs and heading anchors. Runtime
++applicability, decisions and qualification remain owned here; central publication
++is not a new upstream review or adoption. Use the [shared research index](https://github.com/agent-teams-ai/engineering-research/blob/docs/shared-research-2026-11-04/docs/README.md)
++for maintained discovery; cite the pinned study for this reviewed version.
++<!-- shared-research-route:end -->
++
+ ## Observed target
+ 
+ Primary-source research dated 2026-10-27, baseline `c59fe8364071530d09b48eda47d41620f3f59c25`; exact upstream source identities and limits are recorded below. Related synthesis: [Agent Runtime Modular Research](../architecture/agent-runtime-modular-research.md).
+diff --git a/docs/spikes/shared-research-integration-plan.md b/docs/spikes/shared-research-integration-plan.md
+index 2101384f674a07856293a34bffd8fa9d8f16e3c3..08e01336f966f03c8c4bcb20b3a590063ffc8ced 100644
+--- a/docs/spikes/shared-research-integration-plan.md
++++ b/docs/spikes/shared-research-integration-plan.md
+@@ -20,11 +20,14 @@ remain separate. Assume each approved design is implemented correctly when
+ comparing its intended guarantees. Completion of ordinary execution does not
+ qualify thousands of simultaneously active agents.
+ 
+-The planned shared evidence source is `agent-teams-ai/engineering-research`,
+-`docs/competitors/paperclip.md`. Publication is pending. Shared competitor facts,
+-comparisons and research methods belong there; this document owns only proposed
+-Runtime applicability and routes to existing acceptance owners. It neither
+-reports a completed migration nor substitutes for a published source.
++The shared [Paperclip source dossier](https://github.com/agent-teams-ai/engineering-research/blob/12c40892e805944719d6fbec14d2c26874803b2c/docs/competitors/paperclip.md)
++is published in [Engineering Research draft PR #1](https://github.com/agent-teams-ai/engineering-research/pull/1) at commit
++`12c40892e805944719d6fbec14d2c26874803b2c`. Its [evaluation method](https://github.com/agent-teams-ai/engineering-research/blob/12c40892e805944719d6fbec14d2c26874803b2c/docs/methodology/evaluation-methodology.md)
++and [decision cards](https://github.com/agent-teams-ai/engineering-research/blob/12c40892e805944719d6fbec14d2c26874803b2c/docs/lessons/preimplementation-decisions.md)
++retain shared evidence and proposed alternatives. The [shared research index](https://github.com/agent-teams-ai/engineering-research/blob/docs/shared-research-2026-11-04/docs/README.md)
++is the maintained discovery route. This document owns only proposed Runtime
++applicability and routes to existing acceptance owners. Central publication is
++still a draft; it does not accept product policy or qualify a deployment.
+ 
+ The source review inspected Paperclip at
+ [`61e8d5c7eb097664958e00c30ccd88bb51359043`](https://github.com/paperclipai/paperclip/tree/61e8d5c7eb097664958e00c30ccd88bb51359043).
+@@ -85,8 +88,10 @@ owner contracts remain the relevant reuse mechanisms.
+ 
+ ## Research custody and delivery scope
+ 
+-Keep the five current reusable reports byte-for-byte until the central
+-publication and its provenance manifest are verified:
++The five local reports retain their complete historical bodies and heading
++anchors, with notices linking to their published central studies. The
++[central import provenance manifest](https://github.com/agent-teams-ai/engineering-research/blob/12c40892e805944719d6fbec14d2c26874803b2c/data/import-provenance.json)
++records each original source hash and unchanged raw snapshot:
+ [industry](agent-runtime-industry-architecture-research.md),
+ [frameworks](agent-runtime-framework-research.md),
+ [libraries](agent-runtime-library-research.md),
+@@ -96,8 +101,10 @@ The [modular synthesis](../architecture/agent-runtime-modular-research.md),
+ [experiments](agent-runtime-modular-architecture-spikes.md) and
+ [review record](agent-runtime-modular-research-review.md) retain Runtime ownership.
+ Historical source pins, review identities and qualified evidence are not rewritten
+-as a new campaign. Future migration must preserve old IDs, used anchors and
+-immutable provenance links before replacing any maintained local evidence route.
++as a new campaign. These reciprocal routes preserve the original local metadata,
++IDs and every original heading anchor. Future shortening requires a verified
++inbound-reference inventory and retained redirects or anchors; no source body is
++removed by this change.
+ 
+ This delivery adds documentation only: zero production implementation lines.
+ Future estimates belong to the reviewed seam inventory. Capacity work is counted

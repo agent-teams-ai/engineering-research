@@ -1,0 +1,124 @@
+{
+  "asOf": "2026-11-04",
+  "central": {
+    "repository": "agent-teams-ai/engineering-research",
+    "status": "published-draft",
+    "draftPr": 1,
+    "classification": "pending_classification",
+    "managedDocsAdmission": "pending",
+    "branch": "docs/shared-research-2026-11-04",
+    "url": "https://github.com/agent-teams-ai/engineering-research/pull/1",
+    "merged": false,
+    "contentRevision": "12c40892e805944719d6fbec14d2c26874803b2c",
+    "contentFilesVerified": 62,
+    "reciprocalRoutes": "published-draft-and-verified"
+  },
+  "productDrafts": [
+    {
+      "repository": "agent-teams-ai/agent-runtime",
+      "pr": 248,
+      "branch": "docs/shared-research-2026-11-04",
+      "sha": "4f5811c9d41dcf4201992be689385df6e73b492d",
+      "url": "https://github.com/agent-teams-ai/agent-runtime/pull/248",
+      "draft": true,
+      "merged": false,
+      "integrationDocument": "docs/spikes/shared-research-integration-plan.md",
+      "integrationUrl": "https://github.com/agent-teams-ai/agent-runtime/blob/4f5811c9d41dcf4201992be689385df6e73b492d/docs/spikes/shared-research-integration-plan.md"
+    },
+    {
+      "repository": "agent-teams-ai/agent-teams-orchestrator",
+      "pr": 94,
+      "branch": "docs/shared-research-2026-11-04",
+      "sha": "310bf70db7814370ef93e17e59de2380f93a4c4c",
+      "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/pull/94",
+      "draft": true,
+      "merged": false,
+      "integrationDocument": "docs/research/shared-research-integration-plan.md",
+      "integrationUrl": "https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/310bf70db7814370ef93e17e59de2380f93a4c4c/docs/research/shared-research-integration-plan.md"
+    },
+    {
+      "repository": "agent-teams-ai/agent-teams-platform",
+      "pr": 59,
+      "branch": "docs/shared-research-2026-11-04",
+      "sha": "ff664eae6d53b77977b0ef57eb3556b2ba606f82",
+      "url": "https://github.com/agent-teams-ai/agent-teams-platform/pull/59",
+      "draft": true,
+      "merged": false,
+      "integrationDocument": "docs/architecture/shared-research-integration-plan.md",
+      "integrationUrl": "https://github.com/agent-teams-ai/agent-teams-platform/blob/ff664eae6d53b77977b0ef57eb3556b2ba606f82/docs/architecture/shared-research-integration-plan.md"
+    }
+  ],
+  "backgroundRefresh": {
+    "status": "enabled-not-yet-executed",
+    "mechanism": "existing-assistant-task",
+    "title": "Обновлять технические исследования",
+    "cadence": "weekly on Wednesday",
+    "firstScheduledLocal": "2026-11-11T10:00:00",
+    "timezone": "Europe/Kiev",
+    "timingMode": "flexible_schedule",
+    "enabledAtUtc": "2026-11-03T23:39:44.972983Z",
+    "mutationBoundary": "source-linked documentation draft PRs; no merge, automatic score acceptance or product qualification",
+    "lastRecheckedAtUtc": "2026-11-04T19:06:08Z",
+    "recordedRunHistory": "No run or result is recorded; enabled schedule rechecked through the existing task."
+  },
+  "reciprocalVerification": {
+    "centralEvidenceRevision": "12c40892e805944719d6fbec14d2c26874803b2c",
+    "productFilesVerified": 11,
+    "originalBodiesPreserved": 8,
+    "originalHeadingsAndMetadataPreserved": true,
+    "sourceHashesPreserved": true,
+    "localDocumentationGates": "passed in all three repositories",
+    "hostedChecks": "see dated validation summary and live PR checks"
+  },
+  "overallDelivery": {
+    "status": "published-drafts-required-checks-verified",
+    "researchDraftPublication": "complete",
+    "reciprocalDocumentationRoutes": "verified",
+    "runtimeIdentity": {
+      "status": "success",
+      "head": "4f5811c9d41dcf4201992be689385df6e73b492d",
+      "run": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41891065189",
+      "job": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41891065189/job/126788278382",
+      "implementation": "77a0f46cbfc7688cbabbe12ee819e50ba6f64234",
+      "resolution": "Reviewed alias-aware base/head callers and retained contract align; original research commits preserved.",
+      "canonicalReplacementRequired": false,
+      "historicalHandoff": "evidence/publication/runtime-canonical-republish/manifest.json"
+    },
+    "runtimeGeneralCi": {
+      "head": "4f5811c9d41dcf4201992be689385df6e73b492d",
+      "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41891065119",
+      "status": "completed",
+      "conclusion": "success",
+      "runtimeMacos": {
+        "status": "success",
+        "url": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41891065119/job/126838928530"
+      },
+      "remainingRequiredContext": null
+    },
+    "researchPrsMerged": false,
+    "verificationScope": "Exact observed product heads and preceding central publication; the live central PR records CI for this subsequent status-update commit.",
+    "observedCentralPublication": {
+      "head": "7c6ec5f337c7379d040ca4dc0575aec9bdfd81da",
+      "url": "https://github.com/agent-teams-ai/engineering-research/actions/runs/41894112779",
+      "conclusion": "success"
+    }
+  },
+  "verifiedAtUtc": "2026-11-04T20:20:56Z",
+  "historicalDeliveryBlocker": {
+    "status": "blocked-runtime-hosted-identity-and-pending-general-ci",
+    "researchDraftPublication": "complete",
+    "reciprocalDocumentationRoutes": "verified",
+    "runtimeIdentity": {
+      "status": "failed-completed-observation",
+      "head": "715425189f7f9ea5308e34f0e74787bdd16f7f65",
+      "run": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41741968756",
+      "job": "https://github.com/agent-teams-ai/agent-runtime/actions/runs/41741968756/job/126285436973",
+      "cause": "Base-owned pinned verifier requires canonical iliya for raw author and committer; plugin commits use centrally approved alias Илия.",
+      "requiredCapability": "Authenticated publication supporting explicit canonical author and committer.",
+      "recommendedHandoff": "evidence/publication/runtime-canonical-republish/manifest.json",
+      "handoffStatus": "prepared and exact-tree verified; no canonical replacement commits or PR claimed"
+    },
+    "researchPrsMerged": false,
+    "recordScope": "Superseded by the verified in-place alias-aware adoption; not the current delivery state."
+  }
+}

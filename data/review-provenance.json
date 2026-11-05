@@ -1,0 +1,44 @@
+[
+  {
+    "path": "evidence/reviews/2026-11-04/critic-a.md",
+    "sha256": "fa8d83f3de2bd8949f89b153b08b2ce694fd85bd64015841a63020f4dbdf1362",
+    "bytes": 13950,
+    "scope": "Historical review text; original internal dates and scratch context retained."
+  },
+  {
+    "path": "evidence/reviews/2026-11-04/critic-b.md",
+    "sha256": "a9d647ea74d16e91a4dd126238042cfa4a07c5fbec014301666a140a0b4c2a1f",
+    "bytes": 19210,
+    "scope": "Historical review text; original internal dates and scratch context retained."
+  },
+  {
+    "path": "evidence/reviews/2026-11-04/paperclip-review-resolutions.md",
+    "sha256": "6369468cb05461ef8cbc5c921a397c30079374a753eec953dfa568ee00bead7a",
+    "bytes": 6363,
+    "scope": "Historical review text; original internal dates and scratch context retained."
+  },
+  {
+    "path": "evidence/reviews/2026-11-04/methodology-review-resolutions.md",
+    "sha256": "d6063f53580df14a3499bc04a2e626ee6e68d7f79c9c494cded29a4641ec2432",
+    "bytes": 7897,
+    "scope": "Historical review text; original internal dates and scratch context retained."
+  },
+  {
+    "path": "evidence/reviews/2026-11-04/product-final-review-a.md",
+    "sha256": "05ede792d4c81d021bfe081e5ccde137a5f636fa19ae5efdd263c892c0811627",
+    "bytes": 7080,
+    "scope": "Historical review text; original internal dates and scratch context retained."
+  },
+  {
+    "path": "evidence/reviews/2026-11-04/central-final-review-a.md",
+    "sha256": "d6810e061a3e9b10a9f3d5d603116ce1490e83fd7dc0f15a1f6cc4022f1e9d99",
+    "bytes": 9169,
+    "scope": "Historical review text; original internal dates and scratch context retained."
+  },
+  {
+    "path": "evidence/reviews/2026-11-04/central-final-review-b.md",
+    "sha256": "62ce58155f3771fd8f63764e4d765126d74e1fcb2155be59de3e75e7b5cf4bc7",
+    "bytes": 10482,
+    "scope": "Historical review text; original internal dates and scratch context retained."
+  }
+]

@@ -1,0 +1,4 @@
+version: 1
+owners:
+  "research/maintainers":
+    kind: documentation
