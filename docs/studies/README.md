@@ -12,6 +12,7 @@ Imported studies retain original dates, versions and limitations. Historical pro
 
 ## Documents
 
+- [One Agent Through Enterprise Execution](one-agent-through-enterprise-execution.md) — Industry mechanisms, native Temporal parity and qualification of both the minimum useful deployment and sustainable large-fleet execution, reviewed 2026-11-05.
 - [Agent Runtime Industry Architecture Research](agent-runtime-industry-architecture-research.md) — Dated industry evidence migrated from Runtime with original source identities and limits.
 - [Agent Runtime Framework Research](agent-runtime-framework-research.md) — Dated agent-framework evidence migrated from Runtime with product applicability distinguished.
 - [Agent Runtime Library Research](agent-runtime-library-research.md) — Dated harness and library evidence migrated from Runtime without changing its adoption decisions.

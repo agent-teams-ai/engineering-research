@@ -58,3 +58,31 @@ The central repository and [draft PR #1](https://github.com/agent-teams-ai/engin
 Two independent reviewers checked the original Runtime identity failure and its base/head caller dependency; repository inspection also identified the retained CI trust contract. The canonical patch handoff remains unchanged historical evidence. The later [in-place identity resolution](research-migration.md#current-hosted-verification) preserves the original research commits and supersedes the replacement-PR recommendation.
 
 The completion review rechecked the exact current Runtime head `4f5811c9d41dcf4201992be689385df6e73b492d`, confirmed all eight research-document blobs are unchanged, and verified successful trusted identity, documentation, Node compatibility, `check` and PostgreSQL durability checks. After one cancelled-before-execution package job received a targeted retry, the required macOS aggregate and complete General CI run passed in attempt 2 on that same head, preserving the other successful jobs; the final exact-head observation is recorded at 2026-11-04T20:20:56Z in the migration/validation records. Independent corpus review again counted 30 criteria and 19 scored cells per subject, retained the source/target distinction and unknown capacity, and found no additional research-content blocker. Orchestrator and Platform checks remain successful. These delivery observations do not qualify a deployment or alter technical scores.
+
+## One-agent through enterprise review, 2026-11-05
+
+The [new scale and workflow study](../studies/one-agent-through-enterprise-execution.md)
+received three independent first-pass assessments: industry mechanisms, native
+workflow evidence, and product/consumer boundaries. Two independent second-round
+critics then reviewed the synthesis and actual Orchestrator/central navigation
+changes; a separate consumer alignment pass checked Platform and Runtime.
+These were GPT-6 Astra reviews at the requested highest effort, not additional
+production executions or external human approvals.
+
+- [Profile and scale critique](../../evidence/reviews/2026-11-05/critique-profile.md).
+- [Workflow and lifecycle critique](../../evidence/reviews/2026-11-05/critique-workflow.md).
+
+Their original review texts and final-draft dispositions are preserved in the
+existing [provenance manifest](../../data/review-provenance.json). Scratch paths
+inside those texts identify historical working inputs, not maintained links.
+The author incorporated sustainable turnover and bounded cleanup debt,
+multi-database restore coverage, provider resource scope, local-only LOC limits,
+Worker runtime/old-history horizons, fairness starvation limits and wake races.
+Final wording treats the architecture as a credible direction and a local-budget
+failure as one possible successor trigger, without creating an exclusive new
+decision gate. Both critics found no remaining substantive research blocker.
+
+The reviews preserve PR #90's accepted-but-unmerged status, existing product
+owners and unmeasured capacity. Documentation/publication checks have their own
+evidence and cannot be inferred from these approvals. Earlier verification
+paragraphs above retain their original November 4 scope.
