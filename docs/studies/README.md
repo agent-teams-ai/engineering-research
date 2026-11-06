@@ -23,4 +23,7 @@ Imported studies retain original dates, versions and limitations. Historical pro
 - [Plugin System Research Index](plugin-system-research-index.md) — Pinned discovery of the unmerged Extension Foundation research corpus and historical evidence.
 - [Initial Paperclip Comparison](initial-paperclip-comparison.md) — Historical prospective scores from the preceding comparison under its original five-group rubric.
 
+- [Review Router Memory SDK Extraction](review-router-memory-sdk-extraction.md) — Existing portable memory mechanisms, generalization gaps and scoped extraction alternatives.
+- [Architecture Follow Through from AutoGPT and Memory](architecture-follow-through-from-autogpt-and-memory.md) — Proposed owner-specific clarifications, already-covered requirements and rejected expansion.
+
 [Documentation map](../README.md)
