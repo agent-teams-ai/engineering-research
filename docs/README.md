@@ -12,6 +12,7 @@ This map routes readers and agents by task. The repository separates shared sour
 
 | Collection | Contents and first useful route |
 | --- | --- |
+| [Technology and Library Catalog](technologies/README.md) | Cross-language candidates by capability, fit, risks, evidence and next research; memory SDK extraction and architecture follow-through |
 | [Competitors](competitors/README.md) | [AutoGPT vs Agent Teams](competitors/autogpt-vs-agent-teams-architecture-and-python-ecosystem.md), [Paperclip](competitors/paperclip.md), [Agent Teams](competitors/agent-teams.md), the [30-criterion matrix](competitors/technical-comparison.md), and an unscored [watchlist](competitors/competitor-watchlist.md) |
 | [Methodology](methodology/README.md) | Criteria, evidence interpretation, comparable boards, freshness, migration, source identities, independent review |
 | [Lessons](lessons/README.md) | Existing pattern identities, source-specific failure lessons, concrete decisions inside current owner plans |

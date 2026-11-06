@@ -45,6 +45,17 @@ and [independent review](../../evidence/reviews/2026-11-06/autogpt-review.md) re
 their own evidence scopes. These are additional sources, not a refresh or
 renumbering of the 73 historical migration records above.
 
+
+## Technology catalogue and memory SDK follow-through, 2026-11-06
+
+The [technology catalogue](../technologies/README.md), [memory SDK study](../studies/review-router-memory-sdk-extraction.md)
+and [architecture proposals](../studies/architecture-follow-through-from-autogpt-and-memory.md)
+add a separate, dated evidence set. ReviewRouter is pinned at `9a416dfb876d78253612e87aa89561d48bf35633`;
+Get Modular at `5fb83478dd7b95216be92c4d3077eddf2774eef8`; the AutoGPT and product-plan pins remain
+those stated in their linked studies. The [source manifest](../../data/technology-catalog-2026-11-06-sources.json)
+records inspected pinned files separately from rolling upstream documentation. The [review record](../../evidence/reviews/2026-11-06/technology-catalog/review.md)
+records independent criticism and bounded verification. No engine, public SDK, plugin lifecycle or product architecture decision is adopted by these research records.
+
 ## Audit and maintenance rules
 
 The [migration workflow](research-migration.md) defines completion and reciprocal links. The [maintenance workflow](research-maintenance.md) defines freshness and source corrections. A new source scan does not silently change a historical hash, a version pin or a qualified result. Use ordinary links for cross-repository evidence; `related` metadata names only IDs in this local catalog.
