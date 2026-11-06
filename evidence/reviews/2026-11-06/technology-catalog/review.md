@@ -2,6 +2,14 @@
 
 Observation date: **2026-11-06**. Research publication only; this is not a GitHub maintainer approval, product adoption, public SDK release or deployed-system qualification.
 
+## Version and durable review inputs
+
+The review outcomes and artifact identities below describe the catalogue publication at `4ae904b7bdd93d6e3e8e52ec5a41e563af97017b`. The later [pre-merge follow-up](../pr4-closure.md) corrects the AutoGPT dossier's M4 coverage and withdraws its aggregate; it leaves the catalogue, SDK study and raw reviewer notes unchanged.
+
+The reviewer-local `notes/catalog-review-round1-inputs/` and `notes/catalog-review-round2-inputs/` directories are now retained byte-for-byte at [inputs/round1](inputs/round1/) and [inputs/round2](inputs/round2/). Their original [round-1 manifest](inputs/round1/manifest.json) and [round-2 manifest](inputs/round2/manifest.json) identify eight and four document snapshots respectively. Resolve each manifest `path` from its containing round directory. These are frozen review inputs, outside the maintained `docs/` catalogue; embedded historical links and metadata preserve the original context.
+
+All 12 snapshot hashes and byte sizes, plus both manifest copies, were checked against the retained originals. The four round-2 snapshots also match the corresponding published catalogue files at `4ae904b7bdd93d6e3e8e52ec5a41e563af97017b`. Four round-1 versions intentionally differ because round 2 reviewed their corrections. The scratch prefixes in raw notes remain historical discovery locations; these archive links are their durable publication mapping.
+
 ## Scope and independent criticism
 
 The publication adds one technology index, six category documents and two studies. The studies evaluate the existing ReviewRouter memory SDK and narrowly proposed architecture-document clarifications. The existing AutoGPT comparison remains unchanged, including its conditional target comparison and separate ordinary-v3/C0–C3 scenarios.

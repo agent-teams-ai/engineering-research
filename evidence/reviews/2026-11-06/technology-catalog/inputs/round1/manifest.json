@@ -1,0 +1,42 @@
+[
+  {
+    "path": "docs/studies/review-router-memory-sdk-extraction.md",
+    "sha256": "a636eb964779f756cf593f4e03a3c7a301895deca3d029c940df56165cf5fe76",
+    "bytes": 27381
+  },
+  {
+    "path": "docs/studies/architecture-follow-through-from-autogpt-and-memory.md",
+    "sha256": "9e09a7bf7ec5ecb711891a15fbb3e2aef48d8cf9a978316eaf1d07acedbfb6b2",
+    "bytes": 19947
+  },
+  {
+    "path": "docs/technologies/README.md",
+    "sha256": "5beacbf4adb396452ba6d1b7be842bff5c78194ff5547d7e9a53db429ed366b3",
+    "bytes": 8238
+  },
+  {
+    "path": "docs/technologies/memory-and-knowledge.md",
+    "sha256": "beaba63417a0a82aebb494a342fc09e34f6d8d0c49a772e3314c793e12f8987f",
+    "bytes": 11298
+  },
+  {
+    "path": "docs/technologies/agent-execution-and-sandboxes.md",
+    "sha256": "9c35220c6a957684691026ff709430be37270bdf9c21e4fc9211754355c5c62f",
+    "bytes": 7566
+  },
+  {
+    "path": "docs/technologies/browsing-search-and-retrieval.md",
+    "sha256": "447226748fbb1b5545f58403724971728e9abc858c574ebb34396a7449cc1c9f",
+    "bytes": 8301
+  },
+  {
+    "path": "docs/technologies/observability-and-prompts.md",
+    "sha256": "c99b7b27353d3802be74e5e9a0431b85b217fedc81460d847081d84a989e59d3",
+    "bytes": 6144
+  },
+  {
+    "path": "docs/technologies/data-and-document-processing.md",
+    "sha256": "bc0f54f76c741ae21a6afcac559ba8f23f33dbb9c5ecfde842608e2f217a8b84",
+    "bytes": 8823
+  }
+]

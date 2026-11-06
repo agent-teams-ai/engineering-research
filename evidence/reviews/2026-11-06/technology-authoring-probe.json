@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Check whether a technology artifact reusing the research fenced-body template inherits type: research.",
+  "nodeVersion": "v24.22.1",
+  "packages": {
+    "@agent-teams/docs-protocol": "0.6.2",
+    "@agent-teams/document-authoring": "0.3.2"
+  },
+  "checkoutHead": "b26691d33d8874203ec2f0f7698e1ee3b8c1e1da",
+  "sourceHashes": [
+    {
+      "package": "repository",
+      "path": "pnpm-lock.yaml",
+      "sha256": "7fc5714c449d3ba6f3a4ce152f9565ae1bde81e0430c52ff1a44eee22d65d62b"
+    },
+    {
+      "package": "repository",
+      "path": "docs.config.yaml",
+      "sha256": "201ba20d99e6e91a5f039c795a0f0580f20d0b47ec3f829b689b929f3b52fa92"
+    },
+    {
+      "package": "repository",
+      "path": ".docs-protocol/document-authoring.yaml",
+      "sha256": "673108642f234dec4168083ffc2cd94003992cb29fad3d1e8f3e5712745b70cb"
+    },
+    {
+      "package": "repository",
+      "path": ".docs-protocol/metadata.schema.json",
+      "sha256": "a6cc4e8894cd3a1a35026265802f8ed54f84e11745e5c37514c33e14e97ccbec"
+    },
+    {
+      "package": "repository",
+      "path": ".docs-protocol/templates/research.md",
+      "sha256": "163672eb91442b814ade05942f50eaa926e49592fe0be35041087b6f952f5ec6"
+    },
+    {
+      "package": "@agent-teams/docs-protocol@0.6.2",
+      "path": "dist/features/docs-command/adapters/inbound/cli.js",
+      "sha256": "0f59a7418938dd04b1f86633f586f4c090b94383900e26913b1a819144e5e154"
+    },
+    {
+      "package": "@agent-teams/docs-protocol@0.6.2",
+      "path": "dist/features/portable-documentation/application/docs-protocol.js",
+      "sha256": "eb9623638feeebcc20b3a7a0fb78680fb0f3fa5aff97819fde5f8b634571d279"
+    },
+    {
+      "package": "@agent-teams/docs-protocol@0.6.2",
+      "path": "dist/features/portable-documentation/adapters/outbound/document-authoring-port.js",
+      "sha256": "565a5ffe71f446cf79554be2b2c309c2d19059a2ee3d3d68addccad6d62f2177"
+    },
+    {
+      "package": "@agent-teams/document-authoring@0.3.2",
+      "path": "dist/document-authoring/application/use-cases/plan-documentation-document.js",
+      "sha256": "46a61c06b6b485f04a93717616f3705205dff5737f8d4c9e809e37431c3fae0f"
+    },
+    {
+      "package": "@agent-teams/document-authoring@0.3.2",
+      "path": "dist/document-authoring/adapters/canonical-markdown.js",
+      "sha256": "146b7357e4e169e5ef853d7ea4281ab254f24b5f279686bce3ca95a8e525d187"
+    }
+  ],
+  "copiedPaths": [
+    "docs.config.yaml",
+    ".docs-protocol",
+    ".agents/skills/docs-authoring/SKILL.md",
+    "AGENTS.md",
+    "CLAUDE.md",
+    "README.md",
+    "docs"
+  ],
+  "command": [
+    "node",
+    "<installed @agent-teams/docs-protocol@0.6.2>/dist/cli.js",
+    "new",
+    "--consumer",
+    "<disposable-consumer>",
+    "--profile",
+    "docs.config.yaml",
+    "--json",
+    "--type",
+    "technology",
+    "--id",
+    "research.technologies.cubic-authoring-probe",
+    "--title",
+    "Cubic authoring probe",
+    "--owner",
+    "research/maintainers",
+    "--summary",
+    "Isolated no-write template classification probe.",
+    "--dry-run"
+  ],
+  "infoOutcome": "success",
+  "preview": {
+    "schemaVersion": 2,
+    "protocol": {
+      "id": "agent-teams.docs-protocol",
+      "version": 1
+    },
+    "command": "docs.new",
+    "outcome": "success",
+    "diagnostics": [],
+    "result": {
+      "kind": "new",
+      "reservation": "none",
+      "writeState": "preview",
+      "documentPath": "docs/technologies/cubic-authoring-probe.md",
+      "planDigest": "sha256:7640d1106d012226cbbe336a7a7ed16fa0b0167ffea3ae9aed6f44c69019ffb2",
+      "compiled": {
+        "schemaVersion": 1,
+        "document": {
+          "content": "---\nid: research.technologies.cubic-authoring-probe\ntype: technology\nstatus: active\nowner: research/maintainers\nsummary: Isolated no-write template classification probe.\n---\n\n# Cubic authoring probe\n\n## Scope and status\n\nREPLACE_ME\n\n## Evidence and counterevidence\n\nREPLACE_ME\n\n## Implications and limits\n\nREPLACE_ME\n\n## Sources\n\nREPLACE_ME\n",
+          "digest": "sha256:8e5b0b0adaf241b0723f69352433f5b4fac760750e59e5b8e42521e83cb62888",
+          "mediaType": "text/markdown; charset=utf-8",
+          "size": 341
+        },
+        "frontmatter": "id: research.technologies.cubic-authoring-probe\ntype: technology\nstatus: active\nowner: research/maintainers\nsummary: Isolated no-write template classification probe.",
+        "metadata": {
+          "id": "research.technologies.cubic-authoring-probe",
+          "type": "technology",
+          "status": "active",
+          "owner": "research/maintainers",
+          "summary": "Isolated no-write template classification probe."
+        },
+        "relations": {
+          "blockedBy": [],
+          "related": []
+        },
+        "anchors": []
+      },
+      "reachability": {
+        "state": "manual-required",
+        "indexPath": "docs/technologies/README.md",
+        "markdownLink": "[Cubic authoring probe](cubic-authoring-probe.md)"
+      }
+    }
+  },
+  "verification": {
+    "passed": true,
+    "fixtureEntries": 83,
+    "beforeSha256": "92a9db07d116873d9263cd6b29b5ccd67356739afafe1d4d0765b593af833def",
+    "afterSha256": "92a9db07d116873d9263cd6b29b5ccd67356739afafe1d4d0765b593af833def",
+    "consumerTreeUnchanged": true,
+    "applyInvoked": false,
+    "canonicalRepositoryUsedOnlyAsCopySourceAndInstalledModuleLocation": true
+  }
+}

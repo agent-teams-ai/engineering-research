@@ -4,6 +4,25 @@ Assessment: `research.competitors.autogpt`. Observation date: 2026-11-06.
 This record concerns the source audit and research publication. It is not a
 GitHub approval, product acceptance or deployed-system qualification.
 
+## Version and resolution navigation
+
+The original review and validation sections below describe the AutoGPT-only
+publication at `d3c681d2e333e0a33e1b34ce067f674bb6f997bf`, with 27 catalogued
+documents. Its unchanged-schema statement applies to that publication. The
+later [technology catalogue record](technology-catalog/review.md) explicitly
+records the additive `technology` metadata-schema and authoring registration,
+bringing the catalogue to 36 documents; it does not weaken existing checks.
+
+The [pre-merge follow-up](pr4-closure.md) supersedes the earlier numerical M4
+and aggregate claims. The raw round-1 and round-2 reviews below preserve the
+reviewers' original observations and conclusions. In particular, **PY-R1-02 is
+resolved** by the scope correction confirmed in
+[round 2](review-round2-python.md); its round-1 request is retained as history.
+The raw Python note's workspace prefix `repos/engineering-research/` maps to
+the repository root. Its reviewed document is the
+[AutoGPT dossier](../../../docs/competitors/autogpt-vs-agent-teams-architecture-and-python-ecosystem.md).
+The later M4 correction does not change that resolved Python finding.
+
 ## Source audit responsibilities
 
 Three parallel agents independently inspected bounded source areas:

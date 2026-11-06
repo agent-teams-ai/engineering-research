@@ -38,7 +38,7 @@ Evidence labels used below:
 - **Inference:** a consequence or risk derived from those facts, with its boundary stated.
 - **Unknown:** no sufficient comparable observation. Unknown is not zero.
 
-Three parallel source audits covered AutoGPT execution/reliability, Agent Teams plans, and Python/dependencies/extensions. Their synthesis received independent criticism; the [review record](../../evidence/reviews/2026-11-06/autogpt-review.md) records the actual rounds and corrections. No application fleet, paid LLM request, production tenant, cloud sandbox or upstream CI rerun was started for this assessment.
+Three parallel source audits covered AutoGPT execution/reliability, Agent Teams plans, and Python/dependencies/extensions. Their synthesis received independent criticism; the [review record](../../evidence/reviews/2026-11-06/autogpt-review.md) records the actual rounds and corrections. The [pre-merge follow-up](../../evidence/reviews/2026-11-06/pr4-closure.md) records the later M4 coverage correction and distinguishes the current result from earlier review snapshots. No application fleet, paid LLM request, production tenant, cloud sandbox or upstream CI rerun was started for this assessment.
 
 ## What is being compared
 
@@ -68,7 +68,7 @@ Current canonical Orchestrator ADR-0114/0115 select PostgreSQL, backend role iso
 
 These are **ordinal engineering judgments about the represented architecture**, not measurements, uptime estimates or feature counts. Higher is better, including the simplicity row. Integers follow the existing [rubric](../methodology/evaluation-methodology.md); intermediate values have a reason in the final column. Rough uncertainty is about one point for most judgments. Confidence is generally 8/10 for inspected mechanisms and 7/10 for target-fit forecasts; unresolved contracts are identified explicitly.
 
-The following user-facing criteria overlap, so they are **not summed**. The same conditional basis is used on both sides: evaluate the defined mechanisms if implemented as specified, retaining source-observed limitations and unselected scope. The separate non-overlapping M1–M5 summary below has its own fixed denominator.
+The following user-facing criteria overlap, so they are **not summed**. The same conditional basis is used on both sides: evaluate the defined mechanisms if implemented as specified, retaining source-observed limitations and unselected scope. The separate M1–M5 summary below reports criterion coverage; its unassessed M4 is left unknown and no aggregate is calculated.
 
 | Criterion | AutoGPT | Agent Teams target | Reason and limit |
 | --- | ---: | ---: | --- |
@@ -93,18 +93,20 @@ The following user-facing criteria overlap, so they are **not summed**. The same
 
 ### Narrow architecture summary: M1–M5 only
 
-This advisory view uses the existing method's five non-overlapping architecture criteria, one fixed equal-weight mask and the same implemented-as-specified basis. It excludes measured capacity, testing chronology, operational qualification and integration-catalog size. Scores were assigned against these criteria, not a weighting chosen to maximize our lead. It is **not a whole-product leaderboard**.
+This advisory view retains the existing method's five non-overlapping architecture criteria and the same implemented-as-specified basis. The applicable mask remains M1–M5: **4/5 criteria (80%) are scored on each side; M4 is unknown on both sides**. No aggregate is published while the representative change-cost evidence is missing. It excludes measured capacity, testing chronology, operational qualification and integration-catalog size. It is **not a whole-product leaderboard**.
 
 | Existing method criterion | AutoGPT | Agent Teams target |
 | --- | ---: | ---: |
 | M1: enforced responsibility/dependency boundaries | 6 | 9 |
 | M2: reusable modules and substitutability | 7 | 9 |
 | M3: proportional domain ownership | 6 | 8 |
-| M4: change cost and boilerplate | 7 | 6 |
+| M4: change cost and boilerplate | Unknown | Unknown |
 | M5: public contract and extension evolution | 7 | 8 |
-| Equal-weight mean, 5/5 scored, rounded to one decimal | **6.6/10** | **8.0/10** |
+| Scored coverage of the fixed M1–M5 mask | **4/5 (80%)** | **4/5 (80%)** |
 
-For the source-based M4 forecast, the representative change is one external-service capability behind an existing integration port, using an already supported authentication type and without a new domain, permission model or deployment role. M4 credits AutoGPT's lower entry cost for that change without pretending we measured reviewer effort or equivalent-change LOC. Whole-harness, store and schema-changing use cases remain unmeasured. M5 covers caller/implementer/wire/persistence evolution, including Runtime's conformance and explicit format boundaries; it does not award a marketplace that the plans omit. Evidence confidence for this narrow comparison is approximately **7/10**. The conclusion is directional: our design has stronger separation/reuse, with higher ceremony and operational cost. The difference is not a claim of percentage improvement.
+The separate ordinary-integration judgment concerns one external-service capability behind an existing integration port, using an already supported authentication type and without a new domain, permission model or deployment role. AutoGPT's lower entry cost is a source-based forecast for that narrow change; equivalent-change LOC and reviewer effort were not measured. This does not cover the methodology's two or three stable exercises, such as a harness adapter, a persistence-changing business use case and a public store adapter. Their handwritten production/test code, touched boundaries, dependencies and review cost remain unassessed, so the broader M4 stays unknown. These exercises need not be implemented merely to fill a score.
+
+M5 covers caller/implementer/wire/persistence evolution, including Runtime's conformance and explicit format boundaries; it does not award a marketplace that the plans omit. Evidence confidence for the scored architecture criteria is approximately **7/10**. The conclusion is directional: our design has stronger separation/reuse, with higher ceremony and operational cost. Earlier review snapshots retain their original M4 scores and mean as historical evidence; the [pre-merge correction](../../evidence/reviews/2026-11-06/pr4-closure.md#m4-coverage-correction) supersedes those numerical claims without changing the source observations or other criterion scores.
 
 ## Evidence and counterevidence
 
