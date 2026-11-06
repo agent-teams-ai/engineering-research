@@ -1,0 +1,941 @@
+{
+  "schemaVersion": 1,
+  "observedOn": "2026-11-06",
+  "assessment": "research.competitors.autogpt",
+  "basis": "Conditional architecture comparison; narrow source experiment separately identified; no application benchmark",
+  "sources": [
+    {
+      "id": "A-APP",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/app.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/app.py",
+      "gitBlobSha": "e78e64fe29dd8dbbade5e76ab68d9dc2f5eaa45c",
+      "sha256": "b86ecfc8ce256a579e3de07c71aae2cc194d81428ffa6a33f42bbdb46f94b767",
+      "byteSize": 2468,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-LIBS-PACKAGE",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/autogpt_libs/pyproject.toml",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/autogpt_libs/pyproject.toml",
+      "gitBlobSha": "05ecedd0328c3ea1e18806ab3e565030ed877d4d",
+      "sha256": "e3ce0638e5805e35084066072c38c481c548038f86ab3dda1b766c5cdf21d301",
+      "byteSize": 1071,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-KEYSMITH",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/autogpt_libs/autogpt_libs/api_key/keysmith.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/autogpt_libs/autogpt_libs/api_key/keysmith.py",
+      "gitBlobSha": "30d8a6ef984bbc423dae7c4335398a37d45bb4eb",
+      "sha256": "d033bd60c46a1a40a23828025b37fdf5f4ed5de6eda9580d07727733dc60dc72",
+      "byteSize": 3040,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-KEYSMITH-CONSUMER",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/data/auth/api_key.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/data/auth/api_key.py",
+      "gitBlobSha": "db35f1a304eccec2e1e35a4093f90d783805db3b",
+      "sha256": "1cc2c6ffc3a073d06314ed38a28dec77dab028441ba1407785852410442c236f",
+      "byteSize": 12407,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-CI",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/.github/workflows/platform-backend-ci.yml",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": ".github/workflows/platform-backend-ci.yml",
+      "gitBlobSha": "2f53f7273ec8dd81e5b1f23c0b7fbb554fcaf1a1",
+      "sha256": "06c1ba72e755f798d8d77525ce3fccd367dc43969b02ab545a4f7e68bd1e9251",
+      "byteSize": 28392,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-MANAGER",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/executor/manager.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/executor/manager.py",
+      "gitBlobSha": "cdc2e24965aeb9c04d09a9645020ba3859f500fb",
+      "sha256": "cd7149b8b26e53f159c7866d7684afd99ffb357bcb4211ea1ab95230b0972529",
+      "byteSize": 112905,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-COPILOT-MANAGER",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/copilot/executor/manager.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/copilot/executor/manager.py",
+      "gitBlobSha": "dd4f619a59061155aaab2f159b74e023365fabd0",
+      "sha256": "034ca72373fc1185f444c73deeee0a5b1949be6b40a91fcce99c61fc79caa3f7",
+      "byteSize": 33107,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-PROCESSOR",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/copilot/executor/processor.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/copilot/executor/processor.py",
+      "gitBlobSha": "92772853f01a645f1984d12b765964fc1c8a0df9",
+      "sha256": "87c6e990861cbb80c3a3f3ee1f607f7b24c160b1b6ff7d8d5d23aaa1802c6698",
+      "byteSize": 49931,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-LOCK",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/executor/cluster_lock.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/executor/cluster_lock.py",
+      "gitBlobSha": "53e1912a96b2a625d5786f1e97a115fdde25a23b",
+      "sha256": "97a1aa7796ab198191177a4cf4695eb399deb5f2961c5d359a21aa9a569a165e",
+      "byteSize": 12403,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-EXECUTION-DATA",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/data/execution.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/data/execution.py",
+      "gitBlobSha": "c9d1f85d794d8578093ad2032beac11c92bf390c",
+      "sha256": "355ac21c8c4cfdf6693a59e1c92021942f7d1b3c432ed50138efd82ac454367d",
+      "byteSize": 76589,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-DB",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/data/db_manager.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/data/db_manager.py",
+      "gitBlobSha": "da7631b6ac05bad4b6b08507b1901b95b3ec3550",
+      "sha256": "33348d0655c001eccf2841e25815e5f2d7241d3dc033f2d2d33a8a469698d638",
+      "byteSize": 65767,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-ACCESSORS",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/data/db_accessors.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/data/db_accessors.py",
+      "gitBlobSha": "3b9209f878f6cb8ddb2510dc12cf9e1aa517d3ff",
+      "sha256": "fd9060f08d4acf9a47f200cbb37d9707a7c7a2fd23e70a29b808e81b55574fd5",
+      "byteSize": 12719,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-SERVICE",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/util/service.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/util/service.py",
+      "gitBlobSha": "c9c17441dd606097848d80796ec6fee7b509386e",
+      "sha256": "c1b86a826775473d046f8603fac5b919347ec4b5fa2943c394c4668a0d87ff21",
+      "byteSize": 44936,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-ACTIVE",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/copilot/active_turns.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/copilot/active_turns.py",
+      "gitBlobSha": "3c919a8c02c1a255df592f098475cd06f71fa243",
+      "sha256": "fb34a47a783b201066190c425d58e210d8d8b8710edf621e25b085cb0ad35508",
+      "byteSize": 9779,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-COPILOT-DB",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/copilot/db.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/copilot/db.py",
+      "gitBlobSha": "5d168bf640fc4edf10d8a7a3732b74fd1ac70bd1",
+      "sha256": "5c36520c4c0d93015acc95e548d6fbe06567823ac2a45cb23fbe878a08b5cfa1",
+      "byteSize": 75196,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-QUEUE",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/copilot/turn_queue.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/copilot/turn_queue.py",
+      "gitBlobSha": "de64bd9ea7fd73ed92e03041ba913273356cb468",
+      "sha256": "2ba2566f22b003ada81b23ea2ec664e65d1e2fd8beb10c20a327deb1097b36d8",
+      "byteSize": 37775,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-PUBLISH",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/copilot/executor/utils.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/copilot/executor/utils.py",
+      "gitBlobSha": "4f810dbca126349f87f165ce0213e0906a3a2e3e",
+      "sha256": "70f212939896c663758c1f76a18cdada098ac7062fa1afae616ecd6533e64877",
+      "byteSize": 44431,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-GRAPH-PUBLISH",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/executor/utils.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/executor/utils.py",
+      "gitBlobSha": "b665fb1a48b618245b4a63eee1e10db78505e871",
+      "sha256": "0b3f8357b69f587bd50f197e3d1044182afcb09740eba8f53866450a2a1a374b",
+      "byteSize": 100847,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-SCHEMA",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/schema.prisma",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/schema.prisma",
+      "gitBlobSha": "c18a1d37fe1ceb8ceeff9bc55753650d774695dd",
+      "sha256": "960f6eb8925f11f0869d1a39c71ac748fa497fea305dae802a2f5dc3074b9138",
+      "byteSize": 138153,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-TENANCY",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/data/tenancy.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/data/tenancy.py",
+      "gitBlobSha": "b678f1405868479e6130b96d00bb215f0f20f0e2",
+      "sha256": "6e2c509255708ad81597b7adcbd1d58e797c4949b9952cf7a33aa5020905bc69",
+      "byteSize": 3721,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-TENANCY-TESTS",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/data/tenancy_test.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/data/tenancy_test.py",
+      "gitBlobSha": "1d88444f90e60e122c56004884a63c3c8f5bb5d8",
+      "sha256": "a788c776ad218027d96991b483a40d551e309e31218923a3a4cccdc27fe10eba",
+      "byteSize": 3228,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-TESTS",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/AGENTS.md",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/AGENTS.md",
+      "gitBlobSha": "7e9a72aa0f6513af4ea1ad43a17acbb4d50b68fe",
+      "sha256": "740c5c39ff1e1d989b65009b6ddce0b22b77a6c3871d50d0a6fd72f171c37577",
+      "byteSize": 14773,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-CANCEL-TEST",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/copilot/executor/cancel_fanout_e2e_test.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/copilot/executor/cancel_fanout_e2e_test.py",
+      "gitBlobSha": "fa48b23cc8e3409188344b85aa55ef6de7f13ba4",
+      "sha256": "5ad52bdc2f3348d16c21c9bd436ef3d1ca04513f2a91ed4bc58a855f2f7a2b4a",
+      "byteSize": 5655,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-BILLING-TEST",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/executor/manager_redispatch_billing_test.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/executor/manager_redispatch_billing_test.py",
+      "gitBlobSha": "95d16f607ef88e57a16d32656b136df0d99bc673",
+      "sha256": "f1f529680b477d37c5370ec0d8854510e9d1a56130c003fbcc90df7e8963694e",
+      "byteSize": 13586,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-BILLING-E2E",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/executor/billing_e2e/agent_run_billing_test.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/executor/billing_e2e/agent_run_billing_test.py",
+      "gitBlobSha": "b997f7777b28c72fdc4eab44fc9a66605784b3fa",
+      "sha256": "a87f8af6bb7cfa8f0c6bf0d9e2b97d2d2d13e39bc120c01b0b395b0efc1e145f",
+      "byteSize": 9355,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-CREDITS-AUTHZ",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/api/features/v1_credits_authz_test.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/api/features/v1_credits_authz_test.py",
+      "gitBlobSha": "dff6f5ea07a952aa393fe7ec352e5cbb22d6df1d",
+      "sha256": "c997f71da8da42320eb0f6b2072cff7a05343564056930a55a67c91afc164bf8",
+      "byteSize": 30802,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-FRONTEND-TESTING",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/frontend/TESTING.md",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/frontend/TESTING.md",
+      "gitBlobSha": "06e9eaab82e32e0957b9fb768342358957d05437",
+      "sha256": "46591c519e8901a41aab1df015b4c02773287c782c6d6032732cfd9deaa7bf82",
+      "byteSize": 8126,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-LOAD",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/load-tests/README.md",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/load-tests/README.md",
+      "gitBlobSha": "cd68efc21627a36aa2609d2d7e3a8bb64e4c1920",
+      "sha256": "20711ee7ec03348d5f2b7affa175fa33c1cd616adf7c9f750e2fe3a81d06ac6b",
+      "byteSize": 60019,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-BLOCKS",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/blocks/__init__.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/blocks/__init__.py",
+      "gitBlobSha": "fd32e5848afe6a175683df86d7b57eba6205db85",
+      "sha256": "a79ce5041f19890572747791a598fc743e7da1cfcca723f6dfccb782cf98b191",
+      "byteSize": 5682,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-BLOCK-BASE",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/blocks/_base.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/blocks/_base.py",
+      "gitBlobSha": "347908cf0c8ae7faa021abe7b0b281a20c63b39c",
+      "sha256": "739a02168074709d8d9238c43f0ace71793ee5338bc1e01ce0d92953cba9f794",
+      "byteSize": 44875,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-BLOCK-TESTS",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/blocks/test/test_block.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/blocks/test/test_block.py",
+      "gitBlobSha": "3ecb4dc34eb69f64da4ff17c98f5b651a975573b",
+      "sha256": "1e292d464d646b2b6e688f4e4882127cc3c833bf53dbc452eb2feb8ab18e1b48",
+      "byteSize": 18798,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-SDK",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/sdk/builder.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/sdk/builder.py",
+      "gitBlobSha": "808d6ae28065502fa84b1d6650763c55c2e0bfe3",
+      "sha256": "76dcb9f092e3545d99780ee102bf875ae7f56948cc06e033e6af1ad3079c0b00",
+      "byteSize": 8665,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-REGISTRY",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/sdk/registry.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/sdk/registry.py",
+      "gitBlobSha": "e724969a4095bd9246d276bf2447aae2501be7ad",
+      "sha256": "16efcbc1dca2cd9530ae059f3b2b4ea3e2ef60363186657c5facc705f9464012",
+      "byteSize": 9099,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-MCP",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/blocks/mcp/client.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/blocks/mcp/client.py",
+      "gitBlobSha": "bb756c5230669abb148cfafb1fb6617b8c197870",
+      "sha256": "dccd25e1854739ca38bdd1f27f5ef4359b9f359d1b5978cb8338365d76de91d5",
+      "byteSize": 38176,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-SKILLS",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/copilot/tools/skills.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/copilot/tools/skills.py",
+      "gitBlobSha": "3d9be7a7ec340fdea17d4bd21cfdb8810ecfcf78",
+      "sha256": "af899798a22e6a764fe24aeec9729452a1eaac78c20b65bd3ba043fe3d8aba1a",
+      "byteSize": 161229,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-SKILL-PACKAGE",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/data/skill_package.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/data/skill_package.py",
+      "gitBlobSha": "6496a1aaa99d1e9bd61e125cb5ca224ec05e8d23",
+      "sha256": "b91e72cbe1ffc65caf691aaeb549ec683cb41704b3c49d033226a0149af215a4",
+      "byteSize": 10463,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-CAPABILITIES",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/copilot/capabilities/index.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/copilot/capabilities/index.py",
+      "gitBlobSha": "aa83fb1cd5deec1b4ca4690ca194e2f750220088",
+      "sha256": "babe92df33dc243d7d9be0c151678743f534cd442fd6519eef96a7ebd9d3878a",
+      "byteSize": 21826,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-EFFECTS",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/copilot/gate/effects.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/copilot/gate/effects.py",
+      "gitBlobSha": "a4f792e3f4bd82c14760ec4bfe5451d15473eb3a",
+      "sha256": "0a71d6ff80fe7d2b59dfcecf0e16e345ec876307aeab3d83fb01718c466223b5",
+      "byteSize": 6412,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-PYPROJECT",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/pyproject.toml",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/pyproject.toml",
+      "gitBlobSha": "d7730f8c7037db6d58c2b7d1451b40cc07ba1ba8",
+      "sha256": "5733f275ee9998949b6b68949227b3d0151145d6e9730f92857fc8dc7d1ccda4",
+      "byteSize": 8020,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-LOCKFILE",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/poetry.lock",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/poetry.lock",
+      "gitBlobSha": "bf7d65ae7ef1d67226ffa07c7ea64fd92cd4e724",
+      "sha256": "1fea9d4b1f02a5ca03a6fb4d8b44b853753e5d25684979a588a2680a001979c9",
+      "byteSize": 764529,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-DOCKER",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/Dockerfile",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/Dockerfile",
+      "gitBlobSha": "9e27f4d9b27dbcf39185239b4e90d989a9f90a4e",
+      "sha256": "edc7b7f80cf88cbe88731dd4138dda340bef4aa7cd4ccbd92fd31d0ed07de809",
+      "byteSize": 9129,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-APPLIANCE",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/docs/platform/single-container.md",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "docs/platform/single-container.md",
+      "gitBlobSha": "1ba30dee36df4d86f4ff4ce4e17c5ee24d8cc8ec",
+      "sha256": "6e2793d4067e06b4cc38ef6a900406bd49cfe6b934e12fa23f995327af63d941",
+      "byteSize": 53572,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-LOCAL",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/docs/platform/copilot-local-llm.md",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "docs/platform/copilot-local-llm.md",
+      "gitBlobSha": "fc690d8cb7b18777ad914c5c7725600fe61e7384",
+      "sha256": "b787e9873953fd11445a22c32d916312e97c20735b86772c2a2d637784a195c0",
+      "byteSize": 20562,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-GC",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/util/process.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/util/process.py",
+      "gitBlobSha": "63e17748eb7016a479beba0ba814acca963c5844",
+      "sha256": "4eb001d39be79148058153628002e4b046ef1d3f9380f393d911da5c8833264a",
+      "byteSize": 7852,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-GRAPHITI",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/copilot/graphiti/client.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/copilot/graphiti/client.py",
+      "gitBlobSha": "02488f533409c18e22cdcc86dcd761f290c5fb8a",
+      "sha256": "aebeb7172fe76c1762197622fce16980f65bc032359b408f468c9abe1502e800",
+      "byteSize": 16968,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-MEM0",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/blocks/mem0.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/blocks/mem0.py",
+      "gitBlobSha": "b415b79e04f7ad17e90178f13a17757c3ccd5ed3",
+      "sha256": "14a95c1717781fefdec2ead7f6b20c00c96310cf0f7947ad40a65b0e8cf44ab6",
+      "byteSize": 17697,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-CLAUDE",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/copilot/sdk/service.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/copilot/sdk/service.py",
+      "gitBlobSha": "8c057291e9c642d011c2bc99c658a414d73d7392",
+      "sha256": "d335e25ebdf2df0534b63e99ae5ec5a154cf1093e2cd0d87ee5fb31cd05fb7a2",
+      "byteSize": 327132,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-CLAUDE-PRIVATE",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/copilot/sdk/cli_prelaunch.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/copilot/sdk/cli_prelaunch.py",
+      "gitBlobSha": "e9a5ef83423da5a22c3301b5349bcd169349bb31",
+      "sha256": "192472f7b6d34114e1caab51286d0698fd09c30660755b659433a220bd1aca0c",
+      "byteSize": 4164,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-E2B",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/blocks/code_executor.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/blocks/code_executor.py",
+      "gitBlobSha": "b7c68c27c1976ccc6a86dd461f41f9856e0ca0f8",
+      "sha256": "ca240b4b035b445227f5c02d02ae5aa1019d7ccd7b0434a2d8dfe7fcfd3df63a",
+      "byteSize": 28421,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-STAGEHAND",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/blocks/stagehand/blocks.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/blocks/stagehand/blocks.py",
+      "gitBlobSha": "5d0f31a6bc418f65a09573116ddb5d6822a2fa0d",
+      "sha256": "3ee8959fd78634f839ef9072ffd6fed8d805407ad7f1eda07edbd3f2f29baa30",
+      "byteSize": 12962,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-LANGFUSE",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/util/langfuse_prompts.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/util/langfuse_prompts.py",
+      "gitBlobSha": "8e53574222e969db810e17cdd68677e7ba685365",
+      "sha256": "210ca539df7372da9e333293c09f269aa370e2a5488c813711cc531668e90dd5",
+      "byteSize": 1587,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-FIRECRAWL",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/blocks/firecrawl/search.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/blocks/firecrawl/search.py",
+      "gitBlobSha": "052547dd32594bb8dbac46c748c0271bca44a19e",
+      "sha256": "307bf97cc1a01d5ff6972e8fd337d2cc1aa23fc4e49f14e3f928c384b5872849",
+      "byteSize": 3243,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-EXA",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/blocks/exa/websets_polling.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/blocks/exa/websets_polling.py",
+      "gitBlobSha": "e8bb7568ace4b2e0f584a0da028c0635e5e5dd19",
+      "sha256": "6acaa6b4a654d4478a0fe7e91035e2204b1f3fa662071f005f84c1f7d138fec6",
+      "byteSize": 19755,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-TAVILY",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/blocks/tavily/search.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/blocks/tavily/search.py",
+      "gitBlobSha": "cda2cfaeb725bbd535a90c55b4fb1155e206f9e5",
+      "sha256": "e6caf1846ca54389c3dff534cdbb116ad85d6c310eb0d7d1ce5c419688a3fc05",
+      "byteSize": 7111,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-SPREADSHEET",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/blocks/spreadsheet.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/blocks/spreadsheet.py",
+      "gitBlobSha": "f1fca63ec44d059bd77c85369719d2069c4b6374",
+      "sha256": "0ce6ac0c2f4e9f06c2f1cf429f4259fc8715903b4fcfd9841638f808bab9fbd4",
+      "byteSize": 8472,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-FILE-PARSER",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/util/file_content_parser.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/util/file_content_parser.py",
+      "gitBlobSha": "1f836c8e6c40334774fbe132883f5a9745257f47",
+      "sha256": "1e7dd03a60995fd7ed1b38a8058ed0433de5fc42f751db4c3848672bd6a04878",
+      "byteSize": 15754,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-PDF",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/api/features/workspace/preview_render.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/api/features/workspace/preview_render.py",
+      "gitBlobSha": "3528a760ce0b0df5990a4d05fb9947752644dcd5",
+      "sha256": "c3da16c849a41a86a4adfd5972355840131b041ebd3a5e5fe738b087a5eada88",
+      "byteSize": 13224,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-VIDEO",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/blocks/video/concat.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/blocks/video/concat.py",
+      "gitBlobSha": "9bd65747bb2d6ed3a103515ad69095ec14ccac44",
+      "sha256": "ce25637add6439953f3920288cd65535a685331d4c3d0a5cea499858db515721",
+      "byteSize": 8147,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-XML",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/blocks/xml_parser.py",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "autogpt_platform/backend/backend/blocks/xml_parser.py",
+      "gitBlobSha": "6a42893f4125f93945ee6adca93f963c7f99c3a1",
+      "sha256": "6b72270b9aaca537cd24626abf26731120f35ab69502c4fbf65f122280323a5d",
+      "byteSize": 10666,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "A-LICENSE",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/README.md#license",
+      "repository": "Significant-Gravitas/AutoGPT",
+      "commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+      "path": "README.md",
+      "gitBlobSha": "951eda9dfd4c43e0cab092796e67acd9ad0daf34",
+      "sha256": "78d56ddcb2117f80ee43e26ee2dc44fe22a20c657a6a0bd102f7450978605465",
+      "byteSize": 9554,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "R-PLAN",
+      "url": "https://github.com/agent-teams-ai/agent-runtime/blob/ab0387c02fe75ed0c9bb456caaad9a6d2723795b/docs/architecture/agent-runtime-architecture-program-plan.md",
+      "repository": "agent-teams-ai/agent-runtime",
+      "commit": "ab0387c02fe75ed0c9bb456caaad9a6d2723795b",
+      "path": "docs/architecture/agent-runtime-architecture-program-plan.md",
+      "gitBlobSha": "a36146b106fefdec4c76a145df06382135138518",
+      "sha256": "b554741015e3e53b52cb846d9c4b15b14c29cb37dfcb15c5fe247f95a545e9e8",
+      "byteSize": 85350,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "R-S2",
+      "url": "https://github.com/agent-teams-ai/agent-runtime/blob/ab0387c02fe75ed0c9bb456caaad9a6d2723795b/docs/architecture/agent-runtime-architecture-program-s2-operations-storage.md",
+      "repository": "agent-teams-ai/agent-runtime",
+      "commit": "ab0387c02fe75ed0c9bb456caaad9a6d2723795b",
+      "path": "docs/architecture/agent-runtime-architecture-program-s2-operations-storage.md",
+      "gitBlobSha": "ec95095a4a35bd50d1b3b366d276298dcb6759e5",
+      "sha256": "edd86b2152453f610deb8902f4b08ef1d1cbf125d1839f1c39f983c02731ff83",
+      "byteSize": 58154,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "R-CAPACITY",
+      "url": "https://github.com/agent-teams-ai/agent-runtime/blob/ab0387c02fe75ed0c9bb456caaad9a6d2723795b/docs/architecture/capacity-admission-delivery-plan.md",
+      "repository": "agent-teams-ai/agent-runtime",
+      "commit": "ab0387c02fe75ed0c9bb456caaad9a6d2723795b",
+      "path": "docs/architecture/capacity-admission-delivery-plan.md",
+      "gitBlobSha": "b2a52f0aff8c73aeb6effd7a8e4009d3913301c7",
+      "sha256": "e889166b22cdaa1fcf7393b04b470fff27fa33af64ccff9f13ffa0aa1769b474",
+      "byteSize": 18686,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "O-DEPENDENCIES",
+      "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/5a8496ce711909e381c5bc817fff5500be9a1761/docs/architecture/dependency-rules.md",
+      "repository": "agent-teams-ai/agent-teams-orchestrator",
+      "commit": "5a8496ce711909e381c5bc817fff5500be9a1761",
+      "path": "docs/architecture/dependency-rules.md",
+      "gitBlobSha": "55468b45c6c93dea71e14a2b2d40d1bd700b0e59",
+      "sha256": "fbb7d2819b743208c8c8023adb95ed9fc4b4ca67847300cb4668a1c2f8bb656d",
+      "byteSize": 20466,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "O-BACKEND",
+      "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/5a8496ce711909e381c5bc817fff5500be9a1761/docs/decisions/0114-canonical-backend-stack-and-distributed-role-adoption.md",
+      "repository": "agent-teams-ai/agent-teams-orchestrator",
+      "commit": "5a8496ce711909e381c5bc817fff5500be9a1761",
+      "path": "docs/decisions/0114-canonical-backend-stack-and-distributed-role-adoption.md",
+      "gitBlobSha": "9bcf28fd5415264099545a436b47e817e3738357",
+      "sha256": "810d93cc4e531064c8c2397069d7356d0ff71e61433cde2355db6bdb1e4582fb",
+      "byteSize": 30484,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "O-LOCAL",
+      "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/5a8496ce711909e381c5bc817fff5500be9a1761/docs/decisions/0115-canonical-fully-local-v1-adoption.md",
+      "repository": "agent-teams-ai/agent-teams-orchestrator",
+      "commit": "5a8496ce711909e381c5bc817fff5500be9a1761",
+      "path": "docs/decisions/0115-canonical-fully-local-v1-adoption.md",
+      "gitBlobSha": "d5b8daac94bf4b165c834a9d7d92aa3504a214db",
+      "sha256": "5d59e63db6dea5ff6a60d04cd0c9b634abb371f25d57f88f0df87130b0cc8805",
+      "byteSize": 12149,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "O-WORKFLOW-OPEN",
+      "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/5a8496ce711909e381c5bc817fff5500be9a1761/docs/open-decisions/OD-035-local-durable-workflow-engine.md",
+      "repository": "agent-teams-ai/agent-teams-orchestrator",
+      "commit": "5a8496ce711909e381c5bc817fff5500be9a1761",
+      "path": "docs/open-decisions/OD-035-local-durable-workflow-engine.md",
+      "gitBlobSha": "6f27cbba0b09241d101bda51e7df6c745347a344",
+      "sha256": "7fd234183e4939737222ed03715163cc1c1428aef31913edbf099c2dccf2dd19",
+      "byteSize": 10471,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "O-EXT-OPEN",
+      "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/5a8496ce711909e381c5bc817fff5500be9a1761/docs/open-decisions/OD-043-extension-lifecycle-catalog-and-hot-update.md",
+      "repository": "agent-teams-ai/agent-teams-orchestrator",
+      "commit": "5a8496ce711909e381c5bc817fff5500be9a1761",
+      "path": "docs/open-decisions/OD-043-extension-lifecycle-catalog-and-hot-update.md",
+      "gitBlobSha": "63487d3773663c4633e5b2773542e0c5c5c2d3c4",
+      "sha256": "32a0893d36049c01f685183a50dae970f758de9e78f650e7615c9029f0ab15b1",
+      "byteSize": 2044,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "O-PROFILES",
+      "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/5a8496ce711909e381c5bc817fff5500be9a1761/docs/architecture/deployment-profiles.md",
+      "repository": "agent-teams-ai/agent-teams-orchestrator",
+      "commit": "5a8496ce711909e381c5bc817fff5500be9a1761",
+      "path": "docs/architecture/deployment-profiles.md",
+      "gitBlobSha": "4b974e441c6454141b14a2b64727e4429765928b",
+      "sha256": "ecb58b10583f4815298435be3664a410c6237cb1c705092d10817422326221ed",
+      "byteSize": 37493,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "O-TESTING",
+      "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/5a8496ce711909e381c5bc817fff5500be9a1761/docs/architecture/testing-strategy.md",
+      "repository": "agent-teams-ai/agent-teams-orchestrator",
+      "commit": "5a8496ce711909e381c5bc817fff5500be9a1761",
+      "path": "docs/architecture/testing-strategy.md",
+      "gitBlobSha": "6b520abf3061b82f207c8d3af4cd925121bddcf7",
+      "sha256": "d4449bc3f539f1d3a9287d13876a7d02400b4050e85c24488ffaaf7d44b81bf7",
+      "byteSize": 39207,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "O-EXT-SAFETY",
+      "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/5a8496ce711909e381c5bc817fff5500be9a1761/docs/decisions/0095-extension-safety-and-ownership-invariants.md",
+      "repository": "agent-teams-ai/agent-teams-orchestrator",
+      "commit": "5a8496ce711909e381c5bc817fff5500be9a1761",
+      "path": "docs/decisions/0095-extension-safety-and-ownership-invariants.md",
+      "gitBlobSha": "70f6ff66d820705c432b49ed5689d8cb57f43551",
+      "sha256": "0a92e34bb406e234819ad1a39f64b370969dfa4f8a92128d45b6a15aa13fda12",
+      "byteSize": 4631,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "O-EXT-DISTRIBUTION",
+      "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/5a8496ce711909e381c5bc817fff5500be9a1761/docs/decisions/0096-shared-extension-foundation-and-oci-distribution.md",
+      "repository": "agent-teams-ai/agent-teams-orchestrator",
+      "commit": "5a8496ce711909e381c5bc817fff5500be9a1761",
+      "path": "docs/decisions/0096-shared-extension-foundation-and-oci-distribution.md",
+      "gitBlobSha": "f1f7d5f4e44f60d8363c9d6dc20c67508c7a284e",
+      "sha256": "113c7a824d6abb871e9fd40778cbfdbac52007ed6de570e070d87873f8e0f56d",
+      "byteSize": 4356,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "P-CONTEXT",
+      "url": "https://github.com/agent-teams-ai/agent-teams-platform/blob/7f6eb3746c07dc01751c29a8dbc62e50b5f7ad6d/docs/domain/context-map.md",
+      "repository": "agent-teams-ai/agent-teams-platform",
+      "commit": "7f6eb3746c07dc01751c29a8dbc62e50b5f7ad6d",
+      "path": "docs/domain/context-map.md",
+      "gitBlobSha": "d6fe705c6fa9fade37bec8ed5b823b9dca7cef99",
+      "sha256": "8b2da9e88593e738f54fc69ff65b3ebcba9f9b701cf6f29e4b23b91c9756929b",
+      "byteSize": 12168,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "P-BOUNDARY",
+      "url": "https://github.com/agent-teams-ai/agent-teams-platform/blob/7f6eb3746c07dc01751c29a8dbc62e50b5f7ad6d/docs/architecture/platform-orchestrator-boundary.md",
+      "repository": "agent-teams-ai/agent-teams-platform",
+      "commit": "7f6eb3746c07dc01751c29a8dbc62e50b5f7ad6d",
+      "path": "docs/architecture/platform-orchestrator-boundary.md",
+      "gitBlobSha": "04f38927fcbf7b4a968a1af3f680099966b9c7d3",
+      "sha256": "4562accb0f23502348e2d9ace69a1eaa1ff7fc446aaf75d94ec1d5f64890e325",
+      "byteSize": 24156,
+      "evidenceClass": "source-inspected"
+    },
+    {
+      "id": "W-RABBIT",
+      "url": "https://www.rabbitmq.com/docs/confirms#delivery-identifiers-delivery-tags",
+      "accessedOn": "2026-11-06",
+      "evidenceClass": "official-documentation",
+      "rolling": true
+    },
+    {
+      "id": "W-ASYNCIO",
+      "url": "https://docs.python.org/3.13/library/asyncio.html",
+      "accessedOn": "2026-11-06",
+      "evidenceClass": "official-documentation",
+      "rolling": false
+    },
+    {
+      "id": "W-PYTHON-THREADS",
+      "url": "https://docs.python.org/3.13/c-api/init.html#thread-state-and-the-global-interpreter-lock",
+      "accessedOn": "2026-11-06",
+      "evidenceClass": "official-documentation",
+      "rolling": false
+    },
+    {
+      "id": "W-FREE-THREADING",
+      "url": "https://docs.python.org/3.13/howto/free-threading-python.html",
+      "accessedOn": "2026-11-06",
+      "evidenceClass": "official-documentation",
+      "rolling": false
+    },
+    {
+      "id": "W-NODE",
+      "url": "https://nodejs.org/api/worker_threads.html",
+      "accessedOn": "2026-11-06",
+      "evidenceClass": "official-documentation",
+      "rolling": true
+    },
+    {
+      "id": "W-NODE-LOOP",
+      "url": "https://nodejs.org/learn/asynchronous-work/dont-block-the-event-loop",
+      "accessedOn": "2026-11-06",
+      "evidenceClass": "official-documentation",
+      "rolling": true
+    },
+    {
+      "id": "W-NUMPY",
+      "url": "https://numpy.org/doc/stable/reference/thread_safety.html",
+      "accessedOn": "2026-11-06",
+      "evidenceClass": "official-documentation",
+      "rolling": true
+    },
+    {
+      "id": "W-PYDANTIC",
+      "url": "https://docs.pydantic.dev/latest/why/",
+      "accessedOn": "2026-11-06",
+      "evidenceClass": "official-documentation",
+      "rolling": true
+    },
+    {
+      "id": "W-GRAPHITI",
+      "url": "https://github.com/getzep/graphiti",
+      "accessedOn": "2026-11-06",
+      "evidenceClass": "official-documentation",
+      "rolling": true
+    },
+    {
+      "id": "W-MEM0",
+      "url": "https://docs.mem0.ai/open-source/configuration",
+      "accessedOn": "2026-11-06",
+      "evidenceClass": "official-documentation",
+      "rolling": true
+    },
+    {
+      "id": "W-CLAUDE",
+      "url": "https://code.claude.com/docs/en/agent-sdk/overview",
+      "accessedOn": "2026-11-06",
+      "evidenceClass": "official-documentation",
+      "rolling": true
+    },
+    {
+      "id": "W-E2B",
+      "url": "https://docs.e2b.dev/",
+      "accessedOn": "2026-11-06",
+      "evidenceClass": "official-documentation",
+      "rolling": true
+    },
+    {
+      "id": "W-STAGEHAND",
+      "url": "https://docs.stagehand.dev/v4/first-steps/introduction",
+      "accessedOn": "2026-11-06",
+      "evidenceClass": "official-documentation",
+      "rolling": true
+    },
+    {
+      "id": "W-LANGFUSE",
+      "url": "https://langfuse.com/docs/observability/sdk/overview",
+      "accessedOn": "2026-11-06",
+      "evidenceClass": "official-documentation",
+      "rolling": true
+    },
+    {
+      "id": "W-FIRECRAWL",
+      "url": "https://docs.firecrawl.dev/sdks/node",
+      "accessedOn": "2026-11-06",
+      "evidenceClass": "official-documentation",
+      "rolling": true
+    },
+    {
+      "id": "W-EXA",
+      "url": "https://docs.exa.ai/sdks/typescript-sdk-specification",
+      "accessedOn": "2026-11-06",
+      "evidenceClass": "official-documentation",
+      "rolling": true
+    },
+    {
+      "id": "W-TAVILY",
+      "url": "https://docs.tavily.com/sdk/javascript/quick-start",
+      "accessedOn": "2026-11-06",
+      "evidenceClass": "official-documentation",
+      "rolling": true
+    }
+  ]
+}
