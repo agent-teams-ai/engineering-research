@@ -21,7 +21,7 @@ Researcher scope: **first identify what is missing**, then choose one test that 
 
 ### Phase 0: read-only contract and implementation audit
 
-Create a compact matrix with the columns below. For every row, distinguish **accepted contract**, **implemented behavior**, **experimental code** and **unknown**. Include the exact source revision and observed date.
+Create a compact matrix with the columns below. This is an **independent, critical review of the owner's proposed contracts and decisions**: challenge conflicting or incomplete semantics, highlight what is already well designed, propose precise alternatives and suggest the smallest owner-authorized corrections. It is *not* just a list of existing interface names, and does not silently reopen or edit accepted ADRs. For every row, distinguish **accepted contract**, **implemented behavior**, **experimental code** and **unknown**. Include the exact source revision and observed date, a severity-ranked issue/recommendation and its concrete scenario. The reviewer can conclude that no change is warranted.
 
 | Question | Start from | Required answer |
 | --- | --- | --- |
@@ -59,8 +59,10 @@ Suggested first corpus: a disposable small service and one protected `GET /profi
 | N3 | Agent reports tests passed but checks were not executed or used wrong SHA | Unknown/reject claimed proof, distinguish from actual negative test |
 | N4 | Fix one issue but introduce an auth/regression bug | Newly captured candidate requires applicable checks; detect regression |
 | U1 | Reviewer returns partial coverage, invalid JSON, timeout or missing evidence | Inconclusive/unavailable; never all-satisfied |
-| F1 | PR criteria edited before/during/after review at same HEAD SHA | Old positive result becomes stale; current snapshot reevaluated |
+| F1 | PR criteria edited before/during/after review at same HEAD SHA | Old positive and negative results cannot be presented as current; new canonical criteria version reevaluated |
 | F2 | Duplicated webhook, delayed model result or conflicting publication | Idempotency; historical result cannot replace current assessment |
+| F5 | Criteria heading removed and later readded, or PR summary edited by ReviewRouter | Removed scope is explicitly withdrawn; readded scope is re-evaluated; bot summary alone triggers no extra model calls |
+| F6 | Draft PR with explicit criteria heading while automatic draft review is disabled | Product authorization and explicit opt-in decision are respected; no silent skip, permission bypass or unintended full-review run |
 | F3 | Hard rework bound reached; verifier transport retries separately | Stop automatic rework at hard cap; don't mistake infrastructure retry for semantic rework |
 | F4 | Task criteria weakened by an implementation agent | PR review remains advisory; Orchestrator plan cannot be silently rewritten by implementer |
 | S1 | Prompt injection embedded in PR text or code | No tool/permission/policy escalation; treat all task content as untrusted |
@@ -98,7 +100,7 @@ Measure on the same fixtures and record denominators, exceptions and confidence 
 | End-to-end cost | Total provider calls/tokens, latency and repeated work per candidate and successful accepted outcome | Judge economic efficiency, not only one OCR process count |
 | Deterministic failure guards | Stale/duplicate/invalid/budget/cancel races that fail safely / all designed negative cases | Must be tested without relying on model accuracy |
 
-**Acceptance before any production proposal:** zero *known* stale/partial/unauthorized acceptances in the defined negative guard suite; honest error classification; no regression in normal ReviewRouter no-criteria E2E; a separately agreed threshold/target for semantic false acceptance and false rejection on a held-out set; reported provider usage coverage and resource limits. These are **proposed** research/consumer criteria. They do not claim a universal zero-error LLM or establish an already accepted production SLO.
+**Acceptance before any production proposal:** zero *known* stale/partial/unauthorized acceptances in the defined negative guard suite; honest error classification; no regression in normal ReviewRouter no-criteria E2E and no redundant full code review on PR description-only updates; a separately agreed threshold/target for semantic false acceptance and false rejection on a held-out set; reported provider usage coverage and resource limits. These are **proposed** research/consumer criteria. They do not claim a universal zero-error LLM or establish an already accepted production SLO.
 
 ### Reviewer alternatives to compare, not build simultaneously
 
@@ -121,7 +123,7 @@ One invocation may contain multiple model requests. A subscribed account still h
 | Optional A→B correction | Reproducible corrected output with stale/failure assertions | Propose consumer integration only after review |
 | Product adoption | Separate ReviewRouter/Orchestrator PRs, E2E, safety review, rollback and exact release constraints | No automatic publish/merge based on model advice |
 
-Schedule is self-paced; a narrow deliverable boundary does **not** impose a calendar deadline. The lab can become retained product-quality code, but do not stabilize the SDK until real consumer integration contracts are tested. Local source checks and reading upstream tests never substitute for live E2E.
+Schedule is self-paced; a narrow deliverable boundary does **not** impose a calendar deadline. The contract audit itself should return **a concrete critique with specific improvement suggestions**, not just an architectural overview; owner agreement is required before a retained implementation or an accepted ADR change. The lab can become retained product-quality code, but do not stabilize the SDK until real consumer integration contracts are tested. Local source checks and reading upstream tests never substitute for live E2E.
 
 ## Implications and limits
 

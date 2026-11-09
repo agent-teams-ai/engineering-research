@@ -29,7 +29,7 @@ Example (actual authored PR Markdown, not a new app configuration language):
 - [ ] AC-3: Integration tests and the API contract cover the new behavior.
 ```
 
-- The heading is an **explicit per-PR opt-in**. Ordinary generic `## Acceptance Criteria` and natural-language mentions are not triggers.
+- The heading is an **explicit per-PR opt-in**. Ordinary generic `## Acceptance Criteria` and natural-language mentions are not triggers. No additional Dashboard mode switch is required. For draft PRs, distinguish the workspace's existing automatic-draft-review preference from an author's explicit criteria opt-in; qualify the current admission/permission behavior before allowing this to trigger a new job. An opt-in never overrides missing repository authorization or the security boundary.
 - Parse Markdown structurally: ignore fenced code, quoted demonstration text and the generated ReviewRouter summary block. A duplicated exact heading, empty/invalid section or unsupported structure produces a visible *invalid criteria* outcome rather than a silent clean review. Keep a bounded criterion count and input size; choose numbers after reviewing current transport budgets.
 - Treat each checkbox label/text as a requested criterion. The author's `[x]` is **not** a verified pass. Explicit IDs such as `AC-1` aid stable feedback; the first parser should decide whether to require them before establishing a public accepted format. Prefer stable IDs for corrected/reordered criteria instead of ambiguous ordinal-only identity.
 - Render per-criterion **satisfied / violated / inconclusive**, evidence references and a coverage summary; distinguish missing implementation from unavailable verification. A gap outside the changed diff belongs in the criterion report, not a fabricated GitHub inline location.
@@ -55,16 +55,16 @@ Additional artifact/check provenance binds actual evidence, tool version and mod
 | GitHub/input event | Intended behavior |
 | --- | --- |
 | Opened/reopened PR or changed head | Evaluate current head and current authored criteria; no section means ordinary review only |
-| `pull_request.edited` changing authored criteria with same head | Create/reconcile verification for the new criteria identity; prior result is historical/stale |
+| `pull_request.edited` changing authored criteria with same head | Create/reconcile **only the criteria verification** for the new identity when ordinary code evidence is still applicable; do not needlessly rerun the default full code review just because PR prose changed |
 | Body edit while a run is in progress | Re-read criteria and head **before any positive publication**; stale run cannot publish as current; schedule/reconcile newest identity |
 | Body edit after an apparently successful run | Revalidate; new digest must require fresh evidence even if the Git SHA is unchanged |
 | Duplicate webhook and multiple concurrent runs | Deduplicate by logical verification identity and command key; old result cannot replace newer projection |
 | Invalid/ambiguous criteria section | Publish clear input/error/unknown state; never turn it into no findings = pass |
-| Section removed | No *new* optional verification invocation; mark previous criteria assessment obsolete and avoid showing it as current |
+| Section removed, including during a running check | Reconcile removal explicitly: supersede/withdraw the old optional assessment and prevent any in-flight old review from presenting a current positive result. No new criteria review; do not treat removed requirements as approved or silently retain an active result |
 | External runner or GitHub API temporarily unavailable | Preserve unavailable/inconclusive; do not mark criteria satisfied |
 | Reviewer partial coverage | Preserve observations and missing checks, no positive overall criterion recommendation for unverified mandatory gates |
 
-Support the actual `edited` webhook and correct event-type configuration. A scheduled or manual fallback can reconcile missed webhook delivery later **if needed**, but webhook delivery alone cannot protect the final merge transaction.
+Support the actual `edited` webhook and correct event-type configuration, **including the removal case**, and establish the current bot/authored-body distinction on every read. A bot-generated summary-only edit should not change the canonical authored criteria or cause another model invocation. Ensure self-triggered webhook events do not create a publication/review loop. A scheduled or manual fallback can reconcile missed webhook delivery later **if needed**, but webhook delivery alone cannot protect the final merge transaction.
 
 **Important GitHub limitation:** check conclusions are associated with a commit SHA. Editing a PR body does **not** create a new commit; an older successful required check may remain visible for that SHA. Triggering `edited`, updating a comment and publishing a newer check are useful, but insufficient by themselves to guarantee that nobody merges between edit and reevaluation. Therefore the initial feature is **advisory and nonrequired**. Future mandatory merge gating requires separate owner-approved enforcement/merge-time latest-criteria authorization, not a misleading claim that a webhook eliminates the race. Disabling by deleting the criteria heading must not bypass a future repo policy requiring verification.
 
@@ -89,7 +89,7 @@ At first, publication can be a nonblocking summary/check from the **isolated tes
 
 1. No acceptance heading: exact existing review flow, output, cost profile and publication behavior (compare baseline E2E).
 2. Valid acceptance heading: additional explicit advisory result; no extra manual toggle or Markdown file.
-3. Every criteria edit (including during an in-flight review) triggers new identity/freshness handling; no stale positive claim.
+3. Every criteria edit, removal or readdition (including during an in-flight review) triggers new identity/freshness handling; no stale current claim. Bot summary-only edits do not rerun models.
 4. Missing criteria/partial execution/unknown model result cannot be reported as all criteria satisfied.
 5. The author-owned section survives ReviewRouter summary updates and does not inherit their generated text.
 6. Criterion gaps outside the diff remain reportable even without an inline review annotation.

@@ -17,6 +17,8 @@ reviewed_at: 2026-11-10
 
 **First real consumer:** ReviewRouter's optional pull-request acceptance-criteria check, using the existing managed Open Code Review (OCR) capabilities. **Second intended consumer:** Agent Teams Orchestrator through its existing CompletionEvaluation boundary. The first consumer validates the contract; a reusable kernel must not import a ReviewRouter business model simply because it is tested there.
 
+For readers new to it, **ReviewRouter** is an existing AI pull-request review product: its managed OpenCodeReview runner discovers code defects, records structured findings, pins the reviewed revision, and distinguishes complete from partial or failed runs. It already has model execution, a configured subscription-compatible Account Gateway and CI/GitHub review plumbing. This is a pragmatic first **test environment**, not a new reviewer service to implement. The actual savings and requirement-coverage quality remain hypotheses to measure; subscription access still has allowed-use rules and limits.
+
 This vision complements the [source and competitor audit from 2026-11-09](evidence-based-feedback-and-rework-2026-11-09.md), the [PR experience and freshness proposal](reviewrouter-task-verification-ux-2026-11-10.md), and the [qualification and delivery plan](task-verification-evaluation-plan-2026-11-10.md). Those documents intentionally separate conclusions from unexecuted experiments.
 
 ## Evidence and counterevidence
@@ -89,6 +91,8 @@ Suggested layout: `packages/task-verification/src/features/verification/{domain,
 ## Implications and limits
 
 **Sequence:** (1) read-only audit of accepted and implemented contracts; (2) minimal product-neutral contract; (3) disposable real ReviewRouter consumer; (4) measured requirement coverage and false-accept/false-reject outcomes; (5) bounded correction/reverification experiment; (6) explicit owner review before production integration or publishing a stable SDK. Do not require the researcher to implement the Orchestrator, the PRD generator, a new account pool or another review engine.
+
+The **read-only audit is a critical architecture review, not clerical contract inventory**. Evaluate whether proposed decisions, owner boundaries, acceptance semantics and published interfaces are coherent, complete and practical; provide alternative proposals and counterexamples where necessary. Distinguish accepted ADR authority, unaccepted drafts and actually implemented behavior. Suggest changes through the owning decision process rather than editing accepted records or treating discussion as approval.
 
 ReviewRouter already offers subscription-backed reviewer connections through its Account Gateway (with Sub2API infrastructure behind the existing product path). A qualified existing test connection can be reused through ordinary product permissions; no direct credential sharing, bespoke account infrastructure, or assumption of zero API/subscription cost is required. **The new kernel has no gateway dependency.** Any future gateway selection is a separate consumer-owner decision, not part of this research.
 
