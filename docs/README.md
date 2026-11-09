@@ -16,7 +16,7 @@ This map routes readers and agents by task. The repository separates shared sour
 | [Competitors](competitors/README.md) | [AutoGPT vs Agent Teams](competitors/autogpt-vs-agent-teams-architecture-and-python-ecosystem.md), [Paperclip](competitors/paperclip.md), [Agent Teams](competitors/agent-teams.md), the [30-criterion matrix](competitors/technical-comparison.md), and an unscored [watchlist](competitors/competitor-watchlist.md) |
 | [Methodology](methodology/README.md) | Criteria, evidence interpretation, comparable boards, freshness, migration, source identities, independent review |
 | [Lessons](lessons/README.md) | Existing pattern identities, source-specific failure lessons, concrete decisions inside current owner plans |
-| [Studies](studies/README.md) | Five dated Runtime studies, three reusable Orchestrator extracts, the pinned plugin-research index, historical comparison |
+| [Studies](studies/README.md) | Dated Runtime studies, [Task Verification vision](studies/task-verification-vision-2026-11-10.md), [ReviewRouter opt-in](studies/reviewrouter-task-verification-ux-2026-11-10.md), [verification qualification plan](studies/task-verification-evaluation-plan-2026-11-10.md), three Orchestrator extracts, plugin research and historical comparisons |
 
 ## Agent reading routes
 
