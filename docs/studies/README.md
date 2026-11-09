@@ -12,6 +12,7 @@ Imported studies retain original dates, versions and limitations. Historical pro
 
 ## Documents
 
+- [Evidence-Based Feedback and Rework 2026-11-09](evidence-based-feedback-and-rework-2026-11-09.md) — Dated source audit of reviewer reuse, evidence freshness, controlled rework and existing Orchestrator authority; future gateway choice remains open.
 - [Agent Runtime Industry Architecture Research](agent-runtime-industry-architecture-research.md) — Dated industry evidence migrated from Runtime with original source identities and limits.
 - [Agent Runtime Framework Research](agent-runtime-framework-research.md) — Dated agent-framework evidence migrated from Runtime with product applicability distinguished.
 - [Agent Runtime Library Research](agent-runtime-library-research.md) — Dated harness and library evidence migrated from Runtime without changing its adoption decisions.

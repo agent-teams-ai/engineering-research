@@ -10,6 +10,8 @@ summary: Source-audited execution strengths, scaling risks, counterevidence and 
 
 Research date: 2026-11-03. Status: research recommendations; no product decision, implementation activation, benchmark claim, or provider selection is created by this report.
 
+For the separate 2026-11-09 audit of review stages, required quality review and watchdog fingerprints, see [Evidence-Based Feedback and Rework](../studies/evidence-based-feedback-and-rework-2026-11-09.md). That newer, narrower observation does not refresh the snapshots or conclusions below.
+
 ## Scope and conclusion
 
 The most defensible conclusion is that Paperclip is a serious reference for execution correctness and a useful source of concrete scaling lessons. It is not evidence that a TypeScript control plane cannot support thousands of active agents. Its Rust runner, durable command identities, uncertain-outcome handling, cleanup fences, transactional notifications, private liveness pool, and bounded presentation delivery are strengths to retain. The identified limitations concern particular contention boundaries, historical read work, queue policy, deployment topology, and configuration lifecycle. Each requires its own remedy; “rewrite in Rust,” “add Kafka,” or “split into microservices” would not establish those remedies.
