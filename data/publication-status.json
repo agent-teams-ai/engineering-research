@@ -120,5 +120,53 @@
     },
     "researchPrsMerged": false,
     "recordScope": "Superseded by the verified in-place alias-aware adoption; not the current delivery state."
+  },
+  "currentGitHubDisposition": {
+    "observedOn": "2026-11-11",
+    "scope": "Live PR/ref disposition, not a rewrite of the dated 2026-11-04 publication snapshot or a qualification/admission record.",
+    "central": {
+      "pr": 1,
+      "state": "closed",
+      "merged": true,
+      "mergedAtUtc": "2026-11-05T20:33:28Z",
+      "mergeCommit": "86bbdd819a3ecc85730f3cf2f45a5842b86294f1",
+      "defaultBranch": "main",
+      "observedDefaultHead": "495986d9012aafd94bf9b2a22a57db90001e868b"
+    },
+    "productResearchDrafts": [
+      {
+        "repository": "agent-teams-ai/agent-runtime",
+        "pr": 248,
+        "state": "open",
+        "draft": true,
+        "merged": false,
+        "head": "4f5811c9d41dcf4201992be689385df6e73b492d"
+      },
+      {
+        "repository": "agent-teams-ai/agent-teams-orchestrator",
+        "pr": 94,
+        "state": "open",
+        "draft": true,
+        "merged": false,
+        "head": "310bf70db7814370ef93e17e59de2380f93a4c4c"
+      },
+      {
+        "repository": "agent-teams-ai/agent-teams-platform",
+        "pr": 59,
+        "state": "open",
+        "draft": true,
+        "merged": false,
+        "head": "ff664eae6d53b77977b0ef57eb3556b2ba606f82"
+      }
+    ],
+    "extensionFoundationResearch": {
+      "pr": 55,
+      "state": "open",
+      "merged": false,
+      "draft": true,
+      "observedHead": "7fd1e3392c732b64053edb11cfd32a7711dfdec8",
+      "priorEvidencePin": "70f03d3d9e134780f27268339a6729a7305a2363",
+      "note": "Current head is not an adopted owner decision; original pinned draft evidence remains historical."
+    }
   }
 }
