@@ -1,0 +1,7 @@
+{
+  "name": "task-verification-architecture-spikes",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "node run.ts" },
+  "engines": { "node": ">=24" }
+}

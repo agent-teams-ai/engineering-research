@@ -1,0 +1,94 @@
+{
+  "date": "2026-11-12",
+  "sources": [
+    {
+      "name": "ReviewRouter Action",
+      "revision": "7a079c382d8e98b426ee90a6b3764be2a21b4c49",
+      "url": "https://github.com/777genius/review-router/blob/7a079c382d8e98b426ee90a6b3764be2a21b4c49/src/review-orchestration/infrastructure/ocr-review-invocation-adapter.ts",
+      "evidence": "source + exact pure-function execution"
+    },
+    {
+      "name": "Orchestrator",
+      "revision": "a34587b313e656eeb43d755b4a4f08c40dff2116",
+      "url": "https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/a34587b313e656eeb43d755b4a4f08c40dff2116/docs/decisions/0072-atomic-work-completion-evaluation.md",
+      "evidence": "accepted ADR; not production qualification"
+    },
+    {
+      "name": "OpenCodeReview",
+      "revision": "6386895e7cfac419bd7a9cf4795e8b824a6e3ced",
+      "url": "https://github.com/alibaba/open-code-review/blob/6386895e7cfac419bd7a9cf4795e8b824a6e3ced/internal/model/review.go",
+      "evidence": "source inspection; no native runtime or model run"
+    },
+    {
+      "name": "Kodus",
+      "revision": "f74afbb486bc5434c1190aeb8433d59f6f7847d2",
+      "url": "https://github.com/kodustech/kodus-ai/blob/f74afbb486bc5434c1190aeb8433d59f6f7847d2/libs/agents/business-validation/check-policy.ts",
+      "evidence": "source + exact pure-policy execution"
+    },
+    {
+      "name": "PR-Agent",
+      "revision": "b226dc5633e8c6cf083384f4628fff5cfc0a91d2",
+      "url": "https://github.com/The-PR-Agent/pr-agent/blob/b226dc5633e8c6cf083384f4628fff5cfc0a91d2/pr_agent/algo/output_models.py",
+      "evidence": "source inspection"
+    },
+    {
+      "name": "Inspect AI",
+      "revision": "5a1654f60e8e96a7425574d395bcff73cf0aa40b",
+      "url": "https://inspect.aisi.org.uk/scoring-policy.html",
+      "evidence": "source/documentation inspection; not installed"
+    },
+    {
+      "name": "Harbor / Rewardkit",
+      "revision": "feea734de84bf2479b329dc6315a6d98d1596f4f",
+      "url": "https://docs.harborframework.com/rewardkit/quick-start",
+      "evidence": "source/documentation inspection; not installed"
+    },
+    {
+      "name": "SWE-bench",
+      "revision": "02e7a74ffd0b707aab73d203fe87bdc7c76afc8e",
+      "url": "https://github.com/SWE-bench/SWE-bench/blob/02e7a74ffd0b707aab73d203fe87bdc7c76afc8e/swebench/harness/grading.py",
+      "evidence": "source inspection; full harness not run"
+    },
+    {
+      "name": "CodeRabbit",
+      "revision": "documentation retrieved 2026-11-12",
+      "url": "https://docs.coderabbit.ai/pr-reviews/pre-merge-checks#github-check-runs",
+      "evidence": "official documentation; closed internals not audited"
+    },
+    {
+      "name": "Gerrit",
+      "revision": "documentation retrieved 2026-11-12",
+      "url": "https://gerrit-review.googlesource.com/Documentation/config-submit-requirements.html",
+      "evidence": "official documentation"
+    },
+    {
+      "name": "SLSA",
+      "revision": "v1.2",
+      "url": "https://slsa.dev/spec/v1.2/verifying-artifacts",
+      "evidence": "official specification"
+    },
+    {
+      "name": "GitHub checks",
+      "revision": "documentation retrieved 2026-11-12",
+      "url": "https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/troubleshooting-required-status-checks?plain=1",
+      "evidence": "official documentation"
+    }
+  ],
+  "upstreamProbes": {
+    "reviewRouter": {
+      "gitBlob": "68f70ee15fe902e96742570cae10585e153c5ab0",
+      "url": "https://github.com/777genius/review-router/blob/7a079c382d8e98b426ee90a6b3764be2a21b4c49/src/review-orchestration/infrastructure/ocr-review-invocation-adapter.ts"
+    },
+    "kodus": {
+      "gitBlob": "39b714cade08bf667a1451a42637048da73488be",
+      "url": "https://github.com/kodustech/kodus-ai/blob/f74afbb486bc5434c1190aeb8433d59f6f7847d2/libs/agents/business-validation/check-policy.ts"
+    }
+  },
+  "excludedCurrentComparison": [
+    {
+      "name": "Qodo custom compliance page",
+      "url": "https://docs.qodo.ai/v1/features/custom-compliance",
+      "reason": "redirects to v1 with sunset notice; not treated as v2 current contract"
+    }
+  ]
+}

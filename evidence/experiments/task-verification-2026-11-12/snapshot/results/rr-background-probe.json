@@ -1,0 +1,38 @@
+{
+  "sourceCommit": "7a079c382d8e98b426ee90a6b3764be2a21b4c49",
+  "source": "https://github.com/777genius/review-router/blob/7a079c382d8e98b426ee90a6b3764be2a21b4c49/src/review-orchestration/infrastructure/ocr-review-invocation-adapter.ts",
+  "scope": "Exact extracted pure background-bounding function, not full OCR or managed-run E2E.",
+  "modelCalls": 0,
+  "passed": 7,
+  "tests": [
+    {
+      "name": "null preserved",
+      "passed": true
+    },
+    {
+      "name": "short text preserved",
+      "passed": true
+    },
+    {
+      "name": "8000 characters preserved",
+      "passed": true
+    },
+    {
+      "name": "criterion beyond limit disappears",
+      "passed": true
+    },
+    {
+      "name": "distinct full criteria collapse to identical bounded context",
+      "passed": true
+    },
+    {
+      "name": "unicode surrogate pair is not split",
+      "passed": true
+    },
+    {
+      "name": "full-input digest distinguishes texts even when bounded context does not",
+      "passed": true
+    }
+  ],
+  "gitBlobVerified": "68f70ee15fe902e96742570cae10585e153c5ab0"
+}

@@ -1,0 +1,113 @@
+{
+  "node": "v24.22.1",
+  "originalChecksumEntriesVerified": 33,
+  "originalSourceAndResultsUnchanged": true,
+  "scratchCopy": "/workspace/scratch/403f551f2040/research/doc-update-evidence-9zbbn1ih/task-verification-spikes",
+  "commands": [
+    {
+      "command": [
+        "node",
+        "run.ts"
+      ],
+      "cwd": "/workspace/scratch/403f551f2040/research/doc-update-evidence-9zbbn1ih/task-verification-spikes",
+      "exit_code": 0,
+      "result": {
+        "passed": 44,
+        "failed": 0,
+        "legalSchedules": 60,
+        "unsafeNaivePublications": 30,
+        "http": [
+          {
+            "id": "synthetic-P1",
+            "outcomes": [
+              "satisfied",
+              "satisfied",
+              "satisfied"
+            ]
+          },
+          {
+            "id": "synthetic-P2",
+            "outcomes": [
+              "satisfied",
+              "satisfied",
+              "satisfied"
+            ]
+          },
+          {
+            "id": "synthetic-N1",
+            "outcomes": [
+              "violated",
+              "satisfied",
+              "satisfied"
+            ]
+          },
+          {
+            "id": "synthetic-N2",
+            "outcomes": [
+              "satisfied",
+              "satisfied",
+              "violated"
+            ]
+          }
+        ],
+        "modelCalls": 0
+      },
+      "stderr": ""
+    },
+    {
+      "command": [
+        "node",
+        "reproduce-upstream-probes.ts",
+        "/workspace/scratch/403f551f2040/research/review-engines/kodus-check-policy.ts",
+        "/workspace/scratch/403f551f2040/research/root-probes/rr-invocation-full.ts"
+      ],
+      "cwd": "/workspace/scratch/403f551f2040/research/doc-update-evidence-9zbbn1ih/task-verification-spikes",
+      "exit_code": 0,
+      "result": {
+        "scope": "Two exact pure source functions; no full upstream application execution",
+        "modelCalls": 0,
+        "kodus": [
+          {
+            "name": "met",
+            "actual": true
+          },
+          {
+            "name": "missing",
+            "actual": false
+          },
+          {
+            "name": "partial",
+            "actual": true
+          },
+          {
+            "name": "check_manually",
+            "actual": true
+          },
+          {
+            "name": "empty_requirements",
+            "actual": true
+          },
+          {
+            "name": "missing_but_part_of",
+            "actual": true
+          },
+          {
+            "name": "missing_but_accepted",
+            "actual": true
+          }
+        ],
+        "reviewRouter": [
+          "null preserved",
+          "short text preserved",
+          "8000 boundary",
+          "criterion beyond limit lost",
+          "different criteria collapse to same context",
+          "surrogate pair remains intact",
+          "full-input hashes remain different"
+        ],
+        "passed": 14
+      },
+      "stderr": "(node:46) ExperimentalWarning: stripTypeScriptTypes is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+    }
+  ]
+}

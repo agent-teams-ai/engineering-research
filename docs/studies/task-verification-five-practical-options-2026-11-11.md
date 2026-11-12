@@ -11,6 +11,8 @@ reviewed_at: 2026-11-11
 
 ## Scope and status
 
+**Follow-up recorded 2026-11-12:** [Architecture, local probes and OCR/Gateway routing](task-verification-architecture-and-routing-follow-up-2026-11-12.md) adds executed model-free evidence, source-pinned integration findings and the latest bounded Stage A/B planning context. This study's original date, method, scores and TV-O1–TV-O5 identities remain the historical 2026-11-11 assessment.
+
 **Observation and expansion date: 2026-11-11. Research only.** This study supports the owner's Task Verification choice and the collaborator's bounded Phase 0 architecture audit. It does not approve a package, integration, provider change, new Task state machine, production rollout, license, or amendment to an accepted ADR. An `active` study is maintained research, not an accepted product decision. The [2026-11-09 combined study](evidence-based-feedback-and-rework-2026-11-09.md) remains a separate historical source audit. The [vision and Phase 0 proposal in draft PR #5][proposal] is unmerged research/product direction.
 
 **Reading routes:** read sections 1–3 for the choice; 4–8 for each alternative; 9–12 for sources, trust and ownership; 13–17 for cost, uncertainties and experiments; 18–20 for critical review, delivery and provenance. The reference catalog identifies exact files and limits rather than asking readers to trust project marketing.

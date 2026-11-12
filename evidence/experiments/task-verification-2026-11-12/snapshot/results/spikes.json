@@ -1,0 +1,563 @@
+{
+  "kind": "model-free-architecture-spikes",
+  "version": 1,
+  "node": "v24.22.1",
+  "generatedAt": "2026-11-12T15:07:31.696Z",
+  "modelCalls": 0,
+  "externalServiceCalls": 0,
+  "tests": {
+    "passed": 44,
+    "failed": 0,
+    "cases": [
+      {
+        "name": "all expected claims present: structurally complete, still advisory",
+        "ok": true
+      },
+      {
+        "name": "missing criterion cannot become positive by reducing only returned rows",
+        "ok": true
+      },
+      {
+        "name": "partial transport cannot claim complete coverage even with all rows",
+        "ok": true
+      },
+      {
+        "name": "failed process retains a reported violation without claiming admission",
+        "ok": true
+      },
+      {
+        "name": "duplicate criterion is an invalid contract",
+        "ok": true
+      },
+      {
+        "name": "unknown criterion is an invalid contract",
+        "ok": true
+      },
+      {
+        "name": "empty authoritative inventory rejects vacuous success",
+        "ok": true
+      },
+      {
+        "name": "changed criterion text cannot retain an old digest",
+        "ok": true
+      },
+      {
+        "name": "explicit inconclusive does not satisfy",
+        "ok": true
+      },
+      {
+        "name": "invalid verdict from external data rejects",
+        "ok": true
+      },
+      {
+        "name": "changed criteriaRevision makes old report inapplicable",
+        "ok": true
+      },
+      {
+        "name": "changed profileDigest makes old report inapplicable",
+        "ok": true
+      },
+      {
+        "name": "changed evidenceSetDigest makes old report inapplicable",
+        "ok": true
+      },
+      {
+        "name": "changed policyDigest makes old report inapplicable",
+        "ok": true
+      },
+      {
+        "name": "different repository with same snapshot cannot reuse assessment",
+        "ok": true
+      },
+      {
+        "name": "head snapshot cannot impersonate a test-merge snapshot",
+        "ok": true
+      },
+      {
+        "name": "different test environment makes an observation inapplicable",
+        "ok": true
+      },
+      {
+        "name": "trusted adapter receipt binds exact observation bytes",
+        "ok": true
+      },
+      {
+        "name": "self-supplied hash and trusted flag do not establish origin",
+        "ok": true
+      },
+      {
+        "name": "mutating an authentic result invalidates its receipt",
+        "ok": true
+      },
+      {
+        "name": "authentic result for another candidate is rejected",
+        "ok": true
+      },
+      {
+        "name": "test definition revision must match",
+        "ok": true
+      },
+      {
+        "name": "skipped is not evidence of execution success",
+        "ok": true
+      },
+      {
+        "name": "neutral is not evidence of execution success",
+        "ok": true
+      },
+      {
+        "name": "success label with ran=false is rejected",
+        "ok": true
+      },
+      {
+        "name": "authentic unrelated passing test does not prove criterion",
+        "ok": true
+      },
+      {
+        "name": "mapped passing check is satisfaction only under explicit consumer policy",
+        "ok": true
+      },
+      {
+        "name": "mandatory observed failure cannot be averaged away by a semantic positive",
+        "ok": true
+      },
+      {
+        "name": "known failure survives another required check being absent",
+        "ok": true
+      },
+      {
+        "name": "success plus absent required check stays inconclusive",
+        "ok": true
+      },
+      {
+        "name": "contradictory duplicate check evidence is exposed",
+        "ok": true
+      },
+      {
+        "name": "criteria reassessment need not rerun same applicable test",
+        "ok": true
+      },
+      {
+        "name": "bot-summary edit does not change captured authored criteria",
+        "ok": true
+      },
+      {
+        "name": "meaningful authored edit changes digest",
+        "ok": true
+      },
+      {
+        "name": "fixture parser rejects unsupported Markdown instead of proving product parsing",
+        "ok": true
+      },
+      {
+        "name": "same-digest removal and re-addition do not revive an old attempt",
+        "ok": true
+      },
+      {
+        "name": "late output after cancellation cannot publish",
+        "ok": true
+      },
+      {
+        "name": "duplicate delivery is idempotent and conflicting duplicate visible",
+        "ok": true
+      },
+      {
+        "name": "old attempt is fenced after explicit retry",
+        "ok": true
+      },
+      {
+        "name": "retry after successful publication is rejected without supersession",
+        "ok": true
+      },
+      {
+        "name": "mutating caller input cannot mutate captured fence basis",
+        "ok": true
+      },
+      {
+        "name": "all 60 legal delivery schedules reject stale generation even after digest returns",
+        "ok": true
+      },
+      {
+        "name": "independent HTTP oracle validates the four intended candidate classes",
+        "ok": true
+      },
+      {
+        "name": "identical changed route bytes can have different behavior from unchanged helpers",
+        "ok": true
+      }
+    ]
+  },
+  "schedules": {
+    "legalSchedules": 60,
+    "unsafeNaivePublications": 30,
+    "scope": "sequential protocol simulation; not database concurrency or throughput"
+  },
+  "http": {
+    "kind": "synthetic-local-http-fixture-spike",
+    "approvedBenchmarkFixtures": false,
+    "llmCalls": 0,
+    "candidateCount": 4,
+    "httpRequests": 12,
+    "scope": "GET /profile only; demonstrates fixture/oracle separation, not model quality or production security.",
+    "candidateIsolation": "Child process; no inherited credentials; Node permission model denies FS writes and restricts reads.",
+    "criteria": [
+      {
+        "id": "C1",
+        "description": "Missing token is rejected."
+      },
+      {
+        "id": "C2",
+        "description": "Active token receives the profile."
+      },
+      {
+        "id": "C3",
+        "description": "Revoked token is rejected."
+      }
+    ],
+    "results": [
+      {
+        "id": "synthetic-P1",
+        "description": "Correct inline authentication.",
+        "input": {
+          "directory": "/workspace/scratch/403f551f2040/task-verification-spikes/fixture-data/synthetic-P1/fbde3f41d20243236e55914863a95fd64df761299e748509de5b1bd59e20070f",
+          "synthetic": true,
+          "approvedBenchmarkFixture": false,
+          "id": "synthetic-P1",
+          "snapshotSha256": "fbde3f41d20243236e55914863a95fd64df761299e748509de5b1bd59e20070f",
+          "files": {
+            "package.json": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+            "profile.ts": "20fb0319cabdcb260464026c15978d49ba64c374e50ec4481b89939ef54ba3c1",
+            "server.ts": "e3c8d474325edaa2f22c016f98dd33a7e6bed27dbf5d9b002a7f3f48a9a77655"
+          },
+          "baseSnapshotSha256": "a9c5639b5bb3f919fc4036617fb5d86a1b750fb60c027e6ecdd61deb330ebe62",
+          "baseFiles": {
+            "package.json": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+            "profile.ts": "252262e6dc1a7ed1658a0076e44fd0f3a7e32c2b8caa1f58b86e73b15f50f3ad",
+            "server.ts": "e3c8d474325edaa2f22c016f98dd33a7e6bed27dbf5d9b002a7f3f48a9a77655"
+          },
+          "changedFiles": [
+            "profile.ts"
+          ],
+          "unchangedFiles": []
+        },
+        "observations": [
+          {
+            "criterionId": "C1",
+            "description": "Missing token is rejected.",
+            "expected": {
+              "status": 401,
+              "body": {
+                "error": "unauthorized"
+              }
+            },
+            "observed": {
+              "status": 401,
+              "body": {
+                "error": "unauthorized"
+              }
+            },
+            "outcome": "satisfied"
+          },
+          {
+            "criterionId": "C2",
+            "description": "Active token receives the profile.",
+            "expected": {
+              "status": 200,
+              "body": {
+                "id": "synthetic-user-1",
+                "name": "Ada"
+              }
+            },
+            "observed": {
+              "status": 200,
+              "body": {
+                "id": "synthetic-user-1",
+                "name": "Ada"
+              }
+            },
+            "outcome": "satisfied"
+          },
+          {
+            "criterionId": "C3",
+            "description": "Revoked token is rejected.",
+            "expected": {
+              "status": 401,
+              "body": {
+                "error": "unauthorized"
+              }
+            },
+            "observed": {
+              "status": 401,
+              "body": {
+                "error": "unauthorized"
+              }
+            },
+            "outcome": "satisfied"
+          }
+        ]
+      },
+      {
+        "id": "synthetic-P2",
+        "description": "Equivalent authentication in an unchanged helper.",
+        "input": {
+          "directory": "/workspace/scratch/403f551f2040/task-verification-spikes/fixture-data/synthetic-P2/db9a12c8f1747e81f5d78daf9d150c90ed2cbba8fa16d4b20fe788ff1823d235",
+          "synthetic": true,
+          "approvedBenchmarkFixture": false,
+          "id": "synthetic-P2",
+          "snapshotSha256": "db9a12c8f1747e81f5d78daf9d150c90ed2cbba8fa16d4b20fe788ff1823d235",
+          "files": {
+            "auth.ts": "6b52acaa4a15ca633ed37696668ab73759dd89fd609fbc323416b40358898d4e",
+            "package.json": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+            "profile.ts": "c41fd2a2d3fcf59cba9711ba8291af86c074b02a81e2091178685ae605927693",
+            "server.ts": "e3c8d474325edaa2f22c016f98dd33a7e6bed27dbf5d9b002a7f3f48a9a77655"
+          },
+          "baseSnapshotSha256": "c7b43ce4c0e27d0f4c8549b32543bcc034104566c1dd95b2c87038ce4bfe1a7c",
+          "baseFiles": {
+            "auth.ts": "6b52acaa4a15ca633ed37696668ab73759dd89fd609fbc323416b40358898d4e",
+            "package.json": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+            "profile.ts": "252262e6dc1a7ed1658a0076e44fd0f3a7e32c2b8caa1f58b86e73b15f50f3ad",
+            "server.ts": "e3c8d474325edaa2f22c016f98dd33a7e6bed27dbf5d9b002a7f3f48a9a77655"
+          },
+          "changedFiles": [
+            "profile.ts"
+          ],
+          "unchangedFiles": [
+            "auth.ts"
+          ]
+        },
+        "observations": [
+          {
+            "criterionId": "C1",
+            "description": "Missing token is rejected.",
+            "expected": {
+              "status": 401,
+              "body": {
+                "error": "unauthorized"
+              }
+            },
+            "observed": {
+              "status": 401,
+              "body": {
+                "error": "unauthorized"
+              }
+            },
+            "outcome": "satisfied"
+          },
+          {
+            "criterionId": "C2",
+            "description": "Active token receives the profile.",
+            "expected": {
+              "status": 200,
+              "body": {
+                "id": "synthetic-user-1",
+                "name": "Ada"
+              }
+            },
+            "observed": {
+              "status": 200,
+              "body": {
+                "id": "synthetic-user-1",
+                "name": "Ada"
+              }
+            },
+            "outcome": "satisfied"
+          },
+          {
+            "criterionId": "C3",
+            "description": "Revoked token is rejected.",
+            "expected": {
+              "status": 401,
+              "body": {
+                "error": "unauthorized"
+              }
+            },
+            "observed": {
+              "status": 401,
+              "body": {
+                "error": "unauthorized"
+              }
+            },
+            "outcome": "satisfied"
+          }
+        ]
+      },
+      {
+        "id": "synthetic-N1",
+        "description": "Bug: missing-token request incorrectly returns 200.",
+        "input": {
+          "directory": "/workspace/scratch/403f551f2040/task-verification-spikes/fixture-data/synthetic-N1/c6ceb3e51fd17eb7a9971de71e3431f53b9d762c0810788659901f2eba49e090",
+          "synthetic": true,
+          "approvedBenchmarkFixture": false,
+          "id": "synthetic-N1",
+          "snapshotSha256": "c6ceb3e51fd17eb7a9971de71e3431f53b9d762c0810788659901f2eba49e090",
+          "files": {
+            "package.json": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+            "profile.ts": "94c9284ff349ccfe5b7196c212cebbe811d30e907672aa6f9ed680dd4c3c64f0",
+            "server.ts": "e3c8d474325edaa2f22c016f98dd33a7e6bed27dbf5d9b002a7f3f48a9a77655"
+          },
+          "baseSnapshotSha256": "a9c5639b5bb3f919fc4036617fb5d86a1b750fb60c027e6ecdd61deb330ebe62",
+          "baseFiles": {
+            "package.json": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+            "profile.ts": "252262e6dc1a7ed1658a0076e44fd0f3a7e32c2b8caa1f58b86e73b15f50f3ad",
+            "server.ts": "e3c8d474325edaa2f22c016f98dd33a7e6bed27dbf5d9b002a7f3f48a9a77655"
+          },
+          "changedFiles": [
+            "profile.ts"
+          ],
+          "unchangedFiles": []
+        },
+        "observations": [
+          {
+            "criterionId": "C1",
+            "description": "Missing token is rejected.",
+            "expected": {
+              "status": 401,
+              "body": {
+                "error": "unauthorized"
+              }
+            },
+            "observed": {
+              "status": 200,
+              "body": {
+                "id": "synthetic-user-1",
+                "name": "Ada"
+              }
+            },
+            "outcome": "violated"
+          },
+          {
+            "criterionId": "C2",
+            "description": "Active token receives the profile.",
+            "expected": {
+              "status": 200,
+              "body": {
+                "id": "synthetic-user-1",
+                "name": "Ada"
+              }
+            },
+            "observed": {
+              "status": 200,
+              "body": {
+                "id": "synthetic-user-1",
+                "name": "Ada"
+              }
+            },
+            "outcome": "satisfied"
+          },
+          {
+            "criterionId": "C3",
+            "description": "Revoked token is rejected.",
+            "expected": {
+              "status": 401,
+              "body": {
+                "error": "unauthorized"
+              }
+            },
+            "observed": {
+              "status": 401,
+              "body": {
+                "error": "unauthorized"
+              }
+            },
+            "outcome": "satisfied"
+          }
+        ]
+      },
+      {
+        "id": "synthetic-N2",
+        "description": "Bug: revoked-token rejection omitted in unchanged helper.",
+        "input": {
+          "directory": "/workspace/scratch/403f551f2040/task-verification-spikes/fixture-data/synthetic-N2/d13801da61b5b6a6e4a8ce6c908036d43b27d0054c915dcec21b84e18f6fed21",
+          "synthetic": true,
+          "approvedBenchmarkFixture": false,
+          "id": "synthetic-N2",
+          "snapshotSha256": "d13801da61b5b6a6e4a8ce6c908036d43b27d0054c915dcec21b84e18f6fed21",
+          "files": {
+            "auth.ts": "fb2af7c81857da887d2a7bd387e402403ee41cb28cfd77240621baa81fc53338",
+            "package.json": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+            "profile.ts": "c41fd2a2d3fcf59cba9711ba8291af86c074b02a81e2091178685ae605927693",
+            "server.ts": "e3c8d474325edaa2f22c016f98dd33a7e6bed27dbf5d9b002a7f3f48a9a77655"
+          },
+          "baseSnapshotSha256": "c23bfa70e72e3cd35b3c46cf8326dce8a45c8785ea75c6aa1e7c206bec0be1f8",
+          "baseFiles": {
+            "auth.ts": "fb2af7c81857da887d2a7bd387e402403ee41cb28cfd77240621baa81fc53338",
+            "package.json": "1239d4d885dcad42201a27ed9324f8f0f760b78700d8db9ced39a511cffe7eae",
+            "profile.ts": "252262e6dc1a7ed1658a0076e44fd0f3a7e32c2b8caa1f58b86e73b15f50f3ad",
+            "server.ts": "e3c8d474325edaa2f22c016f98dd33a7e6bed27dbf5d9b002a7f3f48a9a77655"
+          },
+          "changedFiles": [
+            "profile.ts"
+          ],
+          "unchangedFiles": [
+            "auth.ts"
+          ]
+        },
+        "observations": [
+          {
+            "criterionId": "C1",
+            "description": "Missing token is rejected.",
+            "expected": {
+              "status": 401,
+              "body": {
+                "error": "unauthorized"
+              }
+            },
+            "observed": {
+              "status": 401,
+              "body": {
+                "error": "unauthorized"
+              }
+            },
+            "outcome": "satisfied"
+          },
+          {
+            "criterionId": "C2",
+            "description": "Active token receives the profile.",
+            "expected": {
+              "status": 200,
+              "body": {
+                "id": "synthetic-user-1",
+                "name": "Ada"
+              }
+            },
+            "observed": {
+              "status": 200,
+              "body": {
+                "id": "synthetic-user-1",
+                "name": "Ada"
+              }
+            },
+            "outcome": "satisfied"
+          },
+          {
+            "criterionId": "C3",
+            "description": "Revoked token is rejected.",
+            "expected": {
+              "status": 401,
+              "body": {
+                "error": "unauthorized"
+              }
+            },
+            "observed": {
+              "status": 200,
+              "body": {
+                "id": "synthetic-user-1",
+                "name": "Ada"
+              }
+            },
+            "outcome": "violated"
+          }
+        ]
+      }
+    ]
+  },
+  "httpWallTimeMs": 676,
+  "limitations": [
+    "Scripted claims do not measure reviewer semantic accuracy or prompt-injection resistance.",
+    "Trusted receipts are test inputs, not implemented signature verification.",
+    "Publication fence is in-memory, not production transaction/outbox/GitHub atomicity.",
+    "HTTP fixtures are synthetic and not Hassan-approved benchmark candidates.",
+    "TypeScript runs with native Node stripping; no compiler typecheck is claimed.",
+    "No load/capacity, real OCR execution, paid-model, or production E2E qualification."
+  ]
+}

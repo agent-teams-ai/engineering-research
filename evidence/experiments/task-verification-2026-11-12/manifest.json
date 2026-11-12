@@ -1,0 +1,97 @@
+{
+  "observationDate": "2026-11-12",
+  "kind": "frozen-local-research-evidence",
+  "originalArchive": {
+    "filename": "task-verification-research-2026-11-12.zip",
+    "sha256": "b55970c2fd67b3f677ee22ad91ced6a24d52da7a08ce08d20f20628f479be43e"
+  },
+  "retention": "Exact subset of original source/results bytes. Generated fixture directories and the original HTML report are omitted; run.ts reconstructs fixture snapshots in a disposable copy.",
+  "runtime": {
+    "node": "24.22.1",
+    "mode": "native TypeScript stripping",
+    "compilerTypecheckPerformed": false,
+    "npmDependenciesRequired": false
+  },
+  "observed": {
+    "localNamedChecksPassed": 44,
+    "localNamedChecksFailed": 0,
+    "sequentialSchedulesWithinOneCheck": 60,
+    "illustrativeDigestOnlyStaleOpportunities": 30,
+    "loopbackHttpRequests": 12,
+    "additionalPinnedPureFunctionAssertionsPassed": 14,
+    "experimentalModelCalls": 0
+  },
+  "files": [
+    {
+      "path": "snapshot/package.json",
+      "originalPath": "package.json",
+      "bytes": 166,
+      "sha256": "9c1b51390e966dffec7f2328bda5e0baa58b1c31043e600b8444622429b571b9"
+    },
+    {
+      "path": "snapshot/run.ts",
+      "originalPath": "run.ts",
+      "bytes": 14762,
+      "sha256": "b3d7ced3c78a311621a489a38b7d9cdd51c66407237a07f6cb5691bee916ed5b"
+    },
+    {
+      "path": "snapshot/http-fixtures.ts",
+      "originalPath": "http-fixtures.ts",
+      "bytes": 8534,
+      "sha256": "cbede97441764fe79500d543d625f33bb72b39a10a3cebb4f20032f0e5c5b2c9"
+    },
+    {
+      "path": "snapshot/src/core.ts",
+      "originalPath": "src/core.ts",
+      "bytes": 7627,
+      "sha256": "bf5d769c46fc5a68fe3b89945a0c867598062370b878ca63405c69db1e44ffce"
+    },
+    {
+      "path": "snapshot/reproduce-upstream-probes.ts",
+      "originalPath": "reproduce-upstream-probes.ts",
+      "bytes": 3625,
+      "sha256": "67a3846c559acd96c6af1ff2d7346f4d62d6e1e8bed4040cc466c3bcab28756c"
+    },
+    {
+      "path": "snapshot/sources.json",
+      "originalPath": "sources.json",
+      "bytes": 4121,
+      "sha256": "d962901067be79d617bf90f7a5430c0ed1dd4af64de96683b657969ddeefc465"
+    },
+    {
+      "path": "snapshot/results/spikes.json",
+      "originalPath": "results/spikes.json",
+      "bytes": 18427,
+      "sha256": "4c7479dbbbcc53bf9ea9edd6401c3014e8d6fe5333adec65cfa5bdae4c192c9f"
+    },
+    {
+      "path": "snapshot/results/kodus-policy-probe.json",
+      "originalPath": "results/kodus-policy-probe.json",
+      "bytes": 756,
+      "sha256": "e80710739175e5304c05be9551f0d6326eea892b53ee53108b3ff6ea315c4965"
+    },
+    {
+      "path": "snapshot/results/rr-background-probe.json",
+      "originalPath": "results/rr-background-probe.json",
+      "bytes": 1079,
+      "sha256": "16483323589b2056ffdfeceddb71a3f0a8c8fdb2080f94e122290f1696cddba3"
+    }
+  ],
+  "upstreamBlobs": {
+    "reviewRouter": {
+      "gitBlob": "68f70ee15fe902e96742570cae10585e153c5ab0",
+      "url": "https://github.com/777genius/review-router/blob/7a079c382d8e98b426ee90a6b3764be2a21b4c49/src/review-orchestration/infrastructure/ocr-review-invocation-adapter.ts"
+    },
+    "kodus": {
+      "gitBlob": "39b714cade08bf667a1451a42637048da73488be",
+      "url": "https://github.com/kodustech/kodus-ai/blob/f74afbb486bc5434c1190aeb8433d59f6f7847d2/libs/agents/business-validation/check-policy.ts"
+    }
+  },
+  "limits": [
+    "Not a maintained production package or CI gate",
+    "No TypeScript typecheck evidence",
+    "No actual OCR binary or full competitor suite executed",
+    "No semantic model benchmark, production deployment or load qualification",
+    "Frozen evidence must be reproduced in a disposable copy, not overwritten in place"
+  ]
+}
