@@ -10,6 +10,8 @@ summary: Reusable module-composition and scale lessons separated from consumer f
 
 ## Source provenance
 
+For the separate 2026-11-14 source audit of Effect, T3 Code, OpenCode, LiveStore, Alchemy and large-codebase enforcement, see [Effect Architecture and Reusable Mechanisms](effect-architecture-and-reusable-mechanisms-2026-11-14.md). That newer study adds owner-specific research and proposed qualification cases; it does not refresh the historical measurements or consumer activation below.
+
 This is a shared evidence extract from the [Orchestrator composition review][original],
 preserved at Orchestrator commit `981dd836ca3d35b764561bdc11dc2e0544d83416`.
 The original review was recorded **2026-10-21**, archived **2026-10-22** from PR #86 head

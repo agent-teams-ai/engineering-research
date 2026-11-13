@@ -12,6 +12,7 @@ Imported studies retain original dates, versions and limitations. Historical pro
 
 ## Documents
 
+- [Effect Architecture and Reusable Mechanisms 2026-11-14](effect-architecture-and-reusable-mechanisms-2026-11-14.md) — Critical source research on frontend/backend execution, modularity, existing Foundation capabilities and owner-specific reuse proposals.
 - [Evidence-Based Feedback and Rework 2026-11-09](evidence-based-feedback-and-rework-2026-11-09.md) — Dated source audit of reviewer reuse, evidence freshness, controlled rework and existing Orchestrator authority; future gateway choice remains open.
 - [Agent Runtime Industry Architecture Research](agent-runtime-industry-architecture-research.md) — Dated industry evidence migrated from Runtime with original source identities and limits.
 - [Agent Runtime Framework Research](agent-runtime-framework-research.md) — Dated agent-framework evidence migrated from Runtime with product applicability distinguished.
