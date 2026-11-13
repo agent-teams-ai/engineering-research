@@ -1,0 +1,247 @@
+{
+  "summary": {
+    "scenario": "ledger_code_comment",
+    "elapsedMs": 220,
+    "process": {
+      "code": 0,
+      "signal": null
+    },
+    "childTimedOut": false,
+    "capHit": false,
+    "requestCount": 3,
+    "maxInFlight": 1,
+    "closedResponses": 3,
+    "requestShapes": [
+      {
+        "method": "POST",
+        "url": "/responses",
+        "authorizationCorrect": true,
+        "keys": [
+          "instructions",
+          "prompt_cache_key",
+          "store",
+          "include",
+          "input",
+          "model",
+          "tools",
+          "service_tier",
+          "stream"
+        ],
+        "model": "stub-model",
+        "store": false,
+        "stream": true,
+        "serviceTier": "default",
+        "hasPreviousResponseId": false,
+        "maxOutputTokens": null,
+        "toolNames": [
+          "task_done",
+          "code_comment",
+          "code_search",
+          "file_read",
+          "file_read_diff",
+          "file_find"
+        ],
+        "nativeRuleMarker": true,
+        "backgroundMarker": true,
+        "unchangedContextMarker": false,
+        "toolOutputItems": []
+      },
+      {
+        "method": "POST",
+        "url": "/responses",
+        "authorizationCorrect": true,
+        "keys": [
+          "instructions",
+          "prompt_cache_key",
+          "store",
+          "include",
+          "input",
+          "model",
+          "tools",
+          "service_tier",
+          "stream"
+        ],
+        "model": "stub-model",
+        "store": false,
+        "stream": true,
+        "serviceTier": "default",
+        "hasPreviousResponseId": false,
+        "maxOutputTokens": null,
+        "toolNames": [
+          "task_done",
+          "code_comment",
+          "code_search",
+          "file_read",
+          "file_read_diff",
+          "file_find"
+        ],
+        "nativeRuleMarker": true,
+        "backgroundMarker": true,
+        "unchangedContextMarker": false,
+        "toolOutputItems": [
+          {
+            "call_id": "call_comment",
+            "output": "Successfully commented.",
+            "type": "function_call_output"
+          }
+        ]
+      },
+      {
+        "method": "POST",
+        "url": "/responses",
+        "authorizationCorrect": true,
+        "keys": [
+          "instructions",
+          "store",
+          "include",
+          "input",
+          "model",
+          "tools",
+          "service_tier",
+          "stream"
+        ],
+        "model": "stub-model",
+        "store": false,
+        "stream": true,
+        "serviceTier": "default",
+        "hasPreviousResponseId": false,
+        "maxOutputTokens": null,
+        "toolNames": [
+          "report_incorrect_comments",
+          "approve_all_comments"
+        ],
+        "nativeRuleMarker": false,
+        "backgroundMarker": false,
+        "unchangedContextMarker": false,
+        "toolOutputItems": []
+      }
+    ],
+    "rawKeys": [
+      "status",
+      "llm",
+      "message",
+      "summary",
+      "tool_calls",
+      "comments",
+      "groups",
+      "session_id",
+      "manifest",
+      "reviewrouter_outcome"
+    ],
+    "rawHasLedgerMarker": false,
+    "rawCommentCount": 1,
+    "outcome": {
+      "schema_version": "reviewrouter.ocr-outcome/v1",
+      "run_stop_cause": null,
+      "grouping": {
+        "state": "not_applicable",
+        "reason": "single_file"
+      },
+      "groups": [
+        {
+          "paths": [
+            "calc.ts"
+          ],
+          "main_completed": true,
+          "stop_cause": null,
+          "rounds": {
+            "configured": 1,
+            "started": 1,
+            "completed": 1
+          },
+          "phases": {
+            "plan": {
+              "state": "not_applicable",
+              "reason": "threshold"
+            },
+            "compression": {
+              "state": "not_applicable",
+              "reason": "no_zone"
+            },
+            "relocation": {
+              "state": "not_applicable",
+              "reason": "no_candidates"
+            },
+            "filter": {
+              "state": "completed",
+              "reason": null
+            }
+          },
+          "filter_decision_valid": true
+        }
+      ]
+    },
+    "parsedKeys": [
+      "status",
+      "requestedModel",
+      "usage",
+      "budgetExceeded",
+      "comments",
+      "warnings",
+      "manifest",
+      "outcome"
+    ],
+    "classification": {
+      "reasons": [],
+      "partial": false,
+      "filterCommentsPreserved": false
+    },
+    "parseError": null
+  },
+  "argv": [
+    "review",
+    "--reviewrouter-managed",
+    "--repo",
+    "/workspace/scratch/403f551f2040/ocr-deep-20261113/extra-approved/synthetic-repo",
+    "--from",
+    "4611b11b28862f67d0574875c07bc4e73a549bb1",
+    "--to",
+    "4e7a9297c26d852b89d22bf3049d469eeb0958aa",
+    "--provider",
+    "reviewrouter",
+    "--model",
+    "stub-model",
+    "--rule",
+    "/workspace/scratch/403f551f2040/ocr-deep-20261113/extra-approved/ledger_code_comment/rule.json",
+    "--background-file",
+    "/workspace/scratch/403f551f2040/ocr-deep-20261113/extra-approved/ledger_code_comment/background.md",
+    "--effort",
+    "low",
+    "--concurrency",
+    "1",
+    "--format",
+    "json",
+    "--audience",
+    "agent",
+    "--timeout",
+    "1",
+    "--max-tokens",
+    "8192",
+    "--max-tokens-budget",
+    "32768",
+    "--output",
+    "/workspace/scratch/403f551f2040/ocr-deep-20261113/extra-approved/ledger_code_comment/native-result.json"
+  ],
+  "admission": {
+    "baseSha": "4611b11b28862f67d0574875c07bc4e73a549bb1",
+    "mergeBaseSha": "4611b11b28862f67d0574875c07bc4e73a549bb1",
+    "headSha": "4e7a9297c26d852b89d22bf3049d469eeb0958aa"
+  },
+  "replies": [
+    {
+      "index": 1,
+      "kind": "completed",
+      "bytes": "event: response.completed\ndata: {\"type\":\"response.completed\",\"response\":{\"id\":\"resp_1\",\"object\":\"response\",\"status\":\"completed\",\"model\":\"stub-model\",\"output\":[{\"type\":\"function_call\",\"id\":\"fc_comment\",\"call_id\":\"call_comment\",\"name\":\"code_comment\",\"arguments\":\"{\\\"comments\\\":[{\\\"path\\\":\\\"calc.ts\\\",\\\"content\\\":\\\"Synthetic criterion result carrier.\\\",\\\"existing_code\\\":\\\"export function add(a: number, b: number) { return a - b; }\\\",\\\"category\\\":\\\"bug\\\",\\\"severity\\\":\\\"high\\\",\\\"criterion_id\\\":\\\"criterion_add\\\",\\\"criterion_status\\\":\\\"not_satisfied\\\",\\\"evidence\\\":[\\\"calc.ts:1\\\"]}]}\"}],\"usage\":{\"input_tokens\":10,\"output_tokens\":5,\"total_tokens\":15}}}\n\n"
+    },
+    {
+      "index": 2,
+      "kind": "completed",
+      "bytes": "event: response.completed\ndata: {\"type\":\"response.completed\",\"response\":{\"id\":\"resp_2\",\"object\":\"response\",\"status\":\"completed\",\"model\":\"stub-model\",\"output\":[{\"type\":\"function_call\",\"id\":\"fc_2\",\"call_id\":\"call_2\",\"name\":\"task_done\",\"arguments\":\"{\\\"state\\\":\\\"DONE\\\"}\"}],\"usage\":{\"input_tokens\":10,\"output_tokens\":5,\"total_tokens\":15}}}\n\n"
+    },
+    {
+      "index": 3,
+      "kind": "completed",
+      "bytes": "event: response.completed\ndata: {\"type\":\"response.completed\",\"response\":{\"id\":\"resp_3\",\"object\":\"response\",\"status\":\"completed\",\"model\":\"stub-model\",\"output\":[{\"type\":\"function_call\",\"id\":\"fc_filter\",\"call_id\":\"call_filter\",\"name\":\"approve_all_comments\",\"arguments\":\"{}\"}],\"usage\":{\"input_tokens\":10,\"output_tokens\":5,\"total_tokens\":15}}}\n\n"
+    }
+  ]
+}

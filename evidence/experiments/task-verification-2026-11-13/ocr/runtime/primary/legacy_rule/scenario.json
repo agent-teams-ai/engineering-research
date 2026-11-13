@@ -1,0 +1,168 @@
+{
+  "summary": {
+    "scenario": "legacy_rule",
+    "elapsedMs": 155,
+    "process": {
+      "code": 0,
+      "signal": null
+    },
+    "childTimedOut": false,
+    "capHit": false,
+    "requestCount": 1,
+    "maxInFlight": 1,
+    "closedResponses": 1,
+    "requestShapes": [
+      {
+        "method": "POST",
+        "url": "/responses",
+        "authorizationCorrect": true,
+        "keys": [
+          "instructions",
+          "prompt_cache_key",
+          "store",
+          "include",
+          "input",
+          "model",
+          "tools",
+          "service_tier",
+          "stream"
+        ],
+        "model": "stub-model",
+        "store": false,
+        "stream": true,
+        "serviceTier": "default",
+        "hasPreviousResponseId": false,
+        "maxOutputTokens": null,
+        "toolNames": [
+          "task_done",
+          "code_comment",
+          "code_search",
+          "file_read",
+          "file_read_diff",
+          "file_find"
+        ],
+        "nativeRuleMarker": false,
+        "backgroundMarker": true,
+        "unchangedContextMarker": false,
+        "toolOutputItems": []
+      }
+    ],
+    "rawKeys": [
+      "status",
+      "llm",
+      "message",
+      "summary",
+      "tool_calls",
+      "comments",
+      "groups",
+      "session_id",
+      "manifest",
+      "reviewrouter_outcome"
+    ],
+    "rawHasLedgerMarker": false,
+    "rawCommentCount": 0,
+    "outcome": {
+      "schema_version": "reviewrouter.ocr-outcome/v1",
+      "run_stop_cause": null,
+      "grouping": {
+        "state": "not_applicable",
+        "reason": "single_file"
+      },
+      "groups": [
+        {
+          "paths": [
+            "calc.ts"
+          ],
+          "main_completed": true,
+          "stop_cause": null,
+          "rounds": {
+            "configured": 1,
+            "started": 1,
+            "completed": 1
+          },
+          "phases": {
+            "plan": {
+              "state": "not_applicable",
+              "reason": "threshold"
+            },
+            "compression": {
+              "state": "not_applicable",
+              "reason": "no_zone"
+            },
+            "relocation": {
+              "state": "not_applicable",
+              "reason": "no_candidates"
+            },
+            "filter": {
+              "state": "not_applicable",
+              "reason": "no_candidates"
+            }
+          },
+          "filter_decision_valid": null
+        }
+      ]
+    },
+    "parsedKeys": [
+      "status",
+      "requestedModel",
+      "usage",
+      "budgetExceeded",
+      "comments",
+      "warnings",
+      "manifest",
+      "outcome"
+    ],
+    "classification": {
+      "reasons": [],
+      "partial": false,
+      "filterCommentsPreserved": false
+    },
+    "parseError": null
+  },
+  "argv": [
+    "review",
+    "--reviewrouter-managed",
+    "--repo",
+    "/workspace/scratch/403f551f2040/ocr-deep-20261113/synthetic-repo",
+    "--from",
+    "4611b11b28862f67d0574875c07bc4e73a549bb1",
+    "--to",
+    "4e7a9297c26d852b89d22bf3049d469eeb0958aa",
+    "--provider",
+    "reviewrouter",
+    "--model",
+    "stub-model",
+    "--rule",
+    "/workspace/scratch/403f551f2040/ocr-deep-20261113/legacy_rule/rule.json",
+    "--background-file",
+    "/workspace/scratch/403f551f2040/ocr-deep-20261113/legacy_rule/background.md",
+    "--effort",
+    "low",
+    "--concurrency",
+    "1",
+    "--format",
+    "json",
+    "--audience",
+    "agent",
+    "--timeout",
+    "1",
+    "--max-tokens",
+    "8192",
+    "--max-tokens-budget",
+    "32768",
+    "--output",
+    "/workspace/scratch/403f551f2040/ocr-deep-20261113/legacy_rule/native-result.json"
+  ],
+  "admission": {
+    "baseSha": "4611b11b28862f67d0574875c07bc4e73a549bb1",
+    "mergeBaseSha": "4611b11b28862f67d0574875c07bc4e73a549bb1",
+    "headSha": "4e7a9297c26d852b89d22bf3049d469eeb0958aa"
+  },
+  "replies": [
+    {
+      "index": 1,
+      "kind": "completed",
+      "bytes": "event: response.completed\ndata: {\"type\":\"response.completed\",\"response\":{\"id\":\"resp_1\",\"object\":\"response\",\"status\":\"completed\",\"model\":\"stub-model\",\"output\":[{\"type\":\"function_call\",\"id\":\"fc_1\",\"call_id\":\"call_1\",\"name\":\"task_done\",\"arguments\":\"{}\"}],\"usage\":{\"input_tokens\":10,\"output_tokens\":5,\"total_tokens\":15}}}\n\n"
+    }
+  ]
+}

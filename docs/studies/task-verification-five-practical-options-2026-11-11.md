@@ -11,6 +11,8 @@ reviewed_at: 2026-11-11
 
 ## Scope and status
 
+**Critical audit recorded 2026-11-13:** [Native OCR execution, comparator semantics and corrected experiment design](task-verification-critical-architecture-and-evidence-audit-2026-11-13.md) adds a zero-model comparison, demonstrates criterion-output loss in the tested managed OCR path, and tightens uncertainty/coverage rules. The original scores remain historical judgments; a prompt-only TV-O3 implementation is not qualified by them.
+
 **Follow-up recorded 2026-11-12:** [Architecture, local probes and OCR/Gateway routing](task-verification-architecture-and-routing-follow-up-2026-11-12.md) adds executed model-free evidence, source-pinned integration findings and the latest bounded Stage A/B planning context. This study's original date, method, scores and TV-O1–TV-O5 identities remain the historical 2026-11-11 assessment.
 
 **Observation and expansion date: 2026-11-11. Research only.** This study supports the owner's Task Verification choice and the collaborator's bounded Phase 0 architecture audit. It does not approve a package, integration, provider change, new Task state machine, production rollout, license, or amendment to an accepted ADR. An `active` study is maintained research, not an accepted product decision. The [2026-11-09 combined study](evidence-based-feedback-and-rework-2026-11-09.md) remains a separate historical source audit. The [vision and Phase 0 proposal in draft PR #5][proposal] is unmerged research/product direction.

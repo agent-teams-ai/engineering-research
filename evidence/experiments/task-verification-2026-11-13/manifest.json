@@ -1,0 +1,412 @@
+{
+  "kind": "task-verification-critical-audit-evidence/v1",
+  "observed_date": "2026-11-13",
+  "status": "frozen-one-off-research-evidence",
+  "real_provider_calls": 0,
+  "typechecked": false,
+  "managed_ocr_review_invocations": 10,
+  "binary_version_check_invocations": 1,
+  "fake_provider_posts": 14,
+  "final_parser_assertions": 9,
+  "kodus_transformation_scenarios": 2,
+  "ocr_original_manifest_sha256": "0c61a45a73ed497f501e89624ee4aa91d675e3ac5b1098b4f19346237f00da8a",
+  "phase0_sha256": "e5ca71d6e57bcf34103e0b80f28550553c365b43a357da05ab2019725ff5ddfd",
+  "historical_2026_11_12_unchanged": true,
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 5863,
+      "sha256": "f80df60439b4db05de95284649d3b9d3ad98ae9c233581c2710fcfe45e95641b"
+    },
+    {
+      "path": "kodus/receipt.json",
+      "bytes": 4366,
+      "sha256": "c4c4a82723e1cf6cc5dfbcc5a7e30c96d7cc26b795a4770237dade0b24648d78"
+    },
+    {
+      "path": "kodus/reproduce.mjs",
+      "bytes": 5722,
+      "sha256": "84b79cc35c461004d513c6b6cb47c01c660b615c0ad7316f1c98e1fc6dff8ef2"
+    },
+    {
+      "path": "ocr/README.md",
+      "bytes": 10218,
+      "sha256": "0d119df40784d0788446cd757aa6a28a2c144bc26b5e5e049b141799f0034f35"
+    },
+    {
+      "path": "ocr/attempt-notes.json",
+      "bytes": 1108,
+      "sha256": "955d4966172dcaa791f39e7eec13edcf525e4b7d9b66c8cb38db55d10065d728"
+    },
+    {
+      "path": "ocr/harness/approved-comment-probe.mjs",
+      "bytes": 11415,
+      "sha256": "63894b92eb5e50ac5de6493a73dfbcd62a5465288ec1a259b5c1c700ab60149b"
+    },
+    {
+      "path": "ocr/harness/extra-runtime-probe.mjs",
+      "bytes": 11253,
+      "sha256": "3bbcd759ab7e7b61470f1dd117f8b914871d72da63540d52cf124a15c8b5f0d4"
+    },
+    {
+      "path": "ocr/harness/parser-probe.mjs",
+      "bytes": 5507,
+      "sha256": "74ecf96f6c0f837bee7b96620d389936bca7659376afe52352b395f5e64b988c"
+    },
+    {
+      "path": "ocr/harness/runtime-probe.mjs",
+      "bytes": 10613,
+      "sha256": "d20746afa1ba5528b973459fa420618809a5686cf07b7f909d2248518af80496"
+    },
+    {
+      "path": "ocr/manifest.json",
+      "bytes": 13423,
+      "sha256": "0c61a45a73ed497f501e89624ee4aa91d675e3ac5b1098b4f19346237f00da8a"
+    },
+    {
+      "path": "ocr/parser-results.json",
+      "bytes": 2722,
+      "sha256": "9d0fc7acaaca3aacdf6e2608ff9178b5d05a92d623a04106bb02a88486e22e72"
+    },
+    {
+      "path": "ocr/published-MANIFEST",
+      "bytes": 2070,
+      "sha256": "f32798a4f52a2edb36702571ad27330080e1ed4ba646d0973892cc8cc5921da7"
+    },
+    {
+      "path": "ocr/runtime/follow-up-corrected/ledger_code_comment/native-result.json",
+      "bytes": 3596,
+      "sha256": "859491f5579dd625d091b0f593eaa4c4b966dd1b3b4668f8f4010f59b972f0a5"
+    },
+    {
+      "path": "ocr/runtime/follow-up-corrected/ledger_code_comment/response-1.sse",
+      "bytes": 651,
+      "sha256": "338dbc06c9f69b38563e6ce57b691b37b44a61c17ab25eca6f3f18ba9d649357"
+    },
+    {
+      "path": "ocr/runtime/follow-up-corrected/ledger_code_comment/response-2.sse",
+      "bytes": 337,
+      "sha256": "c50aca33080b49b23fdb83bc693ffd515bf4fb9cd2e9743a0704bba165893d7a"
+    },
+    {
+      "path": "ocr/runtime/follow-up-corrected/ledger_code_comment/response-3.sse",
+      "bytes": 340,
+      "sha256": "8dd10b2ccf0dfdb31e4d7ebdeab636cb226b75805fc047c3690daa7018784cda"
+    },
+    {
+      "path": "ocr/runtime/follow-up-corrected/ledger_code_comment/scenario.json",
+      "bytes": 7449,
+      "sha256": "09d28d4c94af05a67d05dee0151e021c758b0bd89b80977bf9d97f6d27480ac2"
+    },
+    {
+      "path": "ocr/runtime/follow-up-corrected/ledger_code_comment/stderr.txt",
+      "bytes": 129,
+      "sha256": "5402090f19e814156cc4bd3a3a6aba8063675c1ea8fe9cc2d6df4ce90d075743"
+    },
+    {
+      "path": "ocr/runtime/follow-up-corrected/ledger_code_comment/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ocr/runtime/follow-up-corrected/ledger_code_comment/wire-shapes.json",
+      "bytes": 12588,
+      "sha256": "c50997ba1b3d3eec8f7bdb9fd8ae38d4d8bb16d419b14d6843bb3e4ad3a9b484"
+    },
+    {
+      "path": "ocr/runtime/follow-up-corrected/results.json",
+      "bytes": 5340,
+      "sha256": "ba5a406e67c5a295ff31842ed9615598ded2ff3fb13a7725d7e23171df0cd175"
+    },
+    {
+      "path": "ocr/runtime/follow-up-original/ledger_code_comment/native-result.json",
+      "bytes": 3601,
+      "sha256": "4dd54d3207eed9dcfe4428ff9898cd0a6f8a6e120493c8474e1e931797af5fc3"
+    },
+    {
+      "path": "ocr/runtime/follow-up-original/ledger_code_comment/response-1.sse",
+      "bytes": 651,
+      "sha256": "338dbc06c9f69b38563e6ce57b691b37b44a61c17ab25eca6f3f18ba9d649357"
+    },
+    {
+      "path": "ocr/runtime/follow-up-original/ledger_code_comment/response-2.sse",
+      "bytes": 337,
+      "sha256": "c50aca33080b49b23fdb83bc693ffd515bf4fb9cd2e9743a0704bba165893d7a"
+    },
+    {
+      "path": "ocr/runtime/follow-up-original/ledger_code_comment/response-3.sse",
+      "bytes": 337,
+      "sha256": "0084ec91ea0e7d178235904088d162a75a8d91c3fed09c86439552d9018e140d"
+    },
+    {
+      "path": "ocr/runtime/follow-up-original/ledger_code_comment/scenario.json",
+      "bytes": 7486,
+      "sha256": "bdf6aa5d0af3b2e4829d85103f3700112b8b75a190424344da5890dc2031f114"
+    },
+    {
+      "path": "ocr/runtime/follow-up-original/ledger_code_comment/stderr.txt",
+      "bytes": 120,
+      "sha256": "62b1a3cfa404788dfa9c6f85e4431f37d2c6a3095b005116b750d12e1deb3344"
+    },
+    {
+      "path": "ocr/runtime/follow-up-original/ledger_code_comment/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ocr/runtime/follow-up-original/ledger_code_comment/wire-shapes.json",
+      "bytes": 12588,
+      "sha256": "e86d3ceb230ddb330d08ad7c70376ce6e6c2f337fdfe5cb22ee6b62562f75b06"
+    },
+    {
+      "path": "ocr/runtime/follow-up-original/ledger_task_done/native-result.json",
+      "bytes": 3306,
+      "sha256": "4d83329aaaab492b926e9fe56240e888544bab95c21729e05101c79d8c0d6774"
+    },
+    {
+      "path": "ocr/runtime/follow-up-original/ledger_task_done/response-1.sse",
+      "bytes": 529,
+      "sha256": "e144682958b2e56ca73fa42c319f2b3a1ef2c3fb06d442774132b532018f5adc"
+    },
+    {
+      "path": "ocr/runtime/follow-up-original/ledger_task_done/scenario.json",
+      "bytes": 4593,
+      "sha256": "b5f59224db95da15c7ffb8242d082a71321d64c5f1d921ad7a506ad61ee087e1"
+    },
+    {
+      "path": "ocr/runtime/follow-up-original/ledger_task_done/stderr.txt",
+      "bytes": 117,
+      "sha256": "53559d66958c1340c6a0556e4a60299902c75326690d74497270f0cf95f756e7"
+    },
+    {
+      "path": "ocr/runtime/follow-up-original/ledger_task_done/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ocr/runtime/follow-up-original/ledger_task_done/wire-shapes.json",
+      "bytes": 5459,
+      "sha256": "42959ec5a0f12d7476b1e6bae811aead745f185ef10b6ca34c5da0bac75b31e4"
+    },
+    {
+      "path": "ocr/runtime/follow-up-original/results.json",
+      "bytes": 8395,
+      "sha256": "2e2970b36fad1639260b57e14550d1d011dcbba1936c2c91e31e7ba87a7d4638"
+    },
+    {
+      "path": "ocr/runtime/primary/background_8001/scenario.json",
+      "bytes": 1630,
+      "sha256": "1a26269e29132483ef983347921d04d8f97820c5b5eca96beca9e9db010fec93"
+    },
+    {
+      "path": "ocr/runtime/primary/background_8001/stderr.txt",
+      "bytes": 90,
+      "sha256": "6faaaf0c6b32eaeee54cdc188bfb9d8031f84c01cb7f4e8942cdda5602e6c3eb"
+    },
+    {
+      "path": "ocr/runtime/primary/background_8001/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ocr/runtime/primary/background_8001/wire-shapes.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570"
+    },
+    {
+      "path": "ocr/runtime/primary/baseline/native-result.json",
+      "bytes": 3306,
+      "sha256": "cdef0c6fb9022214aec527d87c84c06c8e25e5095c4048c09c53a1e101d58b6a"
+    },
+    {
+      "path": "ocr/runtime/primary/baseline/response-1.sse",
+      "bytes": 319,
+      "sha256": "6ca79118e8be51df31cff15dfc7363c4b2f63cd3aa2f322a1ba13057e2b6e315"
+    },
+    {
+      "path": "ocr/runtime/primary/baseline/scenario.json",
+      "bytes": 4267,
+      "sha256": "c4069edd403b9e514d0aa82c7ac164f0cc6696225f4fea267421b201c1bfe99d"
+    },
+    {
+      "path": "ocr/runtime/primary/baseline/stderr.txt",
+      "bytes": 103,
+      "sha256": "000e37a8545892d25dcf8ed60925786c81e699e025c1c8dfbf7d3a5bee96ac52"
+    },
+    {
+      "path": "ocr/runtime/primary/baseline/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ocr/runtime/primary/baseline/wire-shapes.json",
+      "bytes": 5459,
+      "sha256": "2ea615327fb6c93f7c546cf613f6070c546723d721a0ea16fa84ad1d4343a9a3"
+    },
+    {
+      "path": "ocr/runtime/primary/cancel_stream/native-result.json",
+      "bytes": 4349,
+      "sha256": "0ccc45b2dde03759a092804190ad52fc7e785ca75a02f33fc293da58dade4686"
+    },
+    {
+      "path": "ocr/runtime/primary/cancel_stream/scenario.json",
+      "bytes": 4032,
+      "sha256": "85e2f30b2a1db0187e7fc50b31f39b452f0edb0cb305fcbdd00ca5e8ac3ab13f"
+    },
+    {
+      "path": "ocr/runtime/primary/cancel_stream/stderr.txt",
+      "bytes": 717,
+      "sha256": "1059bc96e924c583593183103cea819ff318c899abacb0ba2406dbe94be27789"
+    },
+    {
+      "path": "ocr/runtime/primary/cancel_stream/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ocr/runtime/primary/cancel_stream/wire-shapes.json",
+      "bytes": 5459,
+      "sha256": "1f667abc1146c3142017ead13a3154270d22937694332ef7e9696227414532d2"
+    },
+    {
+      "path": "ocr/runtime/primary/ledger_text/native-result.json",
+      "bytes": 3306,
+      "sha256": "ed4ba59fe535a15ef73646f9d237d09996e2173e05500c7b7e51c10d200f600b"
+    },
+    {
+      "path": "ocr/runtime/primary/ledger_text/response-1.sse",
+      "bytes": 684,
+      "sha256": "1c6c5ee7439faea079a43619653d4910e3812135f0944d0cf7e02166f7ddfd37"
+    },
+    {
+      "path": "ocr/runtime/primary/ledger_text/scenario.json",
+      "bytes": 4732,
+      "sha256": "c03c63debeeb67f7eb9f9d32006b3ff6f3a749f4075fcd9fc1ebdbaa0d706698"
+    },
+    {
+      "path": "ocr/runtime/primary/ledger_text/stderr.txt",
+      "bytes": 106,
+      "sha256": "5ad2c7a7001362c40c429e6ec7f6eb3ea0bd55fb2ed08e9beed9d88ad4b7feab"
+    },
+    {
+      "path": "ocr/runtime/primary/ledger_text/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ocr/runtime/primary/ledger_text/wire-shapes.json",
+      "bytes": 5459,
+      "sha256": "9b99951a8afb7fc61de24865cc626434e595911766c08940a2cae757eadf97ff"
+    },
+    {
+      "path": "ocr/runtime/primary/legacy_rule/native-result.json",
+      "bytes": 3306,
+      "sha256": "73a4555ec53f5673b04e56624afdc57acf52622b4da579a88b19c6c4479cb1a7"
+    },
+    {
+      "path": "ocr/runtime/primary/legacy_rule/response-1.sse",
+      "bytes": 319,
+      "sha256": "6ca79118e8be51df31cff15dfc7363c4b2f63cd3aa2f322a1ba13057e2b6e315"
+    },
+    {
+      "path": "ocr/runtime/primary/legacy_rule/scenario.json",
+      "bytes": 4280,
+      "sha256": "f4babbbed3e5c842aaec9b2686f879a7d4302427d4ad1c0bb557f9fb487996c8"
+    },
+    {
+      "path": "ocr/runtime/primary/legacy_rule/stderr.txt",
+      "bytes": 106,
+      "sha256": "fb05ad52cc373217897572d3874f67b5b48f99b65096c7c0890fe49e79eece7d"
+    },
+    {
+      "path": "ocr/runtime/primary/legacy_rule/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ocr/runtime/primary/legacy_rule/wire-shapes.json",
+      "bytes": 5460,
+      "sha256": "f3ff1cbdfb31a4a84394e7714477e9bc1cb71693d9a9c9e2c7dcb5f137fee8d2"
+    },
+    {
+      "path": "ocr/runtime/primary/partial_stream/native-result.json",
+      "bytes": 4236,
+      "sha256": "e0d0ae73221674b628bc5c397e8ebb647cebefe1281e9bbaada05dee4e5759b2"
+    },
+    {
+      "path": "ocr/runtime/primary/partial_stream/scenario.json",
+      "bytes": 4128,
+      "sha256": "900d3cc0f2e77cf7cb0b491c6be126dc460e6888fe86cf2ca4be91cfe0445647"
+    },
+    {
+      "path": "ocr/runtime/primary/partial_stream/stderr.txt",
+      "bytes": 774,
+      "sha256": "ed0fd38b9eb4c2046fe489ae86745bcc64750642349d29ca24fdbf95ec2a8242"
+    },
+    {
+      "path": "ocr/runtime/primary/partial_stream/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ocr/runtime/primary/partial_stream/wire-shapes.json",
+      "bytes": 5459,
+      "sha256": "4d063d4c21ba9b6d64736cbc9447ec29c3a3997f9e5d9ad9ad422801804a2d1f"
+    },
+    {
+      "path": "ocr/runtime/primary/results.json",
+      "bytes": 20383,
+      "sha256": "41c86311f29168ff7a9734b3aa25bf6fdb32de3030846fa86477c5e8dc953a14"
+    },
+    {
+      "path": "ocr/runtime/primary/tool_turn/native-result.json",
+      "bytes": 3333,
+      "sha256": "d423a37cfa1fe5c00256bb2ceafccd47db4203df4c9089faf546274e775a6b84"
+    },
+    {
+      "path": "ocr/runtime/primary/tool_turn/response-1.sse",
+      "bytes": 385,
+      "sha256": "f3503009d6d162a11cafc8b4bb13388cb8e4d1ed5172fd9b3ada5919a8b91e72"
+    },
+    {
+      "path": "ocr/runtime/primary/tool_turn/response-2.sse",
+      "bytes": 319,
+      "sha256": "5e3a41b6514d3b5c321b9b144b200a46756bb68c4b87a71684cc52bbca7858ae"
+    },
+    {
+      "path": "ocr/runtime/primary/tool_turn/scenario.json",
+      "bytes": 5921,
+      "sha256": "5e42379d7ea069e2a8255a7681e687a2106d140d494bcf0003ee23a5d25536d6"
+    },
+    {
+      "path": "ocr/runtime/primary/tool_turn/stderr.txt",
+      "bytes": 104,
+      "sha256": "ab0b7ac61855ce13c9b1814ab5bb8d54a3d0a784311a16f3761ce58a010ad150"
+    },
+    {
+      "path": "ocr/runtime/primary/tool_turn/stdout.txt",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "ocr/runtime/primary/tool_turn/wire-shapes.json",
+      "bytes": 10967,
+      "sha256": "86702482bf6b85023e70bfaf468d30ad6bf0afde500dcfba4fdbd26dad392cc1"
+    },
+    {
+      "path": "ocr/source-copy-verification.json",
+      "bytes": 498,
+      "sha256": "d076e5d6a8d531601f92133168e2f582f27df40121a82a2ad21655134fadee70"
+    },
+    {
+      "path": "ocr/source-inputs.json",
+      "bytes": 2580,
+      "sha256": "a9f1363d4c9771caf653502d1579f9116c8176c0028990f5a3ea4a50e9c7edcc"
+    },
+    {
+      "path": "ocr/summary.json",
+      "bytes": 4979,
+      "sha256": "bad19c4ac7f7aa3a9f7c43e5c8edba1357c9ccef7e07b859558456a463ed5264"
+    }
+  ]
+}

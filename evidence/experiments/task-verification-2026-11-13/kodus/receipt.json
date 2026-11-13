@@ -1,0 +1,105 @@
+{
+  "schema": "source-transformation-probe/v1",
+  "observed_date": "2026-11-13",
+  "upstream": {
+    "repository": "kodustech/kodus-ai",
+    "commit": "f74afbb486bc5434c1190aeb8433d59f6f7847d2",
+    "sources": [
+      {
+        "path": "libs/agents/business-validation/judge/intent-judge.ts",
+        "blob": "a8bab7bd6caf3ae5f557bf9f06d960c2db9291ee",
+        "extraction": "lines 281-289: return expression for a refuted requirement; remove only TypeScript 'as const'",
+        "url": "https://github.com/kodustech/kodus-ai/blob/f74afbb486bc5434c1190aeb8433d59f6f7847d2/libs/agents/business-validation/judge/intent-judge.ts"
+      },
+      {
+        "path": "libs/agents/business-validation/judge/business-rules-verifier.ts",
+        "blob": "4fb145c590b47fe549a2622b7e92b460f74d250a",
+        "extraction": "lines 159-171: body of applyBusinessRulesVerdict; lines 186-190: optional-verification gate",
+        "url": "https://github.com/kodustech/kodus-ai/blob/f74afbb486bc5434c1190aeb8433d59f6f7847d2/libs/agents/business-validation/judge/business-rules-verifier.ts"
+      }
+    ]
+  },
+  "scope": "Two exact-source transformation scenarios with a stub verifier verdict. The TS return expression only has 'as const' erased. The legacy function body and gate are executed unchanged. No full service, publisher, model output, or merge behavior is exercised.",
+  "llm_calls": 0,
+  "scenarios": [
+    {
+      "id": "refuted_requirement_without_positive_evidence",
+      "input": {
+        "completed_analysis": {
+          "needsMoreInfo": false,
+          "mode": "full_analysis",
+          "reason": "analysis_ready",
+          "status": "issues_found",
+          "confidence": "medium",
+          "summary": "Retry requirement missing."
+        },
+        "policy": {
+          "verifyAnalyzerResult": true
+        },
+        "requirement": {
+          "requirement": "Retry transient failures",
+          "state": "missing",
+          "evidence": [],
+          "confidence": "medium",
+          "kind": "behavior",
+          "note": "No retry found in supplied diff.",
+          "action": "Add retry."
+        },
+        "verifier_verdict": {
+          "keep": false,
+          "rationale": "The supplied diff does not establish whether retry exists elsewhere."
+        }
+      },
+      "actual": {
+        "requirement": "Retry transient failures",
+        "state": "met",
+        "evidence": [],
+        "confidence": "medium",
+        "kind": "behavior",
+        "note": "The supplied diff does not establish whether retry exists elsewhere."
+      },
+      "assertions_passed": true,
+      "notes": "The result still has an empty evidence array, yet state becomes met. The action property is undefined and therefore omitted by JSON serialization."
+    },
+    {
+      "id": "refuted_legacy_violation_without_positive_evidence",
+      "input": {
+        "analysis": {
+          "needsMoreInfo": false,
+          "mode": "full_analysis",
+          "reason": "analysis_ready",
+          "status": "issues_found",
+          "confidence": "medium",
+          "summary": "Retry requirement missing.",
+          "findings": [
+            {
+              "severity": "must_fix",
+              "title": "Retry requirement missing."
+            }
+          ]
+        },
+        "policy": {
+          "verifyAnalyzerResult": true
+        },
+        "verifier_verdict": {
+          "keep": false,
+          "rationale": "The supplied diff does not establish whether retry exists elsewhere."
+        }
+      },
+      "actual": {
+        "needsMoreInfo": false,
+        "mode": "full_analysis",
+        "status": "compliant",
+        "confidence": "low",
+        "summary": "The supplied diff does not establish whether retry exists elsewhere.",
+        "findings": []
+      },
+      "assertions_passed": true,
+      "notes": "The legacy pure transform returns compliant and clears findings. This path is selected when the analysis has no requirements array."
+    }
+  ],
+  "scenarios_passed": 2,
+  "scenarios_total": 2,
+  "limitation": "This establishes the reachable pure transformation given a contract-permitted keep=false verdict. It does not establish that a live verifier emits that verdict or that a PR merges.",
+  "proposed_invariant": "Retracting an unsupported violation alone leaves satisfaction inconclusive. Promotion to satisfied requires positive evidence."
+}

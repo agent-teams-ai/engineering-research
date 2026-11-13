@@ -1,0 +1,66 @@
+{
+  "summary": {
+    "scenario": "background_8001",
+    "elapsedMs": 42,
+    "process": {
+      "code": 1,
+      "signal": null
+    },
+    "childTimedOut": false,
+    "capHit": false,
+    "requestCount": 0,
+    "maxInFlight": 0,
+    "closedResponses": 0,
+    "requestShapes": [],
+    "rawKeys": [],
+    "rawHasLedgerMarker": false,
+    "rawCommentCount": null,
+    "outcome": null,
+    "parsedKeys": [],
+    "classification": null,
+    "parseError": {
+      "name": "Error",
+      "message": "output file absent or invalid JSON"
+    }
+  },
+  "argv": [
+    "review",
+    "--reviewrouter-managed",
+    "--repo",
+    "/workspace/scratch/403f551f2040/ocr-deep-20261113/synthetic-repo",
+    "--from",
+    "4611b11b28862f67d0574875c07bc4e73a549bb1",
+    "--to",
+    "4e7a9297c26d852b89d22bf3049d469eeb0958aa",
+    "--provider",
+    "reviewrouter",
+    "--model",
+    "stub-model",
+    "--rule",
+    "/workspace/scratch/403f551f2040/ocr-deep-20261113/background_8001/rule.json",
+    "--background-file",
+    "/workspace/scratch/403f551f2040/ocr-deep-20261113/background_8001/background.md",
+    "--effort",
+    "low",
+    "--concurrency",
+    "1",
+    "--format",
+    "json",
+    "--audience",
+    "agent",
+    "--timeout",
+    "1",
+    "--max-tokens",
+    "8192",
+    "--max-tokens-budget",
+    "32768",
+    "--output",
+    "/workspace/scratch/403f551f2040/ocr-deep-20261113/background_8001/native-result.json"
+  ],
+  "admission": {
+    "baseSha": "4611b11b28862f67d0574875c07bc4e73a549bb1",
+    "mergeBaseSha": "4611b11b28862f67d0574875c07bc4e73a549bb1",
+    "headSha": "4e7a9297c26d852b89d22bf3049d469eeb0958aa"
+  },
+  "replies": []
+}

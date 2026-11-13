@@ -1,0 +1,150 @@
+{
+  "status": "failed",
+  "llm": {
+    "provider": "reviewrouter",
+    "model": "stub-model"
+  },
+  "message": "Review failed: 0 finding(s); 1 of 1 selected item(s) failed.",
+  "summary": {
+    "files_reviewed": 1,
+    "comments": 0,
+    "total_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "elapsed": "0s"
+  },
+  "tool_calls": {
+    "total": 0,
+    "by_tool": {},
+    "failure": 0,
+    "failure_by_tool": {},
+    "failure_details": []
+  },
+  "comments": null,
+  "groups": [
+    {
+      "label": "calc.ts",
+      "files": [
+        "calc.ts"
+      ]
+    }
+  ],
+  "session_id": "12d44663-4d33-4aa3-ad8a-f2944995fa58",
+  "manifest": {
+    "schema_version": "ocr.run-manifest/v1",
+    "run_id": "12d44663-4d33-4aa3-ad8a-f2944995fa58",
+    "operation": "review",
+    "terminal_state": "failed",
+    "repository": {},
+    "input": {
+      "mode": "range",
+      "requested_from": "4611b11b28862f67d0574875c07bc4e73a549bb1",
+      "requested_head": "4e7a9297c26d852b89d22bf3049d469eeb0958aa",
+      "resolved_base": "4611b11b28862f67d0574875c07bc4e73a549bb1",
+      "resolved_head": "4e7a9297c26d852b89d22bf3049d469eeb0958aa",
+      "exact_range": "4611b11b28862f67d0574875c07bc4e73a549bb1..4e7a9297c26d852b89d22bf3049d469eeb0958aa",
+      "source_artifact_sha256": "f24f1d2a231cddb78771a9053004efdd3e1ea672a42e5f78f391d19b46b31678"
+    },
+    "execution": {
+      "ocr_version": "1.13.1-rr.6",
+      "provider": "reviewrouter",
+      "model": "stub-model",
+      "configured_concurrency": 1,
+      "rule_config_sha256": "95a966b4ddd1d70c422c84887c5b4a1f6a936acd9e1bfcc43f7b47488ca01888",
+      "runtime_config_sha256": "5b4db0d25473685ce24351981de6144a6b294602013d82bcfd0ee3e5328e06ef"
+    },
+    "coverage": {
+      "selected": [
+        {
+          "item_id": "edfd395e51fca7dcdf843bbee5668e6378fb592e6d36273ce98896bd108256e8",
+          "path": "calc.ts",
+          "fingerprint": "8cb699b69a62e83d626b08e9822dd2b9c3c93e3746756a7ef80e0e63f43cd326"
+        }
+      ],
+      "completed": [],
+      "reused": [],
+      "failed": [
+        {
+          "item_id": "edfd395e51fca7dcdf843bbee5668e6378fb592e6d36273ce98896bd108256e8",
+          "path": "calc.ts",
+          "fingerprint": "8cb699b69a62e83d626b08e9822dd2b9c3c93e3746756a7ef80e0e63f43cd326",
+          "classification": "provider",
+          "reason": "provider or subtask request failed"
+        }
+      ],
+      "waived": []
+    },
+    "elapsed_ms": 111
+  },
+  "reviewrouter_outcome": {
+    "schema_version": "reviewrouter.ocr-outcome/v1",
+    "run_stop_cause": null,
+    "grouping": {
+      "state": "not_applicable",
+      "reason": "single_file"
+    },
+    "groups": [
+      {
+        "paths": [
+          "calc.ts"
+        ],
+        "main_completed": false,
+        "stop_cause": "provider_error",
+        "rounds": {
+          "configured": 1,
+          "started": 1,
+          "completed": 0
+        },
+        "phases": {
+          "plan": {
+            "state": "not_applicable",
+            "reason": "threshold"
+          },
+          "compression": {
+            "state": "not_applicable",
+            "reason": "no_zone"
+          },
+          "relocation": {
+            "state": "not_applicable",
+            "reason": "no_candidates"
+          },
+          "filter": {
+            "state": "cancelled",
+            "reason": "not_dispatched"
+          }
+        },
+        "filter_decision_valid": null
+      }
+    ]
+  },
+  "retry_report": {
+    "schema_version": "ocr.llm-retry-report/v1",
+    "total_requests": 1,
+    "retried_requests": 0,
+    "total_retries": 0,
+    "recovered_requests": 0,
+    "failed_requests": 1,
+    "cancelled_requests": 0,
+    "requests": [
+      {
+        "logical_request_id": "a3ae1b3670c21871b80d80226b4960872303c1482a6e3c1ce86549bfa13adc8b",
+        "provider": "reviewrouter",
+        "model": "stub-model",
+        "file_path": "calc.ts",
+        "task_type": "main_task",
+        "request_no": 1,
+        "outcome": "failed",
+        "attempts": [
+          {
+            "attempt": 1,
+            "outcome": "error",
+            "error_class": "provider",
+            "failure_phase": "stream",
+            "status_code": 200,
+            "duration_to_headers_ms": 2
+          }
+        ]
+      }
+    ]
+  }
+}

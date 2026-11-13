@@ -11,6 +11,8 @@ reviewed_at: 2026-11-12
 
 ## Scope and status
 
+**Critical audit added 2026-11-13:** [Exact managed OCR probes and revised architecture/evaluation implications](task-verification-critical-architecture-and-evidence-audit-2026-11-13.md) now records native output-loss and rule-shape observations, critic/aggregation counterexamples, a zero-model baseline and tighter Stage A/B rules. The original 44/14 results below retain their 2026-11-12 scope; the later native runs are separate evidence.
+
 **Recorded 2026-11-12 (Europe/Kiev). Research supplement, with executed local probes and inspected source/CI evidence.** This document carries the subsequent architecture and OCR/Gateway investigation into the repository. It supplements [the five-options study](task-verification-five-practical-options-2026-11-11.md); that study's original observation date, scores, method and TV-O1–TV-O5 identities remain unchanged. An `active` study is maintained research, not an accepted product architecture or production qualification.
 
 The owner-provided collaboration agreement is recorded separately from technical findings: a dedicated public experimental Task Verification repository is agreed; **Milestone 1 remains only a bounded Stage A/B experiment plan, approximately 4–6 focused hours**. Stable SDK publication, production integration and support commitments are outside that agreement. This update does not establish that the dedicated repository has been created or that any integration has been implemented.
@@ -42,10 +44,10 @@ Three outcomes have different owners:
 | Question | Owner | Relevant facts |
 | --- | --- | --- |
 | What ran and completed? | Execution/evidence adapter | Captured input, source identity, request/attempt, technical outcome, completeness, raw output and usage |
-| What is established for each criterion? | Criterion evaluator plus deterministic result admission | `satisfied`, `violated`, `inconclusive`, evidence references and complete expected IDs |
+| What is assessed for each criterion, and on what basis? | Criterion evaluator plus deterministic result admission | `satisfied`, `violated`, `inconclusive`, reported/admitted evidence references, complete expected IDs and explicit assessment basis |
 | May this work be accepted now? | Consumer policy; Work Coordination for Orchestrator | Current basis, required gates, permissions, overrides and atomic final decision |
 
-Successful model transport, empty review findings and complete file coverage answer different questions from requirement satisfaction. A valid passing test establishes only the behavior that its approved oracle/mapping actually covers. A demonstrated required-check failure remains visible when another criterion lacks evidence; the report must retain both violation and incompleteness.
+Successful model transport, empty review findings and complete file coverage answer different questions from requirement satisfaction. A valid passing test records an observed outcome for its exact inputs and environment; treating it as sufficient for a criterion requires an explicit consumer-owned oracle and applicability policy. Complete criterion IDs and valid result structure establish contract completeness, not semantic correctness or coverage of every condition within a criterion. A demonstrated required-behavior violation remains visible when another criterion lacks evidence; the report must retain both violation and incompleteness. A setup or execution error alone does not establish such a violation.
 
 The independently captured inventory, candidate identity, evidence applicability and result-admission rules are the most important early contracts. The new module does not acquire Work completion authority. [ADR-0072][adr72] already specifies the relevant completion epoch, basis revision, candidate digest and evaluation binding.
 
@@ -59,8 +61,8 @@ This table compares mechanisms for the same verification problem. It does not ra
 | Open Code Review [manifest][ocr-manifest] and [result model][ocr-model], source inspection | Pinned execution inputs and file-oriented review/coverage | Review comments and file completion do not provide an independently captured per-criterion result ledger. Upstream and ReviewRouter's managed build are distinct artifacts |
 | [CodeRabbit][coderabbit], official documentation | Separates check result, reporting surface and enforcement | In the documented platform reporting mode, inconclusive can become `action_required`; native Walkthrough behavior differs. Closed internals were not audited |
 | [PR-Agent][pr-agent], source inspection | Structured review output and ticket context | Ticket-level textual compliance fields do not themselves preserve an independent required criterion-ID inventory |
-| [Harbor/Rewardkit][rewardkit], source/documentation inspection | Programmatic and model-based criteria, explicit results and aggregation policies, separate verifier | Reward and reward validity are experiment outputs; they do not grant product completion authority |
-| [Inspect AI][inspect], source/documentation inspection | Solver/scorer separation, raw logs and rescoring retained outputs | Accuracy can exclude errored/unscored samples; expose the denominator and all attempts alongside an aggregate |
+| [Harbor/Rewardkit][rewardkit], source/documentation inspection | Programmatic and model-based criteria, explicit results and aggregation policies, support for separate verifier execution | Reward and reward validity are experiment outputs; they do not grant product completion authority |
+| [Inspect AI][inspect], source/documentation inspection | Solver/scorer separation, raw logs and rescoring retained outputs | Scorer errors and unscored grader outcomes can be excluded from accuracy; evaluated-model format failures can count as incorrect. Expose raw attempts and denominators alongside aggregates |
 | [SWE-bench][swebench], source inspection | Fixed inputs, independent expected tests and execution/grading evidence | Benchmark handling of skipped/empty sets is not a universal product acceptance policy |
 | [Gerrit][gerrit], official documentation | Reviewer assessment, submit requirements and visible override are separate | Useful authority model; it does not solve LLM semantic assessment |
 
@@ -102,6 +104,8 @@ P2/N2 have the same route diff but different unchanged helpers **and different b
 The spike's `assess` function reconciles reported claims; it does not establish their truth. Its receipt Map models an already authenticated adapter, and its synchronous publication fence models a protocol. Neither implements a trust service, database CAS/outbox, worker recovery or hostile-code sandbox. The narrow criterion parser is a fixture grammar, not a production PR Markdown parser. No TypeScript compiler/typecheck, native OCR execution or load qualification was performed by these local probes.
 
 ### 4. OCR output qualification remains a real prerequisite
+
+The [13 November native audit](task-verification-critical-architecture-and-evidence-audit-2026-11-13.md#2-exact-managed-ocr-execution-and-output-boundaries) executes the exact managed release and narrows this prerequisite: the tested assistant-text/tool-argument/comment-field carriers lose criterion data. A combined profile requires a supported result-contract extension or another explicit channel; prompting alone did not establish one in these probes.
 
 The inspected upstream OCR commit is `6386895e7cfac419bd7a9cf4795e8b824a6e3ced`; ReviewRouter's [build recipe][ocr-build] selects its own upstream revision and managed patches. These sources must not be treated as interchangeable. The inspected [result model][ocr-model] primarily describes review comments, not a criterion-completion ledger.
 
@@ -198,10 +202,12 @@ The previously discussed envelope was **24 Stage A invocations** (four candidate
 Within the existing planning milestone, specify:
 
 1. **The exact OCR capability qualification:** binary/build, complete criterion admission, context/tool availability, structured per-criterion output, partial/failure behavior, no-publication path, usage and cancellation.
-2. **A fair comparison:** comparable snapshots and information, predefined expected outcomes, independent repetitions, anonymous fixture IDs and no shared memory. If tool access differs, measure a whole profile rather than attributing its benefit only to the prompt.
-3. **Separate measures:** ordinary defect detection, false positives/negatives, justified satisfaction, inconclusive rate, criterion coverage, repeatability and cost. Ordinary-review silence cannot count as satisfaction.
+2. **A fair comparison:** comparable snapshots and information, predefined expected outcomes, isolated repetitions on the same candidates, anonymous fixture IDs and no shared conversation or review memory. These repetitions measure within-case variation, not independent tasks sampled from production. If tool access differs, measure a whole profile rather than attributing its benefit only to the prompt.
+3. **Separate measures:** ordinary-review detection and unjustified findings; explicit satisfaction, false satisfaction claims and false rework for the criteria profile; inconclusive outcomes, coverage, repeatability and cost. Ordinary-review silence has no implied satisfaction label.
 4. **A small model-free transport check:** fake provider responses for full-history tool turns, stable IDs, early EOF/partial output, cancellation and ambiguous dispatch. This is proposed new integration qualification; the existing 44/14 checks did not exercise Gateway or an OCR binary.
 5. **A Stage B decision rule:** evidence must improve correctness or resolve uncertainty on the predefined oracle. A changed answer alone is not an improvement.
+
+The [2026-11-13 audit](task-verification-critical-architecture-and-evidence-audit-2026-11-13.md#7-corrected-stage-ab-planning-rules) proposes a zero-model evidence-policy baseline and clarifies Stage B selection, oracle separation and confidence limits. These refinements do not expand the previously discussed invocation envelope or the 4–6-hour planning milestone. OCR invocations and underlying model HTTP requests must be counted separately.
 
 The plan should name any missing approved connection or adapter as a dependency. It does not require implementing the Gateway, a verifier service, a production SDK or all experimental profiles in 4–6 hours. Hassan's original Phase 0 report remains historical; subsequent decisions belong in separate dated records.
 
