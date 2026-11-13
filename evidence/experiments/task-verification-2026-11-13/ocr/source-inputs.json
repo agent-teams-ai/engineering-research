@@ -1,0 +1,33 @@
+{
+  "sourceCommit": "7a079c382d8e98b426ee90a6b3764be2a21b4c49",
+  "upstreamCommit": "8eb83340a487b1150af00701b94f01af97e4b4d6",
+  "binaryRelease": "https://github.com/777genius/review-router/releases/tag/ocr-v1.13.1-rr.6",
+  "binaryURL": "https://github.com/777genius/review-router/releases/download/ocr-v1.13.1-rr.6/opencodereview-linux-amd64",
+  "binarySHA256": "9dd5f115747d24100f0767133a3288d268f3bc399675f5b826e7a867d101ee5c",
+  "buildRecipe": "https://github.com/777genius/review-router/blob/7a079c382d8e98b426ee90a6b3764be2a21b4c49/tools/ocr/build.sh",
+  "buildManifest": "https://github.com/777genius/review-router/blob/7a079c382d8e98b426ee90a6b3764be2a21b4c49/tools/ocr/qualifications/unified-model-routes-v3.manifest",
+  "sourceFiles": [
+    {
+      "repo": "777genius/review-router",
+      "commit": "7a079c382d8e98b426ee90a6b3764be2a21b4c49",
+      "path": "src/review-orchestration/infrastructure/ocr-review-outcome-contract.ts",
+      "blob": "5ba2ba5ddfe52c93b0dc7d7514b1e0a3d7047698",
+      "url": "https://github.com/777genius/review-router/blob/7a079c382d8e98b426ee90a6b3764be2a21b4c49/src/review-orchestration/infrastructure/ocr-review-outcome-contract.ts"
+    },
+    {
+      "repo": "777genius/review-router",
+      "commit": "7a079c382d8e98b426ee90a6b3764be2a21b4c49",
+      "path": "src/review-orchestration/infrastructure/ocr-review-normalization.ts",
+      "blob": "43bcfa54ee3dedd50a18e2d8e8f9aaf5cd5a0a42",
+      "url": "https://github.com/777genius/review-router/blob/7a079c382d8e98b426ee90a6b3764be2a21b4c49/src/review-orchestration/infrastructure/ocr-review-normalization.ts"
+    }
+  ],
+  "sourceOnlyReferences": [
+    "https://github.com/777genius/review-router/blob/7a079c382d8e98b426ee90a6b3764be2a21b4c49/src/review-orchestration/infrastructure/production-t0-review-runner.ts",
+    "https://github.com/777genius/review-router/blob/7a079c382d8e98b426ee90a6b3764be2a21b4c49/src/review-orchestration/infrastructure/ocr-review-invocation-adapter.ts",
+    "https://github.com/777genius/review-router/blob/7a079c382d8e98b426ee90a6b3764be2a21b4c49/src/review-orchestration/infrastructure/ocr-review-managed-run.ts",
+    "https://github.com/agent-teams-ai/sub2api/blob/a19cbcbedda8eccbe82bb24224052a1e9eaab309/backend/internal/gatewaytransport/public.go",
+    "https://github.com/agent-teams-ai/sub2api/blob/a19cbcbedda8eccbe82bb24224052a1e9eaab309/backend/internal/gatewaytransport/wire.go",
+    "https://github.com/agent-teams-ai/sub2api/blob/a19cbcbedda8eccbe82bb24224052a1e9eaab309/backend/internal/service/native_gateway_provider_responses.go"
+  ]
+}

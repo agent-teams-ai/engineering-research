@@ -1,0 +1,9 @@
+{
+  "attempts": [
+    {"operation":"go version","outcome":"failed","detail":"The /usr/bin/go program returned Go: Unknown option: version. No Go build was attempted."},
+    {"operation":"published managed binary download and hash verification","outcome":"passed","detail":"80513363 bytes, sha256 9dd5f115747d24100f0767133a3288d268f3bc399675f5b826e7a867d101ee5c; --version reports 1.13.1-rr.6 linux/amd64."},
+    {"operation":"parser probe with Node strip-only mode","outcome":"setup_failure","detail":"ERR_UNSUPPORTED_TYPESCRIPT_SYNTAX for a parameter property in the unchanged normalizer source; no probe assertions executed in this attempt."},
+    {"operation":"parser probe with Node experimental transform-types","outcome":"passed","detail":"9 assertions passed. No TypeScript typecheck was run."},
+    {"operation":"source byte provenance verification","outcome":"corrected_then_passed","detail":"apply_patch added one trailing newline to each source copy. Removed exactly that byte; verified original Git blob SHA, then reran the 9 parser probes with exact source bytes. No code logic changed."}
+  ]
+}

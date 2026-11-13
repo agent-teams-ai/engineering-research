@@ -1,0 +1,809 @@
+{
+  "kind": "managed-ocr-fake-provider-probe/v1",
+  "binary": {
+    "version": "1.13.1-rr.6",
+    "sha256": "9dd5f115747d24100f0767133a3288d268f3bc399675f5b826e7a867d101ee5c"
+  },
+  "actionSource": "7a079c382d8e98b426ee90a6b3764be2a21b4c49",
+  "node": "v24.22.1",
+  "realModelCalls": 0,
+  "gatewayRuntimeUsed": false,
+  "networkPolicy": "isolated HOME and allowlisted environment; managed loopback endpoint; no network namespace or syscall audit",
+  "elapsedMs": 1358,
+  "results": [
+    {
+      "scenario": "baseline",
+      "elapsedMs": 233,
+      "process": {
+        "code": 0,
+        "signal": null
+      },
+      "childTimedOut": false,
+      "capHit": false,
+      "requestCount": 1,
+      "maxInFlight": 1,
+      "closedResponses": 1,
+      "requestShapes": [
+        {
+          "method": "POST",
+          "url": "/responses",
+          "authorizationCorrect": true,
+          "keys": [
+            "instructions",
+            "prompt_cache_key",
+            "store",
+            "include",
+            "input",
+            "model",
+            "tools",
+            "service_tier",
+            "stream"
+          ],
+          "model": "stub-model",
+          "store": false,
+          "stream": true,
+          "serviceTier": "default",
+          "hasPreviousResponseId": false,
+          "maxOutputTokens": null,
+          "toolNames": [
+            "task_done",
+            "code_comment",
+            "code_search",
+            "file_read",
+            "file_read_diff",
+            "file_find"
+          ],
+          "nativeRuleMarker": true,
+          "backgroundMarker": true,
+          "unchangedContextMarker": false,
+          "toolOutputItems": []
+        }
+      ],
+      "rawKeys": [
+        "status",
+        "llm",
+        "message",
+        "summary",
+        "tool_calls",
+        "comments",
+        "groups",
+        "session_id",
+        "manifest",
+        "reviewrouter_outcome"
+      ],
+      "rawHasLedgerMarker": false,
+      "rawCommentCount": 0,
+      "outcome": {
+        "schema_version": "reviewrouter.ocr-outcome/v1",
+        "run_stop_cause": null,
+        "grouping": {
+          "state": "not_applicable",
+          "reason": "single_file"
+        },
+        "groups": [
+          {
+            "paths": [
+              "calc.ts"
+            ],
+            "main_completed": true,
+            "stop_cause": null,
+            "rounds": {
+              "configured": 1,
+              "started": 1,
+              "completed": 1
+            },
+            "phases": {
+              "plan": {
+                "state": "not_applicable",
+                "reason": "threshold"
+              },
+              "compression": {
+                "state": "not_applicable",
+                "reason": "no_zone"
+              },
+              "relocation": {
+                "state": "not_applicable",
+                "reason": "no_candidates"
+              },
+              "filter": {
+                "state": "not_applicable",
+                "reason": "no_candidates"
+              }
+            },
+            "filter_decision_valid": null
+          }
+        ]
+      },
+      "parsedKeys": [
+        "status",
+        "requestedModel",
+        "usage",
+        "budgetExceeded",
+        "comments",
+        "warnings",
+        "manifest",
+        "outcome"
+      ],
+      "classification": {
+        "reasons": [],
+        "partial": false,
+        "filterCommentsPreserved": false
+      },
+      "parseError": null
+    },
+    {
+      "scenario": "ledger_text",
+      "elapsedMs": 202,
+      "process": {
+        "code": 0,
+        "signal": null
+      },
+      "childTimedOut": false,
+      "capHit": false,
+      "requestCount": 1,
+      "maxInFlight": 1,
+      "closedResponses": 1,
+      "requestShapes": [
+        {
+          "method": "POST",
+          "url": "/responses",
+          "authorizationCorrect": true,
+          "keys": [
+            "instructions",
+            "prompt_cache_key",
+            "store",
+            "include",
+            "input",
+            "model",
+            "tools",
+            "service_tier",
+            "stream"
+          ],
+          "model": "stub-model",
+          "store": false,
+          "stream": true,
+          "serviceTier": "default",
+          "hasPreviousResponseId": false,
+          "maxOutputTokens": null,
+          "toolNames": [
+            "task_done",
+            "code_comment",
+            "code_search",
+            "file_read",
+            "file_read_diff",
+            "file_find"
+          ],
+          "nativeRuleMarker": true,
+          "backgroundMarker": true,
+          "unchangedContextMarker": false,
+          "toolOutputItems": []
+        }
+      ],
+      "rawKeys": [
+        "status",
+        "llm",
+        "message",
+        "summary",
+        "tool_calls",
+        "comments",
+        "groups",
+        "session_id",
+        "manifest",
+        "reviewrouter_outcome"
+      ],
+      "rawHasLedgerMarker": false,
+      "rawCommentCount": 0,
+      "outcome": {
+        "schema_version": "reviewrouter.ocr-outcome/v1",
+        "run_stop_cause": null,
+        "grouping": {
+          "state": "not_applicable",
+          "reason": "single_file"
+        },
+        "groups": [
+          {
+            "paths": [
+              "calc.ts"
+            ],
+            "main_completed": true,
+            "stop_cause": null,
+            "rounds": {
+              "configured": 1,
+              "started": 1,
+              "completed": 1
+            },
+            "phases": {
+              "plan": {
+                "state": "not_applicable",
+                "reason": "threshold"
+              },
+              "compression": {
+                "state": "not_applicable",
+                "reason": "no_zone"
+              },
+              "relocation": {
+                "state": "not_applicable",
+                "reason": "no_candidates"
+              },
+              "filter": {
+                "state": "not_applicable",
+                "reason": "no_candidates"
+              }
+            },
+            "filter_decision_valid": null
+          }
+        ]
+      },
+      "parsedKeys": [
+        "status",
+        "requestedModel",
+        "usage",
+        "budgetExceeded",
+        "comments",
+        "warnings",
+        "manifest",
+        "outcome"
+      ],
+      "classification": {
+        "reasons": [],
+        "partial": false,
+        "filterCommentsPreserved": false
+      },
+      "parseError": null
+    },
+    {
+      "scenario": "tool_turn",
+      "elapsedMs": 206,
+      "process": {
+        "code": 0,
+        "signal": null
+      },
+      "childTimedOut": false,
+      "capHit": false,
+      "requestCount": 2,
+      "maxInFlight": 1,
+      "closedResponses": 2,
+      "requestShapes": [
+        {
+          "method": "POST",
+          "url": "/responses",
+          "authorizationCorrect": true,
+          "keys": [
+            "instructions",
+            "prompt_cache_key",
+            "store",
+            "include",
+            "input",
+            "model",
+            "tools",
+            "service_tier",
+            "stream"
+          ],
+          "model": "stub-model",
+          "store": false,
+          "stream": true,
+          "serviceTier": "default",
+          "hasPreviousResponseId": false,
+          "maxOutputTokens": null,
+          "toolNames": [
+            "task_done",
+            "code_comment",
+            "code_search",
+            "file_read",
+            "file_read_diff",
+            "file_find"
+          ],
+          "nativeRuleMarker": true,
+          "backgroundMarker": true,
+          "unchangedContextMarker": false,
+          "toolOutputItems": []
+        },
+        {
+          "method": "POST",
+          "url": "/responses",
+          "authorizationCorrect": true,
+          "keys": [
+            "instructions",
+            "prompt_cache_key",
+            "store",
+            "include",
+            "input",
+            "model",
+            "tools",
+            "service_tier",
+            "stream"
+          ],
+          "model": "stub-model",
+          "store": false,
+          "stream": true,
+          "serviceTier": "default",
+          "hasPreviousResponseId": false,
+          "maxOutputTokens": null,
+          "toolNames": [
+            "task_done",
+            "code_comment",
+            "code_search",
+            "file_read",
+            "file_read_diff",
+            "file_find"
+          ],
+          "nativeRuleMarker": true,
+          "backgroundMarker": true,
+          "unchangedContextMarker": true,
+          "toolOutputItems": [
+            {
+              "call_id": "call_read",
+              "output": "File: context.ts (Total lines: 3)\nIS_TRUNCATED: false\nLINE_RANGE: 1-3\n1|// SYNTHETIC_CONTEXT_UNCHANGED\n2|export const limit = 7;\n3|\n",
+              "type": "function_call_output"
+            }
+          ]
+        }
+      ],
+      "rawKeys": [
+        "status",
+        "llm",
+        "message",
+        "summary",
+        "tool_calls",
+        "comments",
+        "groups",
+        "session_id",
+        "manifest",
+        "reviewrouter_outcome"
+      ],
+      "rawHasLedgerMarker": false,
+      "rawCommentCount": 0,
+      "outcome": {
+        "schema_version": "reviewrouter.ocr-outcome/v1",
+        "run_stop_cause": null,
+        "grouping": {
+          "state": "not_applicable",
+          "reason": "single_file"
+        },
+        "groups": [
+          {
+            "paths": [
+              "calc.ts"
+            ],
+            "main_completed": true,
+            "stop_cause": null,
+            "rounds": {
+              "configured": 1,
+              "started": 1,
+              "completed": 1
+            },
+            "phases": {
+              "plan": {
+                "state": "not_applicable",
+                "reason": "threshold"
+              },
+              "compression": {
+                "state": "not_applicable",
+                "reason": "no_zone"
+              },
+              "relocation": {
+                "state": "not_applicable",
+                "reason": "no_candidates"
+              },
+              "filter": {
+                "state": "not_applicable",
+                "reason": "no_candidates"
+              }
+            },
+            "filter_decision_valid": null
+          }
+        ]
+      },
+      "parsedKeys": [
+        "status",
+        "requestedModel",
+        "usage",
+        "budgetExceeded",
+        "comments",
+        "warnings",
+        "manifest",
+        "outcome"
+      ],
+      "classification": {
+        "reasons": [],
+        "partial": false,
+        "filterCommentsPreserved": false
+      },
+      "parseError": null
+    },
+    {
+      "scenario": "legacy_rule",
+      "elapsedMs": 155,
+      "process": {
+        "code": 0,
+        "signal": null
+      },
+      "childTimedOut": false,
+      "capHit": false,
+      "requestCount": 1,
+      "maxInFlight": 1,
+      "closedResponses": 1,
+      "requestShapes": [
+        {
+          "method": "POST",
+          "url": "/responses",
+          "authorizationCorrect": true,
+          "keys": [
+            "instructions",
+            "prompt_cache_key",
+            "store",
+            "include",
+            "input",
+            "model",
+            "tools",
+            "service_tier",
+            "stream"
+          ],
+          "model": "stub-model",
+          "store": false,
+          "stream": true,
+          "serviceTier": "default",
+          "hasPreviousResponseId": false,
+          "maxOutputTokens": null,
+          "toolNames": [
+            "task_done",
+            "code_comment",
+            "code_search",
+            "file_read",
+            "file_read_diff",
+            "file_find"
+          ],
+          "nativeRuleMarker": false,
+          "backgroundMarker": true,
+          "unchangedContextMarker": false,
+          "toolOutputItems": []
+        }
+      ],
+      "rawKeys": [
+        "status",
+        "llm",
+        "message",
+        "summary",
+        "tool_calls",
+        "comments",
+        "groups",
+        "session_id",
+        "manifest",
+        "reviewrouter_outcome"
+      ],
+      "rawHasLedgerMarker": false,
+      "rawCommentCount": 0,
+      "outcome": {
+        "schema_version": "reviewrouter.ocr-outcome/v1",
+        "run_stop_cause": null,
+        "grouping": {
+          "state": "not_applicable",
+          "reason": "single_file"
+        },
+        "groups": [
+          {
+            "paths": [
+              "calc.ts"
+            ],
+            "main_completed": true,
+            "stop_cause": null,
+            "rounds": {
+              "configured": 1,
+              "started": 1,
+              "completed": 1
+            },
+            "phases": {
+              "plan": {
+                "state": "not_applicable",
+                "reason": "threshold"
+              },
+              "compression": {
+                "state": "not_applicable",
+                "reason": "no_zone"
+              },
+              "relocation": {
+                "state": "not_applicable",
+                "reason": "no_candidates"
+              },
+              "filter": {
+                "state": "not_applicable",
+                "reason": "no_candidates"
+              }
+            },
+            "filter_decision_valid": null
+          }
+        ]
+      },
+      "parsedKeys": [
+        "status",
+        "requestedModel",
+        "usage",
+        "budgetExceeded",
+        "comments",
+        "warnings",
+        "manifest",
+        "outcome"
+      ],
+      "classification": {
+        "reasons": [],
+        "partial": false,
+        "filterCommentsPreserved": false
+      },
+      "parseError": null
+    },
+    {
+      "scenario": "partial_stream",
+      "elapsedMs": 158,
+      "process": {
+        "code": 1,
+        "signal": null
+      },
+      "childTimedOut": false,
+      "capHit": false,
+      "requestCount": 1,
+      "maxInFlight": 1,
+      "closedResponses": 1,
+      "requestShapes": [
+        {
+          "method": "POST",
+          "url": "/responses",
+          "authorizationCorrect": true,
+          "keys": [
+            "instructions",
+            "prompt_cache_key",
+            "store",
+            "include",
+            "input",
+            "model",
+            "tools",
+            "service_tier",
+            "stream"
+          ],
+          "model": "stub-model",
+          "store": false,
+          "stream": true,
+          "serviceTier": "default",
+          "hasPreviousResponseId": false,
+          "maxOutputTokens": null,
+          "toolNames": [
+            "task_done",
+            "code_comment",
+            "code_search",
+            "file_read",
+            "file_read_diff",
+            "file_find"
+          ],
+          "nativeRuleMarker": true,
+          "backgroundMarker": true,
+          "unchangedContextMarker": false,
+          "toolOutputItems": []
+        }
+      ],
+      "rawKeys": [
+        "status",
+        "llm",
+        "message",
+        "summary",
+        "tool_calls",
+        "comments",
+        "groups",
+        "session_id",
+        "manifest",
+        "reviewrouter_outcome",
+        "retry_report"
+      ],
+      "rawHasLedgerMarker": false,
+      "rawCommentCount": null,
+      "outcome": {
+        "schema_version": "reviewrouter.ocr-outcome/v1",
+        "run_stop_cause": null,
+        "grouping": {
+          "state": "not_applicable",
+          "reason": "single_file"
+        },
+        "groups": [
+          {
+            "paths": [
+              "calc.ts"
+            ],
+            "main_completed": false,
+            "stop_cause": "provider_error",
+            "rounds": {
+              "configured": 1,
+              "started": 1,
+              "completed": 0
+            },
+            "phases": {
+              "plan": {
+                "state": "not_applicable",
+                "reason": "threshold"
+              },
+              "compression": {
+                "state": "not_applicable",
+                "reason": "no_zone"
+              },
+              "relocation": {
+                "state": "not_applicable",
+                "reason": "no_candidates"
+              },
+              "filter": {
+                "state": "cancelled",
+                "reason": "not_dispatched"
+              }
+            },
+            "filter_decision_valid": null
+          }
+        ]
+      },
+      "parsedKeys": [
+        "status",
+        "requestedModel",
+        "usage",
+        "budgetExceeded",
+        "comments",
+        "warnings",
+        "manifest",
+        "outcome"
+      ],
+      "classification": {
+        "reasons": [
+          "late_round_stop",
+          "missing_required_main",
+          "phase_failed"
+        ],
+        "partial": true,
+        "filterCommentsPreserved": false
+      },
+      "parseError": null
+    },
+    {
+      "scenario": "cancel_stream",
+      "elapsedMs": 328,
+      "process": {
+        "code": 1,
+        "signal": null
+      },
+      "childTimedOut": false,
+      "capHit": false,
+      "requestCount": 1,
+      "maxInFlight": 1,
+      "closedResponses": 1,
+      "requestShapes": [
+        {
+          "method": "POST",
+          "url": "/responses",
+          "authorizationCorrect": true,
+          "keys": [
+            "instructions",
+            "prompt_cache_key",
+            "store",
+            "include",
+            "input",
+            "model",
+            "tools",
+            "service_tier",
+            "stream"
+          ],
+          "model": "stub-model",
+          "store": false,
+          "stream": true,
+          "serviceTier": "default",
+          "hasPreviousResponseId": false,
+          "maxOutputTokens": null,
+          "toolNames": [
+            "task_done",
+            "code_comment",
+            "code_search",
+            "file_read",
+            "file_read_diff",
+            "file_find"
+          ],
+          "nativeRuleMarker": true,
+          "backgroundMarker": true,
+          "unchangedContextMarker": false,
+          "toolOutputItems": []
+        }
+      ],
+      "rawKeys": [
+        "status",
+        "llm",
+        "message",
+        "summary",
+        "tool_calls",
+        "comments",
+        "groups",
+        "session_id",
+        "manifest",
+        "reviewrouter_outcome",
+        "retry_report"
+      ],
+      "rawHasLedgerMarker": false,
+      "rawCommentCount": 0,
+      "outcome": {
+        "schema_version": "reviewrouter.ocr-outcome/v1",
+        "run_stop_cause": "cancelled",
+        "grouping": {
+          "state": "not_applicable",
+          "reason": "single_file"
+        },
+        "groups": [
+          {
+            "paths": [
+              "calc.ts"
+            ],
+            "main_completed": false,
+            "stop_cause": "cancelled",
+            "rounds": {
+              "configured": 1,
+              "started": 1,
+              "completed": 0
+            },
+            "phases": {
+              "plan": {
+                "state": "not_applicable",
+                "reason": "threshold"
+              },
+              "compression": {
+                "state": "not_applicable",
+                "reason": "no_zone"
+              },
+              "relocation": {
+                "state": "not_applicable",
+                "reason": "no_candidates"
+              },
+              "filter": {
+                "state": "cancelled",
+                "reason": "not_dispatched"
+              }
+            },
+            "filter_decision_valid": null
+          }
+        ]
+      },
+      "parsedKeys": [
+        "status",
+        "requestedModel",
+        "usage",
+        "budgetExceeded",
+        "comments",
+        "warnings",
+        "manifest",
+        "outcome"
+      ],
+      "classification": {
+        "reasons": [
+          "late_round_stop",
+          "missing_required_main",
+          "phase_failed"
+        ],
+        "partial": true,
+        "filterCommentsPreserved": false
+      },
+      "parseError": null
+    },
+    {
+      "scenario": "background_8001",
+      "elapsedMs": 42,
+      "process": {
+        "code": 1,
+        "signal": null
+      },
+      "childTimedOut": false,
+      "capHit": false,
+      "requestCount": 0,
+      "maxInFlight": 0,
+      "closedResponses": 0,
+      "requestShapes": [],
+      "rawKeys": [],
+      "rawHasLedgerMarker": false,
+      "rawCommentCount": null,
+      "outcome": null,
+      "parsedKeys": [],
+      "classification": null,
+      "parseError": {
+        "name": "Error",
+        "message": "output file absent or invalid JSON"
+      }
+    }
+  ]
+}

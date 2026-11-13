@@ -1,0 +1,3 @@
+event: response.completed
+data: {"type":"response.completed","response":{"id":"resp_3","object":"response","status":"completed","model":"stub-model","output":[{"type":"function_call","id":"fc_3","call_id":"call_3","name":"task_done","arguments":"{\"state\":\"DONE\"}"}],"usage":{"input_tokens":10,"output_tokens":5,"total_tokens":15}}}
+

@@ -1,0 +1,210 @@
+{
+  "kind": "managed-ocr-research-summary/v1",
+  "date": "2026-11-13",
+  "binaryVersion": "1.13.1-rr.6",
+  "binarySHA256": "9dd5f115747d24100f0767133a3288d268f3bc399675f5b826e7a867d101ee5c",
+  "binaryBytes": 80513363,
+  "node": "v24.22.1",
+  "fakeProviderHTTPRequests": 14,
+  "realProviderCalls": 0,
+  "gatewayRuntimeExercised": false,
+  "nativeSub2APIExercised": false,
+  "networkNamespaceEnforced": false,
+  "fullReviewRouterAdapterExercised": false,
+  "parserAssertions": 9,
+  "parserAssertionsPassed": 9,
+  "typechecked": false,
+  "cases": [
+    {
+      "lane": "primary",
+      "scenario": "baseline",
+      "requestCount": 1,
+      "process": {
+        "code": 0,
+        "signal": null
+      },
+      "childTimedOut": false,
+      "capHit": false,
+      "maxInFlight": 1,
+      "closedResponses": 1,
+      "classification": {
+        "reasons": [],
+        "partial": false,
+        "filterCommentsPreserved": false
+      }
+    },
+    {
+      "lane": "primary",
+      "scenario": "ledger_text",
+      "requestCount": 1,
+      "process": {
+        "code": 0,
+        "signal": null
+      },
+      "childTimedOut": false,
+      "capHit": false,
+      "maxInFlight": 1,
+      "closedResponses": 1,
+      "classification": {
+        "reasons": [],
+        "partial": false,
+        "filterCommentsPreserved": false
+      }
+    },
+    {
+      "lane": "primary",
+      "scenario": "tool_turn",
+      "requestCount": 2,
+      "process": {
+        "code": 0,
+        "signal": null
+      },
+      "childTimedOut": false,
+      "capHit": false,
+      "maxInFlight": 1,
+      "closedResponses": 2,
+      "classification": {
+        "reasons": [],
+        "partial": false,
+        "filterCommentsPreserved": false
+      }
+    },
+    {
+      "lane": "primary",
+      "scenario": "legacy_rule",
+      "requestCount": 1,
+      "process": {
+        "code": 0,
+        "signal": null
+      },
+      "childTimedOut": false,
+      "capHit": false,
+      "maxInFlight": 1,
+      "closedResponses": 1,
+      "classification": {
+        "reasons": [],
+        "partial": false,
+        "filterCommentsPreserved": false
+      }
+    },
+    {
+      "lane": "primary",
+      "scenario": "partial_stream",
+      "requestCount": 1,
+      "process": {
+        "code": 1,
+        "signal": null
+      },
+      "childTimedOut": false,
+      "capHit": false,
+      "maxInFlight": 1,
+      "closedResponses": 1,
+      "classification": {
+        "reasons": [
+          "late_round_stop",
+          "missing_required_main",
+          "phase_failed"
+        ],
+        "partial": true,
+        "filterCommentsPreserved": false
+      }
+    },
+    {
+      "lane": "primary",
+      "scenario": "cancel_stream",
+      "requestCount": 1,
+      "process": {
+        "code": 1,
+        "signal": null
+      },
+      "childTimedOut": false,
+      "capHit": false,
+      "maxInFlight": 1,
+      "closedResponses": 1,
+      "classification": {
+        "reasons": [
+          "late_round_stop",
+          "missing_required_main",
+          "phase_failed"
+        ],
+        "partial": true,
+        "filterCommentsPreserved": false
+      }
+    },
+    {
+      "lane": "primary",
+      "scenario": "background_8001",
+      "requestCount": 0,
+      "process": {
+        "code": 1,
+        "signal": null
+      },
+      "childTimedOut": false,
+      "capHit": false,
+      "maxInFlight": 0,
+      "closedResponses": 0,
+      "classification": null
+    },
+    {
+      "lane": "follow-up-original",
+      "scenario": "ledger_task_done",
+      "requestCount": 1,
+      "process": {
+        "code": 0,
+        "signal": null
+      },
+      "childTimedOut": false,
+      "capHit": false,
+      "maxInFlight": 1,
+      "closedResponses": 1,
+      "classification": {
+        "reasons": [],
+        "partial": false,
+        "filterCommentsPreserved": false
+      }
+    },
+    {
+      "lane": "follow-up-original",
+      "scenario": "ledger_code_comment",
+      "requestCount": 3,
+      "process": {
+        "code": 0,
+        "signal": null
+      },
+      "childTimedOut": false,
+      "capHit": false,
+      "maxInFlight": 1,
+      "closedResponses": 3,
+      "classification": {
+        "reasons": [
+          "invalid_filter_decision",
+          "phase_failed"
+        ],
+        "partial": true,
+        "filterCommentsPreserved": true
+      }
+    },
+    {
+      "lane": "follow-up-corrected",
+      "scenario": "ledger_code_comment",
+      "requestCount": 3,
+      "process": {
+        "code": 0,
+        "signal": null
+      },
+      "childTimedOut": false,
+      "capHit": false,
+      "maxInFlight": 1,
+      "closedResponses": 3,
+      "classification": {
+        "reasons": [],
+        "partial": false,
+        "filterCommentsPreserved": false
+      }
+    }
+  ],
+  "managedReviewInvocations": 10,
+  "binaryVersionCheckInvocations": 1,
+  "totalBinaryProcessInvocations": 11,
+  "parserAssertionsScope": "9 distinct assertions in the final exact-source run; earlier setup and rerun attempts are recorded separately"
+}

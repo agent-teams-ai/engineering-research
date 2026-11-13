@@ -1,0 +1,27 @@
+[ocr] Results written to /workspace/scratch/403f551f2040/ocr-deep-20261113/partial_stream/native-result.json
+{
+  "status": "failed",
+  "llm": {
+    "provider": "reviewrouter",
+    "model": "stub-model"
+  },
+  "summary": {
+    "files_reviewed": 1,
+    "comments": 0,
+    "total_tokens": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "elapsed": "0s"
+  },
+  "tool_calls": {
+    "total": 0,
+    "by_tool": {},
+    "failure": 0,
+    "failure_by_tool": {},
+    "failure_details": []
+  },
+  "comments": null,
+  "session_id": "12d44663-4d33-4aa3-ad8a-f2944995fa58"
+}
+[ocr] Session: 12d44663-4d33-4aa3-ad8a-f2944995fa58 (retry with: --resume 12d44663-4d33-4aa3-ad8a-f2944995fa58)
+Error: review failed: all 1 file review(s) failed — check your LLM configuration and API key

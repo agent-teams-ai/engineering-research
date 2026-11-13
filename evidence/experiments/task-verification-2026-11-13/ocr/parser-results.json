@@ -1,0 +1,108 @@
+{
+  "kind": "exact-ocr-parser-probe/v1",
+  "node": "v24.22.1",
+  "sourceCommit": "7a079c382d8e98b426ee90a6b3764be2a21b4c49",
+  "typecheck": false,
+  "sources": [
+    {
+      "file": "ocr-review-outcome-contract.ts",
+      "sha256": "b927b7ac10dc305f417cba1ec4230b8da3f6796d8ee2df7054d4bf08336c84b7",
+      "gitBlob": "5ba2ba5ddfe52c93b0dc7d7514b1e0a3d7047698"
+    },
+    {
+      "file": "ocr-review-normalization.ts",
+      "sha256": "0dd1b7a792139c71141ccc742747390f6583e49dda5eb9a42059f4e52ed01818",
+      "gitBlob": "43bcfa54ee3dedd50a18e2d8e8f9aaf5cd5a0a42"
+    }
+  ],
+  "passed": 9,
+  "failed": 0,
+  "tests": [
+    {
+      "name": "native completed has no criterion ledger",
+      "status": "PASS",
+      "observation": {
+        "nativeComplete": true,
+        "criteriaCount": 0,
+        "commentCount": 0
+      }
+    },
+    {
+      "name": "extra top-level criterion ledger is ignored",
+      "status": "PASS",
+      "observation": {
+        "byteEquivalentParsedResult": true
+      }
+    },
+    {
+      "name": "extra per-group criterion ledger is ignored",
+      "status": "PASS",
+      "observation": {
+        "byteEquivalentParsedResult": true
+      }
+    },
+    {
+      "name": "pure criterion JSON cannot replace the native contract",
+      "status": "PASS",
+      "observation": {
+        "rejected": "native_manifest_missing"
+      }
+    },
+    {
+      "name": "criterion properties on a comment are stripped",
+      "status": "PASS",
+      "observation": {
+        "commentKeys": [
+          "path",
+          "content",
+          "suggestionCode",
+          "existingCode",
+          "startLine",
+          "endLine",
+          "category",
+          "severity"
+        ],
+        "criterionIdPresent": false
+      }
+    },
+    {
+      "name": "ledger text stored as comment remains a finding not a typed ledger",
+      "status": "PASS",
+      "observation": {
+        "findingCount": 1,
+        "messageIsRawJson": true,
+        "typedCriterionLedger": false
+      }
+    },
+    {
+      "name": "unchanged-file finding cannot escape assigned finding scope",
+      "status": "PASS",
+      "observation": {
+        "skipped": [
+          {
+            "index": 0,
+            "reason": "invalid_native_finding"
+          }
+        ],
+        "reasons": [],
+        "partialFlagsRequired": true
+      }
+    },
+    {
+      "name": "oversized finding message fails explicitly",
+      "status": "PASS",
+      "observation": {
+        "characters": 16385
+      }
+    },
+    {
+      "name": "full-history second turn preserves prior tool call and output",
+      "status": "PASS",
+      "observation": {
+        "previousResponseId": false,
+        "toolCall": true,
+        "toolOutput": true
+      }
+    }
+  ]
+}

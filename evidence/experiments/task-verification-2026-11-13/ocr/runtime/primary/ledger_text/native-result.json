@@ -1,0 +1,118 @@
+{
+  "status": "complete",
+  "llm": {
+    "provider": "reviewrouter",
+    "model": "stub-model"
+  },
+  "message": "Review complete: 0 finding(s) across 1 selected item(s).",
+  "summary": {
+    "files_reviewed": 1,
+    "comments": 0,
+    "total_tokens": 15,
+    "input_tokens": 10,
+    "output_tokens": 5,
+    "elapsed": "0s"
+  },
+  "tool_calls": {
+    "total": 0,
+    "by_tool": {},
+    "failure": 0,
+    "failure_by_tool": {},
+    "failure_details": []
+  },
+  "comments": [],
+  "groups": [
+    {
+      "label": "calc.ts",
+      "files": [
+        "calc.ts"
+      ]
+    }
+  ],
+  "session_id": "79406c61-e7b7-4298-8767-575f377cb5a2",
+  "manifest": {
+    "schema_version": "ocr.run-manifest/v1",
+    "run_id": "79406c61-e7b7-4298-8767-575f377cb5a2",
+    "operation": "review",
+    "terminal_state": "complete",
+    "repository": {},
+    "input": {
+      "mode": "range",
+      "requested_from": "4611b11b28862f67d0574875c07bc4e73a549bb1",
+      "requested_head": "4e7a9297c26d852b89d22bf3049d469eeb0958aa",
+      "resolved_base": "4611b11b28862f67d0574875c07bc4e73a549bb1",
+      "resolved_head": "4e7a9297c26d852b89d22bf3049d469eeb0958aa",
+      "exact_range": "4611b11b28862f67d0574875c07bc4e73a549bb1..4e7a9297c26d852b89d22bf3049d469eeb0958aa",
+      "source_artifact_sha256": "f24f1d2a231cddb78771a9053004efdd3e1ea672a42e5f78f391d19b46b31678"
+    },
+    "execution": {
+      "ocr_version": "1.13.1-rr.6",
+      "provider": "reviewrouter",
+      "model": "stub-model",
+      "configured_concurrency": 1,
+      "rule_config_sha256": "95a966b4ddd1d70c422c84887c5b4a1f6a936acd9e1bfcc43f7b47488ca01888",
+      "runtime_config_sha256": "3f9c3e23e8465b95f2d35d2f2bc33fc7a022821515f06ff4ae5bb93f4480589f"
+    },
+    "coverage": {
+      "selected": [
+        {
+          "item_id": "edfd395e51fca7dcdf843bbee5668e6378fb592e6d36273ce98896bd108256e8",
+          "path": "calc.ts",
+          "fingerprint": "8cb699b69a62e83d626b08e9822dd2b9c3c93e3746756a7ef80e0e63f43cd326"
+        }
+      ],
+      "completed": [
+        {
+          "item_id": "edfd395e51fca7dcdf843bbee5668e6378fb592e6d36273ce98896bd108256e8",
+          "path": "calc.ts",
+          "fingerprint": "8cb699b69a62e83d626b08e9822dd2b9c3c93e3746756a7ef80e0e63f43cd326"
+        }
+      ],
+      "reused": [],
+      "failed": [],
+      "waived": []
+    },
+    "elapsed_ms": 148
+  },
+  "reviewrouter_outcome": {
+    "schema_version": "reviewrouter.ocr-outcome/v1",
+    "run_stop_cause": null,
+    "grouping": {
+      "state": "not_applicable",
+      "reason": "single_file"
+    },
+    "groups": [
+      {
+        "paths": [
+          "calc.ts"
+        ],
+        "main_completed": true,
+        "stop_cause": null,
+        "rounds": {
+          "configured": 1,
+          "started": 1,
+          "completed": 1
+        },
+        "phases": {
+          "plan": {
+            "state": "not_applicable",
+            "reason": "threshold"
+          },
+          "compression": {
+            "state": "not_applicable",
+            "reason": "no_zone"
+          },
+          "relocation": {
+            "state": "not_applicable",
+            "reason": "no_candidates"
+          },
+          "filter": {
+            "state": "not_applicable",
+            "reason": "no_candidates"
+          }
+        },
+        "filter_decision_valid": null
+      }
+    ]
+  }
+}

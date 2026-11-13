@@ -12,6 +12,9 @@ Imported studies retain original dates, versions and limitations. Historical pro
 
 ## Documents
 
+- [Task Verification: critical architecture and evidence audit, 2026-11-13](task-verification-critical-architecture-and-evidence-audit-2026-11-13.md) — Executed managed OCR compatibility, critic and aggregation semantics, evidence sufficiency, and a corrected bounded A/B comparison.
+- [Task Verification Architecture and Routing Follow-up — 2026-11-12](task-verification-architecture-and-routing-follow-up-2026-11-12.md) — Deeper comparison, retained model-free probe evidence, OCR capability limits, Account Gateway/Sub2API reuse and the bounded planning handoff.
+- [Task Verification: Five Practical Implementation Options — 2026-11-11](task-verification-five-practical-options-2026-11-11.md) — Comparable strategies, source-level counterexamples, reliability/complexity judgments, scoped code estimates and a critical recommendation for an evidence-first hybrid.
 - [Evidence-Based Feedback and Rework 2026-11-09](evidence-based-feedback-and-rework-2026-11-09.md) — Dated source audit of reviewer reuse, evidence freshness, controlled rework and existing Orchestrator authority; future gateway choice remains open.
 - [Agent Runtime Industry Architecture Research](agent-runtime-industry-architecture-research.md) — Dated industry evidence migrated from Runtime with original source identities and limits.
 - [Agent Runtime Framework Research](agent-runtime-framework-research.md) — Dated agent-framework evidence migrated from Runtime with product applicability distinguished.

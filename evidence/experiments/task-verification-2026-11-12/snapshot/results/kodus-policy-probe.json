@@ -1,0 +1,36 @@
+{
+  "scope": "Exact upstream pure check-policy.ts only; not full Kodus service or semantic model quality",
+  "sourceCommit": "f74afbb486bc5434c1190aeb8433d59f6f7847d2",
+  "llmCalls": 0,
+  "results": [
+    {
+      "case": "met",
+      "taskPasses": true
+    },
+    {
+      "case": "missing",
+      "taskPasses": false
+    },
+    {
+      "case": "partial",
+      "taskPasses": true
+    },
+    {
+      "case": "check_manually",
+      "taskPasses": true
+    },
+    {
+      "case": "empty_requirement_list",
+      "taskPasses": true
+    },
+    {
+      "case": "missing_but_part_of",
+      "taskPasses": true
+    },
+    {
+      "case": "missing_but_accepted",
+      "taskPasses": true
+    }
+  ],
+  "gitBlobVerified": "39b714cade08bf667a1451a42637048da73488be"
+}

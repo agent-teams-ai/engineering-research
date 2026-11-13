@@ -1,0 +1,408 @@
+[
+  {
+    "index": 1,
+    "method": "POST",
+    "url": "/responses",
+    "authorizationCorrect": true,
+    "headers": {
+      "host": "127.0.0.1:39055",
+      "user-agent": "open-code-review/1.13.1-rr.6",
+      "content-length": "15131",
+      "accept": "application/json",
+      "content-type": "application/json",
+      "x-stainless-arch": "x64",
+      "x-stainless-lang": "go",
+      "x-stainless-os": "Linux",
+      "x-stainless-package-version": "3.51.0",
+      "x-stainless-retry-count": "0",
+      "x-stainless-runtime": "go",
+      "x-stainless-runtime-version": "go1.26.10",
+      "x-stainless-timeout": "10",
+      "accept-encoding": "gzip"
+    },
+    "rawCaptureSHA256": "28b562a97bb069a87cefc7e4a9525d37ca73fea32def0ba3d4ed44c9be79d3c7",
+    "bodyKeys": [
+      "instructions",
+      "prompt_cache_key",
+      "store",
+      "include",
+      "input",
+      "model",
+      "tools",
+      "service_tier",
+      "stream"
+    ],
+    "model": "stub-model",
+    "store": false,
+    "stream": true,
+    "service_tier": "default",
+    "include": [
+      "reasoning.encrypted_content"
+    ],
+    "prompt_cache_key": "386bcb7c-e444-4ac6-85f2-c054adbd9daf",
+    "max_output_tokens": null,
+    "previous_response_id_present": false,
+    "instructionsSHA256": "30fa4ee1109b7147ae14e85df9763acf461ceefa5212df4edb5433bff869a23f",
+    "inputSHA256": "dcc16a13d16b1cf239b10d06090c3e23b330c46089699b37ad25ce067530a72e",
+    "inputTypes": [
+      null
+    ],
+    "toolNames": [
+      "task_done",
+      "code_comment",
+      "code_search",
+      "file_read",
+      "file_read_diff",
+      "file_find"
+    ],
+    "toolSchemas": [
+      {
+        "name": "task_done",
+        "strict": false,
+        "parameters": {
+          "properties": {
+            "state": {
+              "description": "Defaults to DONE. Return FAILED if the task cannot be completed using available tools.",
+              "enum": [
+                "DONE",
+                "FAILED"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "state"
+          ],
+          "type": "object"
+        }
+      },
+      {
+        "name": "code_comment",
+        "strict": false,
+        "parameters": {
+          "properties": {
+            "comments": {
+              "description": "A list of comments. Each item should contain 'content' and 'existing_code'.",
+              "items": {
+                "properties": {
+                  "category": {
+                    "description": "The category the issue belongs to.",
+                    "enum": [
+                      "bug",
+                      "security",
+                      "performance",
+                      "maintainability",
+                      "test",
+                      "style",
+                      "documentation",
+                      "other"
+                    ],
+                    "type": "string"
+                  },
+                  "content": {
+                    "description": "Comment content, typically a brief description of code issues and corresponding suggestions.",
+                    "type": "string"
+                  },
+                  "existing_code": {
+                    "description": "Code snippet used to locate comment position. Only return newly added code lines, should not include deleted code or unchanged code lines. Maintain consistent style with diff code for IDE recognition and mounting in current file.",
+                    "type": "string"
+                  },
+                  "path": {
+                    "description": "The relative file path this comment applies to.",
+                    "type": "string"
+                  },
+                  "severity": {
+                    "description": "The severity of the issue.",
+                    "enum": [
+                      "critical",
+                      "high",
+                      "medium",
+                      "low"
+                    ],
+                    "type": "string"
+                  },
+                  "suggestion_code": {
+                    "description": "Corresponding suggested code snippet, maintaining consistent code style.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "content",
+                  "existing_code",
+                  "category",
+                  "severity",
+                  "path"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "comments"
+          ],
+          "type": "object"
+        }
+      },
+      {
+        "name": "file_read",
+        "strict": false,
+        "parameters": {
+          "properties": {
+            "end_line": {
+              "description": "The end line number to view. Defaults to end line of file.",
+              "type": "integer"
+            },
+            "file_path": {
+              "description": "The relative path of the file to open.",
+              "type": "string"
+            },
+            "start_line": {
+              "description": "The start line number to view. Defaults to 1.",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "file_path"
+          ],
+          "type": "object"
+        }
+      }
+    ],
+    "ruleMarkerPresent": true,
+    "backgroundMarkerPresent": true,
+    "unchangedContextMarkerPresent": false
+  },
+  {
+    "index": 2,
+    "method": "POST",
+    "url": "/responses",
+    "authorizationCorrect": true,
+    "headers": {
+      "host": "127.0.0.1:39055",
+      "user-agent": "open-code-review/1.13.1-rr.6",
+      "content-length": "15647",
+      "accept": "application/json",
+      "content-type": "application/json",
+      "x-stainless-arch": "x64",
+      "x-stainless-lang": "go",
+      "x-stainless-os": "Linux",
+      "x-stainless-package-version": "3.51.0",
+      "x-stainless-retry-count": "0",
+      "x-stainless-runtime": "go",
+      "x-stainless-runtime-version": "go1.26.10",
+      "x-stainless-timeout": "10",
+      "accept-encoding": "gzip"
+    },
+    "rawCaptureSHA256": "bddc591ae9b4738aeff4e146d74936ff8a6278ad7e09646dd3a386917bb54b29",
+    "bodyKeys": [
+      "instructions",
+      "prompt_cache_key",
+      "store",
+      "include",
+      "input",
+      "model",
+      "tools",
+      "service_tier",
+      "stream"
+    ],
+    "model": "stub-model",
+    "store": false,
+    "stream": true,
+    "service_tier": "default",
+    "include": [
+      "reasoning.encrypted_content"
+    ],
+    "prompt_cache_key": "386bcb7c-e444-4ac6-85f2-c054adbd9daf",
+    "max_output_tokens": null,
+    "previous_response_id_present": false,
+    "instructionsSHA256": "30fa4ee1109b7147ae14e85df9763acf461ceefa5212df4edb5433bff869a23f",
+    "inputSHA256": "0da563563aea2752ee7862609d49e82623b519385d603d8f7dbe999f4e01cca7",
+    "inputTypes": [
+      null,
+      "function_call",
+      "function_call_output"
+    ],
+    "toolNames": [
+      "task_done",
+      "code_comment",
+      "code_search",
+      "file_read",
+      "file_read_diff",
+      "file_find"
+    ],
+    "toolSchemas": [
+      {
+        "name": "task_done",
+        "strict": false,
+        "parameters": {
+          "properties": {
+            "state": {
+              "description": "Defaults to DONE. Return FAILED if the task cannot be completed using available tools.",
+              "enum": [
+                "DONE",
+                "FAILED"
+              ],
+              "type": "string"
+            }
+          },
+          "required": [
+            "state"
+          ],
+          "type": "object"
+        }
+      },
+      {
+        "name": "code_comment",
+        "strict": false,
+        "parameters": {
+          "properties": {
+            "comments": {
+              "description": "A list of comments. Each item should contain 'content' and 'existing_code'.",
+              "items": {
+                "properties": {
+                  "category": {
+                    "description": "The category the issue belongs to.",
+                    "enum": [
+                      "bug",
+                      "security",
+                      "performance",
+                      "maintainability",
+                      "test",
+                      "style",
+                      "documentation",
+                      "other"
+                    ],
+                    "type": "string"
+                  },
+                  "content": {
+                    "description": "Comment content, typically a brief description of code issues and corresponding suggestions.",
+                    "type": "string"
+                  },
+                  "existing_code": {
+                    "description": "Code snippet used to locate comment position. Only return newly added code lines, should not include deleted code or unchanged code lines. Maintain consistent style with diff code for IDE recognition and mounting in current file.",
+                    "type": "string"
+                  },
+                  "path": {
+                    "description": "The relative file path this comment applies to.",
+                    "type": "string"
+                  },
+                  "severity": {
+                    "description": "The severity of the issue.",
+                    "enum": [
+                      "critical",
+                      "high",
+                      "medium",
+                      "low"
+                    ],
+                    "type": "string"
+                  },
+                  "suggestion_code": {
+                    "description": "Corresponding suggested code snippet, maintaining consistent code style.",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "content",
+                  "existing_code",
+                  "category",
+                  "severity",
+                  "path"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            }
+          },
+          "required": [
+            "comments"
+          ],
+          "type": "object"
+        }
+      },
+      {
+        "name": "file_read",
+        "strict": false,
+        "parameters": {
+          "properties": {
+            "end_line": {
+              "description": "The end line number to view. Defaults to end line of file.",
+              "type": "integer"
+            },
+            "file_path": {
+              "description": "The relative path of the file to open.",
+              "type": "string"
+            },
+            "start_line": {
+              "description": "The start line number to view. Defaults to 1.",
+              "type": "integer"
+            }
+          },
+          "required": [
+            "file_path"
+          ],
+          "type": "object"
+        }
+      }
+    ],
+    "ruleMarkerPresent": true,
+    "backgroundMarkerPresent": true,
+    "unchangedContextMarkerPresent": false
+  },
+  {
+    "index": 3,
+    "method": "POST",
+    "url": "/responses",
+    "authorizationCorrect": true,
+    "headers": {
+      "host": "127.0.0.1:39055",
+      "user-agent": "open-code-review/1.13.1-rr.6",
+      "content-length": "9123",
+      "accept": "application/json",
+      "content-type": "application/json",
+      "x-stainless-arch": "x64",
+      "x-stainless-lang": "go",
+      "x-stainless-os": "Linux",
+      "x-stainless-package-version": "3.51.0",
+      "x-stainless-retry-count": "0",
+      "x-stainless-runtime": "go",
+      "x-stainless-runtime-version": "go1.26.10",
+      "x-stainless-timeout": "10",
+      "accept-encoding": "gzip"
+    },
+    "rawCaptureSHA256": "66f10ad97b610d0f22f2a9bc1a56c8b3bc73ac576091a70286a5691542ecc081",
+    "bodyKeys": [
+      "instructions",
+      "store",
+      "include",
+      "input",
+      "model",
+      "tools",
+      "service_tier",
+      "stream"
+    ],
+    "model": "stub-model",
+    "store": false,
+    "stream": true,
+    "service_tier": "default",
+    "include": [
+      "reasoning.encrypted_content"
+    ],
+    "prompt_cache_key": null,
+    "max_output_tokens": null,
+    "previous_response_id_present": false,
+    "instructionsSHA256": "afeda7b63cc7911f5b8159c01d778520d73b52164065d4b5ba4d3f263a0fb1d0",
+    "inputSHA256": "f07396a414512c38bb7752617a95b4d558f644d4394b16c548688644550e5cc8",
+    "inputTypes": [
+      null
+    ],
+    "toolNames": [
+      "report_incorrect_comments",
+      "approve_all_comments"
+    ],
+    "toolSchemas": [],
+    "ruleMarkerPresent": false,
+    "backgroundMarkerPresent": false,
+    "unchangedContextMarkerPresent": false
+  }
+]
