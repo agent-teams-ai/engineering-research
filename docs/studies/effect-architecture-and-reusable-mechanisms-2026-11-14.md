@@ -4,7 +4,7 @@ type: study
 status: active
 owner: research/maintainers
 summary: Critical source research on modular frontend and backend architecture, Effect, existing Foundation mechanisms and bounded reuse proposals.
-reviewed_at: 2026-11-14
+reviewed_at: 2026-11-13
 ---
 
 # Effect Architecture and Reusable Mechanisms 2026-11-14
@@ -13,7 +13,7 @@ reviewed_at: 2026-11-14
 
 **Effect is suitable for both frontend and backend application execution. The strongest opportunity here is to reuse its native resource, error and concurrency mechanisms while preserving the existing owners of composition, transport, persistence, durable execution and architecture policy.** The useful findings from large projects are precise failure and ownership contracts, together with checks that make those contracts visible to developers and agents.
 
-This study answers the request for critical, parallel research into T3 Code, OpenCode and other substantial projects. It covers frontend/backend integration, reusable libraries, Engineering Foundation, large-codebase organization, deterministic agent workflows, SOLID, Clean Architecture and DRY. Research date: 2026-11-14 in the requester's timezone; source observations began on 2026-11-13 UTC.
+This study answers the request for critical, parallel research into T3 Code, OpenCode and other substantial projects. It covers frontend/backend integration, reusable libraries, Engineering Foundation, large-codebase organization, deterministic agent workflows, SOLID, Clean Architecture and DRY. The assigned study date/identifier is 2026-11-14; source observations and reviews were performed on 2026-11-13 UTC.
 
 This is **research and a reviewable proposal**, not an accepted product ADR, a production migration or a capacity certification. The user assigned npm publication to another agent. No publication or runtime implementation is part of this change. Proposed consumer qualification below does not reopen the completed Get Modular library E2E work by implication.
 
@@ -75,7 +75,8 @@ The backend reference applies through each consumer's adopted profile. It is not
 | Replaceable subject-specific ports | Consumer-owned neutral contract; explicitly Effect-native technical ports are an intentional separate choice |
 | Static module selection and composition | GM at the existing outer composition boundary |
 | In-process operations, resources, typed errors and fibers | Native Effect where adopted; application/request/task owners define lifetime |
-| HTTP/RPC and process-boundary schema | Fastify/Connect and Protobuf/Buf under the accepted profile |
+| Public HTTP/RPC and process-boundary schema | Fastify/Connect and Protobuf/Buf under the accepted profile |
+| Private service invocation | Dapr only where that backend profile adopts it; no per-agent sidecar or extra workflow/pubsub owner |
 | Database state and transaction policy | Application-owned Postgres/node-postgres/Drizzle adapters |
 | Durable messaging and durable workflow progress | Existing JetStream delivery and Temporal workflow owners respectively |
 | Realtime delivery | Existing Centrifugo; application owns authoritative state and authorization |
@@ -171,7 +172,7 @@ OpenCode isolates slow subscribers by failing their individual queues. Its /api/
 
 ### 5. Worktree identity and native process ownership need separate mechanisms
 
-**Source:** OpenCode has fresh location instance graphs with explicit shared services, scoped retain/shutdown and worktree-strategy ownership. Lexical path normalization is not filesystem authority or hostile-code isolation. Its reload path uses unbounded concurrency, and worktree creation spans filesystem, database registration and setup processes. A Scope does not make that sequence atomic. [Instances][oc-instance], [worktree operations][oc-worktree].
+**Source:** OpenCode has fresh location instance graphs with explicit shared services, scoped retain/shutdown and worktree-strategy ownership. Lexical path normalization is not filesystem authority or hostile-code isolation. Its reload path uses unbounded concurrency, and worktree creation spans filesystem, database registration and setup processes. A Scope does not make that sequence atomic. [Instances][oc-instance], [location map][oc-location-map], [location lifetime][oc-location-lifetime], [worktree operations][oc-worktree].
 
 The Rust daemon supplies generation fencing, one-use handoff tickets and deadlines. Its own README also records incomplete process-tree cleanup and a Linux PTY writer that can block shutdown indefinitely. A watchdog exit is not evidence that every thread and descendant was joined. [Ownership][oc-process-owner], [documented limits][oc-process-limits].
 
@@ -307,7 +308,7 @@ The exact current EF native backend is therefore **not established as a drop-in 
 
 unstableApiUsage defaults to a warning; apiStabilityLeak is v4-only and off by default. Exact module/export allowlists and surface fixtures exist; the upstream v4 fixture cohort is 4.1.2, while this study's runtime cohort is 4.1.4. These details make a small qualification valuable. [Leak rule][effect-leak-rule], [usage rule][effect-usage-rule], [surface fixture][effect-surface-test].
 
-**Proposed admission:** one locked supported compiler path must fail on an unapproved unstable import and a stable public signature leaking an unstable type; pass the intended exact allowlist; still reject a sibling export; and return the intended nonzero CI status. The existing fallback policy stops on diagnostics and must retain that property. A stock fallback that lacks Effect diagnostics cannot substitute for this gate. No unreviewed compiler/native-tool upgrade or second competing editor server follows.
+**Proposed admission:** configure the intended blocking severity on one locked supported compiler path. It must fail on unapproved use of an unstable export, including use through an imported alias, and on a stable public signature leaking an unstable type; pass the intended exact allowlist; still reject a sibling export; and return the intended nonzero CI status. A bare import is not the correct rejecting fixture: upstream diagnostics target the subsequent use sites. [Usage fixture][effect-import-use-test], [expected diagnostics][effect-import-use-errors]. The existing fallback policy stops on diagnostics and must retain that property. A stock fallback that lacks Effect diagnostics cannot substitute for this gate. No unreviewed compiler/native-tool upgrade or second competing editor server follows.
 
 **Owner:** the technical toolchain adapter chooses the authoritative checker; Foundation may orchestrate and normalize its evidence after qualification. EF's import graph does not semantically prove one state owner, SSR safety, correct runner placement or Effect stability on its own. Runtime assertions remain with the consumer.
 
@@ -417,7 +418,7 @@ No mandatory new package follows from a pilot. A small shared client lifecycle o
 
 ### Released recovery support already exists
 
-The inspected released pair is server 6.10.3 and JavaScript SDK 5.8.0. The getState callback was introduced in SDK 5.6.0; the SDK's API declares server >=6.8.0 as its feature prerequisite. These are feature/release facts, not confirmation of a particular application's installed versions. A consumer should qualify its exact supported pair and namespace history/recovery settings. [Server release][cf-server-release], [SDK release][cf-sdk-release], [API contract][cf-types].
+The inspected released pair is server 6.10.3 and JavaScript SDK 5.8.0. The getState callback was introduced in SDK 5.6.0; the SDK's API declares server >=6.8.0 as its feature prerequisite. These are feature/release facts, not confirmation of a particular application's installed versions. A consumer should qualify its exact supported pair and namespace history/recovery settings. [Server release][cf-server-release], [SDK release][cf-sdk-release], [introduction release][cf-first-sdk-release], [API contract][cf-types].
 
 The SDK loads application state when it has no saved position, attempts recovery first on ordinary reconnect, and reloads state after an unrecoverable-position response. This supplies a ready reconnect/recovery owner. An Effect adapter can own client/subscription lifetime and its Promise boundary without adding another transport retry loop. getState works with ordinary history/recovery; it does not require the PostgreSQL broker. [Subscription implementation][cf-subscription], [getState fixtures][cf-tests].
 
@@ -429,9 +430,9 @@ Use versioned/idempotent domain updates, represented event identities, or an exa
 
 ### The application still owns authorization, stale callbacks and committed state
 
-The SDK checks whether a subscribe flow became stale after getState finishes. It cannot undo a callback's earlier UI/cache mutation. getState runs before subscription-token acquisition and has no AbortSignal parameter. The application's snapshot endpoint must authorize principal/tenant/channel independently; the application must cancel or invalidate old loads before applying them. Persistent authorization denial also needs a stopping policy rather than indefinite temporary-error retry. [Implementation][cf-subscription].
+The SDK checks whether a subscribe flow became stale after getState finishes. It cannot undo a callback's earlier UI/cache mutation. getState runs before the subsequent subscription-token callback flow when one is required and has no AbortSignal parameter; a static token may already be configured. The application's snapshot endpoint must authorize principal/tenant/channel independently; the application must cancel or invalidate old loads before applying them. Persistent authorization denial also needs a stopping policy rather than indefinite temporary-error retry. [Implementation][cf-subscription].
 
-The SDK advances publication position after synchronous event delivery; it does not await an asynchronous application reducer or persistence Promise. A callback that only enqueues work has not yet committed that state. Prefer a synchronous versioned reducer where practical. Otherwise own a bounded apply queue and invalidate/resnapshot on failure instead of pretending that SDK position proves application completion. Persist snapshot and its corresponding application checkpoint consistently. This is where T3's owner/generation and data/cursor patterns remain useful without another broker.
+The SDK advances publication position after synchronous event delivery; it does not await an asynchronous application reducer or persistence Promise. A callback that only enqueues work has not yet committed that state. [Delivery implementation][cf-subscription]. Prefer a synchronous versioned reducer where practical. Otherwise own a bounded apply queue and invalidate/resnapshot on failure instead of pretending that SDK position proves application completion. Persist snapshot and its corresponding application checkpoint consistently. This is where T3's owner/generation and data/cursor patterns remain useful without another broker.
 
 ### PostgreSQL transactional publishing is a separate option
 
@@ -445,9 +446,9 @@ The recommendation is official SDK reuse plus application guards. JetStream rema
 
 ## Review record and delivery evidence
 
-The initial commit recorded the scope, plan and existing authorities before detailed synthesis. The research follows two critique rounds: the first challenges source observations and architectural transfer; the second reviews this integrated document and its claims. This section records results when each round completes; uncompleted review is not represented as a pass.
+The initial commit recorded the scope, plan and existing authorities before detailed synthesis. Two critique rounds were completed: the first challenged source observations and architectural transfer; the second reviewed the integrated document and its claims. The second-round input SHA-256 was e27f605b993c19c54ebf0caadba439ad425d12a12d3d433a234efa80528fe3d8. Review is source/documentation evidence, not a production certification.
 
-Round 1 has already produced substantive narrowing incorporated above:
+Round 1 produced substantive narrowing incorporated above:
 
 - T3's retained RPC budget does not cover unbounded internal-worker subscriptions.
 - OpenCode's request budget governs the headers phase and has an event-path bypass.
@@ -457,7 +458,15 @@ Round 1 has already produced substantive narrowing incorporated above:
 - Expected multi-repository reuse does not require waiting for two real implementations.
 - Native compiler/project-reference experiments must remain outside the released read-only checker contract.
 
-Executed so far: repository-pinned Docs Protocol preview/apply and pnpm check, with complete catalog/adoption validation for 38 documents on the initial plan commit. Detailed final-check and PR receipts will be added after synthesis review. Upstream suites, production traffic, application migration, runtime implementation and npm publication were not executed for this study.
+| Second-round review track | Findings and disposition |
+| --- | --- |
+| Foundation/toolchain/ownership | No material architecture or tooling blocker; corrected the unsupported requester-timezone attribution and used the actual UTC review date |
+| Effect/frontend/backend semantics | Corrected the diagnostic pilot from a bare unstable import to actual unstable-export usage, matching upstream fixtures and expected diagnostics; other first-round corrections confirmed |
+| T3/OpenCode/Centrifugo runtime contracts | No material runtime-owner blocker; narrowed token timing to the subsequent callback flow and added direct location-lifetime, release and delivery citations |
+
+The corrected passages receive a focused delta review. Final delivery receipts belong to [research PR #9](https://github.com/agent-teams-ai/engineering-research/pull/9), where the exact head, check results and document digest can be recorded without a self-referential document hash.
+
+Executed checks include repository-pinned Docs Protocol preview/apply and pnpm check, with complete catalog/adoption validation for 38 documents on the initial plan and integrated synthesis. Pinned source paths are also checked against their Git trees or exact-file retrieval. Those checks establish document integrity and source traceability, not behavior of the inspected software. Upstream suites, production traffic, application migration, runtime implementation and npm publication were not executed for this study.
 
 ## Relationship to existing lessons and remaining unknowns
 
@@ -503,6 +512,8 @@ Unknowns include actual consumer activation and pinned deployment versions; work
 [oc-coordinator]: https://github.com/anomalyco/opencode/blob/83960f8a56b2f2b8ad0b751f23baaf9d0eb65ad9/packages/core/src/session/run-coordinator.ts
 [oc-coordinator-tests]: https://github.com/anomalyco/opencode/blob/83960f8a56b2f2b8ad0b751f23baaf9d0eb65ad9/packages/core/test/session-run-coordinator.test.ts
 [oc-instance]: https://github.com/anomalyco/opencode/blob/83960f8a56b2f2b8ad0b751f23baaf9d0eb65ad9/packages/core/src/instance.ts
+[oc-location-map]: https://github.com/anomalyco/opencode/blob/83960f8a56b2f2b8ad0b751f23baaf9d0eb65ad9/packages/core/src/location-service-map.ts
+[oc-location-lifetime]: https://github.com/anomalyco/opencode/blob/83960f8a56b2f2b8ad0b751f23baaf9d0eb65ad9/packages/core/src/location-lifecycle.ts
 [oc-worktree]: https://github.com/anomalyco/opencode/blob/83960f8a56b2f2b8ad0b751f23baaf9d0eb65ad9/packages/core/src/worktree.ts
 [oc-process-owner]: https://github.com/anomalyco/opencode/blob/83960f8a56b2f2b8ad0b751f23baaf9d0eb65ad9/packages/process-daemon/src/ownership.rs
 [oc-process-limits]: https://github.com/anomalyco/opencode/blob/83960f8a56b2f2b8ad0b751f23baaf9d0eb65ad9/packages/process-daemon/README.md
@@ -554,6 +565,8 @@ Unknowns include actual consumer activation and pinned deployment versions; work
 [effect-leak-rule]: https://github.com/Effect-TS/tsgo/blob/416fdf299111341e156fc94330cd481470494ac6/docs/rules/api-stability-leak.md
 [effect-usage-rule]: https://github.com/Effect-TS/tsgo/blob/416fdf299111341e156fc94330cd481470494ac6/docs/rules/unstable-api-usage.md
 [effect-surface-test]: https://github.com/Effect-TS/tsgo/blob/416fdf299111341e156fc94330cd481470494ac6/testdata/tests/effect-v4/apiStabilityLeakBoundaries.ts
+[effect-import-use-test]: https://github.com/Effect-TS/tsgo/blob/416fdf299111341e156fc94330cd481470494ac6/testdata/tests/effect-v4/stabilityApiUsageImports.ts
+[effect-import-use-errors]: https://github.com/Effect-TS/tsgo/blob/416fdf299111341e156fc94330cd481470494ac6/testdata/baselines/reference/effect-v4/stabilityApiUsageImports.errors.txt
 
 ### Source boundaries, packages, verification and agents
 
@@ -580,6 +593,7 @@ Unknowns include actual consumer activation and pinned deployment versions; work
 
 [cf-server-release]: https://github.com/centrifugal/centrifugo/releases/tag/v6.10.3
 [cf-sdk-release]: https://github.com/centrifugal/centrifuge-js/releases/tag/5.8.0
+[cf-first-sdk-release]: https://github.com/centrifugal/centrifuge-js/releases/tag/5.6.0
 [cf-types]: https://github.com/centrifugal/centrifuge-js/blob/163dcbab9d5e23f41d1142e4631bcbabc2e2f62f/src/types.ts
 [cf-subscription]: https://github.com/centrifugal/centrifuge-js/blob/163dcbab9d5e23f41d1142e4631bcbabc2e2f62f/src/subscription.ts
 [cf-tests]: https://github.com/centrifugal/centrifuge-js/blob/163dcbab9d5e23f41d1142e4631bcbabc2e2f62f/src/getstate.test.ts
