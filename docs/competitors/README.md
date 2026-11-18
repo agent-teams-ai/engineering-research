@@ -14,6 +14,7 @@ Assess the exact edition and evidence basis before reading a score. The watchlis
 
 - [AutoGPT vs Agent Teams: architecture and Python ecosystem](autogpt-vs-agent-teams-architecture-and-python-ecosystem.md) — Current Platform source, Runtime v3 target comparison, plugins, Python/memory, reproducible narrow probe and independent review.
 - [Paperclip](paperclip.md) — Source-audited execution strengths, scaling risks, counterevidence and transferable lessons.
+- [Paperclip targeted triage — 2026-11-18](paperclip-2026-11-18-triage.md) — Incremental cursor and queue implementation changes, reported simulated-load results, owner-plan and watchlist reconciliation; historical scores remain untouched.
 - [Agent Teams](agent-teams.md) — Separate current evidence, conditional target design and unresolved product-owner decisions.
 - [Technical Comparison](technical-comparison.md) — Thirty-criterion evidence matrix and explicitly scoped architecture comparison views.
 - [Competitor Watchlist](competitor-watchlist.md) — Relevant product, framework and infrastructure cohorts with honest audit status.
