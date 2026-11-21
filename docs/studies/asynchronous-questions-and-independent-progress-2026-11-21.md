@@ -331,6 +331,29 @@ executed qualification.
 | No eligible work remains | Durable waiting without token spin or fabricated progress |
 | Many open requests or unavailable respondent | Bounded delivery/reminders and existing fairness budgets remain effective |
 
+### Critical review outcomes
+
+The record went through source/owner challenge, independent draft review, and
+review of the revised text on 2026-11-21:
+
+1. **Existing architecture and external claims:** the incoming feedback foundation
+   was confirmed, so the proposed gap was narrowed to decision dependency and
+   response policy. Native Codex, asynchronous API functions, and persisted Claude
+   deferral were kept separate. Temporal engine selection was explicitly separated
+   from implemented product integration.
+2. **Concurrency, authority, and user attention:** draft review caught an overly
+   broad optional-question criterion and preserved already-required approvals.
+   It separated one effective request outcome from OD-032 effect safety, added
+   explicit refusal versus silence, qualified the LangGraph backing store, and
+   distinguished circular decision dependencies from exhausted physical capacity.
+3. **Revised scope and ownership:** two independent rereviews found no remaining
+   blocking issue in these boundaries. Exact clock/admission ordering, autonomy
+   policy, and late-answer behavior remain visibly open. The review found no
+   evidence requiring another owner, scheduler, or generic platform.
+
+These are documentation-review results, not executed runtime correctness or
+performance evidence.
+
 ## Sources
 
 Product links below are pinned to the inspected revisions. External documentation
