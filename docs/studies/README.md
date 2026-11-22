@@ -12,6 +12,7 @@ Imported studies retain original dates, versions and limitations. Historical pro
 
 ## Documents
 
+- [Draft Task Verification Handoff and Plan](task-verification-handoff-2026-11-22.md) — Consolidated evidence, competitor mechanisms and one bounded next experiment; advisory research direction, with existing authorization and product ownership preserved.
 - [Substrate Resource Efficiency and Scaling 2026-11-22](substrate-resource-efficiency-and-scaling-2026-11-22.md) — Dated source audit of an optional cloud sandbox backend: resource savings, scaling, strengths, restore/durability risks and conditions for Agent Runtime integration; no adoption decision.
 - [Asynchronous Questions and Independent Progress 2026-11-21](asynchronous-questions-and-independent-progress-2026-11-21.md) — Source evidence and open questions for optional replies, required decisions, scoped waiting and authorized fallback within existing owners.
 - [Evidence-Based Feedback and Rework 2026-11-09](evidence-based-feedback-and-rework-2026-11-09.md) — Dated source audit of reviewer reuse, evidence freshness, controlled rework and existing Orchestrator authority; future gateway choice remains open.
