@@ -8,7 +8,7 @@ summary: Agent SDK and sandbox candidates, with supported interfaces, custody, a
 
 # Agent Execution and Sandboxes
 
-Reviewed **2026-11-06**. These technologies can supply bounded execution capabilities; they do not acquire product scheduling, commercial authority or permission to perform an effect. Fit/confidence scores are scenario-specific engineering judgments, not reliability measurements or adoption decisions. Current upstream capabilities are distinct from the pinned AutoGPT integrations described below.
+Initial entries reviewed **2026-11-06**; the Substrate entry was added after its separate **2026-11-22** review. These technologies can supply bounded execution capabilities; they do not acquire product scheduling, commercial authority or permission to perform an effect. Fit/confidence scores are scenario-specific engineering judgments, not reliability measurements or adoption decisions. Current upstream capabilities are distinct from the pinned AutoGPT integrations described below.
 
 ## Claude Agent SDK
 
@@ -43,6 +43,49 @@ Reviewed **2026-11-06**. These technologies can supply bounded execution capabil
 **Concrete risks.** Authenticated profiles, downloads, model-selected actions, ambiguous form submission and leftover browsers need custody. Observing a possible action is not approval to execute it. Local Chrome does not remove model/network requirements or prove equivalent behavior on every platform.
 
 **Bounded next research:** use one disposable fixture site to compare deterministic and model-assisted actions, extraction, authenticated state and a side-effecting form under cancellation/timeouts. Pin the intended major version and verify both connection and browser cleanup before estimating integration work.
+
+## Substrate
+
+**Reviewed 2026-11-22; conditional resource-efficiency and scaling idea.**
+The [dated Substrate study](../studies/substrate-resource-efficiency-and-scaling-2026-11-22.md)
+owns the detailed source evidence, exact four repository revisions, upstream CI
+observations, issue status, scenario ratings and review triggers. The inspected
+Substrate source is `f5428049ac0b81458eb12e81fa5a6b65cd39a2ad`; the observed
+latest release `v1.0.1` is a different source identity. This record does not adopt
+a backend or qualify a deployment.
+
+**Implementation and operating model.** Go control plane and Linux execution
+infrastructure on Kubernetes, with gVisor or Cloud Hypervisor microVM workers,
+Postgres and object storage. OCI workloads do not require a proprietary agent
+SDK. The separate alpha `agent-substrate/env` bridge supplies process/file RPCs;
+its timeout exists, but its API and lifecycle semantics do not automatically
+satisfy the complete Runtime operation/custody contract.
+
+**Scenario: optional cloud sandbox backend for many safely idle environments;
+fit 7/10, confidence 8/10.** The opportunity is lower idle resource consumption
+and denser placement while retaining environments. Good fit requires measured
+safe idle time, explicit lifecycle ownership and sufficient operating capacity
+for the infrastructure. Poor fit includes native macOS/Windows execution,
+nearly continuous workloads without meaningful idle savings, and an assumed
+transparent pause of an active LLM stream. This is an infrastructure candidate
+under Agent Runtime; it does not replace Orchestrator or durable workflows.
+
+**Concrete risks and counterevidence.** Resume fidelity is best effort and can
+fall back to a fresh process; asynchronous suspension is not itself durable
+upload; suspension interrupts network streams; snapshots do not undo external
+effects. Public lifecycle preconditions and Docker-in-actor support still have
+open upstream work at the review date. Conversely, real sandbox implementations,
+internal concurrency protections and the successful eight-variant upstream E2E
+matrix are meaningful positive evidence. No cluster or our agent workflow was
+run during this review; cost savings remain unmeasured.
+
+**Bounded next research:** return when safely idle cloud sandbox cost becomes a
+measured bottleneck or upstream closes the relevant contract gaps. Compare one
+pinned backend/workload against the existing baseline, retaining operation
+authority outside snapshots, and exercise lost launch replies, cancel/restore,
+node loss before upload, incompatible workers and a real coding workflow. The
+dated study specifies the proposed cases; they are not newly adopted gates or
+a promised implementation schedule.
 
 ## Common decision boundary
 

@@ -12,6 +12,7 @@ Imported studies retain original dates, versions and limitations. Historical pro
 
 ## Documents
 
+- [Substrate Resource Efficiency and Scaling 2026-11-22](substrate-resource-efficiency-and-scaling-2026-11-22.md) — Dated source audit of an optional cloud sandbox backend: resource savings, scaling, strengths, restore/durability risks and conditions for Agent Runtime integration; no adoption decision.
 - [Evidence-Based Feedback and Rework 2026-11-09](evidence-based-feedback-and-rework-2026-11-09.md) — Dated source audit of reviewer reuse, evidence freshness, controlled rework and existing Orchestrator authority; future gateway choice remains open.
 - [Agent Runtime Industry Architecture Research](agent-runtime-industry-architecture-research.md) — Dated industry evidence migrated from Runtime with original source identities and limits.
 - [Agent Runtime Framework Research](agent-runtime-framework-research.md) — Dated agent-framework evidence migrated from Runtime with product applicability distinguished.
