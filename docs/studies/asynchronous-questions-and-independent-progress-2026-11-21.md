@@ -286,8 +286,10 @@ facts, and approvals to share one domain type.
 
 A new question service, generic dependency engine, workflow DSL, global answer
 broker, second scheduler, arbitrary quorum system, or speculative branch engine
-has no demonstrated need here. Shared technical extraction should follow
-concrete repeated use. This study selects no implementation alternative and
+has no demonstrated need here. A concrete repeated need establishes the contract
+and owner of a shared technical mechanism. Concerns expected to serve several
+projects follow the organization's library-first route from the start. This
+study selects no implementation alternative and
 makes no production LOC, throughput, reliability, or rollout commitment.
 
 ### Open questions for later design
