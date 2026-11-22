@@ -354,12 +354,181 @@ review of the revised text on 2026-11-21:
 These are documentation-review results, not executed runtime correctness or
 performance evidence.
 
+## Follow-up evidence — 2026-11-22
+
+This follow-up examines where an apparently asynchronous design still loses an
+answer, blocks unrelated work, or applies an obsolete decision. The Orchestrator,
+Runtime and Codex source pins above remain unchanged. Official documentation was
+read again on 2026-11-22. A2A evidence below uses the published `v1.0.1` source at
+`3303592588e388e62e0f69f701af531d2f4e3991`; MCP uses edition 2026-07-28, Camunda
+uses its 8.10 documentation. The Azure API page labels its abstractions package
+1.0.0; the implementation evidence uses the separately pinned .NET worker fix
+below, not that label as a tested worker version. Temporal documentation describes its
+current API, not a qualification of the Orchestrator's pinned SDK. Source tests
+were inspected, not executed. No measured reliability or performance claim follows.
+
+### Acknowledgement, decision and application have different lifetimes
+
+The [OpenAI steering guide][openai-steering] says acceptance queues an update.
+Application waits for a suitable boundary and can still require tool results or
+approval. Pending steering is local to the connection and is not stored with the
+original response. The guide calls for recording inputs and reconciling events
+and history before replay after disconnect. This is a documented transport limit,
+not evidence that the product lost an already committed domain answer.
+
+The [Temporal Update stages][temporal-update-stages] make another useful
+distinction: `ADMITTED` is not yet durable; `ACCEPTED` requires workflow handling;
+`COMPLETED` can contain success or failure. A user-facing receipt must say which
+boundary has actually committed. Where an existing durable ingress accepts input
+before the semantic owner is available, report queued input rather than a valid
+decision. This does not require another inbox implementation.
+
+Inspection of the [Runtime session owner][runtime-owner-source] found a more
+concrete product constraint. `dispatch` admits only one active technical input;
+`reply` is independent of that input queue. Reply validity includes session
+generation, interaction kind, expiry and the attributed operation when known. Recording the
+operation's result cancels its pending interactions; `restore` advances the
+generation and cancels old pending interactions. An uncertain reply outcome requires
+reconciliation. These are source findings within the synthetic feature's limits.
+
+Inference: a product clarification needs a durable identity independent of a
+provider callback. An answer can remain useful after that callback becomes
+invalid. The semantic owner may admit it and arrange a qualified new context/input
+application; it must not blindly replay the callback against a replacement
+session. A technical interaction timeout is not the product decision deadline.
+
+### Durable waiting does not settle identity or deadline policy
+
+The [Azure external-event API][azure-event-api] documents saving an event even
+after the prior wait was cancelled. Names may be reused and each event completes
+one waiter. Consequently, reusing a name such as `answer` for successive requests
+can expose a later waiter to an earlier response unless the application checks
+request identity and revision. The pinned [worker fix and regression test][azure-fix]
+confirm this intended buffering behavior and correct a separate historical defect
+that dropped such events. The test source was inspected, not run. Do not assume
+every earlier worker version implements the current contract correctly.
+
+[Camunda message correlation][camunda-messages] similarly separates message
+buffering, correlation and time to live; message-ID deduplication is bounded by
+buffer residence. A transport name or buffering interval cannot replace a
+business request identity, retained reply receipt or answer cutoff.
+
+Two deadline policies remain credible. **Owner admission before the cutoff**
+needs one authority ordering, but processing delays reduce the effective response
+window. **Trusted durable receipt before the cutoff** better preserves submission
+opportunity, but fallback must account for timely input still awaiting admission.
+Client timestamps alone cannot provide that guarantee. Durable timer ordering
+does not choose between these policies. The timer should request an owner
+transition; it should not perform the fallback effect itself.
+
+### Parallel execution and cheap waiting have structural limits
+
+[AWS Step Functions Parallel][aws-parallel] waits for every branch before its
+`Next` state. Its logical branch failure also does not stop already invoked Lambda
+functions or activity workers. Thus placing a question in a parallel branch can
+still introduce a global join, and logical cancellation is not physical cessation.
+Independent work must be reachable without joining the unanswered branch.
+
+[Temporal Continue-As-New][temporal-continue] preserves a logical Workflow ID
+while starting a new Run and history. Pending business requests, deadlines and
+deduplication evidence need an explicit continuity policy. Asynchronous message
+handlers must finish appropriately before rollover. A long human wait inside a
+handler can therefore complicate rollover; a short admission handler with durable
+owner/process state is the smaller candidate. This is design reasoning, not a
+finding that every long handler is invalid.
+
+[Child workflow guidance][temporal-child] and [Parent Close Policy][temporal-parent]
+add start confirmation, termination/cancellation/abandonment and parent lifecycle
+choices. A child workflow per question is justified by independent lifecycle or
+history requirements, not simply by wanting a separate function. Conversely,
+[asynchronous Activity completion][temporal-async-activity] can return from the
+worker function while the Activity stays pending: it would be inaccurate to say
+that every pending Activity occupies a worker thread throughout the wait.
+
+For [AWS callback tasks][aws-callback], the token identifies a waiting attempt;
+closed or expired tokens [cannot complete it][aws-task-success]. A [heartbeat][aws-heartbeat] does not
+extend the total task timeout. Business request, callback attempt, decision
+deadline, liveness timeout and retention are separate concerns. None of these
+mechanisms discovers useful independent work or releases Agent occupancy for us.
+
+### Client behavior worth copying, with explicit limits
+
+The pinned Codex [question state][codex-question-state] and
+[UI tests][codex-question-ui-tests] preserve per-question identities, suppress
+replayed questions, reconcile answers from another client, and preserve other
+drafts when one question resolves. [Notification tests][codex-question-notifications]
+cover notification deduplication and preferences. These are useful patterns for
+attention and draft handling, not evidence of durable product decision custody.
+
+[Turn-end tests][codex-question-turn-end] recover unsent drafts when the turn
+finishes, fails or is interrupted. Ordinary follow-up input can clear unanswered
+question presentation. Agent Teams should therefore derive required waiting from
+the semantic owner rather than from the presence of a UI card. A dismissed card,
+an explicit refusal and no response must remain distinguishable where the owner
+needs that distinction.
+
+Codex [steering tests][codex-steer-tests] fence input with the expected active
+turn. [Pending-input tests][codex-pending-tests] cover steering during tool
+execution and compaction without discarding the running cell or its results.
+Source inspection does not prove every hosted client behaves identically. An
+answer delivered now also cannot retroactively revoke an already dispatched tool.
+
+The current [Claude TypeScript SDK reference][claude-typescript] distinguishes
+input queued for the next boundary, a later turn, and immediate interruption.
+Some immediate human input can background eligible tools. This qualifies the
+earlier blocking-input observation: available input paths differ by API and
+configuration. Service or agent content must retain its real origin; transporting
+it as a user-role message does not make it human authority.
+
+### Protocol specifications also need critical reading
+
+In the released [A2A v1.0.1 specification][a2a-spec], section 3.1.1 says Send
+Message returns immediately, while section 3.2.2 says the same operation blocks
+by default unless `return_immediately` is true. The latter excludes streaming and
+direct Message responses. The [published protocol definition][a2a-proto] agrees
+with the configurable blocking default. This is an internal documentation
+inconsistency, not proof of a faulty server. Configure the mode explicitly and
+qualify the selected implementation rather than inferring behavior from one
+paragraph. A2A's optional message deduplication also cannot establish effect safety.
+
+[MCP multi-round-trip requests][mcp-mrtr] and the Tasks extension are different
+contracts. The former retries the original method with a new JSON-RPC ID and
+opaque `requestState`; the latter updates a task handle. The specification itself
+notes that integrity-protected state, principal binding and expiry do not ensure
+single use without server enforcement. Neither path supplies a universal
+permission or product decision model. [Elicitation][mcp-elicitation] also separates
+accept, decline and dismiss; accepting a URL interaction is not proof the external
+operation completed.
+
+### Consequences for the next design
+
+The smallest credible candidate is an owner command that durably registers a
+clarification and delivery intent, returns that registration receipt, and admits
+a later answer through a separate command. This works only when the declared tool
+contract promises registration. It cannot fabricate the answer of a native
+blocking question, finish an asynchronous result early, or grant permission.
+
+Keep request resolution distinct from dependency satisfaction: refusal can close
+a request while the protected action remains ineligible. Prefer a predeclared
+authorized fallback in an initial experiment. Asking an LLM to choose at timeout
+adds separate work, budget and another answer-versus-selection race.
+
+The product-specific alternatives and bounded mechanism proposal belong in the
+[Orchestrator research change][orchestrator-proposal], with OD-026 still open.
+Existing Work/Run target documents are not evidence that the required execution
+and dependency foundations have already been implemented. Research does not admit
+that broader implementation or select a new service, workflow engine or ADR.
+
 ## Sources
 
 Product links below are pinned to the inspected revisions. External documentation
 links are mutable and were read on 2026-11-21; MCP edition and Codex commit are
 explicit. Their behavior must be requalified against versions selected for any
 future implementation.
+
+Sources introduced in the follow-up were read on 2026-11-22. Published protocol
+editions and source commits are named above; mutable API documentation remains
+dated evidence rather than a guarantee for every deployed version.
 
 [factory]: https://thebuildingmachine.com/p/a-look-inside-the-factory
 [od026]: https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/a34587b313e656eeb43d755b4a4f08c40dff2116/docs/open-decisions/OD-026-communication-notification-and-attention.md
@@ -389,3 +558,29 @@ future implementation.
 [mcp-tasks]: https://tasks.extensions.modelcontextprotocol.io/specification/2026-07-28/tasks
 [camunda-timers]: https://docs.camunda.io/docs/components/modeler/bpmn/timer-events/
 [camunda-gateway]: https://docs.camunda.io/docs/components/modeler/bpmn/event-based-gateways/
+[openai-steering]: https://developers.openai.com/api/docs/guides/steering
+[temporal-update-stages]: https://typescript.temporal.io/api/namespaces/client#workflowupdatestage
+[runtime-owner-source]: https://github.com/agent-teams-ai/agent-runtime/blob/f990acc26e1b8071ae22d0b87a2ddd3672be8e2e/packages/contexts/agent-execution/src/features/interactive-agent-session/application/use-cases/interactive-session-owner.ts
+[azure-event-api]: https://learn.microsoft.com/en-us/dotnet/api/microsoft.durabletask.taskorchestrationcontext.waitforexternalevent?view=durabletask-dotnet-1.x
+[azure-fix]: https://github.com/microsoft/durabletask-dotnet/commit/56fb4ddf57f64a85fbfe0688b1e5d52b204c05a4
+[camunda-messages]: https://docs.camunda.io/docs/components/concepts/messages/
+[aws-parallel]: https://docs.aws.amazon.com/step-functions/latest/dg/state-parallel.html
+[temporal-continue]: https://docs.temporal.io/develop/typescript/workflows/continue-as-new
+[temporal-child]: https://docs.temporal.io/child-workflows
+[temporal-parent]: https://docs.temporal.io/parent-close-policy
+[temporal-async-activity]: https://docs.temporal.io/develop/typescript/activities/asynchronous-activity
+[aws-callback]: https://docs.aws.amazon.com/step-functions/latest/dg/connect-to-resource.html
+[aws-heartbeat]: https://docs.aws.amazon.com/step-functions/latest/apireference/API_SendTaskHeartbeat.html
+[aws-task-success]: https://docs.aws.amazon.com/step-functions/latest/apireference/API_SendTaskSuccess.html
+[codex-question-state]: https://github.com/openai/codex/blob/1145028ae47e8119955323d38ce34122d418f951/codex-rs/tui/src/bottom_pane/async_questions/state.rs
+[codex-question-ui-tests]: https://github.com/openai/codex/blob/1145028ae47e8119955323d38ce34122d418f951/codex-rs/tui/src/chatwidget/tests/questions_tests.rs
+[codex-question-notifications]: https://github.com/openai/codex/blob/1145028ae47e8119955323d38ce34122d418f951/codex-rs/tui/src/chatwidget/tests/question_notifications_tests.rs
+[codex-question-turn-end]: https://github.com/openai/codex/blob/1145028ae47e8119955323d38ce34122d418f951/codex-rs/tui/src/chatwidget/tests/question_turn_end_tests.rs
+[codex-steer-tests]: https://github.com/openai/codex/blob/1145028ae47e8119955323d38ce34122d418f951/codex-rs/app-server/tests/suite/v2/turn_steer.rs
+[codex-pending-tests]: https://github.com/openai/codex/blob/1145028ae47e8119955323d38ce34122d418f951/codex-rs/core/tests/suite/pending_input.rs
+[claude-typescript]: https://code.claude.com/docs/en/agent-sdk/typescript
+[a2a-spec]: https://github.com/a2aproject/A2A/blob/3303592588e388e62e0f69f701af531d2f4e3991/docs/specification.md
+[a2a-proto]: https://github.com/a2aproject/A2A/blob/3303592588e388e62e0f69f701af531d2f4e3991/specification/a2a.proto
+[mcp-mrtr]: https://modelcontextprotocol.io/specification/2026-07-28/basic/patterns/mrtr
+[mcp-elicitation]: https://modelcontextprotocol.io/specification/2026-07-28/client/elicitation
+[orchestrator-proposal]: https://github.com/agent-teams-ai/agent-teams-orchestrator/pull/104
