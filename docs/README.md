@@ -13,10 +13,23 @@ This map routes readers and agents by task. The repository separates shared sour
 | Collection | Contents and first useful route |
 | --- | --- |
 | [Technology and Library Catalog](technologies/README.md) | Cross-language candidates by capability, fit, risks, evidence and next research; memory SDK extraction and architecture follow-through |
-| [Competitors](competitors/README.md) | [AutoGPT vs Agent Teams](competitors/autogpt-vs-agent-teams-architecture-and-python-ecosystem.md), [Paperclip](competitors/paperclip.md), [Agent Teams](competitors/agent-teams.md), the [30-criterion matrix](competitors/technical-comparison.md), and an unscored [watchlist](competitors/competitor-watchlist.md) |
+| [Competitors](competitors/README.md) | [AutoGPT vs Agent Teams](competitors/autogpt-vs-agent-teams-architecture-and-python-ecosystem.md), [Paperclip](competitors/paperclip.md), [Waku Agent](competitors/waku-agent-2026-11-23.md), [Agent Teams](competitors/agent-teams.md), the [30-criterion matrix](competitors/technical-comparison.md), and an unscored [watchlist](competitors/competitor-watchlist.md) |
 | [Methodology](methodology/README.md) | Criteria, evidence interpretation, comparable boards, freshness, migration, source identities, independent review |
 | [Lessons](lessons/README.md) | Existing pattern identities, source-specific failure lessons, concrete decisions inside current owner plans |
-| [Studies](studies/README.md) | Five dated Runtime studies, three reusable Orchestrator extracts, the pinned plugin-research index, historical comparison |
+| [Studies](studies/README.md) | Task verification and review, Runtime architecture and durability, coordination, identity, persistence and cross-product research; grouped by topic |
+
+## Active work and reusable findings
+
+| Need | Start here |
+| --- | --- |
+| Task Verification collaboration | [Current handoff](studies/task-verification-handoff-2026-11-22.md) — active checkpoint, decisions and next steps; raw attempts remain in the experiment repository. |
+| Typed LLM outputs and evidence-testing libraries | [Technology record](technologies/observability-and-prompts.md#structured-output-and-evidence-testing--2026-11-23) — reuse candidates, not adoption. |
+| Architecture or competitor investigation | [Dossiers](competitors/README.md) and [topic-grouped studies](studies/README.md). |
+| A concrete product change | [Owner-linked preimplementation priorities](lessons/preimplementation-decisions.md); the owning repository retains implementation authority. |
+
+## Where to put new material
+
+Keep one maintained entrypoint for each active collaboration or decision; put the next action and its evidence links first. Preserve dated checkpoints and superseded research through immutable references rather than copying old instructions into every handoff. Put reusable library assessments in the technology catalog, competitor dossiers in Competitors, scoped studies in Studies, and shared method or failure lessons in their existing collections. Link across collections instead of maintaining duplicate assessments. Product repositories retain their experiment artifacts, implementation plans and decisions. Use the registered Docs Protocol routes for new documents; prefer editing an existing canonical record to creating another page for a conversation.
 
 ## Agent reading routes
 

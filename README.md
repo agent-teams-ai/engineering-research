@@ -2,15 +2,18 @@
 
 Shared technical research for Agent Teams: competitor assessments, reusable engineering evidence, failure lessons, and the reasoning behind proposed improvements. Product repositories retain their accepted decisions, contracts, implementation plans, and qualification evidence.
 
-**Delivery status:** the initial corpus is published in [central draft PR #1](https://github.com/agent-teams-ai/engineering-research/pull/1). Product integration drafts are [Runtime #248](https://github.com/agent-teams-ai/agent-runtime/pull/248), [Orchestrator #94](https://github.com/agent-teams-ai/agent-teams-orchestrator/pull/94), and [Platform #59](https://github.com/agent-teams-ai/agent-teams-platform/pull/59). These changes are reviewable drafts; the research corpus is not yet merged into the default branch.
+**Start here:** [Documentation map](docs/README.md) · [Studies by topic](docs/studies/README.md) · [Competitor research](docs/competitors/README.md) · [Technology and Library Catalog](docs/technologies/README.md).
 
-**End-to-end delivery:** shared research and reciprocal product drafts are published and verified. All required product checks, including Runtime author identity and macOS, passed at the exact heads recorded in the [migration ledger](docs/methodology/research-migration.md#current-hosted-verification). The central documentation check also passed on the preceding verified publication; the live central PR records the check for each subsequent documentation commit. All four research PRs remain drafts as requested.
+The initial corpus was merged through [PR #1](https://github.com/agent-teams-ai/engineering-research/pull/1) on 2026-11-05. Its pinned evidence and historical product integration status are recorded in the [migration ledger](docs/methodology/research-migration.md). Consult the live product PRs for current status; that historical qualification is not a current release claim.
 
 ## Start with the question
 
 | Question | Read |
 | --- | --- |
 | Where is everything? | [Documentation map](docs/README.md) |
+| What should Hassan do next on Task Verification? | [Current handoff](docs/studies/task-verification-handoff-2026-11-22.md) |
+| Which structured-output and testing libraries can we reuse? | [Technology record](docs/technologies/observability-and-prompts.md#structured-output-and-evidence-testing--2026-11-23) |
+| Which engineering research relates to a specific topic? | [Studies by topic](docs/studies/README.md) |
 | What does Paperclip actually do well and where might it become expensive? | [Paperclip source dossier](docs/competitors/paperclip.md) |
 | How does our selected v3 architecture compare? | [Agent Teams dossier](docs/competitors/agent-teams.md) and [technical matrix](docs/competitors/technical-comparison.md) |
 | What should we settle before implementing the affected feature? | [Preimplementation decisions](docs/lessons/preimplementation-decisions.md) |
@@ -47,10 +50,10 @@ pnpm check
 
 Read [AGENTS.md](AGENTS.md) and the repository [authoring workflow](.agents/skills/docs-authoring/SKILL.md) before changing the catalog. New documents use reviewed `docs:new` preview/apply plans; existing documents are ordinary reviewed edits. Every document has a stable ID, owner, status, summary, and direct index route. Evidence identity and local links receive focused checks in addition to the catalog check.
 
-This initial delivery uses Markdown, JSON records, and existing Docs Protocol tooling. It adds no application, portal, crawler, scheduler service, or custom scoring engine. An existing assistant task is enabled for weekly change triage, starting 2026-11-11 around 10:00 Europe/Kiev; the [maintenance workflow](docs/methodology/research-maintenance.md) defines its bounded scope, review queue and draft-only publication. No scheduled run has yet executed.
+Use Markdown, JSON records and existing Docs Protocol tooling; do not add a separate research portal, crawler or scoring engine. The [maintenance workflow](docs/methodology/research-maintenance.md) defines review scope and publication policy. Keep operational and experiment status in the relevant current record, not this repository introduction.
 
 ## Repository admission and publication
 
 The repository is documentation-only and starts **pending_classification**. Portable Docs Protocol is configured at the published coordinate `@agent-teams/docs-protocol@0.6.2`; managed organization admission is separately pending. This does not claim a docs-only exemption, production Foundation admission, branch protections, or a published release.
 
-The [migration record](docs/methodology/research-migration.md) gives the concrete publication sequence. Source snapshots and hashes are preserved. The central draft is open and the corpus is published. Each coherent commit is pushed immediately; product drafts link to an immutable central evidence snapshot. Keep all PRs draft until their actual review and checks are complete.
+The [migration record](docs/methodology/research-migration.md) preserves the publication sequence and source snapshots. Each coherent commit is pushed immediately; product records link to immutable research evidence. Follow the repository's review and check policy before merging.
