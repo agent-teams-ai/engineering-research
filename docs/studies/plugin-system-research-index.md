@@ -108,15 +108,26 @@ product's authority, state and physical execution custody. Clean Architecture,
 SOLID, DRY and DDD apply to those observable boundaries, not one package per
 phase, duplicated business aggregates or a generic service locator.
 
-The separate public name **live-module-updates** is proposed and the transferable
-research package is complete, but the organization repository **has not been
-created or registered**. An unauthenticated 404 does not establish name
-availability. The [organization bootstrap contract](https://github.com/agent-teams-ai/.github/blob/main/docs/repository-admission.md#new-repository-bootstrap)
-requires full FMS v1.1, native and Foundation gates for its **first production
-library bootstrap**; a research-only transfer is not that bootstrap or an
-exemption. Proposed per-feature replacement dossiers (boundary, affected
-dependencies, state owner, recovery mode, retained work and cleanup evidence)
-need a real consumer before changing immutable organization rules.
+The owner has now **created** the public
+[agent-teams-ai/live-module-updates](https://github.com/agent-teams-ai/live-module-updates)
+repository (immutable ID 1469193941; initial
+[main 5ba2eca](https://github.com/agent-teams-ai/live-module-updates/commit/5ba2eca9a175b3cff40fd9725b86b658aece1c47)).
+It contains 17 of 18 current transferred files; CLAUDE.md was excluded from
+the initial commit by the owner's global gitignore. That is a source navigation
+gap, **not** a basis to overwrite the owner's original local file. The prior
+unauthenticated 404 is a superseded pre-creation observation.
+
+The [new repository's Draft PR #1](https://github.com/agent-teams-ai/live-module-updates/pull/1)
+extends the critical evidence register with 18 unqualified invariants, seven
+falsification-first follow-up designs, and a precise mapping of loader, runtime,
+state and cross-client responsibilities. It has **no new native test execution**,
+adopted public updater API, runtime or product integration. Creation is not
+organization classification, registration, managed Docs admission, required-check
+enforcement or production conformance. The
+[organization bootstrap contract](https://github.com/agent-teams-ai/.github/blob/main/docs/repository-admission.md#new-repository-bootstrap)
+requires full FMS v1.1, native and Foundation gates for the **first production
+library bootstrap**. Proposed per-feature replacement dossiers still need a
+real consumer before changing immutable organization rules.
 
 **Decisions intentionally still open:** Q1-Q7 (trust; update unit/shared
 dependencies; state continuity; useful adoption; admitted work; rollback
