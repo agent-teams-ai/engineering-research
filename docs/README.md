@@ -22,7 +22,7 @@ This map routes readers and agents by task. The repository separates shared sour
 
 | Need | Start here |
 | --- | --- |
-| Task Verification collaboration | [Current handoff](studies/task-verification-handoff-2026-11-22.md) — active checkpoint, decisions and next steps; raw attempts remain in the experiment repository. |
+| Task Verification collaboration | [Current handoff](studies/task-verification-handoff-2026-11-22.md#agent-start-here) — agent reading route, active checkpoint, permitted next steps and decision criteria; raw attempts remain in the experiment repository. |
 | Typed LLM outputs and evidence-testing libraries | [Technology record](technologies/observability-and-prompts.md#structured-output-and-evidence-testing--2026-11-23) — reuse candidates, not adoption. |
 | Architecture or competitor investigation | [Dossiers](competitors/README.md) and [topic-grouped studies](studies/README.md). |
 | A concrete product change | [Owner-linked preimplementation priorities](lessons/preimplementation-decisions.md); the owning repository retains implementation authority. |
@@ -30,6 +30,8 @@ This map routes readers and agents by task. The repository separates shared sour
 ## Where to put new material
 
 Keep one maintained entrypoint for each active collaboration or decision; put the next action and its evidence links first. Preserve dated checkpoints and superseded research through immutable references rather than copying old instructions into every handoff. Put reusable library assessments in the technology catalog, competitor dossiers in Competitors, scoped studies in Studies, and shared method or failure lessons in their existing collections. Link across collections instead of maintaining duplicate assessments. Product repositories retain their experiment artifacts, implementation plans and decisions. Use the registered Docs Protocol routes for new documents; prefer editing an existing canonical record to creating another page for a conversation.
+
+A handoff must be usable without the original chat: retain the active objective, exact authority and scope, source/evidence identity, remaining ordered work, decision and stop criteria, and the required next written update. For evaluations, separate preparation/adjudication access from the actual reviewer-visible inputs. Historical detail belongs at immutable source links; current work must not require reconstructing intent from archived conversations.
 
 ## Agent reading routes
 
