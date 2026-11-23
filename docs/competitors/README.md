@@ -10,7 +10,9 @@ summary: Dossiers, comparison boards, and the bounded competitor watchlist.
 
 Assess the exact edition and evidence basis before reading a score. The watchlist is a research queue, not a ranked league table.
 
-## Documents by purpose
+## Documents
+
+Grouped by research purpose.
 
 ### Architecture dossiers
 

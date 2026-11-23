@@ -10,7 +10,9 @@ summary: Reusable source research with preserved origin and historical limits.
 
 Imported studies retain original dates, versions and limitations. Historical product applicability is distinguished from current cross-product policy.
 
-## Documents by topic
+## Documents
+
+Grouped by research topic.
 
 ### Task verification, review and feedback
 

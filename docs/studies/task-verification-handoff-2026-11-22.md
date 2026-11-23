@@ -130,11 +130,11 @@ Finish the planned D3 comparison and at most one justified assessment recheck. K
 
 Only if justified and separately scoped, capture the next genuine team task prospectively. Preserve the ordinary review path. Production Gateway qualification, opt-in publication, merge gating, Work completion and new dependency adoption remain separate owner decisions. See the [original stopping rules](https://github.com/agent-teams-ai/engineering-research/blob/9862b19be1863e219b363cce3183f5236ea608fd/docs/studies/task-verification-handoff-2026-11-22.md#stopping-rules-and-the-final-recommendation) and [implementation scope](https://github.com/agent-teams-ai/engineering-research/blob/9862b19be1863e219b363cce3183f5236ea608fd/docs/studies/task-verification-handoff-2026-11-22.md#implementation-scope-and-final-deliverables).
 
-### Library reuse decision (documentation/source review, 2026-11-23)
+## Library reuse decision (documentation/source review, 2026-11-23)
 
 The complete dated library review now lives in the [Technology and Library Catalog: structured output and evidence testing](../technologies/observability-and-prompts.md#structured-output-and-evidence-testing--2026-11-23). Reuse Gateway and M2; no dependency changes for D3. This cross-product research is not another task for Hassan.
 
-### Collaboration and durable handoff
+## Collaboration and durable handoff
 
 Keep this document as the current planning and decision navigation point. The experiment repository owns raw attempts, checks, frozen fixtures and the eventual adjudication/final report. Add dated checkpoints here only for a material change in direction, result interpretation or adoption decision; link pinned evidence instead of duplicating logs. In Discord, send the decision, next concrete task and the latest document link; ask Hassan to include the new report path and commit in each material update. A chat thread is not the only record of scope, evidence or the decision. Do not create a new issue, tracking service, or separate library project for every discussion.
 
