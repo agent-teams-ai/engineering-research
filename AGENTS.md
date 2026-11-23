@@ -38,6 +38,12 @@ Do not copy those rules into a second maintained policy.
 
 Keep active collaboration entrypoints short and decision-oriented: current checkpoint, next actions, acceptance/stop criteria and pinned evidence. Preserve historical plans and raw artifacts at their owning immutable sources; do not append every conversation to the active plan. Use the [documentation map](docs/README.md#where-to-put-new-material) to choose the existing primary collection, link related material instead of copying it, and update its index. This is navigation guidance, not a new product policy.
 
+### Agent-ready handoffs
+
+For an agent taking over a collaboration, use its maintained working entrypoint, then the owning repository's instructions and pinned evidence. The entrypoint must distinguish: objective and non-goals; current checkpoint versus historical results; owner/authority and permitted work; exact identities and relevant source routes; ordered next actions with success/stop conditions; unresolved questions and the next durable update. Check the live owner state before resuming; do not replay completed work or silently widen scope. Keep decisions and material findings in versioned documents and send links in chat.
+
+For [Task Verification](docs/studies/task-verification-handoff-2026-11-22.md#agent-start-here), the research/implementation agent may read the working handoff and evaluator material; a blinded model reviewer receives only its frozen permitted input. Do not forward the research handoff, oracle, known defect list or prior reviewer results as blind-review context. Preserve the distinction between a model claim, a reproduced observation and an owner decision. This is a reading/maintenance rule, not authorization to dispatch paid inference or change product policy.
+
 ## Workflow
 
 Use the exact installed Docs Protocol (`pnpm docs:info`, `docs:find`, `docs:new`,
