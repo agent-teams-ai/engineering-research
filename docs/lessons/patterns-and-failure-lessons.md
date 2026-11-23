@@ -123,3 +123,5 @@ paired with deterministic vs judged evaluations. Detailed adoption boundaries
 and optional experiments belong to the single [dossier](../competitors/waku-agent-2026-11-23.md#transferable-ideas-and-ownership-adopt-the-lesson-not-a-second-subsystem),
 not to a second maintained decision card. Product owners decide whether any
 experiment is warranted; no new gate or acceptance is implied.
+
+**Second-pass addition:** [newer Waku code and CI audit](../competitors/waku-agent-second-pass-2026-11-23.md) adds evidence for existing MR-13/14 external-effect crash windows, MR-03/04 and GP-09 graph/complexity risks, plus a scoped experimental credentials-in-process-args/transcript finding for Runtime Security. It credits 4,865 passed / 62 skipped standard tests and 52 passed / 0 skipped real Docker cases at the later exact Waku HEAD. This is source-derived risk and test evidence, not confirmed upstream exploitation, a new finding namespace, or a product policy change.
