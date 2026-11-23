@@ -34,6 +34,10 @@ Do not copy those rules into a second maintained policy.
 - Commit coherent documentation changes and publish each commit immediately when
   the remote is available. Keep work in draft PRs until the requested review ends.
 
+## Documentation organization
+
+Keep active collaboration entrypoints short and decision-oriented: current checkpoint, next actions, acceptance/stop criteria and pinned evidence. Preserve historical plans and raw artifacts at their owning immutable sources; do not append every conversation to the active plan. Use the [documentation map](docs/README.md#where-to-put-new-material) to choose the existing primary collection, link related material instead of copying it, and update its index. This is navigation guidance, not a new product policy.
+
 ## Workflow
 
 Use the exact installed Docs Protocol (`pnpm docs:info`, `docs:find`, `docs:new`,

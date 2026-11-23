@@ -21,7 +21,7 @@ Initial assessment: **2026-11-06**, following the [AutoGPT comparison](../compet
 | [Memory and Knowledge](memory-and-knowledge.md) | Existing `context-memory`; Hindsight, Graphiti, FalkorDB and Mem0; current facts versus derived knowledge, provenance and deletion. |
 | [Agent Execution and Sandboxes](agent-execution-and-sandboxes.md) | Claude Agent SDK, E2B, Stagehand and Substrate; agent/process/browser boundaries, cancellation and conditional idle-resource savings. |
 | [Browsing Search and Retrieval](browsing-search-and-retrieval.md) | Firecrawl, Exa, Tavily and permission-aware BM25 discovery; bounded browsing and evidence acquisition. |
-| [Observability and Prompts](observability-and-prompts.md) | OpenTelemetry and Langfuse; trace interoperability, prompt/evaluation tooling and data exposure. |
+| [Observability and Prompts](observability-and-prompts.md) | OpenTelemetry and Langfuse; trace interoperability, prompt/evaluation tooling and data exposure. [Structured output and evidence testing](observability-and-prompts.md#structured-output-and-evidence-testing--2026-11-23): Zod, Ajv, Standard Schema, TypeBox, Effect Schema, typed LLM tooling, fast-check and Promptfoo. |
 | [Data and Document Processing](data-and-document-processing.md) | pandas/openpyxl, Arrow, DuckDB, PDFium and MoviePy/FFmpeg; native compute, data interchange and worker isolation. |
 | [Modularity and Extension Contracts](modularity-and-extension-contracts.md) | Get Modular, AutoGPT blocks/skills and external protocol boundaries; useful composition versus unnecessary framework layers. |
 
