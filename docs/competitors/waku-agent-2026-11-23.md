@@ -8,6 +8,8 @@ summary: Pinned source review of Waku Agent, scoped Agent Teams architecture com
 
 # Waku Agent vs Agent Teams — source audit, 2026-11-23
 
+**Follow-up:** [second-pass code audit at newer Waku HEAD, with real CI logs and additional risks](waku-agent-second-pass-2026-11-23.md). This initial dossier's revision and 13-criterion historical ratings are **not silently replaced**.
+
 ## Scope, evidence and decision boundary
 
 **Purpose.** Compare Waku Agent's implemented local assistant and separately licensed hosted deployment against the **current, partially implemented** Agent Runtime / Orchestrator / Platform and their **conditional selected architecture**. Answer two different questions: what exists today, and which design better serves the Agent Teams goal (teams of people and AI agents, several deployment profiles, and eventually thousands of *simultaneously active* executions).
