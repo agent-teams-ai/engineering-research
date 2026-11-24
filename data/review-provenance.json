@@ -40,5 +40,17 @@
     "sha256": "62ce58155f3771fd8f63764e4d765126d74e1fcb2155be59de3e75e7b5cf4bc7",
     "bytes": 10482,
     "scope": "Historical review text; original internal dates and scratch context retained."
+  },
+  {
+    "path": "evidence/reviews/2026-11-05/critique-profile.md",
+    "sha256": "b2b21355b94fc032691449a7c73672987c2825256ff220c0d134386bd2ff5e73",
+    "bytes": 21119,
+    "scope": "Independent 2026-11-05 research critique and actual-draft review; original scratch references, recommendations and evidence limits retained. No product qualification."
+  },
+  {
+    "path": "evidence/reviews/2026-11-05/critique-workflow.md",
+    "sha256": "68eeda6a3c5938103e1b3b5a1a8f2e9e52ddac897b441d7b6bedfe7020d653cd",
+    "bytes": 23723,
+    "scope": "Independent 2026-11-05 research critique and actual-draft review; original scratch references, recommendations and evidence limits retained. No product qualification."
   }
 ]

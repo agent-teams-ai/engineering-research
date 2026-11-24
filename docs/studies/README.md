@@ -35,10 +35,11 @@ Grouped by research topic.
 - [Identity Provider Evidence](identity-provider-evidence.md) — Reusable identity-provider comparisons separated from the Orchestrator IAM adoption decision.
 - [Composition and Scale Evidence](composition-and-scale-evidence.md) — Reusable module-composition and scale lessons separated from consumer framework pins.
 - [Persistence Tooling Evidence](persistence-tooling-evidence.md) — Reusable persistence-tooling comparisons preserving dated evidence and current storage owners.
-- [Plugin System Research Index](plugin-system-research-index.md) — Pinned discovery of the unmerged Extension Foundation research corpus and historical evidence.
+- [Plugin System Research Index](plugin-system-research-index.md) — Pinned discovery of the published Extension Foundation research corpus and historical evidence.
 
 ### Cross-product architecture and historical comparisons
 
+- [One Agent Through Enterprise Execution](one-agent-through-enterprise-execution.md) — Industry mechanisms, native Temporal parity and qualification of both the minimum useful deployment and sustainable large-fleet execution, reviewed 2026-11-05.
 - [Architecture Follow Through from AutoGPT and Memory](architecture-follow-through-from-autogpt-and-memory.md) — Proposed owner-specific clarifications, already-covered requirements and rejected expansion.
 - [Initial Paperclip Comparison](initial-paperclip-comparison.md) — Historical prospective scores from the preceding comparison under its original five-group rubric.
 
