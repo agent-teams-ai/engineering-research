@@ -27,6 +27,41 @@ An update is a change to claims, not a replacement of all old text with a new da
 
 Separate factual corrections from score-policy changes. A source correction can be immediate; changing criterion applicability, weights or thresholds updates the versioned method before recalculating a board. Do not choose a new weighting after seeing which competitor wins.
 
+## Foundation-first evidence-to-decision route
+
+The [organization ecosystem vision](https://github.com/agent-teams-ai/.github/blob/bb7b1c00f18a8c532681f286afa51dda954469b4/docs/architecture/ecosystem-vision.md) describes many intended consumers
+and the owner direction to design the shared foundation before main greenfield
+implementation. Research evaluates that direction critically; it does not
+silently adopt a competitor mechanism or reopen an accepted ADR.
+
+Use the existing collections as follows, rather than creating another database,
+taxonomy engine or duplicate document tree.
+
+| Material | Canonical route | Required distinction |
+| --- | --- | --- |
+| Technology or competitor assessment | Technology catalog, Competitors or Studies | Pinned subject, scope, strengths, limitations and evidence |
+| Raw source, measurement or experiment | Existing evidence path or owning external source | Immutable identity; an inspected test is not an executed reproduction |
+| Reusable pattern | Existing Lessons record | Applicability and counterexample, not just similar syntax |
+| Antipattern | Existing failure lesson or owning register | Confirmed defect versus inference, historical/fixed versus current |
+| Candidate design change | Owner-linked preimplementation decision | Actual owner, motivation, options, evidence and reversal criteria |
+| Accepted decision and implementation status | Owning product/foundation ADR, plan or issue | Link only; research has no adoption authority |
+
+For a material candidate, compare the current accepted direction, the proposed
+alternative and another plausible option when available. Record usefulness,
+reliability, complexity, confidence and incremental production/test LOC;
+do not average incomparable workloads or treat estimates as measurements.
+Record counterevidence and whether the result should be adopted, tested,
+deferred, rejected or retained as reference. Only the owner can accept a
+change; use a successor ADR for a superseded decision and retain the old proof.
+
+Prioritize research that can change expensive preimplementation choices:
+composition/compile scaling, portable module and extension lifecycles,
+placement and failure isolation, distributed resource budgets, cross-store
+recovery, semantic compatibility and agent delegation. First reconcile
+existing studies and open PRs (including enterprise execution research)
+against the current owner plans; do not start redundant research merely
+because a prior conclusion is not yet implemented.
+
 ## Initial review queue
 
 These dates are claim-review windows. A separate weekly triage task is enabled as described below; enabling it does not constitute a completed review. The initial review anchor is 2026-11-03. The initial corpus was assembled on 2026-11-04. A historical imported study keeps its original review date even when this queue requests a new review.

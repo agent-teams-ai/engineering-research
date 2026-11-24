@@ -27,6 +27,16 @@ This map routes readers and agents by task. The repository separates shared sour
 | Architecture or competitor investigation | [Dossiers](competitors/README.md) and [topic-grouped studies](studies/README.md). |
 | A concrete product change | [Owner-linked preimplementation priorities](lessons/preimplementation-decisions.md); the owning repository retains implementation authority. |
 
+## Research selection and decision follow-through
+
+Use the [Foundation-first ecosystem vision](https://github.com/agent-teams-ai/.github/blob/bb7b1c00f18a8c532681f286afa51dda954469b4/docs/architecture/ecosystem-vision.md) as the product-owner
+context for selecting research, not as evidence that a proposed technology
+works. Existing collections stay canonical; use the
+[claim classification and review route](methodology/research-maintenance.md#foundation-first-evidence-to-decision-route)
+to separate source evidence, reusable patterns, antipatterns, candidates and
+owner decisions. Do not create another copy of the corpus or treat a finding
+as an implementation mandate.
+
 ## Where to put new material
 
 Keep one maintained entrypoint for each active collaboration or decision; put the next action and its evidence links first. Preserve dated checkpoints and superseded research through immutable references rather than copying old instructions into every handoff. Put reusable library assessments in the technology catalog, competitor dossiers in Competitors, scoped studies in Studies, and shared method or failure lessons in their existing collections. Link across collections instead of maintaining duplicate assessments. Product repositories retain their experiment artifacts, implementation plans and decisions. Use the registered Docs Protocol routes for new documents; prefer editing an existing canonical record to creating another page for a conversation.
