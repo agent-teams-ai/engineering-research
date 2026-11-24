@@ -1,0 +1,162 @@
+{
+  "name": "effect",
+  "version": "4.1.5",
+  "archiveBytes": 12214132,
+  "sha256": "c4de8e8cdfb2d4c3b6618001ef54effa2726718f28bc8b1657fd4f408d114550",
+  "integrity": "sha512-xyR20KhQI0vg2gD8ILUSQRTTESEYJ0JKdP+QD8J37xbwPTqXRxFM/l0+vUVD9fuSvoYruoTqyt33C4FZv1s4TQ==",
+  "integrityMatchesRegistry": true,
+  "registrySignaturesVerified": true,
+  "packageManifest": {
+    "name": "effect",
+    "type": "module",
+    "version": "4.1.5",
+    "license": "MIT",
+    "description": "The missing standard library for TypeScript, for writing production-grade software.",
+    "homepage": "https://effect.website",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/Effect-TS/effect.git",
+      "directory": "packages/effect"
+    },
+    "bugs": {
+      "url": "https://github.com/Effect-TS/effect/issues"
+    },
+    "tags": [
+      "typescript",
+      "error-handling",
+      "concurrency",
+      "observability"
+    ],
+    "keywords": [
+      "typescript",
+      "error-handling",
+      "concurrency",
+      "observability"
+    ],
+    "sideEffects": [
+      "./src/schema/SchemaJITCompiler/enable.ts",
+      "./dist/schema/SchemaJITCompiler/enable.js"
+    ],
+    "exports": {
+      "./package.json": "./package.json",
+      ".": "./dist/index.js",
+      "./testing": "./dist/testing/index.js",
+      "./ai": "./dist/ai/index.js",
+      "./chat": "./dist/chat/index.js",
+      "./cli": "./dist/cli/index.js",
+      "./cluster": "./dist/cluster/index.js",
+      "./crypto": "./dist/crypto/index.js",
+      "./devtools": "./dist/devtools/index.js",
+      "./encoding": "./dist/encoding/index.js",
+      "./eventlog": "./dist/eventlog/index.js",
+      "./http": "./dist/http/index.js",
+      "./http-api": "./dist/http-api/index.js",
+      "./jose": "./dist/jose/index.js",
+      "./net": "./dist/net/index.js",
+      "./observability": "./dist/observability/index.js",
+      "./persistence": "./dist/persistence/index.js",
+      "./process": "./dist/process/index.js",
+      "./protobuf": "./dist/protobuf/index.js",
+      "./reactivity": "./dist/reactivity/index.js",
+      "./graphql": "./dist/graphql/index.js",
+      "./rpc": "./dist/rpc/index.js",
+      "./schema": "./dist/schema/index.js",
+      "./socket": "./dist/socket/index.js",
+      "./sql": "./dist/sql/index.js",
+      "./workflow": "./dist/workflow/index.js",
+      "./workers": "./dist/workers/index.js",
+      "./*": "./dist/*.js",
+      "./internal/*": null,
+      "./cli/internal/*": null,
+      "./cluster/internal/*": null,
+      "./crypto/internal/*": null,
+      "./ai/internal/*": null,
+      "./eventlog/internal/*": null,
+      "./http/internal/*": null,
+      "./http/FindMyWay/internal/*": null,
+      "./http/MultipartParser/internal/*": null,
+      "./http-api/internal/*": null,
+      "./jose/internal/*": null,
+      "./observability/internal/*": null,
+      "./protobuf/internal/*": null,
+      "./rpc/internal/*": null,
+      "./workflow/internal/*": null,
+      "./index": null,
+      "./*/index": null
+    },
+    "files": [
+      "src/**/*.ts",
+      "dist/**/*.js",
+      "dist/**/*.js.map",
+      "dist/**/*.d.ts",
+      "dist/**/*.d.ts.map",
+      "AGENTS.md",
+      "CLAUDE.md",
+      "THIRD_PARTY_NOTICES.md",
+      "ai-docs/**/*"
+    ],
+    "publishConfig": {
+      "access": "public",
+      "provenance": true
+    },
+    "devDependencies": {
+      "@types/node": "^26.6.6",
+      "ajv": "^8.20.0",
+      "ajv-draft-04": "^1.0.0",
+      "ast-types": "^0.16.3",
+      "esbuild": "^0.28.2",
+      "fake-indexeddb": "^6.2.8",
+      "immer": "^11.2.10",
+      "jose": "6.2.17",
+      "miniflare": "5.20260925.0-alpha",
+      "protobufjs": "^8.8.1",
+      "tinybench": "^6.2.3",
+      "valibot": "^1.5.0"
+    },
+    "scripts": {
+      "codegen": "effect-utils codegen",
+      "build": "tsc -b tsconfig.json && pnpm babel",
+      "babel": "babel dist --plugins annotate-pure-calls --out-dir dist --source-maps",
+      "check": "tsc -b tsconfig.json"
+    }
+  },
+  "lifecycle": {},
+  "dependencyKinds": {
+    "dependencies": {},
+    "optionalDependencies": {},
+    "peerDependencies": {}
+  },
+  "fixtureDeclarationEvidence": [
+    {
+      "path": "package/dist/http/HttpClient.d.ts",
+      "segments": [
+        {
+          "line": 51,
+          "text": "export declare const isHttpClient: (u: unknown) => u is HttpClient;\n/**\n * HTTP client whose requests produce `HttpClientResponse` values and can fail with `HttpClientError`.\n *\n * @stability unstable\n * @category models\n * @since 4.0.0\n */\nexport interface HttpClient extends HttpClient.With<Error.HttpClientError> {\n}\n/**\n * Namespace containing type-level members associated with `HttpClient`.\n *\n * @stability unstable\n * @since 4.0.0\n */"
+        },
+        {
+          "line": 130,
+          "text": "export declare const execute: (request: HttpClientRequest.HttpClientRequest) => Effect.Effect<HttpClientResponse.HttpClientResponse, Error.HttpClientError, HttpClient>;\n/**\n * Executes a `GET` request using the `HttpClient` service from the environment.\n *\n * @stability unstable\n * @category accessors\n * @since 4.0.0\n */\nexport declare const get: (url: string | URL, options?: HttpClientRequest.Options.NoUrl | undefined) => Effect.Effect<HttpClientResponse.HttpClientResponse, Error.HttpClientError, HttpClient>;\n/**\n * Executes a `QUERY` request using the `HttpClient` service from the environment.\n *\n * @stability unstable\n * @category accessors\n * @since 4.0.0\n */"
+        },
+        {
+          "line": 154,
+          "text": "export declare const head: (url: string | URL, options?: HttpClientRequest.Options.NoUrl | undefined) => Effect.Effect<HttpClientResponse.HttpClientResponse, Error.HttpClientError, HttpClient>;\n/**\n * Executes a `POST` request using the `HttpClient` service from the environment.\n *\n * @stability unstable\n * @category accessors\n * @since 4.0.0\n */\nexport declare const post: (url: string | URL, options?: HttpClientRequest.Options.NoUrl | undefined) => Effect.Effect<HttpClientResponse.HttpClientResponse, Error.HttpClientError, HttpClient>;\n/**\n * Executes a `PATCH` request using the `HttpClient` service from the environment.\n *\n * @stability unstable\n * @category accessors\n * @since 4.0.0\n */"
+        },
+        {
+          "line": 489,
+          "text": " * The runner receives the request, resolved URL, abort signal, and current fiber. The client wrapper handles URL construction failures, tracing and propagation, header redaction, aborting the signal when the request is interrupted before a response arrives, and attaching each request to the scope of an enclosing `withScope`.\n *\n * `HttpClientError` reasons redact their URL with the `UrlParams.CurrentRedactedNames` of the fiber that executed the request, even when a callback outside that fiber creates them. The client adds those names to the errors the runner fails with and to errors built later from the response. Rendering an error then adds the names of the rendering fiber. A runner that returns one response object to several executions gives its errors the names of all of them.\n *\n * @stability unstable\n * @category constructors\n * @since 4.0.0\n */\nexport declare const make: (f: (request: HttpClientRequest.HttpClientRequest, url: URL, signal: AbortSignal, fiber: Fiber.Fiber<HttpClientResponse.HttpClientResponse, Error.HttpClientError>) => Effect.Effect<HttpClientResponse.HttpClientResponse, Error.HttpClientError>) => HttpClient;\n/**\n * Appends a transformation of the request object before sending it.\n *\n * @stability unstable\n * @category mapping\n * @since 4.0.0\n */"
+        }
+      ]
+    },
+    {
+      "path": "package/dist/http-api/HttpApi.d.ts",
+      "segments": [
+        {
+          "line": 133,
+          "text": " * Use when you need to start defining an HTTP API, add groups with `add` or\n * `addHttpApi`, provide endpoint implementations with `HttpApiBuilder.group`,\n * and register the API with `HttpApiBuilder.layer`.\n *\n * @stability unstable\n * @category constructors\n * @since 4.0.0\n */\nexport declare const make: <const Id extends string>(identifier: Id) => HttpApi<Id, never>;\n/**\n * Describes the groups and endpoints in an `HttpApi`.\n *\n * **Details**\n *\n * The callbacks receive each group or endpoint with merged annotations, endpoint\n * middleware, and response schemas grouped by HTTP status."
+        }
+      ]
+    }
+  ],
+  "fullProvenanceVerification": "not executed in this review"
+}

@@ -1,0 +1,6 @@
+{
+  "extends": "./stable-leak.json",
+  "files": [
+    "../fixtures/structural-port.ts"
+  ]
+}

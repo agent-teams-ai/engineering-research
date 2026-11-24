@@ -1,0 +1,451 @@
+[
+  {
+    "archive": "effect-tsgo-0.73.4.tgz",
+    "bytes": 2060788,
+    "sha512": "81e76e0bd7d5e65114d7833bc68d5abf6c19c7bccd6d2b25c80031a1bdd4306521df050624b99ee5e9ac8d750b4882c16c1caddc7a4c3da2341da44554f24186",
+    "integrityMatchesRegistry": true,
+    "sha256": "2c0ba22de09dd1f9a8ebbbe19ad1f79536ea3e99742397f11a7f3dbde6818e51",
+    "attestationsPayloadOnly": [
+      {
+        "predicateType": "https://github.com/npm/attestation/tree/main/specs/publish/v0.1",
+        "subjectMatchesArchive": true,
+        "predicate": {
+          "name": "@effect/tsgo",
+          "version": "0.73.4",
+          "registry": "https://registry.npmjs.org"
+        }
+      },
+      {
+        "predicateType": "https://slsa.dev/provenance/v1",
+        "subjectMatchesArchive": true,
+        "predicate": {
+          "buildDefinition": {
+            "buildType": "https://slsa-framework.github.io/github-actions-buildtypes/workflow/v1",
+            "externalParameters": {
+              "workflow": {
+                "ref": "refs/heads/main",
+                "repository": "https://github.com/Effect-TS/tsgo",
+                "path": ".github/workflows/release.yml"
+              }
+            },
+            "internalParameters": {
+              "github": {
+                "event_name": "push",
+                "repository_id": "1178615808",
+                "repository_owner_id": "77678942"
+              }
+            },
+            "resolvedDependencies": [
+              {
+                "uri": "git+https://github.com/Effect-TS/tsgo@refs/heads/main",
+                "digest": {
+                  "gitCommit": "aa2db44499067a798028cff9d3b1b9ca1e156f57"
+                }
+              }
+            ]
+          },
+          "runDetails": {
+            "builder": {
+              "id": "https://github.com/actions/runner/github-hosted"
+            },
+            "metadata": {
+              "invocationId": "https://github.com/Effect-TS/tsgo/actions/runs/45076223843/attempts/1"
+            }
+          }
+        }
+      }
+    ],
+    "packageManifest": {
+      "name": "@effect/tsgo",
+      "version": "0.73.4",
+      "type": "module",
+      "description": "Effect Language Service for TypeScript-Go \u2014 Effect-specific diagnostics and hover features.",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/Effect-TS/tsgo.git",
+        "directory": "_packages/tsgo"
+      },
+      "bugs": "https://github.com/Effect-TS/tsgo/issues",
+      "homepage": "https://github.com/Effect-TS/tsgo#readme",
+      "publishConfig": {
+        "access": "public",
+        "provenance": true
+      },
+      "bin": {
+        "effect-tsgo": "./dist/effect-tsgo.cjs"
+      },
+      "exports": {
+        "./package.json": "./package.json",
+        "./lib/getExePath": {
+          "types": "./lib/getExePath.d.ts",
+          "default": "./lib/getExePath.js"
+        },
+        "./oxlint-bridge": "./lib/oxlint-bridge.cjs",
+        "./oxlint-presets": {
+          "types": "./oxlint-presets/index.d.ts",
+          "default": "./oxlint-presets/index.js"
+        },
+        "./oxlint-presets/*.json": {
+          "default": "./oxlint-presets/*.json"
+        }
+      },
+      "files": [
+        "dist/",
+        "lib/",
+        "README.md",
+        "oxlint-presets/",
+        "oxlint-schema.json",
+        "schema.json"
+      ],
+      "optionalDependencies": {
+        "@effect/tsgo-win32-x64": "0.73.4",
+        "@effect/tsgo-win32-arm64": "0.73.4",
+        "@effect/tsgo-linux-x64": "0.73.4",
+        "@effect/tsgo-linux-arm64": "0.73.4",
+        "@effect/tsgo-linux-arm": "0.73.4",
+        "@effect/tsgo-darwin-x64": "0.73.4",
+        "@effect/tsgo-darwin-arm64": "0.73.4"
+      },
+      "devDependencies": {
+        "@effect/platform-node": "^4.1.2",
+        "@effect/platform-node-shared": "^4.1.2",
+        "@types/node": "^24.3.0",
+        "tsdown": "^0.20.1",
+        "typescript": "^5.9.2",
+        "effect": "^4.1.2",
+        "vitest": "^3.2.1"
+      },
+      "scripts": {
+        "build": "tsdown --config tsdown.config.ts",
+        "check": "tsc -b tsconfig.json",
+        "test": "vitest run"
+      }
+    },
+    "forbiddenCompilerMarkers": [
+      {
+        "line": 61587,
+        "text": "//#region ../../node_modules/.pnpm/typescript@5.9.3/node_modules/typescript/lib/typescript.js"
+      },
+      {
+        "line": 63866,
+        "text": "\t\tvar version = \"5.9.3\";"
+      },
+      {
+        "line": 208719,
+        "text": "var import_typescript = /* @__PURE__ */ __toESM(require_typescript(), 1);"
+      }
+    ]
+  },
+  {
+    "archive": "effect-tsgo-linux-x64-0.73.4.tgz",
+    "bytes": 130041154,
+    "sha512": "fc4ee0fc39bdf96bd8c6437871f652c9b27efeaa68614ebd5b93ad44f4f304f108011f39a9b05a2ef14ef895ad88ab4c7627600cd6dba9dc28a12147d5db9cf0",
+    "integrityMatchesRegistry": true,
+    "sha256": "c991e3c31c7bf38aadb3ac30221fc048d9ff18e152aa5d527289269b73d29741",
+    "attestationsPayloadOnly": [
+      {
+        "predicateType": "https://github.com/npm/attestation/tree/main/specs/publish/v0.1",
+        "subjectMatchesArchive": true,
+        "predicate": {
+          "name": "@effect/tsgo-linux-x64",
+          "version": "0.73.4",
+          "registry": "https://registry.npmjs.org"
+        }
+      },
+      {
+        "predicateType": "https://slsa.dev/provenance/v1",
+        "subjectMatchesArchive": true,
+        "predicate": {
+          "buildDefinition": {
+            "buildType": "https://slsa-framework.github.io/github-actions-buildtypes/workflow/v1",
+            "externalParameters": {
+              "workflow": {
+                "ref": "refs/heads/main",
+                "repository": "https://github.com/Effect-TS/tsgo",
+                "path": ".github/workflows/release.yml"
+              }
+            },
+            "internalParameters": {
+              "github": {
+                "event_name": "push",
+                "repository_id": "1178615808",
+                "repository_owner_id": "77678942"
+              }
+            },
+            "resolvedDependencies": [
+              {
+                "uri": "git+https://github.com/Effect-TS/tsgo@refs/heads/main",
+                "digest": {
+                  "gitCommit": "aa2db44499067a798028cff9d3b1b9ca1e156f57"
+                }
+              }
+            ]
+          },
+          "runDetails": {
+            "builder": {
+              "id": "https://github.com/actions/runner/github-hosted"
+            },
+            "metadata": {
+              "invocationId": "https://github.com/Effect-TS/tsgo/actions/runs/45076223843/attempts/1"
+            }
+          }
+        }
+      }
+    ],
+    "packageManifest": {
+      "name": "@effect/tsgo-linux-x64",
+      "version": "0.73.4",
+      "description": "Effect Language Service for TypeScript-Go \u2014 Effect-specific diagnostics and hover features.",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/Effect-TS/tsgo.git",
+        "directory": "_packages/tsgo-linux-x64"
+      },
+      "bugs": "https://github.com/Effect-TS/tsgo/issues",
+      "homepage": "https://github.com/Effect-TS/tsgo#readme",
+      "publishConfig": {
+        "access": "public",
+        "provenance": true,
+        "executableFiles": [
+          "./lib/tsc",
+          "./artifacts/typescript/7.1.0-beta/tsc",
+          "./artifacts/typescript/7.1.0-dev.20261121.1/tsc",
+          "./artifacts/oxlint-tsgolint/7.0.2005/tsgolint",
+          "./artifacts/oxlint-tsgolint/7.0.2006/tsgolint",
+          "./artifacts/oxlint-tsgolint/7.0.2008/tsgolint",
+          "./artifacts/tsrs/7.1.0-beta.tsrs2/tsrs",
+          "./artifacts/tsrs/7.1.0-beta.tsrs4/tsrs"
+        ]
+      },
+      "preferUnplugged": true,
+      "files": [
+        "artifacts/",
+        "lib/lib*.d.ts",
+        "lib/tsc",
+        "README.md",
+        "lib/upstream.json"
+      ],
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "x64"
+      ]
+    },
+    "entryCount": 588,
+    "executableCandidates": [
+      {
+        "path": "package/artifacts/typescript/7.1.0-beta/tsc",
+        "size": 28082336,
+        "mode": "0o755"
+      },
+      {
+        "path": "package/artifacts/typescript/7.1.0-dev.20261121.1/tsc",
+        "size": 29819040,
+        "mode": "0o755"
+      },
+      {
+        "path": "package/lib/tsc",
+        "size": 27021472,
+        "mode": "0o755"
+      },
+      {
+        "path": "package/artifacts/oxlint-tsgolint/7.0.2005/tsgolint",
+        "size": 26484896,
+        "mode": "0o755"
+      },
+      {
+        "path": "package/artifacts/oxlint-tsgolint/7.0.2006/tsgolint",
+        "size": 26484896,
+        "mode": "0o755"
+      },
+      {
+        "path": "package/artifacts/oxlint-tsgolint/7.0.2008/tsgolint",
+        "size": 26534048,
+        "mode": "0o755"
+      },
+      {
+        "path": "package/artifacts/tsrs/7.1.0-beta.tsrs2/tsrs",
+        "size": 43278536,
+        "mode": "0o755"
+      },
+      {
+        "path": "package/artifacts/tsrs/7.1.0-beta.tsrs4/tsrs",
+        "size": 43317112,
+        "mode": "0o755"
+      },
+      {
+        "path": "package/artifacts/oxlint/1.91.0/oxlint.linux-x64-gnu.node",
+        "size": 15732344,
+        "mode": "0o644"
+      },
+      {
+        "path": "package/artifacts/oxlint/1.92.0/oxlint.linux-x64-gnu.node",
+        "size": 15748776,
+        "mode": "0o644"
+      },
+      {
+        "path": "package/artifacts/oxlint/1.93.0/oxlint.linux-x64-gnu.node",
+        "size": 15875744,
+        "mode": "0o644"
+      },
+      {
+        "path": "package/artifacts/oxlint/1.94.0/oxlint.linux-x64-gnu.node",
+        "size": 16203424,
+        "mode": "0o644"
+      }
+    ],
+    "javascriptFiles": [],
+    "links": [],
+    "upstream": {
+      "schemaVersion": 5,
+      "tags": {
+        "typescript": {
+          "latest": "7.0.2",
+          "beta": "7.1.0-beta",
+          "next": "7.1.0-dev.20261121.1"
+        },
+        "oxlint": {
+          "latest": "1.94.0"
+        },
+        "oxlint-tsgolint": {
+          "latest": "7.0.2008"
+        },
+        "tsrs": {
+          "latest": "7.1.0-beta.tsrs4"
+        }
+      },
+      "components": {
+        "typescript": {
+          "7.0.2": {
+            "gitHead": "2bd066d87f5bafd315be9f40889d0a60b9e58e0b",
+            "provider": "typescript-go"
+          },
+          "7.1.0-beta": {
+            "gitHead": "3e9236361fa97a9e6c685f4833ac457ae2d8c50a",
+            "provider": "typescript"
+          },
+          "7.1.0-dev.20261121.1": {
+            "gitHead": "01f1a759d92b19ea7024776da02358995d56a7ff",
+            "provider": "typescript"
+          }
+        },
+        "oxlint-tsgolint": {
+          "7.0.2005": {
+            "gitHead": "4ebf80fd2b166cba4890c6896220fec4a1462b29",
+            "dependencies": {
+              "typescript": "7.0.2"
+            }
+          },
+          "7.0.2006": {
+            "gitHead": "420f4f134c4802af98780e3dc413f3452d53fe45",
+            "dependencies": {
+              "typescript": "7.0.2"
+            }
+          },
+          "7.0.2008": {
+            "gitHead": "eac99bdcc87d40667bcb68bcd746c99e8943731a",
+            "dependencies": {
+              "typescript": "7.0.2"
+            }
+          }
+        },
+        "oxlint": {
+          "1.91.0": {
+            "gitHead": "f3fcdcc61b08e9880476279ba21a363967940fa4"
+          },
+          "1.92.0": {
+            "gitHead": "29daf901a1ea6b0a7a56c2b9d488bd2850d0abd4"
+          },
+          "1.93.0": {
+            "gitHead": "7d8e1f4953a694e9705117f674933925142ed457"
+          },
+          "1.94.0": {
+            "gitHead": "229b69bf10a9c876f84287123fdf9d5e0747c96b"
+          }
+        },
+        "tsrs": {
+          "7.1.0-beta.tsrs2": {
+            "gitHead": "b12862d0636c21a98d53d01c6b29570ef5f604e7",
+            "typescript": {
+              "version": "7.1.0-beta",
+              "gitHead": "3e9236361fa97a9e6c685f4833ac457ae2d8c50a"
+            }
+          },
+          "7.1.0-beta.tsrs4": {
+            "gitHead": "fd57202e5dedb2124c46bbb2c90938c1647b12ea",
+            "typescript": {
+              "version": "7.1.0-beta",
+              "gitHead": "3e9236361fa97a9e6c685f4833ac457ae2d8c50a"
+            }
+          }
+        }
+      },
+      "profiles": [
+        {
+          "name": "vite-plus",
+          "description": "Vite+ 1.7.0 compatibility runtime",
+          "dependencies": {
+            "oxlint": "1.94.0",
+            "tsrs": "7.1.0-beta.tsrs2"
+          }
+        },
+        {
+          "name": "oxlint@1.94.0",
+          "description": "Oxlint 1.94.0 compatibility runtime",
+          "dependencies": {
+            "oxlint": "1.94.0",
+            "oxlint-tsgolint": "7.0.2008"
+          }
+        },
+        {
+          "name": "oxlint@1.93.0",
+          "description": "Oxlint 1.93.0 compatibility runtime",
+          "dependencies": {
+            "oxlint": "1.93.0",
+            "oxlint-tsgolint": "7.0.2008"
+          }
+        },
+        {
+          "name": "oxlint@1.92.0",
+          "description": "Oxlint 1.92.0 compatibility runtime",
+          "dependencies": {
+            "oxlint": "1.92.0",
+            "oxlint-tsgolint": "7.0.2008"
+          }
+        },
+        {
+          "name": "vite-plus@1.7.0",
+          "description": "Vite+ 1.7.0 compatibility runtime",
+          "dependencies": {
+            "oxlint": "1.94.0",
+            "tsrs": "7.1.0-beta.tsrs2"
+          }
+        },
+        {
+          "name": "vite-plus@1.6.0",
+          "description": "Vite+ 1.6.0 compatibility runtime",
+          "dependencies": {
+            "oxlint": "1.93.0",
+            "oxlint-tsgolint": "7.0.2006"
+          }
+        },
+        {
+          "name": "vite-plus@1.5.1",
+          "description": "Vite+ 1.5.1 compatibility runtime",
+          "dependencies": {
+            "oxlint": "1.91.0",
+            "oxlint-tsgolint": "7.0.2005"
+          }
+        }
+      ]
+    },
+    "selectedBinary": {
+      "path": "/tmp/effect-preflight-20261124/native-reviewed/lib/tsc",
+      "sha256": "18b0b3fdac7d76b8c9b97e64c185ce8d92f2e13ab2307ae18a27fb11a62c045c",
+      "bytes": 27021472
+    }
+  }
+]

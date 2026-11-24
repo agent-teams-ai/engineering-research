@@ -1,0 +1,47 @@
+name: Effect Diagnostics Qualification
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: effect-diagnostics-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  qualification:
+    name: Effect diagnostics qualification
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      PNPM_MAX_WORKERS: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: pnpm/action-setup@008330803749db0355799c700092d9a85fd074e9 # v6.0.9
+        with:
+          run_install: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .node-version
+          package-manager-cache: false
+      - name: Install the exact disposable cohort without lifecycle scripts
+        working-directory: evidence/experiments/effect-diagnostics-2026-11-24
+        run: pnpm install --frozen-lockfile --ignore-scripts --network-concurrency=1 --child-concurrency=1
+      - name: Qualify native diagnostics with strict harness and independent stock controls
+        run: pnpm check:effect-experiment
+      - name: Retain the qualification report in the job log
+        if: always()
+        run: |
+          if test -f evidence/experiments/effect-diagnostics-2026-11-24/results/signatures-latest.json; then
+            cat evidence/experiments/effect-diagnostics-2026-11-24/results/signatures-latest.json
+          fi
+          if test -f evidence/experiments/effect-diagnostics-2026-11-24/results/latest.json; then
+            cat evidence/experiments/effect-diagnostics-2026-11-24/results/latest.json
+          fi

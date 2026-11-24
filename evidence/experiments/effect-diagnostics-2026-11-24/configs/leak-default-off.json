@@ -1,0 +1,19 @@
+{
+  "extends": "./strict.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "@effect/language-service",
+        "diagnostics": true,
+        "includeSuggestionsInTsc": false,
+        "ignoreEffectErrorsInTscExitCode": false,
+        "diagnosticSeverity": {
+          "unstableApiUsage": "off"
+        }
+      }
+    ]
+  },
+  "files": [
+    "../fixtures/stable-leak.ts"
+  ]
+}

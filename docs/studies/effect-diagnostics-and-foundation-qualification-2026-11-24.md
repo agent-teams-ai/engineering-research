@@ -12,9 +12,9 @@ summary: Qualify ready-made Effect diagnostics in disposable foundation-first fi
 
 **Objective:** qualify ready-made Effect diagnostics before the planned applications exist, preserve the architectural conclusions, and identify the next decisions that can change foundation design. The owner clarified on 2026-11-24 that this is **foundation first**: planned consumers and disposable conformance projects are useful now; a mature Effect application is not a prerequisite for research or this experiment.
 
-**Current checkpoint:** source and published-artifact preflight, two independent plan-critique rounds, and reconciliation of the historical research are complete. Execution is the next step; no fixture result is claimed yet. The [historical Effect architecture study](effect-architecture-and-reusable-mechanisms-2026-11-14.md) was preserved byte-for-byte and delivered through [PR 9](https://github.com/agent-teams-ai/engineering-research/pull/9), merge `db9f67d199961b744d0f204253e5d306a06e0fd6`. Its Nov13/14 observations remain dated evidence.
+**Current checkpoint:** the native-only experiment passes all **15 scenarios**, the strict harness check and the independent stock TypeScript controls. Two plan-critique rounds and independent code/semantic reviews are complete, including the corrected crash-output rejection. The [experiment and reproduction recipe](../../evidence/experiments/effect-diagnostics-2026-11-24/README.md) and [retained local receipt](../../evidence/experiments/effect-diagnostics-2026-11-24/results/local-2026-11-24.json) contain exact inputs and outputs. Hosted CI is checked separately at delivery; local execution alone does not establish it. The [historical Effect architecture study](effect-architecture-and-reusable-mechanisms-2026-11-14.md) was preserved byte-for-byte and delivered through [PR 9](https://github.com/agent-teams-ai/engineering-research/pull/9), merge `db9f67d199961b744d0f204253e5d306a06e0fd6`. Its Nov13/14 observations remain dated evidence.
 
-**Next durable update:** retain the exact fixture package, independent expectations, compiler identities and outputs under `evidence/experiments/effect-diagnostics-2026-11-24/`; replace this checkpoint with the observed results and the narrow disposition they justify. Preserve failed or unsupported observations as such.
+**Next durable update:** record the hosted delivery receipt, then carry the qualified native-only option to the existing Stack Toolchain integration owner. Compare that small opt-in seam with an upstream launcher fix, using the same discriminating corpus. Qualify a materially different planned-consumer boundary or platform only when it can change that choice. Preserve failed or unsupported observations as such.
 
 This study owns research evidence and the current handoff. It does not enact an EF capability, change Stack Toolchain defaults, migrate GM, publish npm packages, adopt an application runtime or certify production scale. Package publication and current GM/Live Module Updates work belong to parallel owners. No real application is claimed to have adopted this experiment.
 
@@ -53,9 +53,9 @@ The same release ships `@effect/tsgo-linux-x64@0.73.4/lib/tsc` with paired libra
 
 Pin the platform package and actual executable SHA-256 `18b0b3fdac7d76b8c9b97e64c185ce8d92f2e13ab2307ae18a27fb11a62c045c`. Keep adjacent libraries together. Direct execution uses upstream's compiler without its incompatible JS launcher. This is an exact-release integration detail to qualify, not a promise that internal package layout never changes.
 
-Registry archive integrity and ECDSA signatures were verified. Decoded SLSA payloads bind both wrapper/native archive digests to the release source and [upstream release run](https://github.com/Effect-TS/tsgo/actions/runs/45076223843). Payload matching alone is not full Sigstore verification; record the official installed-package verifier's result separately before execution. No compiler was run during this preflight.
+Registry archive integrity and ECDSA signatures were verified. Decoded SLSA payloads bind both wrapper/native archive digests to the release source and [upstream release run](https://github.com/Effect-TS/tsgo/actions/runs/45076223843). No compiler was run during that static preflight. Before execution, the official installed-package verifier subsequently passed with empty `invalid`/`missing` results and verified Effect/native provenance bundles; its [raw output](../../evidence/experiments/effect-diagnostics-2026-11-24/provenance/npm-signatures-2026-11-24.json) is retained separately. Stock TypeScript's registry bytes/signatures are verified; no unpublished stock Sigstore provenance is claimed.
 
-## Planned qualification contract
+## Qualified fixture contract
 
 Use one disposable Linux x64 package, exact pins and lockfile, scripts-disabled installation, an explicit strict TS project for the small harness, and the real check route in CI. Keep Docs Protocol intact. No HTTP request or application effect is executed: the HTTP examples are compiled only against the shipped `effect@4.1.5` declarations.
 
@@ -68,7 +68,7 @@ Use one disposable Linux x64 package, exact pins and lockfile, scripts-disabled 
 | Stable exported signature leaking an unstable type | Primary TS377137 at the stable surface; TS377138 is related information, not a second independent violation |
 | Stable structural port | Success without leaking the external unstable type |
 | Exact export allowance | The named export and its aliases pass; an adjacent export remains rejected |
-| File-scoped allowance | Allowed adapter file passes while a neighboring disallowed file still rejects; override replacement semantics are explicit |
+| File-scoped allowance | Allowed uses pass inside the adapter; replacement rejects get there while the neighboring file retains the opposite policy |
 | Default warning policy | Ordinary native tsc returns nonzero for an Effect warning by default |
 | Explicit nonblocking warning policy | Set `ignoreEffectWarningsInTscExitCode: true`; preserve `ignoreEffectErrorsInTscExitCode: false`; warning can pass while an error still rejects |
 | Missing/disabled policy control | Ordinary typing can pass an Effect-specific violation; that is a demonstrated absence of enforcement, not a qualified gate |
@@ -79,13 +79,23 @@ The [exit hook](https://github.com/Effect-TS/tsgo/blob/aa2db44499067a798028cff9d
 
 Record exact arguments, binary/version, package/source hashes, checked inventory, raw bounded output, exit/signal and elapsed time. Missing executable, mismatched hash/version, timeout, signal, incomplete output or unexpected diagnostics fail qualification. A stock compiler baseline is allowed only after its own >=7.0.2 closure preflight; it must never rescue an Effect diagnostic failure. Expected answers are independently written, not generated from the observed output.
 
+### Executed observations and decision
+
+Both installed binaries report 7.0.2; the Effect binary reports its `+effect-tsgo.0.73.4` suffix. Their 108 standard declarations match byte-for-byte. All intended rejecting cases returned status **1** with the expected primary code and source line, while the explicit warning-only policy returned **0** and still printed the warning. Renamed and local aliases were diagnosed; exact-export and file-scoped replacement allowances retained their neighboring rejections. The same leak passed when its rule was left off, and unstable use passed with the plugin absent or disabled. These are intentional non-enforcement controls.
+
+The retained receipt has 48 process observations and matches all 32 checked input hashes before and after execution. It qualifies Linux x64, Effect 4.1.5 and the pinned compiler pair. The ordinary TS2322 rejection is independently present in both compilers. `--showConfig` establishes strict settings and root files but omits Effect plugin options in this cohort; behavior canaries establish activation and policy semantics. The plain formatter prints primary TS377137 without a separate TS377138 line.
+
+Code review found that the first output parser could ignore a crash line after an expected diagnostic. The final runner rejects all stderr and every unfamiliar nonempty stdout line. Two synthetic crash-output controls distinguish infrastructure failure from a successful negative fixture. The repeated post-fix corpus passed; this is a bounded runner correction, not a new diagnostic engine.
+
+**Disposition:** retain the working pinned opt-in recipe and propose a narrow integration at the existing technical tool owner. This supports further foundation work before applications. It does not justify replacing the default EF compiler cohort or claiming a released cross-platform capability. Waiting for an upstream launcher that avoids its old parser remains a strong lower-maintenance alternative.
+
 ## Critique and decision record
 
 The [retained reviews](../../evidence/reviews/effect-foundation-2026-11-24/) preserve the two plan rounds, artifact/design preflight, PR inventory and exact-head reconciliation review. PR states in those reports are observations at their stated times; the current checkpoint above and live repository state take precedence for continuation.
 
 1. **Architecture/ownership critique:** proceed with research-only qualification; require effective strict coverage of every maintained helper, preserve dated evidence and separate fixture results from admission or consumer activation.
 2. **Artifact/mode critique:** reject the eager 5.9.3 wrapper; use only the pinned native artifact after preflight; correct the false assumption that native tsc warnings normally exit zero; distinguish primary leak diagnostics, file-level scope and infrastructure failures.
-3. **After execution:** independently review actual code, expectations, retained outputs and claims. Resolve concrete counterexamples; rerun only affected checks plus required final gates.
+3. **After execution:** independent code and semantic reviews inspected actual input/output hashes, all scenarios and scope. The concrete crash-classification finding was fixed, its rejecting controls added and the complete affected corpus rerun successfully. The final CI run remains separate hosted evidence.
 
 | Option | Incremental production/integration LOC | Test/fixture/config LOC | Complexity /10 | Scoped reliability /10 | Confidence /10 |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -96,13 +106,15 @@ The [retained reviews](../../evidence/reviews/effect-foundation-2026-11-24/) pre
 
 These are ordinal engineering judgments, not availability statistics. LOC are estimates, separate from documentation, proof metadata and platform/release work. Reassess if implementation exceeds the small-experiment budget instead of growing a second toolchain in Research.
 
+Actual fixture cost is 43 lines of intentionally checked TS inputs, 265 lines of JSON configuration and 195 lines of independent JSON expectations; the maintained runner is about 220 lines, with one small CI workflow. This exceeds the early configuration estimate because policy controls are explicit, reviewed inputs. No product/runtime code or reusable analyzer was introduced. Current judgment for this measured scope: usefulness **9/10**, reliability **8/10**, complexity **4/10**, confidence **9/10**; broader platform or production confidence remains unmeasured.
+
 ## Where to think and test next
 
 The previous broad study remains the source-backed comparison of T3 Code, OpenCode, LiveStore, Alchemy, Centrifugo and large-codebase tooling. The next work should test the decisions those observations can change, with one implementation owner for each concern.
 
 | Priority / question | Smallest useful spike and rejecting evidence | Owner and stopping condition |
 | --- | --- | --- |
-| 1. Can native diagnostics protect our source contracts? | This exact compiler/Effect cohort; positive, negative and policy-precision cases | Research now; stop on an unverified engine, wrong diagnostics or prohibited parser |
+| 1. Can native diagnostics protect our source contracts? **Completed in this scope** | Fifteen cases passed on the pinned Linux x64 cohort, including ordinary typing and policy-precision controls | Research result retained; rerun for changed inputs or a new integration boundary, not to replay completed work |
 | 2. Where should a qualified diagnostic command live? | Compare upstream launcher fix with narrow Stack Toolchain execution using its existing process/failure owner | Stack owner; no new EF capability unless distinct reusable orchestration is demonstrated |
 | 3. Does the policy fit planned SDK/backend/frontend boundaries? | Public SDK unstable leak, backend adapter allowance and strict adjacent application boundary; materially different disposable consumers | Consumer contract owners; do not require a complete application and do not call fixtures activated consumers |
 | 4. What breaks at large module/type graphs? | Bounded 100/1,000/10,000-module source cohorts; cold/warm compiler time, memory, output determinism and diagnostic completeness; measured growth curves | Existing GM and EF scale owners; coordinate their current work, no duplicate graph engine or speculative cache |

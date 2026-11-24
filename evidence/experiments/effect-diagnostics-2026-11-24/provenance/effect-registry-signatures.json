@@ -1,0 +1,34 @@
+[
+  {
+    "package": "@effect/tsgo",
+    "version": "0.73.4",
+    "signatures": [
+      {
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+        "verified": true,
+        "keyExpires": null
+      },
+      {
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+        "verified": true,
+        "keyExpires": null
+      }
+    ]
+  },
+  {
+    "package": "@effect/tsgo-linux-x64",
+    "version": "0.73.4",
+    "signatures": [
+      {
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+        "verified": true,
+        "keyExpires": null
+      },
+      {
+        "keyid": "SHA256:DhQ8wR5APBvFHLF/+Tc+AYvPOdTpcIDqOhxsBHRwC7U",
+        "verified": true,
+        "keyExpires": null
+      }
+    ]
+  }
+]

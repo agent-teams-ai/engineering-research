@@ -1,0 +1,6 @@
+{
+  "extends": "./enforced.json",
+  "files": [
+    "../fixtures/actual-unstable.ts"
+  ]
+}

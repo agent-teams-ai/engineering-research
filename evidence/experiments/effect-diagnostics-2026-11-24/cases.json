@@ -1,0 +1,195 @@
+[
+  {
+    "id": "stable-effect",
+    "config": "configs/stable-effect.json",
+    "expectedExit": 0,
+    "expected": [],
+    "stockExpected": []
+  },
+  {
+    "id": "ordinary-type-error",
+    "config": "configs/ordinary-type-error.json",
+    "expectedExit": "diagnostics",
+    "expected": [
+      {
+        "file": "fixtures/ordinary-type-error.ts",
+        "line": 2,
+        "code": 2322,
+        "category": "error"
+      }
+    ],
+    "stockExpected": [
+      {
+        "file": "fixtures/ordinary-type-error.ts",
+        "line": 2,
+        "code": 2322,
+        "category": "error"
+      }
+    ]
+  },
+  {
+    "id": "unused-import",
+    "config": "configs/unused-import.json",
+    "expectedExit": 0,
+    "expected": [],
+    "stockExpected": []
+  },
+  {
+    "id": "actual-unstable",
+    "config": "configs/actual-unstable.json",
+    "expectedExit": "diagnostics",
+    "expected": [
+      {
+        "file": "fixtures/actual-unstable.ts",
+        "line": 3,
+        "code": 377136,
+        "category": "error"
+      }
+    ],
+    "stockExpected": []
+  },
+  {
+    "id": "aliases",
+    "config": "configs/aliases.json",
+    "expectedExit": "diagnostics",
+    "expected": [
+      {
+        "file": "fixtures/aliases.ts",
+        "line": 3,
+        "code": 377136,
+        "category": "error"
+      },
+      {
+        "file": "fixtures/aliases.ts",
+        "line": 4,
+        "code": 377136,
+        "category": "error"
+      },
+      {
+        "file": "fixtures/aliases.ts",
+        "line": 5,
+        "code": 377136,
+        "category": "error"
+      }
+    ],
+    "stockExpected": []
+  },
+  {
+    "id": "stable-leak",
+    "config": "configs/stable-leak.json",
+    "expectedExit": "diagnostics",
+    "expected": [
+      {
+        "file": "fixtures/stable-leak.ts",
+        "line": 4,
+        "code": 377137,
+        "category": "error"
+      }
+    ],
+    "stockExpected": []
+  },
+  {
+    "id": "structural-port",
+    "config": "configs/structural-port.json",
+    "expectedExit": 0,
+    "expected": [],
+    "stockExpected": []
+  },
+  {
+    "id": "exact-allowlist",
+    "config": "configs/exact-allowlist.json",
+    "expectedExit": "diagnostics",
+    "expected": [
+      {
+        "file": "fixtures/exact-allowlist.ts",
+        "line": 7,
+        "code": 377136,
+        "category": "error"
+      }
+    ],
+    "stockExpected": []
+  },
+  {
+    "id": "overrides-replace",
+    "config": "configs/overrides-replace.json",
+    "expectedExit": "diagnostics",
+    "expected": [
+      {
+        "file": "fixtures/adapters/override.ts",
+        "line": 4,
+        "code": 377136,
+        "category": "error"
+      },
+      {
+        "file": "fixtures/override-outside.ts",
+        "line": 4,
+        "code": 377136,
+        "category": "error"
+      }
+    ],
+    "stockExpected": []
+  },
+  {
+    "id": "default-warning",
+    "config": "configs/default-warning.json",
+    "expectedExit": "diagnostics",
+    "expected": [
+      {
+        "file": "fixtures/actual-unstable.ts",
+        "line": 3,
+        "code": 377136,
+        "category": "warning"
+      }
+    ],
+    "stockExpected": []
+  },
+  {
+    "id": "warning-nonblocking",
+    "config": "configs/warning-nonblocking.json",
+    "expectedExit": 0,
+    "expected": [
+      {
+        "file": "fixtures/actual-unstable.ts",
+        "line": 3,
+        "code": 377136,
+        "category": "warning"
+      }
+    ],
+    "stockExpected": []
+  },
+  {
+    "id": "errors-blocking",
+    "config": "configs/errors-blocking.json",
+    "expectedExit": "diagnostics",
+    "expected": [
+      {
+        "file": "fixtures/actual-unstable.ts",
+        "line": 3,
+        "code": 377136,
+        "category": "error"
+      }
+    ],
+    "stockExpected": []
+  },
+  {
+    "id": "leak-default-off",
+    "config": "configs/leak-default-off.json",
+    "expectedExit": 0,
+    "expected": [],
+    "stockExpected": []
+  },
+  {
+    "id": "missing-plugin",
+    "config": "configs/missing-plugin.json",
+    "expectedExit": 0,
+    "expected": [],
+    "stockExpected": []
+  },
+  {
+    "id": "disabled-plugin",
+    "config": "configs/disabled-plugin.json",
+    "expectedExit": 0,
+    "expected": [],
+    "stockExpected": []
+  }
+]

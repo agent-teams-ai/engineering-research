@@ -1,0 +1,37 @@
+{
+  "extends": "./strict.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "@effect/language-service",
+        "diagnostics": true,
+        "includeSuggestionsInTsc": false,
+        "ignoreEffectWarningsInTscExitCode": false,
+        "ignoreEffectErrorsInTscExitCode": false,
+        "diagnosticSeverity": {
+          "unstableApiUsage": "error",
+          "apiStabilityLeak": "off"
+        },
+        "allowedUnstableApis": [
+          "effect/http/HttpClient#get"
+        ],
+        "overrides": [
+          {
+            "include": [
+              "../fixtures/adapters/**/*.ts"
+            ],
+            "options": {
+              "allowedUnstableApis": [
+                "effect/http/HttpClient#post"
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "files": [
+    "../fixtures/adapters/override.ts",
+    "../fixtures/override-outside.ts"
+  ]
+}

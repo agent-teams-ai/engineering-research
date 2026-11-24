@@ -1,0 +1,164 @@
+[
+  {
+    "name": "typescript",
+    "version": "7.0.2",
+    "archive": "/tmp/effect-preflight-20261124/typescript-7.0.2.tgz",
+    "archiveBytes": 365612,
+    "sha256": "da2513f4b95176d6dde8b51aab7afe8a927656c9d277369793f77f7e59371c08",
+    "integrity": "sha512-8FYau96o3NKOhbjKi/qNvG/W5jhzxkbdm5sj9AbZ/5T5sWqn3hJgLfGx27sRKZWTvyzCP8dLRBTf5tBTSRVUNA==",
+    "registrySignaturesVerified": true,
+    "publishedProvenanceAdvertised": false,
+    "packageManifest": {
+      "name": "typescript",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "author": "Microsoft Corp.",
+      "homepage": "https://www.typescriptlang.org/",
+      "description": "TypeScript is a language for application scale JavaScript development",
+      "keywords": [
+        "TypeScript",
+        "Microsoft",
+        "compiler",
+        "language",
+        "javascript"
+      ],
+      "bugs": {
+        "url": "https://github.com/microsoft/TypeScript/issues"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/microsoft/TypeScript.git"
+      },
+      "type": "module",
+      "preferUnplugged": true,
+      "engines": {
+        "node": ">=16.20.0"
+      },
+      "files": [
+        "bin",
+        "lib",
+        "dist",
+        "vendor",
+        "NOTICE.txt"
+      ],
+      "bin": {
+        "tsc": "./bin/tsc"
+      },
+      "exports": {
+        "./package.json": "./package.json",
+        ".": "./lib/version.cjs",
+        "./unstable/sync": "./dist/api/sync/api.js",
+        "./unstable/async": "./dist/api/async/api.js",
+        "./unstable/fs": "./dist/api/fs.js",
+        "./unstable/proto": "./dist/api/proto.js",
+        "./unstable/ast": "./dist/ast/index.js",
+        "./unstable/ast/is": "./dist/ast/is.js",
+        "./unstable/ast/factory": "./dist/ast/factory.generated.js",
+        "./unstable/ast/utils": "./dist/ast/utils.js",
+        "./unstable/ast/scanner": "./dist/ast/scanner.js",
+        "./unstable/ast/visitor": "./dist/ast/visitor.js",
+        "./unstable/ast/clone": "./dist/ast/clone.js"
+      },
+      "imports": {
+        "#getExePath": "./lib/getExePath.js",
+        "#enums/*": {
+          "types": "./dist/enums/*.enum.d.ts",
+          "default": "./dist/enums/*.js"
+        },
+        "#vscode-jsonrpc/node": "./vendor/vscode-jsonrpc/lib/node/main.js"
+      },
+      "gitHead": "2bd066d87f5bafd315be9f40889d0a60b9e58e0b",
+      "publishConfig": {
+        "access": "public",
+        "tag": "latest"
+      },
+      "optionalDependencies": {
+        "@typescript/typescript-win32-x64": "7.0.2",
+        "@typescript/typescript-win32-arm64": "7.0.2",
+        "@typescript/typescript-linux-x64": "7.0.2",
+        "@typescript/typescript-linux-arm": "7.0.2",
+        "@typescript/typescript-linux-arm64": "7.0.2",
+        "@typescript/typescript-darwin-x64": "7.0.2",
+        "@typescript/typescript-darwin-arm64": "7.0.2",
+        "@typescript/typescript-aix-ppc64": "7.0.2",
+        "@typescript/typescript-freebsd-arm64": "7.0.2",
+        "@typescript/typescript-freebsd-x64": "7.0.2",
+        "@typescript/typescript-linux-loong64": "7.0.2",
+        "@typescript/typescript-linux-mips64el": "7.0.2",
+        "@typescript/typescript-linux-ppc64": "7.0.2",
+        "@typescript/typescript-linux-riscv64": "7.0.2",
+        "@typescript/typescript-linux-s390x": "7.0.2",
+        "@typescript/typescript-netbsd-arm64": "7.0.2",
+        "@typescript/typescript-netbsd-x64": "7.0.2",
+        "@typescript/typescript-openbsd-arm64": "7.0.2",
+        "@typescript/typescript-openbsd-x64": "7.0.2",
+        "@typescript/typescript-sunos-x64": "7.0.2"
+      }
+    },
+    "links": [],
+    "lifecycleScripts": {}
+  },
+  {
+    "name": "@typescript/typescript-linux-x64",
+    "version": "7.0.2",
+    "archive": "/tmp/effect-preflight-20261124/typescript-typescript-linux-x64-7.0.2.tgz",
+    "archiveBytes": 9669334,
+    "sha256": "7ecad6f67377e831856367ab062ef394f21506a611405bf8ac0ff039348637d3",
+    "integrity": "sha512-EYdf2cNg7rgCWJnxCdJ+F3V39O8ihb37eHAu1LK8oAFizgTQbPOK7zHHXbPt8rX24COqODXeI3sIf0fCXG7H/A==",
+    "registrySignaturesVerified": true,
+    "publishedProvenanceAdvertised": false,
+    "packageManifest": {
+      "name": "@typescript/typescript-linux-x64",
+      "version": "7.0.2",
+      "license": "Apache-2.0",
+      "author": "Microsoft Corp.",
+      "homepage": "https://www.typescriptlang.org/",
+      "description": "TypeScript is a language for application scale JavaScript development",
+      "keywords": [
+        "TypeScript",
+        "Microsoft",
+        "compiler",
+        "language",
+        "javascript"
+      ],
+      "bugs": {
+        "url": "https://github.com/microsoft/TypeScript/issues"
+      },
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/microsoft/TypeScript.git"
+      },
+      "type": "module",
+      "preferUnplugged": true,
+      "engines": {
+        "node": ">=16.20.0"
+      },
+      "files": [
+        "lib",
+        "NOTICE.txt"
+      ],
+      "exports": {
+        "./package.json": "./package.json"
+      },
+      "gitHead": "2bd066d87f5bafd315be9f40889d0a60b9e58e0b",
+      "publishConfig": {
+        "access": "public",
+        "tag": "latest"
+      },
+      "os": [
+        "linux"
+      ],
+      "cpu": [
+        "x64"
+      ]
+    },
+    "links": [],
+    "lifecycleScripts": {},
+    "selectedBinary": {
+      "path": "/tmp/effect-preflight-20261124/stock-native-reviewed/lib/tsc",
+      "sha256": "4f2de678286401759b3fb4475bafe35b8f32b4b3a07d92642bbf37eadc9b34a4",
+      "bytes": 24101026
+    },
+    "javascriptFiles": []
+  }
+]

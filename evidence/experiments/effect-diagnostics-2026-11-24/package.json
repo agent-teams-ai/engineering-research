@@ -1,0 +1,17 @@
+{
+  "name": "effect-diagnostics-qualification",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@11.25.0",
+  "engines": { "node": ">=24.22.1 <25" },
+  "scripts": {
+    "check": "mkdir -p results && npm audit signatures --json --include-attestations > results/signatures-latest.json && node qualify.ts"
+  },
+  "devDependencies": {
+    "@effect/tsgo-linux-x64": "0.73.4",
+    "@typescript/typescript-linux-x64": "7.0.2",
+    "@types/node": "24.19.2",
+    "effect": "4.1.5"
+  }
+}

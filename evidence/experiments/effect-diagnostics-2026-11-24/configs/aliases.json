@@ -1,0 +1,6 @@
+{
+  "extends": "./enforced.json",
+  "files": [
+    "../fixtures/aliases.ts"
+  ]
+}

@@ -16,6 +16,7 @@
     "docs:new": "agent-teams-docs new",
     "docs:check": "pnpm docs:protocol:check",
     "check": "pnpm docs:check",
+    "check:effect-experiment": "pnpm --dir evidence/experiments/effect-diagnostics-2026-11-24 check",
     "docs:protocol:check": "agent-teams-docs check"
   },
   "devDependencies": {

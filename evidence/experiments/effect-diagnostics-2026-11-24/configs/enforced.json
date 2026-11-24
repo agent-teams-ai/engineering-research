@@ -1,0 +1,19 @@
+{
+  "extends": "./strict.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "@effect/language-service",
+        "diagnostics": true,
+        "includeSuggestionsInTsc": false,
+        "ignoreEffectWarningsInTscExitCode": false,
+        "ignoreEffectErrorsInTscExitCode": false,
+        "diagnosticSeverity": {
+          "unstableApiUsage": "error",
+          "apiStabilityLeak": "off"
+        },
+        "allowedUnstableApis": []
+      }
+    ]
+  }
+}
