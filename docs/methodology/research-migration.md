@@ -12,6 +12,12 @@ Status: **central corpus and reciprocal product routes published and verified in
 
 The machine-readable [migration inventory](../../data/source-inventory.json) records the original repository/path/commit, original stable ID where present, original SHA-256 and size, disposition, central destination and actual transfer status. The [source inventory guide](source-inventory.md) explains its scope. It is not a manifest of files already removed from source repositories.
 
+## Later publication disposition — observed 2026-11-11
+
+The initial central [PR #1](https://github.com/agent-teams-ai/engineering-research/pull/1) **merged** on **2026-11-05 20:33 UTC** as [`86bbdd81`](https://github.com/agent-teams-ai/engineering-research/commit/86bbdd819a3ecc85730f3cf2f45a5842b86294f1). The later, observed default-branch head before this triage was [`495986d9`](https://github.com/agent-teams-ai/engineering-research/commit/495986d9012aafd94bf9b2a22a57db90001e868b). The dated **2026-11-04** draft-delivery narrative and its source hashes below remain historical and must not be interpreted as the present PR state. The unchanged initial evidence snapshot is [`12c40892`](https://github.com/agent-teams-ai/engineering-research/tree/12c40892e805944719d6fbec14d2c26874803b2c).
+
+As of the same check, the separate product integration [Runtime #248](https://github.com/agent-teams-ai/agent-runtime/pull/248), [Orchestrator #94](https://github.com/agent-teams-ai/agent-teams-orchestrator/pull/94), and [Platform #59](https://github.com/agent-teams-ai/agent-teams-platform/pull/59) remain open drafts. [Extension Foundation #55](https://github.com/agent-teams-ai/extension-foundation/pull/55) is also open, with its later draft head `7fd1e3392c732b64053edb11cfd32a7711dfdec8`; its older source pin is an immutable historical reference, not automatic research adoption. The additive [current disposition record](../../data/publication-status.json) distinguishes these live observations from the original audit. Merging the research corpus does not accept product ADRs or establish managed documentation admission or deployment qualification.
+
 ## Published imports and intentional non-moves
 
 | Source family | Central treatment | Source repository treatment |

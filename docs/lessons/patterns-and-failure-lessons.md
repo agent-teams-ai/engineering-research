@@ -76,3 +76,50 @@ This map is engineering memory, not a competitor defect leaderboard or a new com
 | Paperclip finding 7 | Platform installation owner | A stale reconciler reports success after desired policy changes; expose desired/accepted/observed revision and reject stale expansion |
 
 These cases refine existing owner acceptance only where adopted there. No row is a newly demonstrated defect in Agent Teams. See the [decision cards](preimplementation-decisions.md) for alternatives and scope.
+
+## Additional AutoGPT, memory and composition evidence
+
+The following observations extend existing MR/GP identities; they introduce no new invariant or automatic qualification gate. AutoGPT is pinned at `9cb76f9`, ReviewRouter at `9a416df` and Get Modular at `5fb8347`. Source findings and proposed failure cases remain distinct from executed system tests.
+
+| Existing identity | Additional evidence and limit | Recipient / smallest useful case |
+| --- | --- | --- |
+| **MR-13, MR-14; GP-07, GP-08** | AutoGPT's [MCP HTTP helper][extra-mcp] avoids ordinary transport retries for effectful tool calls. The reusable memory adapter can report deadline/unavailable after a retain request begins; ReviewRouter already marks delivery unknown before I/O. [Mapping][extra-errors], [owner][extra-memory] | Effect/SDK consumer owner: lose the response after submission, preserve the original identity, and do not infer safe replay from timeout or absent readback. This is a public-contract clarification, not a demonstrated ReviewRouter duplicate-write bug. |
+| **MR-17** | AutoGPT's [lease refresh][extra-lock] compares ownership and extends TTL in separate commands. The dossier's isolated fake-Redis probe reproduced that algorithm race; it did not demonstrate overlapping production executions. Acquisition/release protections remain relevant counterevidence. | Existing execution authority owner: pause a worker, replace its authority, resume it and reject stale effects. No Redis adoption or new capacity subsystem follows. |
+| **MR-03, MR-04; GP-09** | Current [Get Modular guidance][extra-composition] keeps private helpers static and composition in outer adapters. The memory SDK and product approval/delivery owner already have distinct responsibilities. | SDK/Host composition owner: an installed consumer uses narrow contracts without product infrastructure; no graph node per method, second production assembly or generic MemoryManager. |
+| **MR-15** | [Resources][extra-resources] explicitly distinguishes cooperative callback completion from physical release. The [memory provider contract][extra-outcomes] likewise separates native completion, publication and verified cleanup. | Resource/memory owner: a successful callback or native status cannot fabricate complete remote forget or drained execution. Borrowers do not dispose the owner's resources. |
+| **MR-24** | AutoGPT's [memory namespace derivation][extra-scope] explicitly leaves authorization to a separate server concern. A hash or opaque scope is an identity, not a grant. | Product read/disclosure owner: revoke access while an old scope/cache entry remains and prevent unauthorized reuse without moving policy into a cache helper. |
+
+Keep skill merging, retrieval ranking and the Hindsight-versus-Graphiti comparison in their technology studies until they justify a distinct reusable lesson. These additions sharpen existing owner cases; they do not relabel every competitor mechanism as an Agent Teams defect.
+
+[extra-mcp]: https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/blocks/mcp/client.py#L266-L282
+[extra-errors]: https://github.com/777genius/review-router-ai/blob/9a416dfb876d78253612e87aa89561d48bf35633/packages/context-memory/src/hindsight/memory-store.ts#L83-L117
+[extra-memory]: https://github.com/777genius/review-router-ai/blob/9a416dfb876d78253612e87aa89561d48bf35633/packages/features/memory/README.md#L54-L83
+[extra-lock]: https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/executor/cluster_lock.py
+[extra-composition]: https://github.com/agent-teams-ai/get-modular/blob/5fb83478dd7b95216be92c4d3077eddf2774eef8/docs/architecture/common-assembly.md#L77-L110
+[extra-resources]: https://github.com/agent-teams-ai/get-modular/blob/5fb83478dd7b95216be92c4d3077eddf2774eef8/packages/resources/README.md#L1-L25
+[extra-outcomes]: https://github.com/777genius/review-router-ai/blob/9a416dfb876d78253612e87aa89561d48bf35633/packages/features/memory/src/application/ports/memory-knowledge-provider-port.ts#L64-L80
+[extra-scope]: https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/copilot/graphiti/client.py#L86-L128
+
+## Additional Waku Agent evidence — 2026-11-23
+
+The [source-audited Waku Agent dossier](../competitors/waku-agent-2026-11-23.md)
+pins the local, hosted and Agent Teams revisions separately and includes
+counterevidence. These are **source-based risks or transferable ideas**, not
+reproduced upstream vulnerabilities or newly found Agent Teams defects.
+Reuse the original MR/GP lessons rather than creating a competing register.
+
+| Existing lesson | New evidence and limitation | Owner / smallest rejecting case |
+| --- | --- | --- |
+| **MR-13, MR-14; GP-07, GP-08** | [Waku run matching and ordinal outbox keys](../competitors/waku-agent-2026-11-23.md#specific-risks-and-anti-patterns-to-avoid) make unique-row delivery practical, but a changed replay can select a different action at the same ordinal; risk is **inference**, not reproduced Waku exploit. Waku also explicitly acknowledges possible duplicate remote chat delivery. | Runtime technical effects; Orchestrator command/outbound intent: kill after external accept and resume with a reordered tool sequence; ensure canonical semantic fingerprint and honest unknown status. |
+| **MR-17** | [One locked worker per Waku home and a per-wave thread pool](../competitors/waku-agent-2026-11-23.md#specific-risks-and-anti-patterns-to-avoid) fit a personal tool, not multi-host custody or fleet fairness. Container isolation is positive and separately acknowledged. | Runtime C0–C3: hot tenant vs cancel/recovery under bounded work and real active agents, never one-home file lock as a fleet scheduler. |
+| **MR-24** | [Waku shared-chat memory incident and prompt mitigation](../competitors/waku-agent-2026-11-23.md#specific-risks-and-anti-patterns-to-avoid) shows why instructions are not current actor/tenant grant enforcement; separately keyed hosted team homes are mitigating work. | Orchestrator/Platform identity and read owner: revoke team permission midstream and prove memory/retrieval/cache/output isolation. |
+| **MR-03, MR-04; GP-09** | [Minimal graph engine and scoped agent nodes](../competitors/waku-agent-2026-11-23.md#evidence-backed-strengths-worth-retaining) are a strong simplicity example; copying it into our system would create a second scheduler/durability authority beside the already selected workflows. | Orchestrator workflow owner: compare one typed deterministic router on a real use case, without importing a competing graph engine. |
+| **MR-11, MR-12** | [Inspected Waku deterministic evals and explicit live limitations](../competitors/waku-agent-2026-11-23.md#specific-risks-and-anti-patterns-to-avoid) reinforce the separation of fake-clock/adapter contract checks from full live provider and profile E2E. | Existing Runtime/Orchestrator release owner: real pinned agent/OS/provider receipt, not an offline green summary or a queued/skipped job. |
+
+**Positive transferable ideas:** user-visible waiting projection over existing canonical
+owners, model-free deterministic route decisions, tiny scoped capability registries,
+memory retrieval/digest optimization **after authorization**, and clear traces
+paired with deterministic vs judged evaluations. Detailed adoption boundaries
+and optional experiments belong to the single [dossier](../competitors/waku-agent-2026-11-23.md#transferable-ideas-and-ownership-adopt-the-lesson-not-a-second-subsystem),
+not to a second maintained decision card. Product owners decide whether any
+experiment is warranted; no new gate or acceptance is implied.

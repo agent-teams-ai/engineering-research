@@ -45,6 +45,14 @@ authoring:
       heading: {kind: title}
       reachability: {kind: manual-fixed-index, indexPath: docs/studies/README.md}
       ownerSetId: documentation
+    - type: technology
+      initialStatus: active
+      identity: {kind: explicit, format: qualified, grammar: {prefixSegments: [research, technologies], minSuffixSegments: 1, maxSuffixSegments: 8}}
+      placement: {kind: collection, directory: docs/technologies, filename: slug}
+      template: {kind: fenced-markdown-body, path: .docs-protocol/templates/research.md}
+      heading: {kind: title}
+      reachability: {kind: manual-fixed-index, indexPath: docs/technologies/README.md}
+      ownerSetId: documentation
     - type: lesson
       initialStatus: active
       identity: {kind: explicit, format: qualified, grammar: {prefixSegments: [research, lessons], minSuffixSegments: 1, maxSuffixSegments: 8}}

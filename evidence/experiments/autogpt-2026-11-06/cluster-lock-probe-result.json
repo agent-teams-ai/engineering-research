@@ -1,0 +1,69 @@
+{
+  "test_kind": "isolated unchanged upstream class AST with deterministic fake Redis",
+  "not_tested": [
+    "real Redis",
+    "network",
+    "full executor",
+    "deployment capacity"
+  ],
+  "source_path": "autogpt_platform/backend/backend/executor/cluster_lock.py",
+  "source_commit": "9cb76f9026d388c9bf2e098af2beae1cc864f055",
+  "source_sha256": "97a1aa7796ab198191177a4cf4695eb399deb5f2961c5d359a21aa9a569a165e",
+  "source_blob_sha": "53e1912a96b2a625d5786f1e97a115fdde25a23b",
+  "stable_owner": {
+    "refresh_returned": true,
+    "lock_requesting_owner": "worker-a",
+    "stored_owner_after": "worker-a",
+    "ttl_after": 300,
+    "trace": [
+      {
+        "command": "GET",
+        "key": "probe-lock",
+        "reply": "worker-a"
+      },
+      {
+        "command": "EXPIRE",
+        "key": "probe-lock",
+        "owner_now": "worker-a",
+        "ttl": 300
+      }
+    ]
+  },
+  "owner_lost_before_get": {
+    "refresh_returned": false,
+    "lock_requesting_owner": "worker-a",
+    "stored_owner_after": "worker-b",
+    "ttl_after": 11,
+    "trace": [
+      {
+        "command": "GET",
+        "key": "probe-lock",
+        "reply": "worker-b"
+      }
+    ]
+  },
+  "owner_changes_after_get": {
+    "refresh_returned": true,
+    "lock_requesting_owner": "worker-a",
+    "stored_owner_after": "worker-b",
+    "ttl_after": 300,
+    "trace": [
+      {
+        "command": "GET",
+        "key": "probe-lock",
+        "reply": "worker-a"
+      },
+      {
+        "event": "owner_changes_before_next_command",
+        "new_owner": "worker-b"
+      },
+      {
+        "command": "EXPIRE",
+        "key": "probe-lock",
+        "owner_now": "worker-b",
+        "ttl": 300
+      }
+    ]
+  },
+  "observation": "Renewal reports success and extends the successor's TTL when ownership changes after GET's observation and before EXPIRE."
+}

@@ -10,6 +10,17 @@ summary: Relevant product, framework and infrastructure cohorts with honest audi
 
 This is a **research priority set**, not a scored league table. Existing research already supplies targeted lessons for most entries. Primary pages below were checked on 2026-11-03; rolling pages establish watchlist relevance only and must be pinned/refreshed during a real review. No new competitor runtime was installed or benchmarked for this draft.
 
+## Narrow release triage — 2026-11-11
+
+The initial watchlist's **2026-11-03 relevance check remains historical**. The following subsequent release/vendor records are **discovery triggers, not new whole-product evaluations**:
+
+- **OpenHands open-source product:** [GitHub release `v1.38.0`](https://github.com/OpenHands/OpenHands/releases/tag/v1.38.0) was published **2026-11-10 04:59 UTC**. Its upstream release notes describe automation/profile changes, visible conversation budgets, plugin configuration and fixes. This is release-note evidence for that OSS tag, not a verified enterprise capability or an active-fleet result.
+- **OpenHands Enterprise (separate proprietary edition):** the vendor's [2026-11-09 release summary](https://hub.openhands.dev/blog/super-admin-and-smarter-automations-in-openhands-enterprise) covers enterprise releases `0.71.1–0.90.1`: a beta Super Admin view, beta Keycloak-less identity configuration, automation governance and budget corrections. This is **vendor-documented** multi-release scope; code and deployments were not audited. It is relevant to a future S1/S5/D1 edition-specific evaluation, and cannot be silently credited to the OSS row.
+- **CrewAI framework (not AMP):** [GitHub release `1.15.39`](https://github.com/crewAIInc/crewAI/releases/tag/1.15.39), published **2026-11-09 01:07 UTC**, documents an `apps_not_connected` error on the `/kickoff` and `/status` endpoints. This release alone does not establish any new AMP/Factory multitenant execution guarantee.
+- **LangSmith Deployment, Dify and Microsoft Agent Framework:** no newly pinned and inspected **product-edition** diff was admitted in this bounded review. This means **not reviewed for a new claim**, not unchanged or lacking a feature. They remain named first-expansion/next candidates under the original edition rules.
+
+Neither stars nor popularity informed this triage. No score, cohort mask, total or leaderboard is updated. A future product comparison must first pin the exact current edition, configuration and executable scenario. The [Paperclip source-change review](paperclip.md#targeted-source-change-triage--2026-11-11) is maintained separately from these discovery notes.
+
 | Candidate | Cohort / priority | Why it belongs and what must remain separate | Initial status |
 | --- | --- | --- | --- |
 | Paperclip | Direct product / first | Teams, orgs, tasks, agent orchestration and runtime; substantial existing local source review. Preserve native/runner strengths and assess the actual reviewed edition. | The initial partial 30-criterion source assessment is available; no common-rubric total is assigned. SaaS and fleet qualification unknown. |

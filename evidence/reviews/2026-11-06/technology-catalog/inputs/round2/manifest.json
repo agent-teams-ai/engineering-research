@@ -1,0 +1,22 @@
+[
+  {
+    "path": "docs/technologies/agent-execution-and-sandboxes.md",
+    "sha256": "69424dae06e71ad97685338c48cd42016d6d2f1c4866e4db2fc548626ec93203",
+    "bytes": 7568
+  },
+  {
+    "path": "docs/studies/architecture-follow-through-from-autogpt-and-memory.md",
+    "sha256": "23061cc88e9324c5dded4320f3793d4be7ddc13ee4c6f8a30661d397bab09b4a",
+    "bytes": 20130
+  },
+  {
+    "path": "docs/technologies/memory-and-knowledge.md",
+    "sha256": "2e49a6fe6bd76605556d42b7573325ba36d6b9cb1972c417dca7f3e64cfdb997",
+    "bytes": 11299
+  },
+  {
+    "path": "docs/studies/review-router-memory-sdk-extraction.md",
+    "sha256": "3bba56b6c67fc388991327e71770a667caa8ebfecafe9b7f31de693d7dea4db3",
+    "bytes": 27707
+  }
+]
