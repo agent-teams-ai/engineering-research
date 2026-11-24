@@ -17,7 +17,7 @@ pnpm check:effect-experiment
 
 The bounded importer setting matters in resource-limited environments. Three earlier installation attempts ended with status 137 before any compiler ran. Kernel OOM evidence was unavailable, so they are recorded as terminated installs rather than proven OOM. `/tmp` was RAM-backed; moving only our archives/store to disk and then limiting pnpm's separate importer/hash worker pool with `PNPM_MAX_WORKERS=1` allowed the frozen installation to complete. Network/build concurrency alone had not bounded that worker pool. The same limit is retained in CI; no supply-chain policy or fixture was weakened.
 
-The dedicated [workflow](../../../.github/workflows/effect-diagnostics.yml) runs the same command on pull requests and every main push, alongside the existing Docs Protocol route. Hosted execution is verified at delivery; configuring a job alone is not evidence of execution or GitHub branch-protection enforcement. `pnpm check` continues to own documentation; the explicit experiment command and workflow own this Linux qualification.
+The dedicated [workflow](../../../.github/workflows/effect-diagnostics.yml) runs the same command on pull requests and every main push, alongside the existing Docs Protocol route. [Hosted run 45480774145](https://github.com/agent-teams-ai/engineering-research/actions/runs/45480774145) passed on implementation commit `509dad156704b8ef4aa98d6f36de85f7fe61b8e9`; all eight observed checks on that commit succeeded. This is execution evidence, without a claim of GitHub branch-protection enforcement. `pnpm check` continues to own documentation; the explicit experiment command and workflow own this Linux qualification.
 
 ## Exact execution cohort
 
@@ -36,6 +36,8 @@ The dedicated [workflow](../../../.github/workflows/effect-diagnostics.yml) runs
 | Lock authority | This directory's `pnpm-lock.yaml`; exact direct pins and transitive integrity |
 
 The platform packages are deliberately direct dependencies. This avoids installing the incompatible Effect wrapper or selecting an executable by a mutable tag/global PATH. Keep each native executable beside its shipped `lib*.d.ts`. Other OS/CPU packages and their executable hashes are unqualified by this experiment.
+
+The [measured Effect platform tarball](provenance/native-package-footprint.json) is 130,041,154 bytes compressed and 333,854,566 bytes unpacked; the selected compiler is 27,021,472 bytes. Unpacked size means the sum of regular-file bytes, not allocated disk space or process memory. It also contains other supported upstream tool variants. The future integration must account for that footprint and compiler work instead of assuming a small wrapper is a small dependency. Published package bytes were not repackaged.
 
 ## What actually passed
 
@@ -64,6 +66,8 @@ These controls establish actual enforcement and its absence. `--showConfig` in t
 Primary TS377137 is the leak rejection. Related-information TS377138 exists in the upstream diagnostic model but was not separately printed by this plain formatter; this receipt does not claim two leak violations.
 
 The [local receipt](results/local-2026-11-24.json) contains 48 process observations: two versions, the strict harness check, and effective config/stock/native checks for each scenario. It includes exact arguments, exit/signal, raw output, elapsed observations, 108 library hashes and the complete input manifest, with unchanged bytes verified before and after execution. It passed after the reviewer-requested output-classification fix. Its elapsed process total was approximately 32.7 seconds; this is a single bounded run, not a scalability benchmark.
+
+The separately retained [hosted receipt](results/github-actions-45480774145.json) was extracted from the actual successful job log. It ran Node 24.22.1 and reports the same 15 outcomes with all 32 input and 108 library hashes matching the local corpus. The [hosted signature report](provenance/github-actions-signatures-45480774145.json) matches the audit digest bound by that receipt. The [delivery record](results/ci-delivery-509dad1.json) names the exact source tree, run/job and eight successful checks, including JavaScript/TypeScript CodeQL analysis; it does not retarget that historical evidence to later commits.
 
 ## Test-oracle and failure boundary
 

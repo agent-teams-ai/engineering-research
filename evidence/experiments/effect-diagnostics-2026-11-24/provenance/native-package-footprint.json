@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-11-24",
+  "package": "@effect/tsgo-linux-x64",
+  "version": "0.73.4",
+  "source": "registry-authenticated published archive inspected in effect-tool-preflight.json",
+  "archive": "effect-tsgo-linux-x64-0.73.4.tgz",
+  "archiveSha256": "c991e3c31c7bf38aadb3ac30221fc048d9ff18e152aa5d527289269b73d29741",
+  "compressedBytes": 130041154,
+  "unpackedRegularFileBytes": 333854566,
+  "regularFileCount": 588,
+  "selectedCompiler": {
+    "path": "package/lib/tsc",
+    "bytes": 27021472
+  },
+  "method": "Compressed bytes are archive file length. Unpacked bytes are the sum of regular-file sizes in the archive, also equal to npm pack metadata unpackedSize; this is not allocated filesystem space or process memory.",
+  "scope": "One published Linux x64 platform package, including its bundled compiler/tool variants; no repackaging."
+}

@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "observedDate": "2026-11-24",
+  "repository": "agent-teams-ai/engineering-research",
+  "commit": "509dad156704b8ef4aa98d6f36de85f7fe61b8e9",
+  "tree": "30d44671b8ecdcc5ad692ead10687e5a94d9895b",
+  "qualificationRun": {
+    "id": 45480774145,
+    "url": "https://github.com/agent-teams-ai/engineering-research/actions/runs/45480774145",
+    "attempt": 1,
+    "job": 138752988453,
+    "conclusion": "success",
+    "receipt": "results/github-actions-45480774145.json"
+  },
+  "reviewedHarnessSha256": "a42654d31f3217b4acc3fcb2d8cec778a0c8fea679ef2187bb60613d6ab4c3b5",
+  "comparedInputs": 32,
+  "comparedStandardLibraries": 108,
+  "checks": [
+    {
+      "id": 138753894728,
+      "name": "Upload Results",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/agent-teams-ai/engineering-research/actions/runs/45480813963/job/138753894728"
+    },
+    {
+      "id": 138753140453,
+      "name": "Analyze (python)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/agent-teams-ai/engineering-research/actions/runs/45480813963/job/138753140453"
+    },
+    {
+      "id": 138753140361,
+      "name": "Analyze (actions)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/agent-teams-ai/engineering-research/actions/runs/45480813963/job/138753140361"
+    },
+    {
+      "id": 138753139790,
+      "name": "Analyze (javascript-typescript)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/agent-teams-ai/engineering-research/actions/runs/45480813963/job/138753139790"
+    },
+    {
+      "id": 138752994385,
+      "name": "Analyze (python)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/agent-teams-ai/engineering-research/actions/runs/45480773471/job/138752994385"
+    },
+    {
+      "id": 138752993939,
+      "name": "Analyze (actions)",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/agent-teams-ai/engineering-research/actions/runs/45480773471/job/138752993939"
+    },
+    {
+      "id": 138752989228,
+      "name": "Portable Docs Protocol",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/agent-teams-ai/engineering-research/actions/runs/45480774227/job/138752989228"
+    },
+    {
+      "id": 138752988453,
+      "name": "Effect diagnostics qualification",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/agent-teams-ai/engineering-research/actions/runs/45480774145/job/138752988453"
+    }
+  ],
+  "claims": {
+    "scope": "Linux x64 fixture qualification",
+    "runtimeImplementation": false,
+    "consumerActivation": false,
+    "defaultCompilerReplacement": false,
+    "remoteBranchProtection": false
+  }
+}
