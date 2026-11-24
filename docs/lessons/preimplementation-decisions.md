@@ -98,11 +98,13 @@ additional release gate is authorized by this docket.
 | P0 | Cross-store recovery and non-reuse of effect authority | Runtime v3 S2/F03/F04/F12/F14; Orchestrator OD-003/013/032; Platform authority | E2: explicit cross-owner recovery review |
 | P0 | PostgreSQL bundle versus feature-owned persistence | Runtime [#245](https://github.com/agent-teams-ai/agent-runtime/issues/245), [#246](https://github.com/agent-teams-ai/agent-runtime/issues/246) | Existing decision packets; prove dependency graph and external packed consumer |
 | P0 | Bounded causal work and hard reservations | OD-024, OD-033, D1/D2 above, Runtime C0-C3 | Reuse owning plans; do not introduce a global scheduler |
+| P0 | Authorization freshness at a cross-cell effect boundary | Orchestrator OD-012/031/032, Runtime F12/F16 and Platform authority | E5: compare freshness mechanisms without reopening provisional IAM selection |
+| P0 | Independent upgrades with retained durable work | Runtime F13/F14; Orchestrator public contracts; Extension OD-003 and LMU | E6: compare supported upgrade profiles, not a second update framework |
 | P1 | Exclusive saved Agent assignment versus large-scale reuse of definitions | Orchestrator ADR-0100/0101 and OD-019 | E3: preserve accepted semantics pending product/identity review |
 | P1 | Fully Local process/engine footprint | Orchestrator ADR-0114/0115/0116, OD-021/040, [enterprise execution study](../studies/one-agent-through-enterprise-execution.md#workflow-alternatives-scoped-estimates-not-an-engine-re-election) | E4: retain selection until a measured whole-profile limitation justifies successor |
 | P1 | Federated architecture checks and independent compatibility | Engineering Foundation [#474](https://github.com/agent-teams-ai/engineering-foundation/pull/474), Get Modular growth qualification, independent AAS | Reuse existing owner mechanisms; no second analyzer |
 
-For E1-E3, numbers are preliminary planning ranges of incremental
+For E1-E3 and E5-E6, numbers are preliminary planning ranges of incremental
 handwritten implementation and tests for the named seam, not measured work,
 full product cost or qualification estimates. Sizing confidence is low
 (3/10); inventory existing code, tests and current owner plans before any
@@ -207,6 +209,91 @@ only where the owner can preserve required progress and current process
 isolation; co-location that weakens an accepted role boundary requires an
 explicit successor. Record approved resource budgets and a counterexample
 before deciding whether a different engine or topology is justified.
+
+### E5: authorization freshness at a cross-cell effect boundary
+
+[OD-012](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/592ab361562a50ff63c0cde61985abee9334fc3d/docs/open-decisions/OD-012-identity-authorization-tenant-isolation.md),
+[OD-031](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/592ab361562a50ff63c0cde61985abee9334fc3d/docs/open-decisions/OD-031-semantic-authority-and-claim-admission.md)
+and [OD-032](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/592ab361562a50ff63c0cde61985abee9334fc3d/docs/open-decisions/OD-032-last-mile-side-effect-safety.md)
+already own IAM qualification, semantic claim admission and last-mile effect
+safety. Their existing ownership alternatives are not being reopened. The
+remaining narrower choice is how a receiver establishes a sufficiently fresh
+authorization decision when authority and execution are placed independently.
+The provisional Keycloak/OpenFGA direction does not answer source-projection
+freshness, an in-flight revoke race or the final external check/send race.
+
+| Candidate | R / C / P | Production/integration LOC | Tests/fixtures LOC | Effort, engineer-days |
+| --- | --- | --- | --- | --- |
+| Owner-authoritative check on each protected admission, with receiver-enforced fence or explicitly bounded external dispatch | 9 / 5 / 9 | 400-1,000 | 500-1,200 | 5-12 |
+| Owner-issued scoped evidence and bounded freshness leases, with receiver fence and explicit revocation policy | 9 / 7 / 8 | 900-2,200 | 1,000-2,500 | 10-25 |
+| Durable local policy projection with source-specific causal watermarks, gap rejection and receiver enforcement | 9 / 8 / 6 | 1,500-3,500 | 1,500-4,000 | 20-45 |
+
+These are narrow deltas to existing owner seams, not estimates of IAM, a
+complete distributed security layer or all supported targets. Sizing
+confidence is 3/10; ranges exclude native/provider changes, new deployment
+infrastructure and production load qualification. Reliability assumes the
+same declared cutoff guarantee; an expiring cached allow cannot be compared
+to immediate revocation as if they were equivalent.
+
+Retain the first as the baseline hypothesis until the relevant owner defines
+which requests may use bounded freshness. The second or third may reduce
+remote check amplification, but neither permits execution after a required
+revocation barrier. Unknown source revisions, projection gaps, stale grants
+and unsafe receiver state fail closed. A remote effect already in flight
+cannot be unexecuted by revoking a grant; when the external target cannot
+enforce a fence, expose the applicable bounded exposure and reconcile the
+outcome rather than claim instantaneous revocation.
+
+Compare actual standalone and managed authority paths, a concentrated tenant,
+revocation racing dispatch and failover, stale cache after restore, delayed
+source projection, delegation narrowing and saturation of the reserved
+control lane. Retain independent tenant, actor, subject, Agent, Run, client,
+credential and provider identities. The open owner decision is the required
+freshness/cutoff per risk profile and which receiver primitive can prove it;
+do not create a generic authorization service or select another IAM engine
+from this note.
+
+### E6: independent upgrades with retained durable work
+
+[Runtime v3 contracts and updates](https://github.com/agent-teams-ai/agent-runtime/blob/f05c3a39c070a258958b6913304460bf4e71c61f/docs/architecture/agent-runtime-greenfield-foundation-plan.md#10-контракты-и-обновления),
+[Orchestrator compatibility](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/592ab361562a50ff63c0cde61985abee9334fc3d/docs/architecture/public-control-contracts.md#compatibility-and-tooling)
+and [Extension OD-003](https://github.com/agent-teams-ai/extension-foundation/blob/5ee8a788935c885fac075a5860a0217cf420b4d7/docs/open-decisions/OD-003-module-runtime-and-public-spi-choices.md#public-extension-spi-and-compatibility)
+already distinguish API, artifact, contract and state identities. Preserve
+their current commitments and the LMU workstream. The open cross-owner
+question is which compatibility horizon each deployment must support while
+old accepted work and cleanup obligations still exist.
+
+| Candidate | R / C / P | Production/integration LOC | Tests/fixtures LOC | Effort, engineer-days |
+| --- | --- | --- | --- | --- |
+| Compatible rolling changes with explicit expand/contract, negotiated profiles and a bounded retained recovery horizon | 9 / 7 / 9 | 800-2,000 | 1,200-3,000 | 10-25 |
+| Parallel incompatible version lanes with explicit operation/generation affinity until drain and migration | 9 / 9 / 7 | 2,000-5,000 | 2,500-6,000 | 25-60 |
+| Restricted installation stop/drain/upgrade with verified restore and no live continuity claim | 9 / 4 / 9 | 500-1,200 | 700-1,800 | 6-16 |
+
+Ranges describe one representative cross-version seam using existing
+protocol, migration and generation owners; they exclude general installer,
+native build, fleet deployment automation and exhaustive release matrices.
+Sizing confidence is 3/10. These profiles have different continuity and
+availability guarantees, so equal conditional reliability scores are not
+an assertion of equal product capability.
+
+Prefer compatible rolling evolution for the hosted baseline and explicit
+stop/drain for supported local restart-only profiles. Use incompatible lanes
+only when a consumer or retained obligation requires them. Every old accepted
+operation must retain a compatible recovery/cleanup path or have an explicit
+safe migration and retirement outcome; retaining a package archive or a schema
+reader alone is insufficient. State migrations and live replacement are
+separate capabilities and can be combined only with qualified custody and
+receiver fencing. Unknown protocol versions fail closed before effects.
+
+Required owner questions are the actual compatibility window, supported
+old-worker retention, schema expand/contract rules, release skew, and conditions
+for an irreversible migration. Test an old client against a new host, a new
+client against an old host, a pending operation across skipped upgrades,
+interrupted migration, stale-generation writes, lost update receipt, rollback
+with newer durable data and removal with unresolved cleanup debt. Use the
+existing release/compatibility and LMU mechanisms; no second update controller,
+universal migration language or permanent support for all past versions is
+proposed.
 
 ## Product-specific follow-through
 
