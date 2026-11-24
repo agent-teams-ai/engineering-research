@@ -78,6 +78,136 @@ The immediate proposal is historical-growth measurement at the existing append s
 
 If option 3 applies, late filling of the first gap before a long retained suffix must not cause one unbounded transaction. Bound each prefix-advance step, persist continuation through restart, and distinguish receipt durability from contiguous-prefix acknowledgement. A producer may discard only the prefix proven safe by its contract. These are conditions on the source-specific mechanism within the existing owner scope, not a new service or release gate.
 
+## Foundation-first decision docket (2026-11-24)
+
+The owner confirmed the [ecosystem vision](https://github.com/agent-teams-ai/.github/blob/5899711eecd144b189790d53f85a94ce162be91e/docs/architecture/ecosystem-vision.md):
+design the global architecture and reusable foundations before main product
+implementation. Runtime v3 is greenfield; do not treat current Runtime code as
+the target. These cards identify **open review questions**, not adopted ADRs.
+Use the existing owning decision or a narrowly scoped successor only if a
+real conflict or material improvement is established. No product code or
+additional release gate is authorized by this docket.
+
+### Decision routing and order
+
+| Priority | Question | Existing owner route | Disposition |
+| --- | --- | --- | --- |
+| P0 | Early shared-library design versus later feature extraction and stable SPI publication | FMS v1.1 promotion; Engineering Foundation ADR-0061; Extension ADR-0015/OD-003 | E1: clarify distinction; owner successor only if necessary |
+| P0 | Complete module/update operation, optional SDK and open contribution vocabulary | Extension [#57](https://github.com/agent-teams-ai/extension-foundation/issues/57), [#62](https://github.com/agent-teams-ai/extension-foundation/pull/62), [LMU delivery plan](https://github.com/agent-teams-ai/live-module-updates/blob/3147f87ba07ebf8d58373ec5807871306c79116a/docs/plans/foundation-delivery-plan.md) | Existing active workstream; no competing implementation |
+| P0 | Cell-ready managed placement and transfer | Platform [#62](https://github.com/agent-teams-ai/agent-teams-platform/pull/62), Orchestrator OD-033 | Candidate contract; owners agree authority partition and routing before affected code |
+| P0 | Cross-store recovery and non-reuse of effect authority | Runtime v3 S2/F03/F04/F12/F14; Orchestrator OD-003/013/032; Platform authority | E2: explicit cross-owner recovery review |
+| P0 | PostgreSQL bundle versus feature-owned persistence | Runtime [#245](https://github.com/agent-teams-ai/agent-runtime/issues/245), [#246](https://github.com/agent-teams-ai/agent-runtime/issues/246) | Existing decision packets; prove dependency graph and external packed consumer |
+| P0 | Bounded causal work and hard reservations | OD-024, OD-033, D1/D2 above, Runtime C0-C3 | Reuse owning plans; do not introduce a global scheduler |
+| P1 | Exclusive saved Agent assignment versus large-scale reuse of definitions | Orchestrator ADR-0100/0101 and OD-019 | E3: preserve accepted semantics pending product/identity review |
+| P1 | Fully Local process/engine footprint | Orchestrator ADR-0114/0115/0116, OD-021/040, [enterprise execution study](../studies/one-agent-through-enterprise-execution.md#workflow-alternatives-scoped-estimates-not-an-engine-re-election) | E4: retain selection until a measured whole-profile limitation justifies successor |
+| P1 | Federated architecture checks and independent compatibility | Engineering Foundation [#474](https://github.com/agent-teams-ai/engineering-foundation/pull/474), Get Modular growth qualification, independent AAS | Reuse existing owner mechanisms; no second analyzer |
+
+For E1-E3, numbers are preliminary planning ranges of incremental
+handwritten implementation and tests for the named seam, not measured work,
+full product cost or qualification estimates. Sizing confidence is low
+(3/10); inventory existing code, tests and current owner plans before any
+implementation budget. Reliability assumes the stated guarantees are actually
+proved. Alternatives are mutually exclusive only where their guarantees
+overlap; do not sum overlapping costs with the existing plans.
+
+### E1: library-first without invalidating the Feature Module Standard
+
+Read [FMS v1.1 promotion](https://github.com/agent-teams-ai/.github/blob/03c8f102681569f525f44577a705bc4e5900e492/docs/architecture/feature-module-standard/v1.1.md#promoting-a-feature-to-a-module)
+and [Foundation ADR-0061](https://github.com/agent-teams-ai/engineering-foundation/blob/3e859413fcdcbf8a159fd4bad89a8b35b1ce83d5/docs/decisions/0061-library-first-foundation-boundary-evolution.md).
+The former governs promotion of an existing feature to a module; the latter
+admits early design of new reusable engineering mechanisms. FMS already
+allows independent lifecycle boundaries in addition to actual reuse evidence.
+It does not require two consumers for every boundary. The open issue is whether
+a particular new shared library is incorrectly classified as feature extraction,
+and how Extension Foundation's retained product-first triggers apply.
+
+| Candidate | R / C / P | Incremental implementation and tests LOC |
+| --- | --- | --- |
+| Distinguish new library design from existing feature extraction; retain stable SPI and actual adoption gates | 9 / 3 / 9 | 0-300 (mostly clarification; only necessary checker fixtures) |
+| Versioned FMS successor for an explicit planned-consumer foundation admission path | 9 / 5 / 7 | 400-1,200 (profile, validator and positive/negative fixtures) |
+| Product-local implementation first, then extract each repeated mechanism | 8 / 8 / 8 | 1,000-4,000 additional integration/migration LOC per shared seam |
+
+Prefer the first interpretation where the adopted profile and actual scope
+permit it. Do not silently override ADR-0015/OD-003 or FMS. If a named
+foundation is genuinely blocked, an owner-reviewed successor may distinguish
+pre-1.0 implementation admission from public stable claims. Prove a real
+independent library consumer and rejecting cases; planned consumers alone do
+not prove conformance. Avoid introducing any new rule if the existing
+hard-boundary criterion already suffices.
+
+### E2: recovery after independent stores and external effects diverge
+
+[ADR-0114](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/e09cd468d3b5a89e42ce16e2268d17533e046126/docs/decisions/0114-canonical-backend-stack-and-distributed-role-adoption.md)
+already states that one SQL snapshot is not an atomic backup of NATS, AR and
+external effects. The missing implementation contract is the handoff of
+recovery evidence across owners. Distinguish application state, broker
+positions, engine histories, credentials, execution custody and real external
+effects. A recovered epoch alone is not fresh authority.
+
+| Candidate | R / C / P | Incremental implementation and tests LOC |
+| --- | --- | --- |
+| Per-owner restore watermarks, explicit reconciliation, and non-reusable fencing authority outside the affected recovery set | 9 / 7 / 8 | 4,000-10,000 across owners |
+| Coordinated quiesced restore checkpoints plus explicit external-effect reconciliation | 9 / 8 / 7 | 5,000-12,000 across owners |
+| Operator-driven fail-closed recovery and fresh scope enrollment, no automatic reactivation of ambiguous work | 9 / 5 / 8 | 1,500-4,000 for the restricted profile |
+
+Prefer the first for the eventual fleet and retain the third as a safe
+restricted recovery profile. Coordinated checkpoints can complement either;
+they cannot make external effects atomic. Compare the availability and
+operational cost, not just durability. Before an affected contract is frozen,
+name the real authority/fencing source, recovery-set membership, compatibility
+horizon, typed uncertainty and permitted recovery operations. If a Fully Local
+device loses every trusted anchor, do not pretend a restored counter proves
+continuity: require isolation/re-enrollment or explicit manual reconciliation.
+The owner still must choose the exact anchor and policy.
+
+Reject a restore that forgets a completed remote effect, resurrects deleted
+authority, grants a successor while a predecessor can write, replays against
+an incompatible provider, or allows an old broker/engine delivery to become
+a fresh operation. Require recovery-only progress without unsafe dispatch,
+and a positive trace in which unaffected scopes continue. Reuse owner-local
+receipts and existing recovery/transfer plans; no global transaction or new
+workflow engine.
+
+### E3: Agent identity and scalable reusable definitions
+
+[ADR-0100](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/e09cd468d3b5a89e42ce16e2268d17533e046126/docs/decisions/0100-persistent-agents-and-exclusive-team-membership.md)
+and [ADR-0101](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/e09cd468d3b5a89e42ce16e2268d17533e046126/docs/decisions/0101-run-specific-rosters-coordination-and-exclusive-agent-occupancy.md)
+require one current Team assignment and at most one unreleased occupancy for
+one persistent Agent. Explicit copies have distinct identity and statistics;
+this is a valid safety and UX choice, not an established fleet bottleneck.
+The architectural question is how to reuse configuration and behavior without
+implicitly sharing writable state or cloning large definitions.
+
+| Candidate | R / C / P | Incremental implementation and tests LOC |
+| --- | --- | --- |
+| Retain exclusive Agent; explicit copy with shared immutable library/template definition where owner approves | 9 / 5 / 8 | 1,000-3,000 |
+| Separate reusable definition and independently named Agent instances, each with exclusive occupancy | 9 / 7 / 7 | 2,000-6,000 |
+| One saved Agent may have concurrent isolated participation across Teams/Runs | 8 / 8 / 6 | 3,000-8,000 |
+
+Keep the accepted first-direction semantics while comparing the two broader
+product models; do not implement a successor without the product owner.
+A content reference or template must never implicitly share session, workspace,
+secrets, cancellation, statistics or occupancy. Test version pinning, edits
+during runs, independent cancellation, copy/move, stale release, cross-tenant
+denial and provenance. Require actual product scenarios that explicit copies
+cannot meet before changing identity semantics. High agent counts alone do
+not prove a need to remove occupancy protection.
+
+### E4: Fully Local operational footprint
+
+Retain ADR-0114/0115/0116 and the three engine alternatives already estimated in
+the [enterprise execution study](../studies/one-agent-through-enterprise-execution.md#workflow-alternatives-scoped-estimates-not-an-engine-re-election).
+Do not re-elect PostgreSQL or Temporal merely because an isolated component
+looks expensive. First compare the complete minimum qualified profile:
+mandatory role processes, Supervisor, PostgreSQL, broker, workflow engine,
+authority, one real executing agent, and outstanding durable obligations.
+Measure cold and warm startup, aggregate resident memory/CPU, disk, offline
+recovery, suspend/resume, upgrades and safe drain. Consider on-demand activation
+only where the owner can preserve required progress and current process
+isolation; co-location that weakens an accepted role boundary requires an
+explicit successor. Record approved resource budgets and a counterexample
+before deciding whether a different engine or topology is justified.
+
 ## Product-specific follow-through
 
 | Owner/repository | Already required or accepted | Proposed future delta and activation scope | Remaining owner decision |

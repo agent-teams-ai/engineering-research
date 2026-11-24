@@ -101,3 +101,27 @@ Keep skill merging, retrieval ranking and the Hindsight-versus-Graphiti comparis
 [extra-resources]: https://github.com/agent-teams-ai/get-modular/blob/5fb83478dd7b95216be92c4d3077eddf2774eef8/packages/resources/README.md#L1-L25
 [extra-outcomes]: https://github.com/777genius/review-router-ai/blob/9a416dfb876d78253612e87aa89561d48bf35633/packages/features/memory/src/application/ports/memory-knowledge-provider-port.ts#L64-L80
 [extra-scope]: https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/copilot/graphiti/client.py#L86-L128
+
+## Additional Waku Agent evidence — 2026-11-23
+
+The [source-audited Waku Agent dossier](../competitors/waku-agent-2026-11-23.md)
+pins the local, hosted and Agent Teams revisions separately and includes
+counterevidence. These are **source-based risks or transferable ideas**, not
+reproduced upstream vulnerabilities or newly found Agent Teams defects.
+Reuse the original MR/GP lessons rather than creating a competing register.
+
+| Existing lesson | New evidence and limitation | Owner / smallest rejecting case |
+| --- | --- | --- |
+| **MR-13, MR-14; GP-07, GP-08** | [Waku run matching and ordinal outbox keys](../competitors/waku-agent-2026-11-23.md#specific-risks-and-anti-patterns-to-avoid) make unique-row delivery practical, but a changed replay can select a different action at the same ordinal; risk is **inference**, not reproduced Waku exploit. Waku also explicitly acknowledges possible duplicate remote chat delivery. | Runtime technical effects; Orchestrator command/outbound intent: kill after external accept and resume with a reordered tool sequence; ensure canonical semantic fingerprint and honest unknown status. |
+| **MR-17** | [One locked worker per Waku home and a per-wave thread pool](../competitors/waku-agent-2026-11-23.md#specific-risks-and-anti-patterns-to-avoid) fit a personal tool, not multi-host custody or fleet fairness. Container isolation is positive and separately acknowledged. | Runtime C0–C3: hot tenant vs cancel/recovery under bounded work and real active agents, never one-home file lock as a fleet scheduler. |
+| **MR-24** | [Waku shared-chat memory incident and prompt mitigation](../competitors/waku-agent-2026-11-23.md#specific-risks-and-anti-patterns-to-avoid) shows why instructions are not current actor/tenant grant enforcement; separately keyed hosted team homes are mitigating work. | Orchestrator/Platform identity and read owner: revoke team permission midstream and prove memory/retrieval/cache/output isolation. |
+| **MR-03, MR-04; GP-09** | [Minimal graph engine and scoped agent nodes](../competitors/waku-agent-2026-11-23.md#evidence-backed-strengths-worth-retaining) are a strong simplicity example; copying it into our system would create a second scheduler/durability authority beside the already selected workflows. | Orchestrator workflow owner: compare one typed deterministic router on a real use case, without importing a competing graph engine. |
+| **MR-11, MR-12** | [Inspected Waku deterministic evals and explicit live limitations](../competitors/waku-agent-2026-11-23.md#specific-risks-and-anti-patterns-to-avoid) reinforce the separation of fake-clock/adapter contract checks from full live provider and profile E2E. | Existing Runtime/Orchestrator release owner: real pinned agent/OS/provider receipt, not an offline green summary or a queued/skipped job. |
+
+**Positive transferable ideas:** user-visible waiting projection over existing canonical
+owners, model-free deterministic route decisions, tiny scoped capability registries,
+memory retrieval/digest optimization **after authorization**, and clear traces
+paired with deterministic vs judged evaluations. Detailed adoption boundaries
+and optional experiments belong to the single [dossier](../competitors/waku-agent-2026-11-23.md#transferable-ideas-and-ownership-adopt-the-lesson-not-a-second-subsystem),
+not to a second maintained decision card. Product owners decide whether any
+experiment is warranted; no new gate or acceptance is implied.

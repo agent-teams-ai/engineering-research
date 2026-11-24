@@ -27,6 +27,41 @@ An update is a change to claims, not a replacement of all old text with a new da
 
 Separate factual corrections from score-policy changes. A source correction can be immediate; changing criterion applicability, weights or thresholds updates the versioned method before recalculating a board. Do not choose a new weighting after seeing which competitor wins.
 
+## Foundation-first evidence-to-decision route
+
+The [organization ecosystem vision](https://github.com/agent-teams-ai/.github/blob/bb7b1c00f18a8c532681f286afa51dda954469b4/docs/architecture/ecosystem-vision.md) describes many intended consumers
+and the owner direction to design the shared foundation before main greenfield
+implementation. Research evaluates that direction critically; it does not
+silently adopt a competitor mechanism or reopen an accepted ADR.
+
+Use the existing collections as follows, rather than creating another database,
+taxonomy engine or duplicate document tree.
+
+| Material | Canonical route | Required distinction |
+| --- | --- | --- |
+| Technology or competitor assessment | Technology catalog, Competitors or Studies | Pinned subject, scope, strengths, limitations and evidence |
+| Raw source, measurement or experiment | Existing evidence path or owning external source | Immutable identity; an inspected test is not an executed reproduction |
+| Reusable pattern | Existing Lessons record | Applicability and counterexample, not just similar syntax |
+| Antipattern | Existing failure lesson or owning register | Confirmed defect versus inference, historical/fixed versus current |
+| Candidate design change | Owner-linked preimplementation decision | Actual owner, motivation, options, evidence and reversal criteria |
+| Accepted decision and implementation status | Owning product/foundation ADR, plan or issue | Link only; research has no adoption authority |
+
+For a material candidate, compare the current accepted direction, the proposed
+alternative and another plausible option when available. Record usefulness,
+reliability, complexity, confidence and incremental production/test LOC;
+do not average incomparable workloads or treat estimates as measurements.
+Record counterevidence and whether the result should be adopted, tested,
+deferred, rejected or retained as reference. Only the owner can accept a
+change; use a successor ADR for a superseded decision and retain the old proof.
+
+Prioritize research that can change expensive preimplementation choices:
+composition/compile scaling, portable module and extension lifecycles,
+placement and failure isolation, distributed resource budgets, cross-store
+recovery, semantic compatibility and agent delegation. First reconcile
+existing studies and open PRs (including enterprise execution research)
+against the current owner plans; do not start redundant research merely
+because a prior conclusion is not yet implemented.
+
 ## Initial review queue
 
 These dates are claim-review windows. A separate weekly triage task is enabled as described below; enabling it does not constitute a completed review. The initial review anchor is 2026-11-03. The initial corpus was assembled on 2026-11-04. A historical imported study keeps its original review date even when this queue requests a new review.
@@ -48,7 +83,7 @@ An existing assistant task, **Обновлять технические иссл
 
 Each run checks actual central PR #1 disposition. After merge it uses the current default branch; while the initial PR remains open, a material update becomes a separate dependent draft from its current head. A closed-unmerged initial PR is reported rather than treated as acceptance. The task inspects relevant upstream diffs and due claims, preserves edition/commit identities and historical dates, and prepares source-linked draft updates only for material changes. It leaves scores unchanged without sufficient reviewed evidence; substantial disputes require two independent critics. If nothing material changed, it reports the inspected revisions without creating an empty PR.
 
-The task may push coherent documentation commits and open draft PRs under the owner's continuing research request. It cannot merge, adopt an ADR, change production code, promote qualification, alter access, or send messages to other people. Product decisions stay with their existing owners. This task is an existing assistant capability; no scheduler service, crawler or scoring engine is implemented in this repository.
+The task may push coherent documentation commits and open draft PRs under the owner's continuing research request. By owner instruction updated **2026-11-18**, it may also merge *uncontroversial, source-linked factual documentation corrections* after reconciling existing research PRs, verifying current base/head, successful required checks on the exact PR head, no blocking review findings and GitHub mergeability, and supplying an expected-head SHA during merge. Contested conclusions, score/method revisions, unreviewed claims, production or product decisions stay out of automatic merge. It cannot adopt an ADR, change production code, promote qualification, alter access, or send messages to other people. Product decisions stay with their existing owners. This task is an existing assistant capability; no scheduler service, crawler or scoring engine is implemented in this repository.
 
 Use existing GitHub notifications, the available research assistant and ordinary repository files before adding a custom collector. Add maintained tooling only after missed updates or measured reviewer effort expose a real gap. There is no custom scraper, scoring engine or always-running service in this repository.
 
