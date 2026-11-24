@@ -29,7 +29,7 @@ This map routes readers and agents by task. The repository separates shared sour
 
 ## Research selection and decision follow-through
 
-Use the [Foundation-first ecosystem vision](https://github.com/agent-teams-ai/.github/blob/bb7b1c00f18a8c532681f286afa51dda954469b4/docs/architecture/ecosystem-vision.md) as the product-owner
+Use the [Foundation-first ecosystem vision](https://github.com/agent-teams-ai/.github/blob/029f9ca0d719646d826f388c32f0571ff0d3270c/docs/architecture/ecosystem-vision.md) as the product-owner
 context for selecting research, not as evidence that a proposed technology
 works. Existing collections stay canonical; use the
 [claim classification and review route](methodology/research-maintenance.md#foundation-first-evidence-to-decision-route)
