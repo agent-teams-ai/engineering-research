@@ -65,6 +65,8 @@ This map is engineering memory, not a competitor defect leaderboard or a new com
 
 ## Recipient and rejecting-case map
 
+The [2026-11-14 Effect architecture study](../studies/effect-architecture-and-reusable-mechanisms-2026-11-14.md) adds pinned T3 Code, OpenCode, LiveStore, Alchemy and Centrifugo evidence for the same MR-13/14, MR-15, MR-17, MR-24 and MR-03/04 / GP-07/08/09 identities. It also records existing Foundation/FMS coverage limits, ready-made alternatives and a good/bad application-use table. Its upstream tests were inspected, not executed; the proposed cases are owner-local options rather than automatically adopted gates.
+
 | Existing lesson / source finding | Recipient | Smallest concrete rejecting case |
 | --- | --- | --- |
 | MR-13/14, GP-07/08; Paperclip finding 5 | Runtime operation/native boundary; Orchestrator continuation | Lose the effect result after dispatch; the next owner must preserve the original identity and expose uncertainty rather than blindly replay |

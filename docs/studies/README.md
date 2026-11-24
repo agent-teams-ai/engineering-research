@@ -31,6 +31,7 @@ Grouped by research topic.
 
 ### Coordination, identity, composition and persistence
 
+- [Effect Architecture and Reusable Mechanisms 2026-11-14](effect-architecture-and-reusable-mechanisms-2026-11-14.md) — Critical source research on frontend/backend execution, modularity, existing Foundation capabilities and owner-specific reuse proposals.
 - [Asynchronous Questions and Independent Progress 2026-11-21](asynchronous-questions-and-independent-progress-2026-11-21.md) — Source evidence and open questions for optional replies, required decisions, scoped waiting and authorized fallback within existing owners.
 - [Identity Provider Evidence](identity-provider-evidence.md) — Reusable identity-provider comparisons separated from the Orchestrator IAM adoption decision.
 - [Composition and Scale Evidence](composition-and-scale-evidence.md) — Reusable module-composition and scale lessons separated from consumer framework pins.
