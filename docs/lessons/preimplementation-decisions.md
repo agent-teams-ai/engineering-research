@@ -80,7 +80,7 @@ If option 3 applies, late filling of the first gap before a long retained suffix
 
 ## Foundation-first decision docket (2026-11-24)
 
-The owner confirmed the [ecosystem vision](https://github.com/agent-teams-ai/.github/blob/5899711eecd144b189790d53f85a94ce162be91e/docs/architecture/ecosystem-vision.md):
+The owner confirmed the [ecosystem vision](https://github.com/agent-teams-ai/.github/blob/main/docs/architecture/ecosystem-vision.md):
 design the global architecture and reusable foundations before main product
 implementation. Runtime v3 is greenfield; do not treat current Runtime code as
 the target. These cards identify **open review questions**, not adopted ADRs.
@@ -93,7 +93,7 @@ additional release gate is authorized by this docket.
 | Priority | Question | Existing owner route | Disposition |
 | --- | --- | --- | --- |
 | P0 | Early shared-library design versus later feature extraction and stable SPI publication | FMS v1.1 promotion; Engineering Foundation ADR-0061; Extension ADR-0015/OD-003 | E1: clarify distinction; owner successor only if necessary |
-| P0 | Complete module/update operation, optional SDK and open contribution vocabulary | Extension [#57](https://github.com/agent-teams-ai/extension-foundation/issues/57), [#62](https://github.com/agent-teams-ai/extension-foundation/pull/62), [LMU delivery plan](https://github.com/agent-teams-ai/live-module-updates/blob/3147f87ba07ebf8d58373ec5807871306c79116a/docs/plans/foundation-delivery-plan.md) | Existing active workstream; no competing implementation |
+| P0 | Complete module/update operation, optional SDK and open contribution vocabulary | Extension [#57](https://github.com/agent-teams-ai/extension-foundation/issues/57), [#62](https://github.com/agent-teams-ai/extension-foundation/pull/62), [LMU delivery plan](https://github.com/agent-teams-ai/live-module-updates/blob/main/docs/plans/foundation-delivery-plan.md) | Existing active workstream; no competing implementation |
 | P0 | Cell-ready managed placement and transfer | Platform [#62](https://github.com/agent-teams-ai/agent-teams-platform/pull/62), Orchestrator OD-033 | Candidate contract; owners agree authority partition and routing before affected code |
 | P0 | Cross-store recovery and non-reuse of effect authority | Runtime v3 S2/F03/F04/F12/F14; Orchestrator OD-003/013/032; Platform authority | E2: explicit cross-owner recovery review |
 | P0 | PostgreSQL bundle versus feature-owned persistence | Runtime [#245](https://github.com/agent-teams-ai/agent-runtime/issues/245), [#246](https://github.com/agent-teams-ai/agent-runtime/issues/246) | Existing decision packets; prove dependency graph and external packed consumer |
@@ -112,6 +112,12 @@ implementation budget. Reliability assumes the stated guarantees are actually
 proved. Alternatives are mutually exclusive only where their guarantees
 overlap; do not sum overlapping costs with the existing plans.
 
+The combined LOC columns in E1-E3 remain incomplete planning notes. Before an
+owner implementation decision, complete the [comparison packet](https://github.com/agent-teams-ai/.github/blob/main/docs/engineering-quality-standard.md#owner-facing-architecture-decisions-and-estimates)
+with comparable scope, separate production/integration and test/fixture ranges,
+engineer-days and estimate confidence, or mark the missing estimate explicitly.
+Their presence here does not make that decision packet complete.
+
 ### E1: library-first without invalidating the Feature Module Standard
 
 Read [FMS v1.1 promotion](https://github.com/agent-teams-ai/.github/blob/03c8f102681569f525f44577a705bc4e5900e492/docs/architecture/feature-module-standard/v1.1.md#promoting-a-feature-to-a-module)
@@ -127,7 +133,13 @@ and how Extension Foundation's retained product-first triggers apply.
 | --- | --- | --- |
 | Distinguish new library design from existing feature extraction; retain stable SPI and actual adoption gates | 9 / 3 / 9 | 0-300 (mostly clarification; only necessary checker fixtures) |
 | Versioned FMS successor for an explicit planned-consumer foundation admission path | 9 / 5 / 7 | 400-1,200 (profile, validator and positive/negative fixtures) |
-| Product-local implementation first, then extract each repeated mechanism | 8 / 8 / 8 | 1,000-4,000 additional integration/migration LOC per shared seam |
+
+These are two routes within the accepted library-first direction, not a new
+architecture vote. Requiring each planned product to copy an already identified
+shared mechanism before reusable-library design is the rejected counterexample,
+not a third alternative. Existing owned feature extraction retains its applicable
+admission route. The open question is which existing rule admits the named seam
+or whether a scoped successor is needed.
 
 Prefer the first interpretation where the adopted profile and actual scope
 permit it. Do not silently override ADR-0015/OD-003 or FMS. If a named

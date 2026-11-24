@@ -29,7 +29,7 @@ Separate factual corrections from score-policy changes. A source correction can 
 
 ## Foundation-first evidence-to-decision route
 
-The [organization ecosystem vision](https://github.com/agent-teams-ai/.github/blob/bb7b1c00f18a8c532681f286afa51dda954469b4/docs/architecture/ecosystem-vision.md) describes many intended consumers
+The [organization ecosystem vision](https://github.com/agent-teams-ai/.github/blob/main/docs/architecture/ecosystem-vision.md) describes many intended consumers
 and the owner direction to design the shared foundation before main greenfield
 implementation. Research evaluates that direction critically; it does not
 silently adopt a competitor mechanism or reopen an accepted ADR.
