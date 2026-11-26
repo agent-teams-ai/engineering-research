@@ -16,7 +16,7 @@ Grouped by research topic.
 
 ### Task verification, review and feedback
 
-- [Task Verification: working handoff](task-verification-handoff-2026-11-22.md) — Current D3-R2 decision checkpoint, remaining actions, evidence and historical research links. Start here for work with Hassan.
+- [Task Verification: working handoff](task-verification-handoff-2026-11-22.md) — D3 closeout, prospective team-task pilot proposal, evidence and historical research links. Start here for work with Hassan.
 - [Evidence-Based Feedback and Rework 2026-11-09](evidence-based-feedback-and-rework-2026-11-09.md) — Dated source audit of reviewer reuse, evidence freshness, controlled rework and existing Orchestrator authority; future gateway choice remains open.
 - [Review Router Memory SDK Extraction](review-router-memory-sdk-extraction.md) — Existing portable memory mechanisms, generalization gaps and scoped extraction alternatives.
 
