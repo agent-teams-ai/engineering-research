@@ -177,7 +177,7 @@ selection/history index, not a second product policy or a complete IAM schema.
 | 14 | Personal and organization connection ownership are distinct; connect/configure/use remain separate capabilities. Start with one provider. | External integration owner, OD-034 |
 | 15 | Shared FGA store for the first measured authority/environment envelope, with explicit scope and limits; routing port permits later measured separation. No speculative fleet manager. | Product authority |
 | 16 | Restore closed, establish authority continuity, and rebuild/reconcile projections before reopening. Unprovable continuity needs explicit new-target/recovery treatment. | Authority / deployment owners |
-| 17 | Offboard-to-rehire creates a new membership period; sensitive grants are explicitly reissued. Temporary suspension is a different transition. | Product Identity / SCIM owner |
+| 17 | Offboard-to-rehire creates a new membership period with baseline roles only; sensitive grants require fresh decisions. Temporary suspension is a different transition. | Product Access and Authority / provisioning adapter; Identity supplies principal lifecycle |
 | 18 | Bounded personal-queue queries with current authorization before disclosure, counts and pagination; deduplicate the same Task across membership paths. | Orchestrator Work / query owner |
 
 The archive retains all three alternatives, confidence/reliability/complexity
