@@ -479,3 +479,125 @@ The next action is owner review of the concrete delta and existing fixture
 coverage, prioritizing partition/authority, LMU generation/retention, and
 bounded execution. No accepted ADR, production code, runtime dependencies,
 release gate, or existing qualification receipt was modified by this research.
+
+## Second campaign: discriminate the remaining design decisions
+
+Follow the [new evidence and local probes](../studies/composition-and-scale-evidence.md#second-deep-campaign-executable-lmu-boundary-and-competitor-implementation-review--2026-11-27).
+These A9/A10 follow-throughs narrow earlier recommendations, not create a
+new approval gate. The finite cooperative profile, owner ADRs and qualified
+artifacts remain valid. The experimental results concern exact slices and
+abstract models, not production qualification.
+
+### A9 — Select mechanisms per actual capability and boundary
+
+**P0: before approving a continuous or distributed LMU profile.**
+Keep finite typed request/response as the first low-risk profile.
+Do not promise hot replacement of every module: distinguish four alternatives
+for already admitted work, chosen by the capability owner before implementation.
+
+| Mode | Exact applicability and retirement condition | Rejection boundary |
+| --- | --- | --- |
+| Pin and drain | Finite/cooperative calls; existing generation affinity, original close/retire receipts; new admissions route to published successor. | Indefinite stream, unregistered spawned work or self-retirement wait without separately owned lifetime. |
+| Explicit safe-boundary handover | Step/turn has a versioned checkpoint, pending-write/effect/approval IDs, resumable protocol; all affected dependencies support transfer. | Arbitrary JS continuation/iterator, partially executed opaque tool, unproven compatibility, unknown irreversible external effect. |
+| Quiesced exclusive-resource transfer | Old generation stops admitting, receiver revocation and resource disposition observed, then successor receives ownership. | Overlap while old external writer or exclusive resource remains authoritative. |
+| Retire a recyclable realm | Typed RPC/worker/process boundary, stable facade, exact realm/incarnation and resource owner; observe stop plus separate remote obligations. | Assuming ESM unloading from deleting a cache entry, treating worker exit as cleanup of all descendants/external effects, or equating worker thread with hostile-code isolation. |
+
+The measured EF evaluation retention and LMU finite identity budget make
+unbounded in-process cache-busting a rejected default for indefinite service.
+Retain cumulative realm evaluation/byte budgets in the actual loader owner,
+not only a count of live generations. Compare bounded in-process restart
+versus recyclable shared-trust cohort realm; use separate isolation for
+untrusted providers. A coherent realm may host multiple modules; a business
+agent need not own a separate Node process or composition graph.
+For long-lived stream/callbacks define open/next/close/cancel, owner and
+generation/epoch, bounded buffer and replay position. Compare native
+Effect scoped streams and GM Resources first. Borrowed observation is not
+an event ledger. Do not add a second lifetime library.
+
+Self-update requires the management intent to outlive the current callback:
+a capability submits a typed request and observes acceptance, not synchronous
+waiting for its own retirement. The actual management executor acquires
+authority after the caller can finish; preflight detects known reentry cycles.
+The existing Host management/invocation boundary should remain narrow.
+For old-work saturation, retain current LMU semantics (adoption observation
+may be refused); evaluate bounded reserved control/observation capacity or
+explicit deferred observation before claiming availability of new-generation
+work. Do not bypass the configured work limit just to report healthy.
+
+**P0: before hosted partition and migration choices.** 
+Separate topology assignment from product authority and technical custody.
+The accepted [ADR-0079](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/3dccf2c53bf11f3939a19734a58f5e64d96673d0/docs/decisions/0079-runtime-authority-binding-cutoff-and-disposition.md#L84-L205)
+owns the boundaries; do not add a second binding writer. Prefer stable
+owner-local keys with one authoritative aggregate writer and independent
+execution/observation lanes. Begin with single logical placement and no
+automatic movement of active Runs. A future cell rebalancing capability
+needs a separately selected transfer policy, authoritative barrier and
+monotonic generation, exact transferred obligations/receipts, receiver
+fencing, recovery and rollback as forward revision. The physical partition
+key is not automatically identical to tenant, project, Run or agent ID.
+Compare tenant/project affinity and partitioned execution under the
+largest tenant/hot-key stress; retain one aggregate transaction boundary.
+Re-use [ADR-0048](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/3dccf2c53bf11f3939a19734a58f5e64d96673d0/docs/decisions/0048-single-persistence-authority-and-logical-transfer.md)
+logical transfer and [ADR-0065](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/3dccf2c53bf11f3939a19734a58f5e64d96673d0/docs/decisions/0065-immutable-run-plan-and-work-placement.md)
+staged successor/quiesced fallback instead of reopening them. A transport
+route directory is rebuildable; authority cannot be reconstructed from
+routing cache or ordinary observation.
+
+**P0: before distributed admission.** 
+The DBOS source and four bounded models identify discriminating tests:
+per-row locks do not serialize a shared hard limit across disjoint
+partitions; time expiry is not physical release; retry after move requires
+receipt continuity. Keep Runtime's existing capacity plan (C0-C3) and
+Orchestrator's OD-033 causal budgets. Compare a single scoped atomic
+budget, fixed per-cell quotas and bounded escrow grants with conservation
+and epoch; the second/third are useful only if the atomic shared scope
+is measured as a bottleneck. Keep technical concurrency, resource custody
+and money separate. Fencing is enforced by the actual technical receiver;
+an Orchestrator binding revision is opaque correlation to AR. Preserve
+debt and uncertain receipts across interruption and reactivation.
+
+**P1: rolling deployment.** 
+Reuse existing EF/LMU, Platform managed-installation and Orchestrator
+OD-043 decisions. Desired state, verified staged artifact/plan, accepted
+installation, active generation, authority observed, useful work, original
+retirement and physical release are distinct. Validate old/new contract
+versions at the receiver; pin stateful work until a supported transfer.
+No old authority revival on rollback, no incompatible schema change while
+old readers/writers are retained. Compare initial finite whole-Host
+restart with scoped rolling deployment; canary per actual capability
+and fault domain only when the hosted profile needs it.
+
+### A10 — Adversarial acceptance docket, reuse, and decision reversibility
+
+| Proposed test / owner | Concrete oracle and failure injection | Smallest next deliverable |
+| --- | --- | --- |
+| LMU / EF: indefinite stream, self-update and partial preparation | old/new result identity; original close once; rejected self-wait or detached intent; preflight failure leaves previous active; close escaped iterator or explicitly fence it; new-work refusal does not fake adoption | extend existing finite tests only for in-scope behavior; separately qualify new streaming/realm profile through actual owner gate |
+| EF / GM: retention vs logical retirement | repeated exact digest and different versions; measured cumulative eval/heap/ArrayBuffers and live instances; failed export validation may have executed top-level; late owned cleanup; terminate selected realm; no claim of all memory freed from exit alone | bounded native Node24/26 test of one real consumer capability, compare fresh isolated realm vs finite cooperative restart |
+| GM: root closure vs affected closure | A->B->C and A->D; replace/remove A, mutate binding/ordered-many and compare old/new plan; D cannot be missed just because root C excludes it; unchanged shared resource not blindly recreated | use existing public plan and LMU planner, benchmark full pipeline vs incremental only if required |
+| Orchestrator / AR / Platform: stale authority and lost ACK | after committed dispatch before receipt, after source freeze/copy/transfer, stale route, restore old database, expired lease, duplicate original ID and conflicting digest; actual receiver refuses stale mutation; no implicit Run relocation | cross-owner conformance experiment for selected topology; one authoritative writer in each existing boundary; no global epoch authority for all domains |
+| AR: quota/custody under hot shard and partition | two distinct partitions simultaneously consume last slot; expire without stopping process; cancellation/fan-out/renewal and unknown settlement; no over-allocation under the promised hard cap; control lane progresses at saturated data capacity | real bounded PostgreSQL/native-provider test in existing capacity/contained-turn qualification; compare indexed/batched vs scanning adapters |
+| Orchestrator: durable activity and replay | late old result, duplicate task/event, persisted receipt and pending writes before snapshot/restore; old command ID/digest is recovered or explicitly unresolved; old writer cannot restart on stale observation | route to OD-033 and OD-005/035 tests; use existing queue and chosen durability engine before another platform |
+| Platform: installation rollout mixed versions | stale controller, reconnect with previous configuration, ACK/NACK, old worker still draining, invalid artifact, rollback to compatible content with new authority; observed state cannot grant permissions | owner-specific conformance in managed-installation control; no replacement of actual admission receipts by deployment status |
+
+Counter-review conclusions:
+- Keep GM static graph bounded; kernel tests and local measurements do not
+  justify incremental compiler infrastructure or composition per agent.
+- Keep existing GM Resources, Observation and Effect integration; only
+  extract a narrowly repeated technical law after verifying at least two
+  actual consumers and existing conformance capabilities. Shared lifecycle
+  test fixtures are more promising than another runtime dependency.
+- Compare shared budget locking versus escrow by measured serialized
+  transaction rate, oldest eligible age, reconciliation debt and idle
+  stranded capacity. A safe but permanently blocked model is not sufficient.
+- A multi-cell move is not necessary for the initial supported deployment;
+  prioritize a real one-agent local and one bounded hosted profile, then
+  instrument hot keys, memory and physical ownership and increase workload.
+- No exact fleet capacity claim, independent critic signoff, product change,
+  package pin/release adoption or external license/security approval follows
+  from these passes. No new implementation gate is imposed on unrelated
+  PRs. Reassess the candidate against its owner and stop if existing
+  conformance already proves the law.
+
+The A1-A10 sequence was a single-agent research and self-critique campaign.
+The local bounded probes, upstream source excerpts and prior repository
+qualification receipts are deliberately distinct evidence classes.
