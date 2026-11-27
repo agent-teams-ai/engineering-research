@@ -394,3 +394,76 @@ The following four repositories were inspected at the exact commits listed below
 **Decision routing, not another architecture gate:** keep Gas Town's separate scheduling intent under the existing Orchestrator/AR ownership split (not a new Task model); route Warren's workspace/capability/reattachment evidence to AR provider conformance and Extension/LMU generation retirement; route Restate's journal and fence example to the existing durable effect and retry decisions; route SDK completion/accounting separation to OD-024 and the existing usage owner. A provider with weaker local guarantees may be useful if the profile declares them, but must not silently satisfy a stricter hosted contract.
 
 **Reference candidates not inspected in this pass:** Composio agent-orchestrator could not be retrieved through the GitHub connector. Do not assign it a source-based finding. LangGraph checkpointing, Daytona editions, and other workspace services remain candidates for narrower future qualification against specific owner contracts, not additions to the dependency graph.
+
+## Deep follow-up: live plugin custody and OpenClaw failure history — 2026-11-27
+
+Continuation of the fleet study, not a new product roadmap. The previous draft
+checkpoint was [3766a8d](https://github.com/agent-teams-ai/engineering-research/commit/3766a8d85911bb64e532122d4850088d796b5236).
+The original agent's local working directory/transcript was unavailable;
+the published evidence is the recovery basis. Focused source inspection,
+not an executed OpenClaw installation, independent defect reproduction or
+proof of current unrepaired bugs.
+
+### Passes 1–3: ownership, live update and adversarial lifetime review
+
+Owner baselines inspected on November 27:
+
+- [Ecosystem vision](https://github.com/agent-teams-ai/.github/blob/main/docs/architecture/ecosystem-vision.md):
+  reusable foundations, independently useful products, one-agent local profile,
+  greenfield Runtime v3; its older tens-of-thousands target needs reconciliation
+  with the owner's new hundreds-of-thousands target.
+- [GM system boundary](https://github.com/agent-teams-ai/get-modular/blob/27dfb4ddf67cead198fee6e781ab355c37782928/docs/architecture/system-boundary.md#L33-L75):
+  static graph and plans, not active-head, trust or product authority.
+- [Extension Foundation live-system map](https://github.com/agent-teams-ai/extension-foundation/blob/a1b5007ae4777bb5b01adab35a9ee83546a62333/docs/architecture/live-extension-system-map.md#L87-L237):
+  separate artifact/installation/runtime identity, actual custody, optional
+  profiles, retained state and grants.
+- [LMU operation](https://github.com/agent-teams-ai/live-module-updates/blob/77a3ecc4ace12509961bd3ff43e80703b0303c40/docs/architecture/operation.md#L17-L126)
+  and [Programme C invariants](https://github.com/agent-teams-ai/live-module-updates/blob/77a3ecc4ace12509961bd3ff43e80703b0303c40/docs/plans/composed-module-adoption-plan.md#L132-L161):
+  already require actual attempt-bound publication, atomic admission, whole
+  dependency closure, cleanup debt and separate retention holds. Do not propose
+  these again as absent requirements. The contribution below is sharper
+  rejecting scenarios and operator evidence, not another lifecycle kernel.
+
+OpenClaw source snapshot: [773acb717fb30b4e7872175d449e4d6ea1d19014](https://github.com/openclaw/openclaw/tree/773acb717fb30b4e7872175d449e4d6ea1d19014),
+main retrieved November 27. The relevant profile is a single trusted Gateway
+with cooperative JS plugin work, not hostile multi-tenant hosting.
+
+| Source-inspected mechanism | Benefit and strongest counterexample | Transferable law / proposed test |
+| --- | --- | --- |
+| [Registry lifecycle](https://github.com/openclaw/openclaw/blob/773acb717fb30b4e7872175d449e4d6ea1d19014/src/plugins/registry-lifecycle.ts#L260-L415): borrowed records explicitly marked; publication transfers unchanged records; quiescing closes admission before abort listeners; cache deletion by retired value, not reused key. | Reusing unchanged instances is more efficient than rebuilding all plugins. Identity mutation of a borrowed owner, registry membership, epoch and instance authority are intertwined. Code comments explicitly avoid cancellation of a successor by stable plugin ID. This is not evidence of a current race. | GM/LMU: independent H1/H2 hosts; A/B share a dependency; replace A, keep B's admitted call and resource; old reentrant abort callback must neither admit new A nor cancel B/new A. Test owner versus borrower explicitly, not a registry-wide reference count. |
+| [Instance scope](https://github.com/openclaw/openclaw/blob/773acb717fb30b4e7872175d449e4d6ea1d19014/src/plugins/plugin-instance-scope.ts#L140-L218): invocation scope carries exact instance and current-authority guard; cleanup runs under host-owned admission. | Good delayed callback guard; AsyncLocalStorage and a process object identity are neither cross-process proof nor sandbox. A plugin can still bypass cooperative wrappers if allowed arbitrary host APIs. | LMU retains cohort through awaited work and streams; extension admission denies unsupported trust profiles. Receiver validates resource-specific generation/authority for protected writes. Test async context loss, wrong host and expired grant independently. |
+| [Cache lifecycle](https://github.com/openclaw/openclaw/blob/773acb717fb30b4e7872175d449e4d6ea1d19014/src/plugins/plugin-cache.ts#L314-L444): cache invalidation and retirement separated, one original deferred completion, retained callers settle, source files retained for timed-out calls. | A bounded report may return while physical cleanup continues. Process maps are scoped to this host; copying this storage model into a fleet would couple ownership to process lifetime. | LMU/EF/AR: separate metadata invalidation, unload, native-stop observation and artifact deletion. A timeout returns cleanup debt with original completion; retry joins that completion rather than erasing debt. Independent artifact holds for lazy imports, replay and rollback. |
+| [Native ESM capture](https://github.com/openclaw/openclaw/blob/773acb717fb30b4e7872175d449e4d6ea1d19014/src/plugins/plugin-instance-module-loader.ts#L104-L188): source/realpath/workspace/SDK resolution and admitted source identity scope retained maps; ambiguous owners rejected. | Source capture solves part of lazy-load continuity; it is not proof of reclaiming evaluated native ESM/native addons or isolation. Global maps and workspace paths are local implementation choices. | EF: bind artifact/import closure and execution profile, not package version or plan digest alone. Test lazy dynamic import after replacement, same digest/different host grants, partial acquisition and bounded disk/memory growth. For actual physical reclamation compare a disposable worker/process profile. |
+| [Lifecycle lease](https://github.com/openclaw/openclaw/blob/773acb717fb30b4e7872175d449e4d6ea1d19014/src/plugins/plugin-lifecycle-lease.ts#L145-L280): explicit detached observer scope; state-directory lease, worker heartbeat, owner checks at cleanup. | Useful local cross-process serialization. Lease demand is tracked in-process and a state-path lease can serialize unrelated work in that scope; a lease is not a distributed receiver fence. | LMU and product owner: dependency-closure conflict domain, independent updates can progress; prove self-update from retained caller rejects or defers without deadlock; delayed former holder cannot publish/delete in a successor's epoch. |
+| [Generation receipt](https://github.com/openclaw/openclaw/blob/773acb717fb30b4e7872175d449e4d6ea1d19014/src/plugins/plugin-generation-receipt.ts) and [retention test file](https://github.com/openclaw/openclaw/blob/773acb717fb30b4e7872175d449e4d6ea1d19014/src/plugins/plugin-instance.retention.test.ts#L25-L110): source receipt, tests for released reload preludes, owner work after caller release, pending physical callbacks. | Stronger evidence than feature marketing; the tests were inspected, not executed. WeakRefs alone do not establish stable retained heap/disk over a real long-lived deployment. | EF qualification: assert unchanged useful output, exact ownership, bounded retained bytes/objects and actual settlement across repeated replacements. Test with real packaged consumers, not just test doubles. |
+
+Historical reports and documented limitations (not independently reproduced;
+no claim that these remain unfixed at the source snapshot):
+
+| Evidence | Consequence for our conformance fixtures |
+| --- | --- |
+| [#152965](https://github.com/openclaw/openclaw/issues/152965), September 19: reporter describes unrelated non-channel configuration reload disposing live channel adapters and losing traffic. | Update affected closure only; long-running ingress, subscriptions and unrelated modules remain useful. Test shared dependency that really requires wider replacement, too. |
+| [#153290](https://github.com/openclaw/openclaw/issues/153290), September: reported earlier source capture removed while a channel adapter still resolves code; follow-up describes another retained consumer failure. | Reproduce with delayed dynamic import, after-delivery callback, worker and UI client; no garbage collection from registry refcount alone. |
+| [#155737](https://github.com/openclaw/openclaw/issues/155737), September: reporter observed large accumulated build directories and quota-exhausted reload. Reported sizes are incident-specific, not measured here. | Test the opposite failure to premature deletion: disk/memory/generation budgets, repeated successful and failed updates, offline/restart cleanup and protected retained artifacts. |
+| [#181106](https://github.com/openclaw/openclaw/issues/181106), October: reporter describes event-loop stall causing forced retirement and later shutdown failure. | Monotonic elapsed deadlines, actual native settlement independent of timer ordering, blocked event loop, cancellation during cleanup, late success; refuse false clean status. |
+| [Manage plugins](https://docs.openclaw.ai/plugins/manage-plugins.md), [SDK runtime](https://docs.openclaw.ai/plugins/sdk-runtime), [architecture](https://docs.openclaw.ai/plugins/architecture), rolling docs: cold inspection vs active Gateway, restart-required bundled changes, best-effort cleanup, bounded drain and explicit turn-handover modes. | Expose declared/installed/verified/selected/useful/retired facts separately. Advertise hot swap only for qualified profiles. Do not allow a plugin to declare overlap as self-authorization. Turn handover requires state/effect compatibility and a tested safe boundary. |
+
+**Practical owner split:** LMU already specifies cohort/cleanup/uncertainty; add
+the selective-replacement, lazy-load and event-loop-stall cases to its existing
+Programme C fixture design. Extension Foundation owns trust, import closure
+admission, artifact retention and conformance profile; Engineering Foundation
+owns development-only contract tests/mutation checks, not runtime logic. GM
+owns the graph and public resource laws, not dynamic capability registries or
+a second updater. Actual AR/Orchestrator/Platform owners decide durable state,
+routing and protected-write authority. A local live update success is not a
+fleet rollout or a security claim.
+
+**Critique:** do not equate a large number of plugin-related files with bad
+architecture: explicit owner-scoped modules are often valuable. The actionable
+risk is duplicated authority, leaked shared realms and ambiguous lifetime,
+not file count. Broad hook/event APIs and transparent proxies can help an
+existing host preserve compatibility, but the greenfield default should be
+small typed consumer-owned capability ports with explicit lifetime; avoid
+global service discovery and implicit auto-activation for untrusted packages.
+For a pure deterministic module, no mandatory dynamic loader, process,
+network hop or per-call distributed generation lookup is justified.
