@@ -900,3 +900,220 @@ or process owner, GM resource primitives and LMU coordination. Do not create
 one worker or process for every pure module or every logical agent. Avoid
 using cache-busting import as an unlimited hot-reload implementation.
 The first supported profile and its existing qualification remain unchanged.
+
+### A6 — Rollout, version selection and runtime custody in mature control planes
+
+Additional exact source snapshots inspected 2026-11-27; no upstream suite
+was run. These are mechanisms and explicit counterexamples to simplistic
+versions of the proposed architecture, not new competitor rankings.
+
+| Source | Mechanism worth transferring | Boundary / counterexample |
+| --- | --- | --- |
+| [Temporal version workflow, c2ec24c0](https://github.com/temporalio/temporal/blob/c2ec24c01c519234de9dd01881b968c1b14473f2/service/worker/workerdeployment/version_workflow.go#L501-L594) and [drain refresh](https://github.com/temporalio/temporal/blob/c2ec24c01c519234de9dd01881b968c1b14473f2/service/worker/workerdeployment/version_workflow.go#L1122-L1195) | Current/ramping versus draining/drained; active pollers block ordinary deletion, grace period for visibility, late status refresh rechecked after acquiring the lock. Continue-as-new and explicit workflow.GetVersion gates account for history and deterministic rollback. | A visibility query is not a physical external-effect receipt; skip-drainage is an explicit override, not a correctness default. Workflow/worker version routing does not replace LMU artifact/instance custody, AR provider authority or product data migration. |
+| [Envoy snapshot](https://github.com/envoyproxy/go-control-plane/blob/151ca724d3b8ceecb8b519b23bbc1c87fb1606c0/pkg/cache/v3/snapshot.go#L84-L130), [SetSnapshot](https://github.com/envoyproxy/go-control-plane/blob/151ca724d3b8ceecb8b519b23bbc1c87fb1606c0/pkg/cache/v3/simple.go#L287-L317), [xDS protocol](https://www.envoyproxy.io/docs/envoy/latest/api-docs/xds_protocol) | Referentially consistent immutable resource sets, per-resource version reuse for unchanged objects, changed-version watches; protocol nonce distinct from version, ACK/NACK and reconnect state. | The new snapshot is stored before responding to watches; response can fail afterward. The cache lock also encloses watch response work. Protocol ACK does not guarantee successfully applied configuration or external effect. Do not copy one global cache lock or interpret distribution as activation. |
+| [HashiCorp go-plugin client, 415e29b9](https://github.com/hashicorp/go-plugin/blob/415e29b9562b51ba63782ecbd719927b022c43eb/client.go#L143-L175), [Kill](https://github.com/hashicorp/go-plugin/blob/415e29b9562b51ba63782ecbd719927b022c43eb/client.go#L495-L572), [reattach restrictions](https://github.com/hashicorp/go-plugin/blob/415e29b9562b51ba63782ecbd719927b022c43eb/client.go#L588-L620) | Versioned RPC plugin sets, separate subprocess runner, explicit reattach, graceful shutdown then forced kill, joining client goroutines. Strong inspiration for optional realm/process adapter. | SecureConfig and Reattach cannot be combined in this path; integrity at launch is not evidence for recovered execution identity. Kill returns void; kill error is logged and socket removal failure ignored. AR/EF needs typed physical custody/cleanup receipt, process incarnation and descendant/remote obligations. Not a drop-in TS security boundary. |
+| [DBOS TypeScript claimStartableWorkflows, adde4eb4](https://github.com/dbos-inc/dbos-transact-ts/blob/adde4eb4037d64cd3072d5c6b875cf0bd2927d75/src/system_database.ts#L4720-L4793), [selection and claim](https://github.com/dbos-inc/dbos-transact-ts/blob/adde4eb4037d64cd3072d5c6b875cf0bd2927d75/src/system_database.ts#L4848-L4958), [queue configuration](https://github.com/dbos-inc/dbos-transact-ts/blob/adde4eb4037d64cd3072d5c6b875cf0bd2927d75/src/wfqueue.ts#L81-L88) | Worker-local limits checked without DB; shared limits use budget-scope advisory locking or serializable isolation. Different partition heads otherwise permit write skew. NOWAIT on shared budget, SKIP LOCKED otherwise; atomic UPDATE RETURNING decides actual claims. Queue config can be protected from old deployment overwrites. | Whole-queue lock serializes shared budget claims; measure this bottleneck before choosing shared versus partition grants. Sharded path explicitly cannot span version-row and claim transactions. Do not infer linearizable cross-shard policy from SQL isolation names or exactly-once arbitrary provider effects. |
+| [LangGraph runner, 3e3dbd42](https://github.com/langchain-ai/langgraph/blob/3e3dbd42c5329dd404669ccd923c005c814bee3a/libs/langgraph/langgraph/pregel/_runner.py#L139-L175), [loop pending-write comments](https://github.com/langchain-ai/langgraph/blob/3e3dbd42c5329dd404669ccd923c005c814bee3a/libs/langgraph/langgraph/pregel/_loop.py#L225-L275) | Separate task commits and checkpoints; delta-channel write futures are awaited before checkpoint durability, pending writes and sparse replay are accounted for. | A checkpointed graph task is not a physical CLI/browser operation. Copy state, pending writes, stable effect IDs and dedup evidence together. Explicit replay policy at tool/effect boundary is still needed. |
+| [Kubernetes controller-runtime, 1e19b8e0](https://github.com/kubernetes-sigs/controller-runtime/blob/1e19b8e06116d06d05dc518c6632817cef14e083/pkg/internal/controller/controller.go#L420-L515) | Configured bounded reconciler workers, separate explicit requeue-after and rate-limited error requeue, success forgets retry state. | Local queue semantics are not globally durable ownership or a fairness proof. Keep owner transactions, resource-version checks and reconciliation; avoid using one poll loop or unbounded retry work for the full fleet. |
+
+The useful distinction for our rollout is: **desired artifact/version, accepted
+installation intent, staged plan, active generation for a particular scope,
+receiver authority, useful-work observation, old-work/stream retention,
+physical realm retirement and cleanup debt** are separate records. Reuse
+existing owner-specific contracts to represent them; there must not be a
+second master state machine that claims to own all product state. In a mixed
+version fleet, gate commands by the capability and contract revision actually
+offered at the receiver. Retain old readers while required. A rollback
+publishes a new monotonic authority revision referring to compatible content;
+it does not restore an old fence. For database evolution use owner-approved
+expand/compatible write or read/contract sequences and verify mixed-version
+read/write and replay; no automatic general schema migration engine.
+
+### A7 — Compare those mechanisms against actual product implementation
+
+At [Platform main 76fc9734](https://github.com/agent-teams-ai/agent-teams-platform/tree/76fc9734f6128b78c7a8b1bc858859fb1cbe835a)
+the managed-project-scope-admission feature already demonstrates a suitable
+owner-local pattern. [Dispatch](https://github.com/agent-teams-ai/agent-teams-platform/blob/76fc9734f6128b78c7a8b1bc858859fb1cbe835a/packages/contexts/project-management/src/features/managed-project-scope-admission/application/dispatch-scope-admission.ts#L49-L139)
+claims a lease, rechecks current authority, authorizes the claim, checks both
+expiry bounds, and distinguishes not-submitted from outcome-unknown.
+[Reconciliation](https://github.com/agent-teams-ai/agent-teams-platform/blob/76fc9734f6128b78c7a8b1bc858859fb1cbe835a/packages/contexts/project-management/src/features/managed-project-scope-admission/application/reconcile-scope-admission.ts#L25-L100)
+recovers by original process generation and command ID/digest, and only
+known-not-accepted can go back to safe retry. [Receipt application](https://github.com/agent-teams-ai/agent-teams-platform/blob/76fc9734f6128b78c7a8b1bc858859fb1cbe835a/packages/contexts/project-management/src/features/managed-project-scope-admission/application/apply-scope-admission-receipt.ts#L22-L60)
+separates observed admission from current local authorization; a conflicting
+digest blocks for integrity. The [in-memory lease adapter](https://github.com/agent-teams-ai/agent-teams-platform/blob/76fc9734f6128b78c7a8b1bc858859fb1cbe835a/packages/contexts/project-management/src/features/managed-project-scope-admission/adapters/in-memory/in-memory-dispatch-leases.ts#L19-L79)
+checks project incarnation/revisions, lifecycle epoch, exact lease and expiry;
+expired committed dispatch becomes reconcile-required, not ordinary retry.
+These source observations are not a fleet SQL/recovery qualification.
+The in-memory expiry sweep scans the map; when a persistent adapter is selected,
+index by owner, due time and state, process bounded batches, measure oldest
+eligible age and avoid copying the scan shape into production.
+
+At [AR main cae4d350](https://github.com/agent-teams-ai/agent-runtime/tree/cae4d350c947cd9f74bc04130531527c9a36baeb),
+[provider-generation fence](https://github.com/agent-teams-ai/agent-runtime/blob/cae4d350c947cd9f74bc04130531527c9a36baeb/packages/apps/embedded-runtime/src/features/interactive-session-runtime/adapters/outbound/provider-generation-fence.ts)
+checks generation before dispatching provider commands and acquiring an
+observation iterator; close remains callable. [Host owner](https://github.com/agent-teams-ai/agent-runtime/blob/cae4d350c947cd9f74bc04130531527c9a36baeb/packages/apps/embedded-runtime/src/features/interactive-session-runtime/application/use-cases/create-session-host.ts)
+retains generation even during late durable acquisition. This is admission
+at the adapter, not atomic revocation of a previously returned iterator or
+already executing external operation. Do not call that a bug without the
+full downstream contract. Qualify delayed next()/ack after generation change,
+in-flight external commit and stale owner cancellation/cleanup with actual
+provider receipts. Existing [grant settlement regression](https://github.com/agent-teams-ai/agent-runtime/blob/cae4d350c947cd9f74bc04130531527c9a36baeb/packages/contexts/agent-execution/tests/features/contained-agent-turn/contained-turn-grant-settlement-regression.test.ts)
+asserts that settlement replay cannot restore start authority;
+[Postgres recovery tests](https://github.com/agent-teams-ai/agent-runtime/blob/cae4d350c947cd9f74bc04130531527c9a36baeb/packages/contexts/agent-execution/tests/features/contained-agent-turn/postgres-contained-turn-recovery.test.ts)
+already include quarantine, bounded history, identity, concurrent insertion
+fencing and conservative cleanup debt. Reuse these laws and fixtures before
+designing new primitives. Tests inspected, not executed against PostgreSQL.
+
+For Orchestrator, the previous exact OD-033/OD-005/035 review remains
+applicable: no new broker or workflow engine is needed to settle these
+semantics. Attach placement to a stable owned execution partition, preserve
+one authoritative aggregate writer; Platform assigns and revokes placement,
+Orchestrator owns domain acceptance, AR owns execution/physical custody.
+Keep pure business logic free of cluster dependencies. A partition map and
+bounded cell-local transactions are choices for the affected owners, not a
+new universal distributed aggregate framework.
+
+### A8 — Executed bounded adversarial models for fleet moves and shared budgets
+
+A standalone Python 3.13.5 exhaustive enumeration was run locally. It
+compares deliberately naive variants against stronger candidate invariants.
+It is a counterexample generator, not a proof of the implementation.
+
+| Model | Legal schedules / cases per variant | Naive violations | Candidate violations |
+| --- | ---: | ---: | ---: |
+| Source freeze, copy, placement CAS, old/new commands and same-ID retries | 21 | 15 | 0 |
+| Physical reservation after lease expiry, grant/start/stop and retry | 90 | 10 | 0 |
+| Two partitions spend one shared slot from separately read budget | 6 | 4 | 0 |
+| Old effect accepted/not accepted, retry same ID with same/different digest | 4 | 2 | 0 |
+| Total (different bounded scenarios, not independent probability samples) | 121 | 31 | 0 |
+
+The first model requires freeze < copy < move < new, old < retry_old,
+new < retry_new. A naive writer can still commit after the freeze or move,
+or after copying receipts; reject new old-owner writes at the receiver
+once frozen. The second requires grant_B < start_B < stop_B and
+grant_B < retry_B. Expire/grant_B/start_B/stop_A/retry_B/stop_B demonstrates
+two live operations for one slot when expiry returns physical capacity.
+A conservative reservation keeps the slot until confirmed stop; expiry
+may close admission but cannot manufacture physical release. The third
+allows all interleavings respecting read-before-commit for each partition;
+read_A/read_B/commit_A/commit_B demonstrates write skew. The fourth
+copies the state but intentionally omits the dedup record in the naive
+variant: a lost response followed by retry can apply X twice or accept a
+conflicting digest.
+
+The candidate placement protocol to evaluate is a fenced state machine:
+close old admission and stop old owner writes at the actual receiver;
+record a barrier/watermark and durable state plus unexpired dedup/tombstones,
+outbox and unresolved obligations; verify destination staging; CAS current
+placement revision and activate new receiver authority; route with the new
+epoch; preserve recoverable old receipt queries and reject delayed old
+mutations. A publication response or local cache refresh is not the
+linearization point. For a cross-store transfer, design recovery for every
+step and do not assume atomic commit across stores. If a partition is
+unreachable, fence/lease proof or fail closed; never restore an older
+authority epoch from backup. Remote providers that cannot verify fences
+need reconciliation or isolation/termination before unsafe reassignment.
+
+Capacity alternatives: (A) one atomic budget per owner scope, simple but
+serializing; (B) bounded cell-local escrow grants with conservation,
+release evidence and grant epoch; (C) fixed per-cell quotas, safe but
+potentially stranded capacity. A shared budget authority is required only
+for a genuine shared hard cap. A soft limit may explicitly overshoot.
+Separate admission grants, physical reservations and financial
+settlement; unresolved external work stays charged/reserved according
+to the owner policy. This is consistent with AR's existing capacity plan.
+
+**Model limits:** freeze and receipt copy are assumed atomic abstract
+actions; no network, SQL, clocks, actual providers, crash recovery, liveness,
+multi-cell replication or cryptographic enforcement was executed. The
+safe variants reject some work that a live protocol must later recover or
+retry. The schedule counts are not failure-rate measurements. Before
+adoption, execute real two-receiver tests using the chosen database,
+transport and provider; inject pause/crash before and after each durable
+boundary, stale restore, lost ACK, duplicate/digest conflict and partition.
+An independently reviewed oracle must be separate from implementation.
+
+Compact executable reproduction of the enumeration (Python standard library,
+the same legal-schedule and failure conditions):
+```python
+from itertools import permutations
+
+def placement(safe):
+    n = bad = 0
+    for t in permutations(('old','freeze','copy','move','new','retry_old','retry_new')):
+        if not t.index('freeze') < t.index('copy') < t.index('move') < t.index('new'):
+            continue
+        if t.index('retry_old') < t.index('old') or t.index('retry_new') < t.index('new'):
+            continue
+        n += 1
+        frozen = moved = violation = False
+        old, new = set(), set()
+        for e in t:
+            if e == 'freeze': frozen = True
+            elif e == 'copy': new = set(old)
+            elif e == 'move': moved = True
+            elif e in ('old','retry_old'):
+                if safe and frozen: continue
+                if 'X' not in old:
+                    old.add('X')
+                    violation |= frozen or moved
+            elif e in ('new','retry_new') and moved: new.add('Y')
+        bad += int(violation or not old <= new)
+    return n, bad
+
+def escrow(safe):
+    n = bad = 0
+    for t in permutations(('expire','grant_B','start_B','stop_A','retry_B','stop_B')):
+        if not t.index('grant_B') < t.index('start_B') < t.index('stop_B'):
+            continue
+        if t.index('retry_B') < t.index('grant_B'): continue
+        n += 1
+        a = reserved_a = True
+        b = reserved_b = violation = False
+        for e in t:
+            if e == 'expire' and not safe: reserved_a = False
+            if e == 'stop_A': a = reserved_a = False
+            if e in ('grant_B','retry_B') and not reserved_a and not reserved_b:
+                reserved_b = True
+            if e == 'start_B' and reserved_b: b = True
+            if e == 'stop_B': b = reserved_b = False
+            violation |= a and b
+        bad += int(violation)
+    return n, bad
+
+def shared(safe):
+    n = bad = 0
+    for t in permutations(('read_A','commit_A','read_B','commit_B')):
+        if any(t.index('read_'+p) > t.index('commit_'+p) for p in ('A','B')):
+            continue
+        n += 1
+        used, reads = 0, {}
+        for e in t:
+            op, p = e.split('_')
+            if op == 'read': reads[p] = used < 1
+            elif reads[p] and (not safe or used < 1): used += 1
+        bad += int(used > 1)
+    return n, bad
+
+def receipts(safe):
+    bad = 0
+    for accepted in (False, True):
+        for digest in ('d1','d2'):
+            old = {'X':'d1'} if accepted else {}
+            new = dict(old) if safe else {}
+            effects = int(accepted)
+            if 'X' in new: status = 'duplicate' if new['X'] == digest else 'conflict'
+            else: effects += 1; new['X'] = digest; status = 'accepted'
+            bad += int(accepted and (effects != 1 or (digest == 'd2' and status != 'conflict')))
+    return 4, bad
+
+for f, expected in ((placement,(21,15)),(escrow,(90,10)),(shared,(6,4)),(receipts,(4,2))):
+    assert f(False) == expected
+    assert f(True) == (expected[0],0)
+```
+
+This is a follow-through of the earlier architecture priorities, not a demand
+to implement fleet migration in the first local host milestone. Specify the
+authority/receipt boundary before affected schema/transport choices. Build
+the simplest owner-scoped implementation first and promote the hosted
+profile only on real qualification evidence.
