@@ -206,7 +206,7 @@ foundation for hostile multi-tenant fleet execution.
 
 | Reference | Mechanism and limit | Our application |
 | --- | --- | --- |
-| Temporal [server c2ec24c][fleet-temporal-tree], [matching partition manager][fleet-temporal-matching] (2026-11-26); [Worker Versioning GA][fleet-temporal-version] | Matching partitions and build-specific physical queues, including explicit draining and liveness relationships. Worker versions support rollout and migration at compatible continuation boundaries. A configured RPS constant is not a benchmark. | OD-005/035 and E6: workflow/history and version affinity through durable wait; Temporal behind an owning workflow port, not another business authority or automatic exactly-once external effects. |
+| Temporal [server c2ec24c][fleet-temporal-tree], [matching partition manager][fleet-temporal-matching] (2026-11-26); [Worker Versioning GA][fleet-temporal-version] | Matching partitions and build-specific physical queues, including explicit draining and liveness relationships. Worker versions support rollout and migration at compatible continuation boundaries. A configured RPS constant is not a benchmark. | OD-005 and E6 under [accepted ADR-0116](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/3dccf2c53bf11f3939a19734a58f5e64d96673d0/docs/decisions/0116-native-temporal-for-fully-local-durable-workflows.md): selected Temporal family, workflow/history and version affinity through durable wait; OD-035 engine selection is resolved. Temporal stays behind an owning workflow port, not another business authority or automatic exactly-once external effects. |
 | Kubernetes [client-go 96596e7][fleet-kube-tree], [typed workqueue][fleet-kube-queue] (2026-11-21); [large-cluster guidance][fleet-kube-scale] | Coalescing/reconciliation queue with replaceable storage and explicit drain; documented cluster scale envelope is for infrastructure objects, not agent throughput. | Reconcile desired versus observed placement and custody, not a global polling loop. Queue state may be disposable only when durable owner state reconstructs intent. Avoid one sidecar/SQL pool/Orchestrator process per agent. |
 | [Kueue fair sharing][fleet-kueue], [admission design][fleet-kueue-kep] and [preemption request 17630][fleet-kueue-issue] | Quota-aware workload admission and usage-based preference; ordering and preemption are distinct decisions. Upstream issue records demand for separating them. | AR C0–C3/D2: compare hierarchical resource-vector fairness and non-preemptive baseline. Cannot terminate a provider process merely by releasing a scheduling reservation; retain custody. |
 | [Ray actor fault tolerance][fleet-ray-actors] and [object recovery][fleet-ray-objects] (rolling official documentation) | Actor unavailable can leave effect result ambiguous; retries may re-execute; reconstruction assumes deterministic/idempotent tasks and surviving object owner. | Preserve unknown outcomes, owner-local durable references, explicit lineage limits, no automatic repeat of irreversible tool calls. Ray only a candidate substrate if needed, not semantic authority. |
@@ -964,9 +964,10 @@ already include quarantine, bounded history, identity, concurrent insertion
 fencing and conservative cleanup debt. Reuse these laws and fixtures before
 designing new primitives. Tests inspected, not executed against PostgreSQL.
 
-For Orchestrator, the previous exact OD-033/OD-005/035 review remains
-applicable: no new broker or workflow engine is needed to settle these
-semantics. Keep one authoritative writer for each owned aggregate. The exact
+For Orchestrator, the OD-033 and OD-005 contract review remains applicable
+under [ADR-0116](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/3dccf2c53bf11f3939a19734a58f5e64d96673d0/docs/decisions/0116-native-temporal-for-fully-local-durable-workflows.md),
+which resolves OD-035's engine selection. No new broker or workflow engine is
+needed to settle these semantics. Keep one authoritative writer for each owned aggregate. The exact
 [Orchestrator ADR-0079 ownership matrix](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/3dccf2c53bf11f3939a19734a58f5e64d96673d0/docs/decisions/0079-runtime-authority-binding-cutoff-and-disposition.md#L84-L205)
 is controlling: Platform or Standalone Authority owns external product
 lifecycle/membership/entitlement; Orchestration Scope owns project-level
