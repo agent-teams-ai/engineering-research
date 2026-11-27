@@ -57,6 +57,206 @@ variant, excluded guarantees, source/fixture identity and an exact link in
 the owning plan; close a row by pointing to existing equivalent coverage.
 No new universal readiness score or checklist per file.
 
+### Implementation decision and sizing packet (2026-11-28)
+
+Status: recommended engineering sequence for owner review, **not adoption of
+Q1-Q7, a new required gate, an implementation assignment or an approved public
+contract**. It refines the preceding early decisions and their existing owner
+plans, without counting their prior estimates a second time. The objective is
+competitive useful plugin behavior and narrow failure scope, not feature count
+or a claim that our current code outperforms OpenClaw.
+
+#### Source inventory and practical baseline
+
+| Exact inspected source | Reusable now | Remaining gap |
+| --- | --- | --- |
+| [LMU `da34ba61`](https://github.com/agent-teams-ai/live-module-updates/tree/da34ba61c0998acf526465ba047b4f5eab44d85b/src) | 1,529 physical TS lines in 15 production/export files (1,409 nonblank); one finite cooperative coordinator, invocation reservation, generations, compatibility, prepare, publish/lookup, useful adoption probe and original cleanup | Explicit stream lifetime, affected coherent cohorts beyond the single selected update domain, durable Host custody/restart and longer-lived execution profiles |
+| [EF candidate `de323977`](https://github.com/agent-teams-ai/extension-foundation/tree/de323977f1320280496d2d7f4d894b4a7beaef20/packages), [PR #70](https://github.com/agent-teams-ai/extension-foundation/pull/70) | 787 physical TS lines in 13 package source files (731 nonblank); typed contribution matching, inert bounded carrier, actual verified artifact adapter and admitted evaluation | Package admission/managed-toolchain delivery remains open. E4-E6 installation/state/grants, independent product integration, supported native containment and release are not yet supplied by these packages. |
+| [GM `e5bed69b`](https://github.com/agent-teams-ai/get-modular/tree/e5bed69b096949346b9c2ffeed24850f86abd406) | Public Core/Assembly 0.8.0 contracts, Resources, Observation, optional Effect, compiler diagnostics and explicit composition | No need for a second compiler, container or private lifecycle-kernel import; use public composition facts and qualify only an actual missing capability. |
+| [Runtime Stage K](https://github.com/agent-teams-ai/agent-runtime/blob/e8c12c5b3d659f6530d6e17c9242c180f3410ffe/docs/spikes/stage-k-capacity-fairness-results.md) | Accepted PostgreSQL 18.4 model: 32 concurrent claims for 8 slots, 10/10/10 equal-tenant grants, replay and reclaim controls, 300-grant soak | No agent/provider/worker launched in Stage K. Production C1-C3 allocator, real control capacity, multi-controller/native custody and fleet evidence remain distinct. |
+| [OpenClaw `de4d1cc8` manifest](https://github.com/openclaw/openclaw/blob/de4d1cc8c1d9361da01eae3f29ef347e3631fe4c/docs/plugins/manifest.md#generation-overlap), [handover eligibility](https://github.com/openclaw/openclaw/blob/de4d1cc8c1d9361da01eae3f29ef347e3631fe4c/src/plugins/plugin-turn-handover-eligibility.ts), [tool handoff](https://github.com/openclaw/openclaw/blob/de4d1cc8c1d9361da01eae3f29ef347e3631fe4c/src/agents/tools/session-tool-handoff.ts) | Explicit author opt-in to overlapping generations; serialized replacement otherwise; eligible model-step handover and detached terminal management intent | Transfer the useful principles, not its registry or Gateway authority. Overlap and handover are not equivalent; a process-wide reload stop is not the desired default for independent product areas. |
+
+The physical-line counts exclude fixtures/test API, package admission scripts,
+locks, configuration and documentation. These are source measurements, not
+release receipts or estimates of the entire repository. The exact candidate
+heads may move; use current owner evidence at implementation time.
+
+#### Recommended mechanism choices and alternatives
+
+R = achievable reliability within the explicitly stated profile, U =
+confidence in the recommendation from available source evidence, C =
+conceptual/operational complexity (10 is highest). These are engineering
+judgments, not measured availability. P/T are estimated **incremental
+handwritten production/integration TS and test/fixture lines**; alternatives
+within a question are not additive. A cheaper alternative with a weaker
+guarantee is not rated as if it satisfies the stronger guarantee.
+
+| Decision / alternative | R / U / C | P / T lines | Disposition |
+| --- | --- | --- | --- |
+| Q2: whole-Host drain and restart | 8 / 9 / 3 | 100-250 / 250-600 | Valid baseline and fallback; does not preserve independent useful work during restart. |
+| Q2: smallest coherent affected cohort using old/new GM plans and one owner CAS | 9 / 8 / 6 | 650-1,300 / 900-1,800 | **Recommended.** Separate update domains only where shared owners and state permit. Borrow compatible dependencies; replace or coordinate the actual affected closure. |
+| Q2: every module has an independently mutable generation and resolver | 5 / 6 / 8 | 1,500-3,500 / 2,000-4,000 | Reject as default. Cross-module authority/lifetime, reentrancy and shared resource costs; no need for a second resolver. |
+| Q5: retain admitted work through explicit finite operation/stream custody | 9 / 8 / 5 | 350-750 / 600-1,200 | **Recommended first profile extension.** Use current LMU lifetime owner and native Resources/Effect when selected. |
+| Q5: versioned safe-step agent handover | 8 / 7 / 6 | 600-1,300 / 1,000-2,000 | Add for a real product continuation contract; not arbitrary JS-stack or provider-session migration. Includes offered-tool contract revision. |
+| Q5: automatic cancel/restart or replay of old work on update | 5 / 8 / 4 | 200-450 / 400-800 | Only explicit interruption with known safe restart semantics; unknown effects cannot be retried automatically. |
+| Q1/realm: finite trusted in-process evaluation budget, controlled restart | 8 / 9 / 3 | 180-400 / 300-650 | **Initial baseline.** Counter includes failed execution/validation; never claim ESM unload. |
+| Q1/realm: recyclable subprocess per compatible trust/resource cohort | 8 / 7 / 7 | 700-1,500 / 1,000-2,000 | Preferred later native experiment for continuous updates; process placement alone is not hostile-code isolation. |
+| Q1/realm: mandatory Wasm or worker for all modules | 6 / 6 / 8 | Not responsibly sized without a selected ABI/profile | Reject as blanket default. Optional isolated Wasm/WIT adapter is a separate selected target. A JS Worker alone does not enforce a hostile boundary. |
+| Durable install: existing Host-owned PostgreSQL state/receipt adapter plus reusable EF contracts | 9 / 8 / 6 | 1,200-2,400 / 1,700-3,200 | **Recommended initial test Host**; no second product authority, no implicit production adoption. |
+| Durable install: one generic global EF catalog/authority database | 5 / 8 / 8 | 2,500-5,000 / 3,000-6,000 | Reject conflicting authority. A catalog can be a derived discovery view, not the grant or active-head writer. |
+| Durable install: local file snapshot only | 7 / 8 / 3 | 250-600 / 400-900 | Can fit a narrower restart-only, single-writer fixture; cannot prove concurrent durable grant/effect and installation recovery. |
+
+For Q3, keep canonical business data with its owner, compatible reconstruction
+and explicit migrations; do not snapshot arbitrary plugin heap. For Q4, confirm
+actual useful new-generation work at the next eligible request/view boundary.
+For Q6, rollback is a fresh authorized compatible transition; otherwise use
+explicit recovery, compensation or fix-forward. For Q7, name the finite retained
+client/asset/receipt horizon in the selected profile. Never choose an arbitrary
+global retention duration or pretend to support indefinite offline clients.
+A product can stop waiting at a deadline, but cannot declare physical disposal
+or erase pending obligations because a deadline elapsed.
+
+#### Incremental delivery estimate (one complete trusted reference profile)
+
+These rows partition new work by semantic owner; existing GM/EF/LMU code,
+earlier spikes and toolchain PRs are not included. Use actual E4 state/receipt
+ports and their independent owner implementation first. The first Host may be
+a disposable qualification Host with real PostgreSQL and actual signed OCI;
+the second independently wired Host tests public packages, not a second stable
+SPI implementation. P and T are conditional estimates, not targets to fill;
+a proven existing implementation can reduce any row to zero.
+
+| Slice / existing owner | P lines | T lines | Engineer-days | R / U / C |
+| --- | ---: | ---: | ---: | --- |
+| A. Small typed author path, metadata and actionable first-use errors / EF E6 and existing GM builder | 200-450 | 350-700 | 3-6 | 8 / 8 / 3 |
+| B. Durable installation, enable/disable/remove, grant delta, expected revision, actual state and receipt adapter / EF E4-E5 and selected Host | 1,200-2,400 | 1,700-3,200 | 10-18 | 9 / 7 / 6 |
+| C. Coherent affected update groups, read-only impact, actual revalidation and unrelated-work continuity / LMU F4 and GM public facts | 650-1,300 | 900-1,800 | 6-12 | 9 / 8 / 6 |
+| D. Explicit stream custody, cancellation, old-generation drain / LMU F4/F5 | 350-750 | 600-1,200 | 4-8 | 9 / 8 / 5 |
+| E. Bounded cumulative evaluation, companion retention and controlled restart / EF loader, LMU and execution owner | 180-400 | 300-650 | 2-5 | 8 / 9 / 3 |
+| F. Joint installed/packed signed artifact journey and cross-owner fault cases not already counted in A-E / existing shared reference | 120-300 | 700-1,400 | 4-7 | 9 / 8 / 5 |
+| **Total A-F (conditional)** | **2,700-5,600** | **4,550-8,950** | **29-56** | 8 / 6 / 6 |
+
+Total handwritten P+T is 7,250-14,550 lines; review/fix and native qualification
+time is included in engineer-days, not calendar/CI queue time. Exclude upstream
+toolchain/admission completion, broad product implementation, production UI,
+cross-OS hostile isolation, marketplace, multiserver ownership and real fleet
+qualification. Database schema and deployment configuration for the one
+selected fixture are separate bounded work; estimates assume existing artifact
+verification, GM public composition/resources and LMU operation are usable.
+
+Optional, separately selected delivery increments (do not add them merely to
+complete a feature list):
+
+| Profile / existing owner | P lines | T lines | Engineer-days | R / U / C |
+| --- | ---: | ---: | ---: | --- |
+| G. One recyclable Node subprocess cohort, typed IPC and actual exit observation, not hostile-code containment / LMU + selected executor | 700-1,500 | 1,000-2,000 | 7-15 | 8 / 7 / 7 |
+| H. Agent self-update management intent, same-session receipt/resume and model-step tool revision / actual Run/Agent owner + Runtime | 600-1,300 | 1,000-2,000 | 6-12 | 8 / 7 / 6 |
+| I. One selected Linux hostile-code containment adapter and receiver/custody proof, assuming existing admitted executor primitives / Runtime Security and physical execution owner | 900-2,000 | 1,400-3,000 | 10-20 | 8 / 5 / 8 |
+| J. One Host-native management UI using the actual read-only explanation and current grants / product presentation | 350-800 | 500-1,000 | 4-8 | 8 / 7 / 4 |
+
+G and I are different guarantees. If the same native transport/lifetime code
+serves both, count it once after inventory. H assumes a real existing
+continuation authority, not building all Run Orchestration. J excludes a
+universal UI schema and full marketplace. No credible cost estimate for all
+target runtimes/OSes or stable public SPI before their contracts are selected.
+
+#### Product contracts and fleet sequence before dependent implementation
+
+Use the existing [Runtime capacity plan](https://github.com/agent-teams-ai/agent-runtime/blob/main/docs/architecture/capacity-admission-delivery-plan.md),
+[Orchestrator OD-033](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/main/docs/open-decisions/OD-033-ooda-convergence-and-context-activation.md),
+[OD-043](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/main/docs/open-decisions/OD-043-extension-lifecycle-catalog-and-hot-update.md)
+and [Platform integration plan](https://github.com/agent-teams-ai/agent-teams-platform/blob/main/docs/architecture/shared-research-integration-plan.md).
+Do not invent another shared scheduler, saga engine, cell directory or grant
+ledger. Treat these as earlier contracts for existing delivery owners.
+
+| C0-C3 or selected follow-up | Recommended first shape and invariant | P / T lines | Days; R / U / C |
+| --- | --- | --- | --- |
+| C0 | Name actual quota scopes, resource vectors, grant-opportunity bound, durable identities, data/control budgets, owner ports and support horizon before production schema. Reuse Stage K. | 0 production; existing model not recounted | 2-4; 9 / 8 / 4 |
+| C1 | Owner-local indexed PostgreSQL queue and reservation CAS, exact replay/expiry/cancel/accounting; bound pending bytes and receipts. Broker wake is not authority. | 1,000-2,000 / 1,500-3,000 | 8-15; 9 / 7 / 6 |
+| C2 | Bounded fair dispatcher, physical lease/fence/reclaim integration and actually reserved control capacity at downstream resources; real concurrent owners. | 1,500-3,000 / 2,000-4,000 | 12-22; 9 / 6 / 8 |
+| C3 | Typed observation, bounded hosted worker/cancel/restart and overload proof under the selected profile; current worker version through retained work. | 600-1,300 / 900-1,800 | 5-8; 8 / 6 / 6 |
+| Optional hosted warm pool | Desired vs observed vs in-flight vs claimable capacity, bounded indexed replenishment, sustained arrivals and cache lag, use real selected executor/adapter. | 500-1,100 / 700-1,500 | 5-10; 8 / 7 / 6 |
+
+C0-C3 subtotal: 3,100-6,300 production/integration TS, 4,400-8,800 test/fixture
+lines and 27-49 engineer-days, conditional on reuse of admitted ordinary
+execution/custody. Confidence in sizing is low (4/10) until C0 inventories
+the actual adapters; exclude new executor, business orchestration, multi-cell
+implementation and any fleet/host resource costs. Existing Stage K model is
+not production implementation. Warm pool and larger deployment are not in this
+subtotal.
+
+For a shared hard cap across independently admitted pools, compare one
+authoritative quota transaction (R/U/C 9/8/5) with explicitly conserved finite
+shares/escrow (9/6/8); use single scoped authority first, choose escrow only when
+measured contention warrants the cost and exact ownership/reclaim can be
+proved. Uncoordinated per-replica counters (4/9/3) cannot enforce a global
+hard cap. See D2 for the already identified alternatives; a production LOC
+estimate needs the selected quota topology, unit and owner. Do not re-count
+ordinary C1-C3 as new cross-cell implementation.
+
+Before a product exposes model-step hot handover, Runtime/Run/Agent Context
+must bind the exact offered tool contract/version and selected implementation
+to the pending invocation and receipt. Do not validate old arguments against a
+new same-name tool or silently invoke another provider. At an admitted safe
+checkpoint, re-resolve compatible tools under current receiver grants and
+retain original command/effect identity. If the provider cannot expose this
+checkpoint, keep the admitted work pinned or report the explicit supported
+interruption; do not fake continuation. This is H's product-specific contract,
+not a new shared LMU protocol or work added to the finite Host fixture.
+
+For physical cells, retain stable logical identities, a single placement/
+authority owner and exact effect/receipt identities now. Do not promise
+automatic cross-cell Run moves, global throughput or a 300k fleet from a single
+pool. A later hosted two-cell boundary requires actual source fencing,
+destination custody, migration/recovery and a named load envelope; production
+sizing remains open until placement/store/provider seams exist. Benchmark
+useful throughput, p95/p99 admission and control latency, memory, queue bytes,
+storage contention, cleanup debt and per-tenant fairness before changing
+physical topology. Use several cells only when workload/failure/tenancy
+requires them, preserving a real one-agent local profile.
+
+#### End-to-end implementation and review sequence
+
+1. Finish existing EF #70 and LMU #12 and their selected admission/toolchain
+   dependencies; do not add these new profiles to either current PR. Record
+   exact source and actual package availability/admission.
+2. Start A/B and C in existing semantic owners once their applicable contracts
+   are selected; keep pure authoring/static composition independent. Use real
+   typed plugin A/B with independent useful effects and actual signed artifacts.
+3. Verify rejected capability expansion and stale preview cannot change grants
+   or active generation. Install, invoke, update, disable, uninstall and
+   restart with canonical data preserved. Inject lost publish ACK, crash
+   between durable write and local route installation, conflicting request,
+   late callback and failed preparation. Preserve the exact original receipt.
+   A Host must refuse admission when its local routing view cannot establish
+   the selected authoritative revision.
+4. Test continuous unrelated work while replacing an affected cohort. A shared
+   mutable owner cannot be updated independently by two cohorts. Hold old work
+   and companion bytes until real settlement; reject excess retention, verify
+   actual release, repeat within measured budgets, and demonstrate fresh useful
+   B rather than just successful activation. Add D stream cancellation and
+   independent original cleanup. E does not claim unlimited in-process reload.
+5. Run F through the exact packed public surface in independent test Hosts,
+   retain source/artifact/environment receipts, native positive and deliberately
+   rejecting controls. Only later select G/H/I/J through their existing
+   owner paths and actual product integration. Proof of H includes the holding
+   turn ending, duplicate resume rejection, original unknown effect retained
+   and no unrelated interruption. No claim that a fixture is a product release.
+6. In parallel do C0 then the selected C1-C3. Reproduce the actual Stage K
+   counterexamples at PostgreSQL/worker/receiver seams; compare indexed claims
+   at sustained traffic and protect cancellation/reclaim under saturation.
+   Preserve the existing native engine selection and local delivery route.
+   Scale measured disposable workloads before selecting a new cell topology.
+
+Open choices requiring owner policy, not speculative code: the first actual
+untrusted execution/OS boundary (Q1), promised continuity versus explicitly
+allowed downtime for a given capability (Q5), and the compatibility/retention
+window for old clients (Q7). The bounded trusted reference can be planned and
+qualified independently. When a product requires a stronger profile, report
+its exact alternatives, denied guarantees, measured evidence and refreshed
+P/T/effort; do not silently upgrade the trust or availability promise. No
+additional broad architecture review gate is created.
+
 ### Owner follow-through for competitive plugins
 
 The owner's expanded request on 2026-11-27 requires competitive modularity,
