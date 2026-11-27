@@ -97,11 +97,13 @@ guarantee is not rated as if it satisfies the stronger guarantee.
 | Q2: smallest coherent affected cohort using old/new GM plans and one owner CAS | 9 / 8 / 6 | 650-1,300 / 900-1,800 | **Recommended.** Separate update domains only where shared owners and state permit. Borrow compatible dependencies; replace or coordinate the actual affected closure. |
 | Q2: every module has an independently mutable generation and resolver | 5 / 6 / 8 | 1,500-3,500 / 2,000-4,000 | Reject as default. Cross-module authority/lifetime, reentrancy and shared resource costs; no need for a second resolver. |
 | Q5: retain admitted work through explicit finite operation/stream custody | 9 / 8 / 5 | 350-750 / 600-1,200 | **Recommended first profile extension.** Use current LMU lifetime owner and native Resources/Effect when selected. |
-| Q5: versioned safe-step agent handover | 8 / 7 / 6 | 600-1,300 / 1,000-2,000 | Add for a real product continuation contract; not arbitrary JS-stack or provider-session migration. Includes offered-tool contract revision. |
+| Q5: versioned safe-step agent handover within a continuing turn | 8 / 6 / 7 | 500-1,100 / 900-1,700 | Select only for a provider with a genuine checkpoint, after H1's basic authority/receipt contracts. Not arbitrary JS-stack or provider-session migration. |
 | Q5: automatic cancel/restart or replay of old work on update | 5 / 8 / 4 | 200-450 / 400-800 | Only explicit interruption with known safe restart semantics; unknown effects cannot be retried automatically. |
 | Q1/realm: finite trusted in-process evaluation budget, controlled restart | 8 / 9 / 3 | 180-400 / 300-650 | **Initial baseline.** Counter includes failed execution/validation; never claim ESM unload. |
 | Q1/realm: recyclable subprocess per compatible trust/resource cohort | 8 / 7 / 7 | 700-1,500 / 1,000-2,000 | Preferred later native experiment for continuous updates; process placement alone is not hostile-code isolation. |
-| Q1/realm: mandatory Wasm or worker for all modules | 6 / 6 / 8 | Not responsibly sized without a selected ABI/profile | Reject as blanket default. Optional isolated Wasm/WIT adapter is a separate selected target. A JS Worker alone does not enforce a hostile boundary. |
+| Q1: existing qualified native executor for one Linux hostile-code profile | 8 / 5 / 8 | 900-2,000 / 1,400-3,000 | Preferred investigation where untrusted Node-compatible code is required. Reuse actual containment, receiver grants and custody; no isolation claim from a subprocess alone. |
+| Q1: Wasm/WIT adapter for one constrained capability ABI | 8 / 5 / 8 | 700-1,600 / 1,000-2,500 | Alternative experiment, assuming an existing maintained sandbox-capable runtime. Cannot replace arbitrary Node plugins. Qualify host imports, quotas, stop and actual isolation. |
+| Q1: JS Worker as the sole hostile-code boundary | 3 / 9 / 3 | 150-400 / 300-700 for trusted-worker plumbing only | Reject for hostile code; that cost cannot purchase the claimed security guarantee. No mandatory isolation runtime for ordinary modules. |
 | Durable install: existing Host-owned PostgreSQL state/receipt adapter plus reusable EF contracts | 9 / 8 / 6 | 1,200-2,400 / 1,700-3,200 | **Recommended initial test Host**; no second product authority, no implicit production adoption. |
 | Durable install: one generic global EF catalog/authority database | 5 / 8 / 8 | 2,500-5,000 / 3,000-6,000 | Reject conflicting authority. A catalog can be a derived discovery view, not the grant or active-head writer. |
 | Durable install: local file snapshot only | 7 / 8 / 3 | 250-600 / 400-900 | Can fit a narrower restart-only, single-writer fixture; cannot prove concurrent durable grant/effect and installation recovery. |
@@ -140,8 +142,9 @@ Total handwritten P+T is 7,250-14,550 lines; review/fix and native qualification
 time is included in engineer-days, not calendar/CI queue time. Exclude upstream
 toolchain/admission completion, broad product implementation, production UI,
 cross-OS hostile isolation, marketplace, multiserver ownership and real fleet
-qualification. Database schema and deployment configuration for the one
-selected fixture are separate bounded work; estimates assume existing artifact
+qualification. Allow approximately 150-400 additional SQL migration lines and 150-300
+configuration/documentation lines for the one fixture if required; their effort
+is already included in the B/F day ranges, not their TS totals. Estimates assume existing artifact
 verification, GM public composition/resources and LMU operation are usable.
 
 Optional, separately selected delivery increments (do not add them merely to
@@ -150,14 +153,23 @@ complete a feature list):
 | Profile / existing owner | P lines | T lines | Engineer-days | R / U / C |
 | --- | ---: | ---: | ---: | --- |
 | G. One recyclable Node subprocess cohort, typed IPC and actual exit observation, not hostile-code containment / LMU + selected executor | 700-1,500 | 1,000-2,000 | 7-15 | 8 / 7 / 7 |
-| H. Agent self-update management intent, same-session receipt/resume and model-step tool revision / actual Run/Agent owner + Runtime | 600-1,300 | 1,000-2,000 | 6-12 | 8 / 7 / 6 |
+| H1. Agent self-update intent, settlement of the holding turn, same-session receipt/resume and offered-tool identity / actual Run/Agent owner + Runtime | 600-1,300 | 1,000-2,000 | 6-12 | 8 / 7 / 6 |
+| H2. Safe model-step handover inside a continuing turn, only if the provider offers a qualified checkpoint / Runtime and Run owner, incremental beyond H1 | 500-1,100 | 900-1,700 | 5-10 | 8 / 6 / 7 |
 | I. One selected Linux hostile-code containment adapter and receiver/custody proof, assuming existing admitted executor primitives / Runtime Security and physical execution owner | 900-2,000 | 1,400-3,000 | 10-20 | 8 / 5 / 8 |
 | J. One Host-native management UI using the actual read-only explanation and current grants / product presentation | 350-800 | 500-1,000 | 4-8 | 8 / 7 / 4 |
 
 G and I are different guarantees. If the same native transport/lifetime code
-serves both, count it once after inventory. H assumes a real existing
-continuation authority, not building all Run Orchestration. J excludes a
-universal UI schema and full marketplace. No credible cost estimate for all
+serves both, count it once after inventory. H1/H2 assume a real existing
+continuation authority, not building all Run Orchestration. H1 ends the old
+turn and resumes the same conversation; H2 preserves a selected continuing
+turn at a provider-supported checkpoint. These are not interchangeable.
+J excludes a universal UI schema and full marketplace.
+A-F + G + H1 + J is the conditional trusted interactive target: 4,350-9,200
+production/integration TS, 7,050-13,950 test/fixture lines and 46-91 engineer-days,
+including the one disposable reference, one recyclable cohort, one product
+handoff adapter and one management surface. It excludes H2/I, general product
+foundation, release and cross-platform work. This is an implementation budget,
+not a claim of comparative superiority; re-estimate at each selected seam. No credible cost estimate for all
 target runtimes/OSes or stable public SPI before their contracts are selected.
 
 #### Product contracts and fleet sequence before dependent implementation
@@ -185,14 +197,20 @@ implementation and any fleet/host resource costs. Existing Stage K model is
 not production implementation. Warm pool and larger deployment are not in this
 subtotal.
 
-For a shared hard cap across independently admitted pools, compare one
-authoritative quota transaction (R/U/C 9/8/5) with explicitly conserved finite
-shares/escrow (9/6/8); use single scoped authority first, choose escrow only when
-measured contention warrants the cost and exact ownership/reclaim can be
-proved. Uncoordinated per-replica counters (4/9/3) cannot enforce a global
-hard cap. See D2 for the already identified alternatives; a production LOC
-estimate needs the selected quota topology, unit and owner. Do not re-count
-ordinary C1-C3 as new cross-cell implementation.
+For a hard cap shared across independently admitted pools, start with one
+quota owner and measure contention. Conditional **increment beyond C1-C3**:
+
+| Alternative for one named shared quota | R / U / C | P / T lines; days |
+| --- | --- | --- |
+| One authoritative quota transaction serving two pools | 9 / 8 / 5 | 250-600 / 500-1,000; 4-8 |
+| Explicitly conserved finite shares, reclaim and rebalancing | 9 / 6 / 8 | 900-1,800 / 1,500-3,000; 10-18 |
+| Independent per-replica counters without conservation | 4 / 9 / 3 | 0 additional shared-cap code; reject for the shared-cap guarantee |
+
+The first two estimates assume the C1-C3 store, receipt and worker seams
+already exist, and cover only one quota/owner and two pools, not arbitrary
+cross-cell migration. Choose finite shares only when measurement justifies
+the added stranded-capacity, recovery and operational cost. See D2. Re-estimate
+on the selected topology; do not count ordinary C1-C3 twice.
 
 Before a product exposes model-step hot handover, Runtime/Run/Agent Context
 must bind the exact offered tool contract/version and selected implementation
@@ -201,7 +219,7 @@ new same-name tool or silently invoke another provider. At an admitted safe
 checkpoint, re-resolve compatible tools under current receiver grants and
 retain original command/effect identity. If the provider cannot expose this
 checkpoint, keep the admitted work pinned or report the explicit supported
-interruption; do not fake continuation. This is H's product-specific contract,
+interruption; do not fake continuation. These are H1/H2 product-specific contracts,
 not a new shared LMU protocol or work added to the finite Host fixture.
 
 For physical cells, retain stable logical identities, a single placement/
@@ -229,7 +247,13 @@ requires them, preserving a real one-agent local profile.
    between durable write and local route installation, conflicting request,
    late callback and failed preparation. Preserve the exact original receipt.
    A Host must refuse admission when its local routing view cannot establish
-   the selected authoritative revision.
+   the selected authoritative revision. LMU currently reads a synchronous
+   inert owner snapshot while publication may settle asynchronously. The
+   durable Host adapter must define a bounded affected-domain admission
+   barrier across commit, local visibility, lookup and recovery; a stale local
+   projection cannot authorize new work. Verify crash on either side of the
+   commit and reconstruction on cold start. Do not treat an asynchronous
+   database commit and an in-memory assignment as one atomic operation.
 4. Test continuous unrelated work while replacing an affected cohort. A shared
    mutable owner cannot be updated independently by two cohorts. Hold old work
    and companion bytes until real settlement; reject excess retention, verify
@@ -238,8 +262,8 @@ requires them, preserving a real one-agent local profile.
    independent original cleanup. E does not claim unlimited in-process reload.
 5. Run F through the exact packed public surface in independent test Hosts,
    retain source/artifact/environment receipts, native positive and deliberately
-   rejecting controls. Only later select G/H/I/J through their existing
-   owner paths and actual product integration. Proof of H includes the holding
+   rejecting controls. Only later select G/H1/H2/I/J through their existing
+   owner paths and actual product integration. Proof of H1 includes the holding
    turn ending, duplicate resume rejection, original unknown effect retained
    and no unrelated interruption. No claim that a fixture is a product release.
 6. In parallel do C0 then the selected C1-C3. Reproduce the actual Stage K
