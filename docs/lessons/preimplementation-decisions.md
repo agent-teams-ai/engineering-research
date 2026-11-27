@@ -40,14 +40,14 @@ visible in each linked commit or PR.
 | Owner and publication record | Existing document and required follow-through |
 | --- | --- |
 | [Get Modular #260](https://github.com/agent-teams-ai/get-modular/pull/260) | Compiler engineer handbook: selected-root closure versus affected old/new replacement, exact bindings and retained shared resources. |
-| [Extension Foundation #71](https://github.com/agent-teams-ai/extension-foundation/pull/71) | OD-003: complete installed-plugin journey, trust profiles, versioned headless/UI contracts and authoring proof. |
+| [Extension Foundation #71](https://github.com/agent-teams-ai/extension-foundation/pull/71), [clarification #72](https://github.com/agent-teams-ai/extension-foundation/pull/72) | OD-003: complete installed-plugin journey, trust profiles, versioned headless/UI contracts and authoring proof. |
 | [LMU f38f2e63](https://github.com/agent-teams-ai/live-module-updates/commit/f38f2e634e7b9e28e4294f1ea8f7ead909e35ab9) | Foundation delivery plan: required continuous-update outcomes, applicable replacement modes, real stream lifetime, independent self-update and cumulative realm budgets. |
 | [Agent Runtime #264](https://github.com/agent-teams-ai/agent-runtime/pull/264) | Capacity delivery plan: quota scope and release receipt, actual downstream control reserves, receiver enforcement and unresolved physical custody. |
 | [Orchestrator #112](https://github.com/agent-teams-ai/agent-teams-orchestrator/pull/112) | OD-033 and OD-043: causal wait/wake and budgets, existing placement ownership, useful product lifecycle and compatible state/recovery. |
 | [Platform #66](https://github.com/agent-teams-ai/agent-teams-platform/pull/66) | Shared research integration plan: mixed-version rollout, distinct authority dimensions, qualified future moves and bounded offline/revocation behavior. |
 | [Engineering Foundation #489](https://github.com/agent-teams-ai/engineering-foundation/pull/489) | Executable capabilities, Deferred work: optional development-time conformance extraction with owner-supplied semantics and real-store/provider evidence. |
 
-These reviewed owner additions total **372 Markdown lines across eight existing
+These reviewed owner updates add a net **374 Markdown lines across eight existing
 documents**, separately from this research corpus and its review corrections.
 They add **0 production/integration LOC and 0 new test LOC**. The full journey
 is a required target; accepted finite envelopes and each owner's implementation,
