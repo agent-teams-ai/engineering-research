@@ -28,6 +28,35 @@ P0 means before offering the affected guarantee, not before every unrelated deli
 | P0 before durable plugin/state contracts | Artifact identity, installation permission, runtime authority and versioned state are separate; owner invariants remain authoritative. | State and extension owners define the compatibility horizon, old readers/writers, replay/cleanup paths and allowed migration. Rollback uses fresh authority. Name actual containment for an untrusted profile; a signature or Worker alone is insufficient. Use E6, EF OD-003 and Orchestrator OD-043. |
 | P0 before hosted partition/routing schemas | ADR-0079/0048/0065 retain placement, logical transfer and successor ownership. | Orchestration Scope retains project-to-runtime binding authority. Record stable logical identity, initial placement scope and hot-tenant workload before physical keys. A future cross-cell move separately preserves receipts, deduplication, custody and pending obligations; no implicit active-Run relocation. Owners: deployment/OD-038/039, Platform installation and AR C0; A9. |
 
+### Nov 28: smallest early owner decisions for useful plugin and fleet behavior
+
+[Operational competitor/source comparison](../technologies/modularity-and-extension-contracts.md#operational-plugin-parity-and-friction--source-follow-up-2026-11-28)
+adds evidence from OpenClaw, VS Code, Grafana, JetBrains, OSGi, Temporal,
+Envoy and a source-pinned Kubernetes Agent Sandbox warm-pool controller.
+This is a **research routing update**, not accepted product API, SDK,
+new admission, plugin permission policy or extra organization release gate.
+Use the existing owner plan, identify what it already covers, and accept only
+the smallest missing dependent design contract **before its implementation**.
+
+| When to decide | Already specified; do not redesign | Remaining first useful choice or rejecting witness |
+| --- | --- | --- |
+| Before a product publishes install/enable/disable APIs or a plugin catalog | EF E4/E5 separates installed artifact, enablement, grants, active generation, canonical data and cleanup. Product/receiver owns effects. | Name which owner persists the request and consent to **newly declared capabilities**; refusal must leave old useful work untouched. Identify cold metadata vs actual active/useful state and actionable reason before fixing any public UI or SDK shape. |
+| Before exposing a selective live replacement UX | GM owns immutable plans; LMU F4/F5 already requires old/new affected closure, shared resource retention and bounded retirement. | Decide whether a specific Host needs read-only update-impact reporting (changed/retained consumers, authority delta, held work, expected stop/restart and unknown result). A stale preview is not a permission grant or successful publication. Do not create a generic preview manager for ordinary static helpers. |
+| Before agents are allowed to update a plugin that their current turn uses | LMU F4/F5 already forbids self-wait and owns separate management intent; Orchestrator and Host own conversation continuation. | For the selected product, end/settle the holding turn, delegate the same update request and resume only from the actual applied/failed/unknown receipt under current authority. Test the old-turn/self-cleanup deadlock and duplicate resume. This is **product** E2E, not a new LMU generic conversation API. |
+| Before retaining or deleting installed plugin code and companion assets | EF E5 and LMU F4/F5 already separate generation, artifact, old clients, cleanup debt and physical release. | Include references held by delayed hooks, MCP/provider registrations, streams, and captured companion files as applicable; a reported uninstall must not erase bytes still needed by a live holder. Test unrelated plugin B remains useful during A's failed replacement. Preserve existing artifact-retention owner. |
+| Before a hosted warm sandbox pool becomes an admission resource | AR C0-C3 already owns quota, identity, fair dispatch, physical custody and observed capacity; no new scheduler is authorized. | At the chosen adapter, distinguish desired pool, informer-observed members, in-flight creates/deletes, truly Ready/claimable members and already-claimed resources. Under sustained arrival and stale cache, refuse double allocation, replenish without starvation and keep control progress; measure indexed/paced/jittered alternatives only if that profile is selected. |
+| Before large-scale observation/rollout schemas | Platform owns staged/accepted/observed installation; AR limits metric cardinality, queue bytes and control budget; Orchestrator owns causal replay. | Prove useful behavior after apply, not ACK or healthy-looking snapshot alone. Pin native worker versions through retained work, bound per-agent metric labels, and restore pending command/receipt IDs through version skew. Do not expose global scans or a synchronous Platform lookup on every agent step. |
+| Before claiming an industry-leading plugin author experience | EF E6 and shared LMU authoring route already require one external headless plugin, useful call and errors; optional UI remains optional. | Measure exact author steps, packed imports, cold startup, first useful result and refusal diagnosis for one independent Host. If a small typed adapter suffices, **stop**; do not invent a universal renderer, plugin DSL, separate registry, mandatory Wasm runtime or another lifecycle library. |
+
+**Priority rule:** these are P0 only before the *affected* public contract,
+Host adapter, schema or claimed profile is implemented. They do not block
+ordinary static Get Modular modules, Fully Local startup, unrelated product
+work or ongoing native foundation qualification. Qualify one positive and
+one deliberately rejecting case with the real owner. Record the selected
+variant, excluded guarantees, source/fixture identity and an exact link in
+the owning plan; close a row by pointing to existing equivalent coverage.
+No new universal readiness score or checklist per file.
+
 ### Owner follow-through for competitive plugins
 
 The owner's expanded request on 2026-11-27 requires competitive modularity,
