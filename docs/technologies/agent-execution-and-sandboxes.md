@@ -164,3 +164,21 @@ actor cluster, DB or broker solely because its interface looks familiar.
 The chosen one-agent fully local profile must not require a cloud runtime or
 the hosted scheduler. Evaluate incremental maintenance, licensing, failure
 semantics, delivery size, portability and performance before adoption.
+
+## Distributed admission and versioning source follow-through — second campaign
+
+See [A6 pinned control-plane implementations](../studies/composition-and-scale-evidence.md#a6--rollout-version-selection-and-runtime-custody-in-mature-control-planes)
+and A7/A8 in the same study. These are conditional alternatives for current
+OD-005/035 and capacity-admission owners, not a dependency decision.
+
+| Candidate | Priority and fit | Discriminating proof |
+| --- | --- | --- |
+| Existing Postgres/JetStream and owner-local operations | First baseline for hosted; preserve independent SQLite local authority and selected local queue. | End-to-end acceptance/receipt and durable replay, two distinct partitions competing for a shared hard cap, reservation stays charged after expiry until physical release; quantify contention and recovery. |
+| DBOS Transact TS | Strong SQL claim/admission reference; consider in a bounded durability comparison only if the selected engine cannot satisfy the law. | Shared vs partition lock scope, version pin during rolling deploy, fail after claim before effect, stale executor and DB failover. Measure transaction rate and cost; verify installed TS/Node compatibility/license. |
+| Temporal | Strong durable workflow and worker versioning reference/candidate for existing OD-005. | Pinned vs supported auto-upgrade, old history queries, late drainage signals, incompatible worker, lost external receipt and graceful/forced retirement; compare existing local profile without mandatory server. |
+| LangGraph | Checkpoint/pending-write reference or optional provider/harness where requested. | Resume at declared step boundary and reconstruct pending effects; cannot substitute graph checkpoint for CLI/process custody or external idempotency. |
+| Kubernetes controller-runtime/Agent Sandbox | Reference and possible hosted infrastructure adapter; keep local provider independent. | Actual bounded reconciler queue, claim/UID incarnation, warm pool refill, failure and confirmed physical release; separate global policy/authority from local controller. |
+
+No competitor or new workflow engine owns Orchestrator business state.
+No additional queue, datastore, or per-agent control service is recommended
+solely because a mechanism resembles existing Foundation contracts.
