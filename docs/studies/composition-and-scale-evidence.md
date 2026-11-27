@@ -712,3 +712,191 @@ application capability. For handover, streaming, long-lived session renewal,
 and cross-process recovery, preserve the existing deferred decision route
 (Programme C). Adopt no new runtime API until the supported use case and
 independent rejecting evidence warrant it.
+
+### A4 — Get Modular: inspect the graph kernel and the already available lifetime mechanisms
+
+[GM main 27dfb4dd](https://github.com/agent-teams-ai/get-modular/tree/27dfb4ddf67cead198fee6e781ab355c37782928),
+source inspected November 27. Avoid conflating a graph of implementation
+declarations with an inventory of agents or the number of repository files.
+The admitted [resource limits](https://github.com/agent-teams-ai/get-modular/blob/27dfb4ddf67cead198fee6e781ab355c37782928/packages/core/src/features/input-admission/resource-limits.ts)
+include 4096 declarations/selections, 65,536 bindings, 16 MiB aggregate raw
+documents, 1024 roots, and independently bounded depth; these are meaningful
+per compilation, not a global ecosystem/agent limit.
+
+The [selected graph](https://github.com/agent-teams-ai/get-modular/blob/27dfb4ddf67cead198fee6e781ab355c37782928/packages/core/src/features/composition-semantics/selected-graph.ts)
+deduplicates adjacency while counting original edge occurrences. It uses
+iterative [SCC](https://github.com/agent-teams-ai/get-modular/blob/27dfb4ddf67cead198fee6e781ab355c37782928/packages/core/src/features/composition-semantics/graph-components.ts)
+and numeric [min-heap](https://github.com/agent-teams-ai/get-modular/blob/27dfb4ddf67cead198fee6e781ab355c37782928/packages/core/src/features/composition-semantics/ready-queue.ts)
+rather than repeated whole-array sorting or recursive DFS. The existing
+[graph tests](https://github.com/agent-teams-ai/get-modular/blob/27dfb4ddf67cead198fee6e781ab355c37782928/packages/core/tests/features/composition-semantics/selected-graph.test.mjs)
+include all 65,536 four-node directed graphs against an independent oracle,
+full 262,144-edge input, depth/cycle/low-stack and permutation cases. The
+[scale integration](https://github.com/agent-teams-ai/get-modular/blob/27dfb4ddf67cead198fee6e781ab355c37782928/packages/core/tests/features/composition-semantics/scale-integration.test.mjs)
+uses full-pipeline independent plan/digest evidence. These source tests were
+inspected, not rerun here.
+
+**Executed kernel-only microprobe.** The three graph source files were copied
+and checked by Git blob SHA (selected-graph.ts d046624c9e830e6d9de94dd1a5430bcac6a4a2ff;
+graph-components.ts 3b2dd088f9d9e73af034bde8be64a9159eaea0fd;
+ready-queue.ts 3ce808301fd313a3e024c95a54c78bc4b9230e01).
+Only runtime filenames were resolved via local symlinks to the exact TS
+sources. Node 22.16.0 with experimental type stripping; uncalibrated local
+research machine, 3 warm-up and 10 observed runs per shape. Independent
+shape-specific assertions, reversed node/edge/root permutations, and bounded
+edge-visit checks all passed. Timings exclude input generation, parsing,
+admission, hashing, canonicalization, construction, packaging and I/O.
+
+| Shape | Vertices / edge occurrences | Median elapsed, observed range | Checked behavior |
+| --- | --- | --- | --- |
+| Chain | 128 / 127 | 0.396 ms, 0.243–1.226 | Ordered closure, depth 128 |
+| Chain | 512 / 511 | 0.588 ms, 0.462–1.098 | Ordered closure, depth 512 |
+| Chain | 2048 / 2047 | 2.140 ms, 0.603–11.450 | Depth 2048 |
+| Chain (kernel diagnostic beyond accepted depth) | 4096 / 4095 | 3.565 ms, 1.133–10.966 | Stack-safe, depth saturates at 2049, not an admitted plan |
+| Giant cycle | 4096 / 4096 | 1.403 ms, 1.100–2.398 | One SCC, no dependency order |
+| Bipartite graph (kernel boundary) | 4096 / 262144 | 39.660 ms, 33.967–59.041 | Depth 2, 524288 SCC visits, 85107 ready comparisons, 129-node selected root closure |
+| 256 independent groups | 4096 / 4096 (3840 unique) | 1.805 ms, 1.573–8.164 | Depth 2, 512-node closure, parallel occurrence accounting |
+
+Reproduce by using `x/n` + five-digit index as the ID, chaining consecutive
+nodes, closing the chain for the cycle, or connecting every provider index
+0..127 to every consumer index 128..2175 for the bipartite shape; select its
+first consumer as root. For independent groups use 256 groups of 16 nodes
+and 16 edges from each first node to its other 15 members (one repeated);
+select the last member of each. Record `performance.now()` around the kernel
+only and assert statistics and semantic projections. Do not extrapolate
+these numbers to a full compiler, actual ESM loading, 100k agents, or Node26.
+
+The most important architectural discriminator is **root closure versus
+affected closure**. With A->B, B->C, A->D, X independent, the actual compiler
+kernel gives root C's provider closure {A,B,C}; changing A may affect
+{A,B,C,D}. A loader that uses root closure for retirement misses D. A source
+inspection of the kernel confirms it computes provider reachability from
+selected roots, not an LMU affected-closure algorithm. The latter also
+depends on both old/new plans, concrete sharing, state/grants and exclusive
+resources. Use GM's existing public plan facts and LMU's existing planner
+boundary; no second graph authority. Test removed provider, new binding,
+ordered many, unchanged-but-shared provider and dependent outside a single
+root. Keep ordinary static composition and independent product/feature
+Hosts; prefer measured full recomputation within bounded graphs until actual
+product latency justifies incremental machinery.
+
+**Reuse rather than extract:**
+
+- [Resources](https://github.com/agent-teams-ai/get-modular/blob/27dfb4ddf67cead198fee6e781ab355c37782928/packages/resources/README.md#closing)
+  already documents self/ancestor-cleanup wait deadlock, same original close,
+  abandon-versus-settlement, ordered debts and scope detachment. This narrows
+  A2: the self-join problem is a known native ownership constraint, not a
+  newly discovered GM defect. Its package-copy brand and one-copy Host rule
+  matter for hot updates; qualify peer deduplication/realm placement rather
+  than sharing raw Resources facades across independent executor realms.
+- [Observation](https://github.com/agent-teams-ai/get-modular/blob/27dfb4ddf67cead198fee6e781ab355c37782928/packages/observation/README.md#reference)
+  owns bounded latest-state observation, scope-bound detach, one waiting
+  load, stale-result rejection, echo/cascade guards. Its default 64 per
+  scope / 8192 per store is not a fleet design limit. A commit coalesces;
+  it does not guarantee every discrete event. Async echo across real I/O,
+  timers and weaker environments is explicitly excluded. Use it for
+  local LMU progress/current snapshots where actual subscribers fit,
+  not original receipt delivery, durable causation, authorization or
+  distributed OODA loop prevention. No second local state observer.
+- [GM+Effect](https://github.com/agent-teams-ai/get-modular/blob/27dfb4ddf67cead198fee6e781ab355c37782928/packages/effect/README.md)
+  already owns native Layer construction of an exact GM binding graph.
+  [Implementation](https://github.com/agent-teams-ai/get-modular/blob/27dfb4ddf67cead198fee6e781ab355c37782928/packages/effect/src/features/construction/lower.ts)
+  uses fresh mapper identities per graph and native memoization; its
+  [practices](https://github.com/agent-teams-ai/get-modular/blob/27dfb4ddf67cead198fee6e781ab355c37782928/packages/effect/docs/practices.md)
+  explicitly warn about escaped streams and shutdown wait graphs. Evaluate a
+  native owned streaming adapter using that integration before writing
+  generic lifetime or stream abstractions. Do not import private lifecycle
+  kernel or force Effect into ordinary typed interfaces.
+
+### A5 — Extension Foundation actual draft artifact adapter and physical code retirement
+
+Main has the accepted safety model and qualification fixtures, but the newer
+working implementation was inspected on the actual
+[EF PR #70 at 8c16e5db](https://github.com/agent-teams-ai/extension-foundation/tree/8c16e5dbf24d8a09d9f33fe7c3ee8f38bf74599c).
+It was open/not draft at observation, not assumed merged or released.
+The [node-artifact README](https://github.com/agent-teams-ai/extension-foundation/blob/8c16e5dbf24d8a09d9f33fe7c3ee8f38bf74599c/packages/node-artifact/README.md)
+explicitly supports trusted finite self-contained ESM on Linux x64, direct-key
+Cosign, digest-pinned captured bytes, no dependency resolver, no unload or
+hostile sandbox claim. Native Node24/26, ORAS1.4.0, Cosign3.1.6 loopback
+qualification is distinct from public registry or hostile execution.
+
+Trace [verify](https://github.com/agent-teams-ai/extension-foundation/blob/8c16e5dbf24d8a09d9f33fe7c3ee8f38bf74599c/packages/node-artifact/src/features/verified-artifact/verify.ts):
+snapshot immutable request -> inspect tools -> fetch/hash manifest ->
+direct-key signature over captured bytes -> inspect closed descriptor ->
+hash each blob -> stage and capture verified bytes -> validate exact staging
+entries -> verified capability. [Staging](https://github.com/agent-teams-ai/extension-foundation/blob/8c16e5dbf24d8a09d9f33fe7c3ee8f38bf74599c/packages/node-artifact/src/features/verified-artifact/staging.ts)
+refuses symlink/aliased entries and captures opened inode bytes.
+[Evaluation](https://github.com/agent-teams-ai/extension-foundation/blob/8c16e5dbf24d8a09d9f33fe7c3ee8f38bf74599c/packages/node-artifact/src/features/verified-artifact/evaluate.ts)
+checks exact ABI and synchronous Host admission, imports data URL + unique
+evaluation ID, then validates exports. These are intentionally separate
+facts. The accepted [ADR-0011](https://github.com/agent-teams-ai/extension-foundation/blob/a1b5007ae4777bb5b01adab35a9ee83546a62333/docs/decisions/0011-extension-admission-custody-and-retirement-closure.md#L98-L186)
+owns revision-bound grant, scope/artifact/source fence hierarchy and
+receiver enforcement; the initial artifact adapter does not implement all
+production-host rules.
+
+**Executed narrow evaluation probe.** Exact draft files contracts.ts
+(88f6a0e403202d3b5599aecbf3bce96a2ec5d672) and evaluate.ts
+(b90b46dce55e21d78d65ea97259bc4060462f522), verified via Git blob hashes.
+Node 22.16.0 `--expose-gc --experimental-strip-types`. Called the internal
+verified-artifact factory with an inert synthetic metadata fixture and
+benign self-contained source; deliberately bypassed actual registry and
+signature verification. No claim of native qualification, real artifact
+admission, or release defect. Confirmed:
+
+1. A refused authority callback did not evaluate the module; a refused export
+   predicate **after** evaluation did not undo its benign top-level counter.
+2. 200 evaluations of identical source produced 200 distinct evaluation IDs.
+   Each exported a 256 KiB initialized Uint8Array. Dropped strong result
+   references, used five separate event-loop/forced-GC rounds, then observed
+   all 200 module namespace WeakRefs still live. ArrayBuffers grew by
+   52,436,992 bytes (~50 MiB), RSS by 50,855,936 bytes (noisy process metric).
+   Not a universal memory cost or proof of permanent retention on every V8.
+3. Three distinct cooperative worker realms, 50 of the same benign
+   evaluations per worker, each emitted readiness and exited with code 0.
+   This proves the worker exit in the fixture, not exact reclaimed bytes,
+   descendant processes, external effect settlement or hostile isolation.
+
+Minimal reproducer after checking the two exact blobs, in the same directory
+as evaluate.ts and contracts.ts:
+
+```js
+import { createVerifiedArtifact } from "./evaluate.ts";
+import { setImmediate as turn } from "node:timers/promises";
+const facts = { contract: "test/payload", revision: 1, loader: "esm-test" };
+const binding = { ...facts, authorize: () => true, validate: () => true };
+const artifact = createVerifiedArtifact(facts,
+  "export const payload=new Uint8Array(262144).fill(7)", new Map());
+for (let i = 0; i < 5; i++) { await turn(); global.gc(); }
+const baseline = process.memoryUsage().arrayBuffers;
+const weak = [];
+for (let i = 0; i < 200; i++) {
+  const result = await artifact.evaluate(binding);
+  weak.push(new WeakRef(result.value));
+}
+for (let i = 0; i < 5; i++) { await turn(); global.gc(); }
+await turn();
+console.log(weak.filter(r => r.deref() !== undefined).length,
+  process.memoryUsage().arrayBuffers - baseline);
+```
+
+[Node ESM URL cache](https://nodejs.org/api/esm.html#urls) documents URL-based
+identity. [IntelliJ dynamic plugins](https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html)
+documents eligibility restrictions, explicit restart fallback, and heap
+snapshot diagnostics when a plugin classloader stays reachable.
+[OSGi R8 wiring](https://docs.osgi.org/specification/osgi.core/8.0.0/framework.wiring.html)
+deliberately retains old wirings and batches disruptive refresh. These are
+independent maturity signals: correct disposal of owned resources is not
+automatically reclamation of evaluated code. EF already says so; do not
+mislabel this as a newly discovered regression. The practical delta is
+**budgeting cumulative evaluated generations and retained bytes at the actual
+realm**, even after LMU has logically forgotten an instance.
+
+Compare options for an indefinitely running Host before claiming that
+profile: (A) trusted finite in-process with explicit update/heap budgets
+and controlled Host restart; (B) reusable disposable realm for a compatible
+module/feature cohort, stable facade across realm replacement and native
+termination receipts; (C) external isolated executor for untrusted/native
+plugin profiles, with cost, capability and security admission. Reuse worker
+or process owner, GM resource primitives and LMU coordination. Do not create
+one worker or process for every pure module or every logical agent. Avoid
+using cache-busting import as an unlimited hot-reload implementation.
+The first supported profile and its existing qualification remain unchanged.
