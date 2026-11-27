@@ -537,3 +537,178 @@ burst of terminal cleanup. Measure useful accepted/completed work, oldest
 eligible wait, control lag, refill rate, pending bytes, retained cleanup debt,
 false-ready observations and resource cost. Reconcile desired/accepted/
 observed state without mistaking a queue lag for capacity or failure.
+
+## Second deep campaign: executable LMU boundary and competitor implementation review — 2026-11-27
+
+The owner requested further source-level adversarial review, not another broad
+catalog. Continue the existing draft from 6af725b. Distinguish source-inspected,
+locally executed, reported upstream tests/incidents, and design hypotheses.
+
+### A1 — Inspect the actual LMU implementation and tests, not only the plan
+
+At [LMU main 77a3ecc4](https://github.com/agent-teams-ai/live-module-updates/tree/77a3ecc4ace12509961bd3ff43e80703b0303c40)
+the cooperative implementation is already substantial. The [status](https://github.com/agent-teams-ai/live-module-updates/blob/77a3ecc4ace12509961bd3ff43e80703b0303c40/docs/status.md)
+and [Programme C](https://github.com/agent-teams-ai/live-module-updates/blob/77a3ecc4ace12509961bd3ff43e80703b0303c40/docs/plans/composed-module-adoption-plan.md)
+record the exact supported finite profile and independent native fixture results.
+Do not describe these as pending design-only work.
+
+- [Invocation boundary](https://github.com/agent-teams-ai/live-module-updates/blob/77a3ecc4ace12509961bd3ff43e80703b0303c40/src/features/update-operation/application/invocation.ts):
+  one per-Host map, synchronous inert selection, shared work budget, cumulative
+  generation identities; no process-wide singleton.
+- [Generation owner](https://github.com/agent-teams-ai/live-module-updates/blob/77a3ecc4ace12509961bd3ff43e80703b0303c40/src/features/update-operation/application/generation.ts):
+  reserve before callback, child tracking, per-call continuations, immutable
+  original close, separate eligible cleanup retry, forgetting only when sealed,
+  drained and actual native receipt complete.
+- [Update operation](https://github.com/agent-teams-ai/live-module-updates/blob/77a3ecc4ace12509961bd3ff43e80703b0303c40/src/features/update-operation/application/update-operation.ts)
+  + [state](https://github.com/agent-teams-ai/live-module-updates/blob/77a3ecc4ace12509961bd3ff43e80703b0303c40/src/features/update-operation/application/operation-state.ts):
+  retain preparation before publication, exact attempt receipt and reconcile,
+  distinguish terminal logical observation from in-flight authority calls and
+  physical cleanup debt. The optional adoption probe invokes the expected head.
+- Actual test source: [invocation](https://github.com/agent-teams-ai/live-module-updates/blob/77a3ecc4ace12509961bd3ff43e80703b0303c40/tests/features/update-operation/invocation.test.ts),
+  [operation](https://github.com/agent-teams-ai/live-module-updates/blob/77a3ecc4ace12509961bd3ff43e80703b0303c40/tests/features/update-operation/operation.test.ts),
+  [budget](https://github.com/agent-teams-ai/live-module-updates/blob/77a3ecc4ace12509961bd3ff43e80703b0303c40/tests/features/update-operation/budget.test.ts),
+  [ownership](https://github.com/agent-teams-ai/live-module-updates/blob/77a3ecc4ace12509961bd3ff43e80703b0303c40/tests/features/update-operation/ownership.test.ts),
+  [recovery](https://github.com/agent-teams-ai/live-module-updates/blob/77a3ecc4ace12509961bd3ff43e80703b0303c40/tests/features/update-operation/recovery.test.ts),
+  [shutdown](https://github.com/agent-teams-ai/live-module-updates/blob/77a3ecc4ace12509961bd3ff43e80703b0303c40/tests/features/update-operation/shutdown.test.ts).
+  These already address the majority of the earlier suggested negative cases.
+  In particular the existing budget test intentionally expects a failed B
+  adoption probe while all work capacity is occupied by A. It subsequently
+  proves fresh B work succeeds. Do not open a bug merely for that behavior.
+
+### A2 — Executed source-backed boundary probes (8/8)
+
+The network-restricted research environment could not clone the repo. Three
+exact source files were transcribed from GitHub at 77a3ecc4 and independently
+verified with `git hash-object` against returned blob SHAs:
+
+| Source under src/features/update-operation/application/ | Git blob SHA |
+| --- | --- |
+| generation.ts | 94e91f5e7ad698f85e84798f69abd93531f5e101 |
+| invocation.ts | 34a7498eb3adfe8f80b90ff2d315334ce53ad986 |
+| cleanup-report.ts | 72e77997f9be6fb6c42c8dc1481df416a4fdb9ab |
+
+Executed a new local Node v22.16.0 harness using `node --experimental-strip-types --test probe.mjs`.
+Type-only imports were stripped, no external package or actual product Host
+loaded. Results: 8 passed, 0 failed, 0 skipped. This is a narrow execution of
+the three exact files, not the upstream suite, released package, TS7/Node26
+qualification, real native cleanup or a distributed proof.
+
+| Executed case | Result and interpretation |
+| --- | --- |
+| Reentrant close requested but not awaited inside A; admitted child remains A | PASS; fresh admission refused, child completes, exact cleanup runs once. Positive control matching the existing upstream test. |
+| Active A callback waits for its own close | Observed cycle: pending=1, admission sealed, cleanup original=not-started, no native release or return after five event-loop turns. Independent escape gate lets A return, then original close completes once. Conditional failure if management authority leaks into a retained callback, not a proven bug in the currently qualified Host-only API. |
+| Native disposer waits for the same original close | Observed cycle: original cleanup=pending, disposer called once, close unresolved until external escape. Joining the same promise is correct for external observers, not for its own producer. |
+| Invocation returns an async iterator, then A is closed/forgotten | Pending=0 before iterator consumption; late next() touches the disposed fixture and rejects. This is the explicitly excluded escaped-work case, not a regression in finite cooperative support. |
+| Escaped bound context after actual return and forget | Refuses with continuation-closed. Good behavior. |
+| Three identities, two retired and forgotten, fourth identity proposed | Refuses generation-capacity despite one registered generation, old ID reuse refused; C remains useful. Deliberate finite session-history policy. |
+| Two independent boundaries both use A, one saturated | Other boundary remains useful and closes its own native owner only. Good behavior, not fleet-wide proof. |
+| A fills the shared work budget, B becomes head | Expected B invocation refused work-capacity until A settles; subsequent B invocation succeeds. Confirmed shared limit, not a new bug. |
+
+Minimal executable discriminator for the two central lifetime cases, using the
+verified invocation/generation source (the eight-case local harness used Node's
+test runner and assert/strict; this reduced snippet reproduces the same
+self-join and iterator mechanisms):
+
+```js
+import assert from "node:assert/strict";
+import { setImmediate as turn } from "node:timers/promises";
+import { createInvocationBoundary } from "./invocation.ts";
+const clean = () => ({ complete: true, settled: true, debts: [] });
+const boundary = () => createInvocationBoundary({
+  readCanonicalHead: () => ({ generationId: "A", revision: "r/A" }),
+  maxActiveWork: 16, maxGenerationIdentities: 32,
+});
+const b = boundary();
+const escape = Promise.withResolvers(), entered = Promise.withResolvers();
+let a, closing, releases = 0;
+a = b.attachGeneration({
+  generationId: "A",
+  invoke: async () => {
+    closing = a.close();
+    entered.resolve();
+    return Promise.race([closing.then(() => "close"), escape.promise]);
+  },
+  release: async () => { releases++; return clean(); },
+}).control;
+const call = b.invoke();
+await entered.promise;
+for (let i = 0; i < 5; i++) await turn();
+assert.equal(b.pending(), 1);
+assert.equal(a.snapshot().cleanup.original.status, "not-started");
+assert.equal(releases, 0);
+escape.resolve("escaped");
+assert.equal((await call).value, "escaped");
+assert.equal((await closing).complete, true);
+assert.equal(releases, 1);
+
+const c = boundary();
+let disposed = false;
+const g = c.attachGeneration({
+  generationId: "A",
+  invoke: () => (async function* () {
+    if (disposed) throw Error("native owner gone");
+    yield "A";
+  })(),
+  release: async () => { disposed = true; return clean(); },
+}).control;
+const result = await c.invoke();
+assert.equal(c.pending(), 0);
+await g.close();
+assert.equal(g.forget().status, "forgotten");
+await assert.rejects(result.value.next(), /native owner gone/);
+```
+
+### A3 — OpenClaw resolves these precise problems at management seams
+
+Pinned [773acb717](https://github.com/openclaw/openclaw/tree/773acb717fb30b4e7872175d449e4d6ea1d19014).
+This source review traces actual reload path, not only registry data structures.
+
+- [Gateway reload 237–330](https://github.com/openclaw/openclaw/blob/773acb717fb30b4e7872175d449e4d6ea1d19014/src/gateway/server-plugin-reload.ts#L237-L330):
+  metadata-only preflight, affected channel/resources, overlap check, captured
+  recovery, explicit self-reload refusal before stopping the dependent callback,
+  drain retained work, quiesce, then drain admitted calls and sidecars.
+- [Replacement reservation](https://github.com/openclaw/openclaw/blob/773acb717fb30b4e7872175d449e4d6ea1d19014/src/plugins/plugin-replacement-operation.ts):
+  private exact instance reservation, refuse self-replacement, settlement token
+  identity; a stale release cannot clear another reservation.
+- [Retry after replacement](https://github.com/openclaw/openclaw/blob/773acb717fb30b4e7872175d449e4d6ea1d19014/src/plugins/plugin-replacement-retry.ts):
+  only a named admission error with a replacement promise, then a single
+  re-resolve on current registry. Do not generalize this to retry after
+  execution/unknown effect. A pre-admission refusal and an executed effect
+  have different retry semantics.
+- [Publication/activation/cleanup](https://github.com/openclaw/openclaw/blob/773acb717fb30b4e7872175d449e4d6ea1d19014/src/gateway/server-plugin-reload.ts#L355-L485):
+  recheck overlap after loading, reject exclusive registrations, publication
+  and after-commit failures separate; independent activation tails and old
+  retirement joined. These are cooperative local publication mechanics,
+  not a distributed atomic transaction across all those resources.
+- [Turn handover](https://github.com/openclaw/openclaw/blob/773acb717fb30b4e7872175d449e4d6ea1d19014/src/agents/plugin-turn-handover.ts):
+  all held replaced plugins must support handover; one pinning plugin keeps
+  old turn. At next step boundary, yield work while retaining custody;
+  rebind through the existing run refresh. Eligibility derives partly from
+  manifest declaration in [eligibility](https://github.com/openclaw/openclaw/blob/773acb717fb30b4e7872175d449e4d6ea1d19014/src/plugins/plugin-turn-handover-eligibility.ts).
+  In our hostile/managed profiles a declaration cannot self-approve overlap,
+  handover or compatibility. It needs verified contract + actual Host
+  policy and step/effect/state receipt.
+- [Retention diagnostic tests](https://github.com/openclaw/openclaw/blob/773acb717fb30b4e7872175d449e4d6ea1d19014/src/gateway/server-plugin-reload.retention.test.ts#L42-L136)
+  inspect exact owner/reference ID, 60-second bounded wait, admission retained
+  after deferral, and separate support-log redaction. Tests were inspected,
+  not run. This is a practical operator feature worth borrowing: name which
+  admitted work holds a generation, its age, dependency, and permitted
+  recovery actions, while minimizing sensitive identities in support logs.
+- [Reload lifecycle](https://github.com/openclaw/openclaw/blob/773acb717fb30b4e7872175d449e4d6ea1d19014/src/gateway/server-plugin-reload-lifecycle.ts):
+  reservation release, committed, applied/restored/failed, and physical
+  recovery are distinct. LMU already has richer independent facts; use those,
+  not OpenClaw's Gateway-specific phase vocabulary.
+
+**Action and critic:** keep management and invocation capabilities separate
+as the current LMU [usage contract](https://github.com/agent-teams-ai/live-module-updates/blob/77a3ecc4ace12509961bd3ff43e80703b0303c40/docs/architecture/cooperative-operation-usage.md)
+requires. For an actual plugin-initiated update, do not inject the full update
+runtime/close handle. Accept an authorized intent, return an acceptance receipt,
+then run the management operation outside that retained callback and observe
+completion independently. An explicit synchronous self-update refusal may
+be useful where the existing owner can identify the actual dependency cycle;
+do not add AsyncLocalStorage as a mandatory dependency of portable LMU
+or infer arbitrary cycles from stable IDs. Existing GM Hosts expose only the
+application capability. For handover, streaming, long-lived session renewal,
+and cross-process recovery, preserve the existing deferred decision route
+(Programme C). Adopt no new runtime API until the supported use case and
+independent rejecting evidence warrant it.
