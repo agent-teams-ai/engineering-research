@@ -307,6 +307,52 @@ existing release/compatibility and LMU mechanisms; no second update controller,
 universal migration language or permanent support for all past versions is
 proposed.
 
+
+## Fleet-scale follow-through — 2026-11-27
+
+The owner raised the long-term aggregate active-execution target to hundreds
+of thousands, while retaining one-agent Fully Local and Foundation-first,
+modularity, SOLID, Clean/Hexagonal Architecture, DDD, DRY and LMU direction.
+The [pinned source follow-up](../studies/composition-and-scale-evidence.md#fleet-scale-foundation-first-follow-up--2026-11-27)
+records the evidence, counterexamples, historical issues, capacity arithmetic
+and explicit limits. The [technology screen](../technologies/agent-execution-and-sandboxes.md#fleet-infrastructure-candidate-screen--2026-11-27)
+records ready mechanisms and what they cannot replace.
+
+The target differs from the accepted deployment document's tens of thousands.
+Reconcile through the owner-local documents and review; do not silently edit
+accepted ADR bytes, change a release gate or label the target measured.
+The current C0–C3, D1–D3, E1–E6, existing implementation readiness gates and
+ordinary Runtime S1–S5 remain separate. The following are **delta questions**
+inside those owners, not a new program that blocks every module.
+
+| When / priority | Owner route | Smallest useful reviewed output |
+| --- | --- | --- |
+| Before freezing cross-owner routing and persistence identities (P0) | Orchestrator deployment profile and OD-038/039; Platform placement/managed installation; Runtime C0 | One target workload + explicit placement/partition scope, route generation, authoritative mutation owner and handoff contract. Compare one-cell baseline, tenant-affine cells and concentrated-tenant split. Include failover and restore rejection traces. Do not build a multi-region control plane yet. |
+| Before attention-to-activation and scheduled retries (P0) | Orchestrator OD-033/026/027, existing asynchronous-question study, Runtime operation port | Durable cause, progress discriminator, wait predicate, retry budget and bounded reconciliation. Include Paperclip's documented no-progress continuation loop and stale wait projection as rejecting cases. No new universal workflow engine. |
+| Before cross-cell protected admission (P0) | E5, OD-012/031/032, Platform and Runtime security | Receiver enforcement of current route/execution/credential authority and approved freshness/cutoff; fail closed on stale evidence, partition and restore. OpenClaw's trust boundary is not a multi-tenant substitute. |
+| Before choosing durable state and extension SPI (P0) | E1/E6, Extension, Get Modular and LMU owners; product contracts and state migrations | A versioned feature-owned invocation boundary, compatible old-generation custody, migration/rollback/retirement obligations and trust profiles. Use existing GM/LMU fixtures and representative independent Hosts; no distributed hot replacement claim from a cooperative in-process pass. |
+| Before committing output and journal physical schema (P0) | OD-009/018/024/030, D3, AR S2/C0 | Workload-bytes and retention matrix, cursor scope, bounded batches/replay, payload reference, canonical-versus-projected output, connection budget and isolated control path. Prove lost cursor, large payload, slow subscriber and replay after retention. |
+| Before capacity policy implementation (P0) | D1/D2, OD-024, AR C0–C3 | Distinguish commercial reservation, technical multi-resource admission, provider quota and custody. Compare Kueue-style usage fairness and existing Stage K policy, cross-pool escrow vs centrally serialized hard limit, progress and stop under saturation. |
+| Before each qualified capacity increment (P1) | Existing reliability and deployment gates, EF conformance and AR/Orchestrator owners | Report a one-agent local profile and separate synthetic/real worker/real provider levels; concentrated tenant, multi-tenant, restart, reconnect, slow storage, partial rollout and provider failures. Publish observed envelope only, never extrapolate linear scaling. |
+
+**Recommended execution order:** first resolve placement, durable identifiers
+and authority contracts required by the initial slice; in parallel qualify
+LMU/GM/Extension boundary mechanisms and deterministic rejecting fixtures;
+then design the bounded owner-local storage, replay and causal admission
+contracts; finally qualify progressively larger actual deployments using
+their existing gates. Earlier ordinary module development may proceed wherever
+its accepted owner contracts are unaffected. Platform, AR and Orchestrator
+each retain independent authority. No standalone dependence on Platform is
+introduced.
+
+The next owner review should choose the actual placement scope and movement
+policy, traffic/retention and failure assumptions, version compatibility
+horizon, and relevant external service limits. Do not estimate implementation
+LOC for an unselected topology or repeat previous D/E card estimates as
+fleet capacity evidence. Review source observations and alternatives with
+independent critics before owner acceptance; this follow-up has not received
+independent review or executed load tests.
+
 ## Product-specific follow-through
 
 | Owner/repository | Already required or accepted | Proposed future delta and activation scope | Remaining owner decision |
