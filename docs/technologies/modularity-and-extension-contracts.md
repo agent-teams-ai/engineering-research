@@ -73,3 +73,32 @@ For a later SDK extraction, first show an installed ordinary TypeScript consumer
 [ag-skills]: https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/data/skill_package.py#L1-L121
 [extension-safety]: https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/5a8496ce711909e381c5bc817fff5500be9a1761/docs/decisions/0095-extension-safety-and-ownership-invariants.md#L35-L85
 [extension-lifecycle]: https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/5a8496ce711909e381c5bc817fff5500be9a1761/docs/open-decisions/OD-043-extension-lifecycle-catalog-and-hot-update.md
+
+## Deep extension lifecycle candidate screen — 2026-11-27
+
+See [the source and incident study](../studies/composition-and-scale-evidence.md#deep-follow-up-live-plugin-custody-and-openclaw-failure-history--2026-11-27).
+This is pass 7 of the fleet follow-up. Fit is scenario-specific (1–10);
+confidence is evidence confidence, not security certification or measured
+capacity. No package is selected or newly admitted. Rolling documentation
+is distinguished from source snapshots in the linked study.
+
+| Candidate / mechanism | Fit / confidence | Strength and limitation | Recommendation |
+| --- | --- | --- | --- |
+| Qualified Get Modular Resources and [GM/Effect integration](https://github.com/agent-teams-ai/get-modular) | 9 / 8 for trusted composed lifetime | Existing typed graph, resource ownership and optional native Effect profile. Neither handles arbitrary native-code isolation, durable Active Head or external effect settlement. | First choice for the supported owner profile; inspect actual released exports and installed consumer proof. |
+| [OSGi R8 wiring](https://docs.osgi.org/specification/osgi.core/8.0.0/framework.wiring.html), Equinox source in the study | 9 / 9 as design reference, 2 / 9 as direct TS dependency | Mature revision/retained-wiring/dependent-closure semantics. Refresh can stop and restart dependents; service acquisition is not external custody. | Transfer invariants and fixtures, not JVM/OSGi container or global registry. |
+| [IntelliJ dynamic plugins](https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html), [Disposer](https://plugins.jetbrains.com/docs/intellij/disposers.html) | 9 / 8 as reference | Documented dynamic eligibility, disposable scopes, inspections for unsafe references, restart on failed unload, explicit native-library limits. A parent/child tree alone cannot express borrowed shared resources or remote settlement. | Add authoring-time negative fixtures for unsupported dynamic profiles and runtime leak tests to existing EF/LMU qualification. No copy of singleton disposer. |
+| [VS Code extension host](https://code.visualstudio.com/api/advanced-topics/extension-host) and [remote extension guidance](https://code.visualstudio.com/api/advanced-topics/remote-extensions) | 9 / 8 as host profile reference | UI, workspace and browser/remote host placement, lazy activation. Remote host placement does not automatically prevent effects on local client through host APIs. | Model execution location separately from permission scope, API/wire compatibility and client capabilities. Test local/remote/browser parity only for declared profiles. No new Electron requirement. |
+| [OpenClaw source generation/retirement](../studies/composition-and-scale-evidence.md#passes-13-ownership-live-update-and-adversarial-lifetime-review) | 9 / 8 for test scenarios, 3 / 8 as dependency | Exact instance authority, cache custody, lazy source retention, history of difficult reload bugs. Single-process/global maps and cooperative trust assumptions. | Preserve useful instances and bound retention; reject entire-Gateway/global-registry dependency. |
+| [Node ESM](https://nodejs.org/api/esm.html), [worker threads](https://nodejs.org/api/worker_threads.html), [child processes](https://nodejs.org/api/child_process.html) | 9 / 8 for ordinary TS and disposable execution | Native loading and isolated execution mechanisms. Loader cache invalidation, termination request and external child/descendant cleanup are distinct. Workers are not hostile-tenant security boundaries. | Use native mechanisms inside qualified adapters; test actual post-await/stream/lazy-import and physical disposal. |
+| [Effect](https://effect.website/) native scope, interruption, concurrency and layers | 9 / 8 where Effect semantics chosen | Mature resource and cancellation primitives, typed errors; native scope closure does not prove external effects stopped. | Reuse existing GM integration and existing Effect research. Don't introduce another neutral scope wrapper or force Effect into ordinary portable domain contracts. |
+| [fast-check](https://github.com/dubzzz/fast-check), [model-based testing](https://fast-check.dev/docs/advanced/model-based-testing/) | 9 / 7 for EF development fixtures | Generated command sequences and reproducible shrinking are useful for ownership/state machine laws. The model can repeat implementation errors, and simulated scheduling does not prove real OS cleanup. | Small exact-version pilot using independent oracle, actual owner adapters and replay seed; use existing EF capabilities and native tests, not a new test framework. |
+| [TLA+](https://github.com/tlaplus/tlaplus) / TLC | 8 / 6 for narrow distributed protocol design | Explicit safety/liveness and state-space exploration for handoff, stale writers and unknown commit. Model abstraction, state explosion and translation to implementation require discipline. | Optional bounded model for one cross-cell handoff or LMU publish/retire law; no mandatory spec DSL, no general model-checking gate. |
+
+Avoid a second universal plugin runtime, service locator, state machine DSL or
+dependency graph. Compare each ready mechanism with the actual existing
+foundation and consumer. Node, browser, isolated-process and remote profiles
+retain their separate evidence. Native Federation, MF, SystemJS, Piral, Extism,
+Wasm and other previously evaluated mechanisms remain in the existing
+[Extension Foundation execution profile register](https://github.com/agent-teams-ai/extension-foundation/blob/a1b5007ae4777bb5b01adab35a9ee83546a62333/docs/architecture/live-extension-system-map.md#L166-L198);
+do not treat them as newly researched/selected here. Check exact releases,
+license, native/TS7 support, installation and security before admission.
