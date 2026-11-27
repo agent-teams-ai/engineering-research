@@ -467,3 +467,73 @@ small typed consumer-owned capability ports with explicit lifetime; avoid
 global service discovery and implicit auto-activation for untrusted packages.
 For a pure deterministic module, no mandatory dynamic loader, process,
 network hop or per-call distributed generation lookup is justified.
+
+### Pass 4: mature modular systems — OSGi versus JS generation replacement
+
+[OSGi Core R8 §7](https://docs.osgi.org/specification/osgi.core/8.0.0/framework.wiring.html)
+is a versioned specification, not a recommendation to introduce Java/OSGi.
+It deliberately distinguishes a bundle revision, the current wiring and older
+wiring still used by dependents. Refresh computes the reverse dependency
+closure and may stop/restart affected bundles. [Equinox ServiceUse](https://github.com/eclipse-equinox/equinox/blob/78c4d50c10aeb3505a4c210c30bb6d043103fdd7/bundles/org.eclipse.osgi/container/src/org/eclipse/osgi/internal/serviceregistry/ServiceUse.java#L57-L182)
+implements acquired-use tracking and rejects a release for the wrong object.
+These support LMU's separation of graph, incarnation, admitted work and
+retention. Counterexample to blindly copying OSGi: automatic closure refresh
+may interrupt unrelated useful work through shared dependencies, and a use
+count cannot prove external side-effect settlement or release of escaped JS
+references. Model the actual affected closure, exclusive/shared resources
+and different support modes (overlap, drain-and-switch, restart-only).
+No runtime OSGi dependency or dynamic service locator.
+
+### Pass 5: additional competitor source audit — coordination and operational recovery
+
+All snapshots below retrieved November 27, focused excerpts only; no competitor
+test suite executed. Proposed consequences are inference unless labelled
+source/documented fact.
+
+| Pinned evidence | Useful mechanism | Challenge and decision consequence |
+| --- | --- | --- |
+| [Paperclip continuation classifier](https://github.com/paperclipai/paperclip/blob/c72c4687083db82348baa03a7d57cb6963245f44/server/src/services/continuation-cause.ts#L91-L180) | Explicit user-owned stops, provider exceptions, setup-before-provider-work and recovery causes; corresponding SQL selectors reuse constants. | Some classification logic exists twice (TS predicate/SQL predicate) and extracts a cause from an error string. Nonempty unknown failure codes are initially classified system-owned subject to other checks. Test truth-table equivalence, missing/null fields, new error codes, and mandatory authorization before resuming. Prefer typed immutable reason and explicit default refusal for unsupported unsafe effects. No claim of observed retry bug. |
+| [Paperclip budget recheck](https://github.com/paperclipai/paperclip/blob/c72c4687083db82348baa03a7d57cb6963245f44/server/src/services/budget-reservations.ts#L14-L65) and [workspace lifecycle lock](https://github.com/paperclipai/paperclip/blob/c72c4687083db82348baa03a7d57cb6963245f44/server/src/services/execution-workspace-lifecycle-lock.ts) | Rechecks held reservation before dispatch after preparation, documents lock order and revalidates workspace roots under lock. | Dedicated connection + advisory transaction lock kept across async work, with keepalive, consumes a connection for the critical-section lifetime. Not a measured bottleneck. Audit actual lock duration, contention, pool headroom and failure; keep external work out of owner transactions as already required in our architecture. |
+| [AgentField limiter](https://github.com/Agent-Field/agentfield/blob/1b3c68a3e6fb06c5dcd8869245f954fbc931b982/control-plane/internal/handlers/agent_concurrency.go#L10-L79) and [state validator](https://github.com/Agent-Field/agentfield/blob/1b3c68a3e6fb06c5dcd8869245f954fbc931b982/control-plane/internal/storage/execution_state_validation.go#L21-L55) | Simple atomic local guard and explicit legal state transitions; accommodates delayed queued projection. | This limiter is a singleton backed by process-memory counters; it does not by itself enforce cross-replica quota. Release by agent ID rather than reservation ID is weaker than exact once accounting. A timeout can transition back to running in the validator; distinguish uncertain execution from terminal business outcome. Not an assertion that no other AgentField control exists. Reference discovery/typed invocation, not a replacement for AR custody and Orchestrator. |
+| [Symphony GenServer state](https://github.com/openai/symphony/blob/be10a1b79df723d6d7612b5651c8522704dafb2e/elixir/lib/symphony_elixir/orchestrator.ex#L24-L77) | Local supervision, monotonic poll timer, clean isolated workspace management. | State maps carry running/claimed/blocked/retry information inside one process. For hosted use persist authoritative state or reconstruct from durable receipts; don't copy a GenServer-sized global business coordinator. Local standalone implementations can retain a simpler physical topology. |
+| [Gas Town scheduler persistence](https://github.com/gastownhall/gastown/blob/94cc82289d2ead275a62e1db4ef1d4ada4a1f98e/internal/scheduler/capacity/state.go#L22-L100) | Atomic temp-file rename prevents readers seeing partial JSON; migration reads legacy path. | Atomic replacement alone does not prevent stale read-modify-write/lost updates or prove power-loss durability. Caller locking may address concurrent mutation; not audited end-to-end. Keep explicit monotonic revisions and atomic conditional mutation for distributed scheduler state. |
+| [Vercel Open Agents lifecycle workflow](https://github.com/vercel-labs/open-agents/blob/cf865e94de7729751c747171785b6ce57e7b178c/apps/web/app/workflows/sandbox-lifecycle.ts#L18-L124), [session database helpers](https://github.com/vercel-labs/open-agents/blob/cf865e94de7729751c747171785b6ce57e7b178c/apps/web/lib/db/sessions.ts#L305-L356), [hibernate path](https://github.com/vercel-labs/open-agents/blob/cf865e94de7729751c747171785b6ce57e7b178c/apps/web/lib/sandbox/lifecycle.ts#L170-L270) | Separates durable agent loop from VM lifetime, snapshots/hibernation, activity rechecks. Has an atomic lifecycle-run claim helper in database layer. | The inspected workflow's claim/clear uses read-then unconditional update by session ID rather than that CAS helper; evaluation calls stop after checking activity, then updates state. Competing wake/clear/new-admission/stop is a concrete race hypothesis; outer caller/platform serialization may constrain reachability. Reproduce before filing defect. For AR enforce owner/epoch at mutation, reconcile unknown stop; VM/harness state must not silently lose workspace or admitted work. |
+| [Mastra durable execution fence](https://github.com/mastra-ai/mastra/blob/6c8c7025be00578fc990d1aca09ae5e4142109d5/packages/core/src/agent/durable/execution-fence.ts#L1-L24) and [settlement](https://github.com/mastra-ai/mastra/blob/6c8c7025be00578fc990d1aca09ae5e4142109d5/packages/core/src/agent/durable/execution-fence.ts#L643-L735) | Distinguishes storage-checked generations from fallback PubSub lease and no-op single-process provider. The source explicitly acknowledges the check-to-write gap in weaker profile. | Do not hide those profiles behind equivalent success signatures. Comments describe disarming owned-settled fences for background writes; the permitted write set needs separate examination, not a blanket current bug claim. [Closed historical issue #18031](https://github.com/mastra-ai/mastra/issues/18031) describes suspended tool resume failing on cold process despite persisted payload. Test cold resume with original input, worker version and approval/authority, plus terminal late writes, storage generation and stale memory store. |
+
+OpenHands SDK and Warren earlier in this study remain more relevant to portable
+workspace contracts than a generic agent loop. Restate/Temporal are stronger
+durable execution references. Composio Agent Orchestrator and Orleans could not
+be source-pinned through the connector on this pass; retain as unscored
+watchlist/documentation references, not negative assessments.
+
+### Pass 6: fleet controller behavior, admission and backpressure
+
+[Kubernetes Agent Sandbox warm-pool controller](https://github.com/kubernetes-sigs/agent-sandbox/blob/6242490fac541912665243d67c42405be0cb692d/extensions/controllers/sandboxwarmpool_controller.go#L125-L205)
+documents two important failure shapes: creation ahead of informer-cache
+observation and replenishment delay repeatedly re-arming under sustained
+arrivals, starving refill. The implementation tracks expected writes and
+optionally shapes refill with per-pool token buckets. It includes author-reported
+benchmark comments (not reproduced here); no extrapolation to 100k agents.
+The [claim controller](https://github.com/kubernetes-sigs/agent-sandbox/blob/6242490fac541912665243d67c42405be0cb692d/extensions/controllers/sandboxclaim_controller.go#L295-L440)
+treats pending warm candidates as transient, not as terminal failure.
+The [release history](https://github.com/kubernetes-sigs/agent-sandbox/releases)
+reports fixes for scheduling-gated warm pool members, stale UID cache eviction
+and partial-throttling status updates. These are useful hosted sandbox
+adapter candidates and failure scenarios, not business execution authority.
+
+[Hatchet tenant-scoped lease repository](https://github.com/hatchet-dev/hatchet/blob/8f0821b8a59758eb2364a67a59867e18849b062f/pkg/repository/scheduler_lease.go#L35-L113)
+and [batch scheduler](https://github.com/hatchet-dev/hatchet/blob/8f0821b8a59758eb2364a67a59867e18849b062f/pkg/scheduling/v1/batch_scheduler.go#L960-L1048)
+show transactional acquire/release and atomic batch reservation + assignment.
+Useful as scheduling evidence; not proof that arbitrary external work is
+exactly once or that tenant pools scale linearly. A task queue is not an
+agent session, sandbox or business Run. Preserve current C0-C3 fair admission
+plan and OD-024 consumption ownership; compare a bounded candidate adapter
+only where a real gap remains.
+
+**Fleet-level discriminators:** use delayed/duplicate projections, a continuous
+arrival rate below and above service rate, scale-out plus partial pool refill,
+provider 429s, delayed claim readiness, hot partition, stale status UID, and
+burst of terminal cleanup. Measure useful accepted/completed work, oldest
+eligible wait, control lag, refill rate, pending bytes, retained cleanup debt,
+false-ready observations and resource cost. Reconcile desired/accepted/
+observed state without mistaking a queue lag for capacity or failure.
