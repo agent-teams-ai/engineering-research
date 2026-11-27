@@ -28,6 +28,32 @@ P0 means before offering the affected guarantee, not before every unrelated deli
 | P0 before durable plugin/state contracts | Artifact identity, installation permission, runtime authority and versioned state are separate; owner invariants remain authoritative. | State and extension owners define the compatibility horizon, old readers/writers, replay/cleanup paths and allowed migration. Rollback uses fresh authority. Name actual containment for an untrusted profile; a signature or Worker alone is insufficient. Use E6, EF OD-003 and Orchestrator OD-043. |
 | P0 before hosted partition/routing schemas | ADR-0079/0048/0065 retain placement, logical transfer and successor ownership. | Orchestration Scope retains project-to-runtime binding authority. Record stable logical identity, initial placement scope and hot-tenant workload before physical keys. A future cross-cell move separately preserves receipts, deduplication, custody and pending obligations; no implicit active-Run relocation. Owners: deployment/OD-038/039, Platform installation and AR C0; A9. |
 
+### Owner follow-through for competitive plugins
+
+The owner's expanded request on 2026-11-27 requires competitive modularity,
+plugins and live updates as target outcomes. The [plan-level comparison](../technologies/modularity-and-extension-contracts.md#plan-level-plugin-parity-target-2026-11-27)
+acknowledges competitors' substantial lifecycle designs and distinguishes
+target architecture from executed guarantees. The following existing owner
+records hold the concrete acceptance refinements; publication state remains
+visible in each linked commit or PR.
+
+| Owner and publication record | Existing document and required follow-through |
+| --- | --- |
+| [Get Modular #260](https://github.com/agent-teams-ai/get-modular/pull/260) | Compiler engineer handbook: selected-root closure versus affected old/new replacement, exact bindings and retained shared resources. |
+| [Extension Foundation #71](https://github.com/agent-teams-ai/extension-foundation/pull/71) | OD-003: complete installed-plugin journey, trust profiles, versioned headless/UI contracts and authoring proof. |
+| [LMU f38f2e63](https://github.com/agent-teams-ai/live-module-updates/commit/f38f2e634e7b9e28e4294f1ea8f7ead909e35ab9) | Foundation delivery plan: required continuous-update outcomes, applicable replacement modes, real stream lifetime, independent self-update and cumulative realm budgets. |
+| [Agent Runtime #264](https://github.com/agent-teams-ai/agent-runtime/pull/264) | Capacity delivery plan: quota scope and release receipt, actual downstream control reserves, receiver enforcement and unresolved physical custody. |
+| [Orchestrator #112](https://github.com/agent-teams-ai/agent-teams-orchestrator/pull/112) | OD-033 and OD-043: causal wait/wake and budgets, existing placement ownership, useful product lifecycle and compatible state/recovery. |
+| [Platform #66](https://github.com/agent-teams-ai/agent-teams-platform/pull/66) | Shared research integration plan: mixed-version rollout, distinct authority dimensions, qualified future moves and bounded offline/revocation behavior. |
+| [Engineering Foundation #489](https://github.com/agent-teams-ai/engineering-foundation/pull/489) | Executable capabilities, Deferred work: optional development-time conformance extraction with owner-supplied semantics and real-store/provider evidence. |
+
+These reviewed owner additions total **372 Markdown lines across eight existing
+documents**, separately from this research corpus and its review corrections.
+They add **0 production/integration LOC and 0 new test LOC**. The full journey
+is a required target; accepted finite envelopes and each owner's implementation,
+public-contract, isolation and release qualification remain distinct.
+Use these owner records for implementation sequencing and new estimates.
+
 ### Smallest documentation handoff
 
 Close an item by linking existing owner coverage when it already specifies the
@@ -42,7 +68,8 @@ implementation trigger; and a link back to D/E or A9/A10. A current source
 inventory comes before any implementation estimate. Stop an extraction when
 the existing primitive and conformance already cover the case.
 
-**Documentation sizing:** about 40-65 changed/added Markdown lines for this
+**Initial minimal handoff estimate, before the expanded owner request:** about
+40-65 changed/added Markdown lines for this
 compact entrypoint, then roughly 150-250 lines across existing owner plans
 for minimal routes and missing acceptance details after checking coverage.
 The combined planning envelope is about 200-320 lines, not a requirement to
