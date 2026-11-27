@@ -102,3 +102,21 @@ Wasm and other previously evaluated mechanisms remain in the existing
 [Extension Foundation execution profile register](https://github.com/agent-teams-ai/extension-foundation/blob/a1b5007ae4777bb5b01adab35a9ee83546a62333/docs/architecture/live-extension-system-map.md#L166-L198);
 do not treat them as newly researched/selected here. Check exact releases,
 license, native/TS7 support, installation and security before admission.
+
+## Continuous-update candidate refinement — second campaign
+
+The [exact LMU, GM and EF source probes](../studies/composition-and-scale-evidence.md#second-deep-campaign-executable-lmu-boundary-and-competitor-implementation-review--2026-11-27)
+change the qualification priority, not the accepted profile or package pins.
+
+| Candidate | Adopt now / evaluate next | Reject as default |
+| --- | --- | --- |
+| GM Resources + native Effect scope/Stream | First compare existing released, installed consumer capabilities for finite ownership and separately qualified streaming. Keep native errors, cancellation, original cleanup and owned stream scope. | New universal scope, event emitter, or wrapper that erases native lifetime. |
+| LMU + EF verified artifact | Keep cooperative finite profile; evaluate cumulative per-realm budgets, mixed-version contract, explicit handover and continuous-service retirement. | Unlimited in-process ESM cache-busting or advertised unloading. |
+| Node worker/process with typed RPC, HashiCorp go-plugin as reference | Bounded recyclable realm shared by compatible trusted modules. Compare actual startup, memory, call/stream cost, exit/cleanup receipts and reattach proof. | One process per pure module/agent; PID-only reattach; treating worker as hostile-code sandbox; adopting Go plugin library as TS runtime. |
+| Envoy xDS patterns | Reference for staged/active/observed version, stale ACK/nonce and delta reconciliation; use existing product outbox/feed where possible. | New universal distribution control plane, global snapshot lock, ACK as applied authority. |
+| TLA+/TLC or fast-check | Existing [four bounded model experiments](../studies/composition-and-scale-evidence.md#a8--executed-bounded-adversarial-models-for-fleet-moves-and-shared-budgets) demonstrate why an independent oracle matters. Evaluate generator with real adapter, fault injection and mutation tests. | Model success as substitute for runtime/SQL qualification or mandatory DSL. |
+
+A worker or subprocess boundary is valuable only if its full ownership and
+failure semantics are qualified. Before adding any package, check actual
+supported runtime/TS versions, license, dependency surface, release and
+current consumer qualification; none was adopted here.
