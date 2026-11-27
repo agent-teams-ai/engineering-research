@@ -10,6 +10,16 @@ summary: Relevant product, framework and infrastructure cohorts with honest audi
 
 This is a **research priority set**, not a scored league table. Existing research already supplies targeted lessons for most entries. Primary pages below were checked on 2026-11-03; rolling pages establish watchlist relevance only and must be pinned/refreshed during a real review. No new competitor runtime was installed or benchmarked for this draft.
 
+## Narrow release triage — 2026-11-25
+
+Release-note evidence only, not source audit or deployment qualification:
+
+- OpenHands OSS [v1.43.0](https://github.com/OpenHands/OpenHands/releases/tag/v1.43.0) (2026-11-20, `d5d7908`) documents automation setup and experimental decision cards. These are relevant to governance/interaction research, not proof of enterprise S1/S5 or durable decision semantics.
+- CrewAI framework [1.15.44](https://github.com/crewAIInc/crewAI/releases/tag/1.15.44) (2026-11-19, `374c053`) and [1.15.45](https://github.com/crewAIInc/crewAI/releases/tag/1.15.45) (2026-11-24, `29311ae`) document versioned artifacts, input/path handling, checkpoint retention validation and server credential comparison changes. Triggers for component P4/E1/S4 review, not evidence of AMP/Factory deployment guarantees.
+- No new product-edition source audit for LangSmith Deployment, Dify, OpenHands Enterprise or Microsoft Agent Framework in this bounded pass. Unknown remains unknown.
+
+No board or ranking changes. The December 3 claim-review window and February 1 full-scope window remain in the [maintenance queue](../methodology/research-maintenance.md#initial-review-queue).
+
 ## Narrow release triage — 2026-11-11
 
 The initial watchlist's **2026-11-03 relevance check remains historical**. The following subsequent release/vendor records are **discovery triggers, not new whole-product evaluations**:
