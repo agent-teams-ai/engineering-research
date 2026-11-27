@@ -120,3 +120,30 @@ A worker or subprocess boundary is valuable only if its full ownership and
 failure semantics are qualified. Before adding any package, check actual
 supported runtime/TS versions, license, dependency surface, release and
 current consumer qualification; none was adopted here.
+
+## Plan-level plugin parity target, 2026-11-27
+
+Compare planned guarantees with planned guarantees and executed behavior with
+executed behavior. The owner requires competitive modularity, plugins and live
+updates across the greenfield products. This is a delivery target, not a claim
+that the current finite profiles already implement every mode.
+
+| Reference and evidence class | Relevant baseline and comparison boundary |
+| --- | --- |
+| [Paperclip plugin specification at c72c4687](https://github.com/paperclipai/paperclip/blob/c72c4687083db82348baa03a7d57cb6963245f44/doc/plugins/PLUGIN_SPEC.md), inspected target specification with implementation caveats | Specifies out-of-process workers, capability-gated worker-side host calls, UI contributions, SDK compatibility and install/uninstall/upgrade/config changes without a server restart. Its upgrade sequence drains/stops the old worker before starting the successor; this is not a promise of arbitrary old/new overlap. |
+| Paperclip deployment and trust scope, same pinned specification | Core assumptions are instance-global installation and single-tenant/self-hosted use; companies are not plugin trust boundaries and same-origin plugin UI is trusted. Managed image packages have a separate restricted resolver; that section does not establish coordinated multi-server plugin rollout. No competitor runtime was executed for this comparison. |
+| [OpenClaw replacement and turn handover](../studies/composition-and-scale-evidence.md#a3--openclaw-resolves-these-precise-problems-at-management-seams), pinned implementation source | Generation retention, self-reload refusal, bounded drain, declared overlap and safe-step turn handover already have concrete mechanisms. Generation naming or a generic hot-reload claim is therefore not a differentiator. Use the exact qualified trust/state/resource scope when comparing. |
+| [OSGi retained wiring and dependent closure](../studies/composition-and-scale-evidence.md#pass-4-mature-modular-systems--osgi-versus-js-generation-replacement), specification and source reference | Mature modular systems already distinguish revisions, retained users and affected dependents. Reuse those invariants; JS code residency, product state and external custody still need their own owners. |
+
+The practical target is one connected install/use/live-update/disable/uninstall/
+restart journey, with useful successor behavior, coherent permitted old work,
+original cleanup, recovery of uncertain effects and bounded cumulative
+retention. Qualify only the applicable overlap, stream, transfer, realm and
+isolation profile; a successful import or readiness response proves less.
+Keep a useful external headless plugin, optional UI and actionable diagnostics
+in the authoring proof, including the necessary glue and upgrade steps.
+
+EF and LMU own the shared artifact and update contracts; GM supplies composition
+facts and resource mechanisms. Products retain state, authorization and physical
+custody. Their owner-local plans decide mechanisms and qualification, without a
+second plugin engine or a fleet-capacity promise from this comparison.
