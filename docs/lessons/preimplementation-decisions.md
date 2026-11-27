@@ -372,3 +372,110 @@ All three drafts should link one shared research record and keep their decision 
 - **A3 — Orchestrator transport and runtime boundaries:** [`eventing-and-reliability.md`](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/981dd836ca3d35b764561bdc11dc2e0544d83416/docs/architecture/eventing-and-reliability.md), [`runtime-boundary.md`](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/981dd836ca3d35b764561bdc11dc2e0544d83416/docs/architecture/runtime-boundary.md), [`deployment-profiles.md`](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/981dd836ca3d35b764561bdc11dc2e0544d83416/docs/architecture/deployment-profiles.md).
 - **A4 — Platform boundary/profile ownership:** [`platform-orchestrator-boundary.md`](https://github.com/agent-teams-ai/agent-teams-platform/blob/7f6eb3746c07dc01751c29a8dbc62e50b5f7ad6d/docs/architecture/platform-orchestrator-boundary.md), [`ADR-0010 fully local V1`](https://github.com/agent-teams-ai/agent-teams-platform/blob/7f6eb3746c07dc01751c29a8dbc62e50b5f7ad6d/docs/decisions/0010-fully-local-v1-and-shared-backend-profiles.md).
 - **A5 — existing runtime append and source contracts:** [`S2 operations contracts`](https://github.com/agent-teams-ai/agent-runtime/blob/4bdc93a43b58469f60ca10c0dca512824650c8ac/docs/architecture/agent-runtime-architecture-program-s2-operations-storage.md#L230-L281), [`S3–S5 source/replay distinctions`](https://github.com/agent-teams-ai/agent-runtime/blob/4bdc93a43b58469f60ca10c0dca512824650c8ac/docs/architecture/agent-runtime-architecture-program-s3-s5-features-host.md#L241-L247), [`foundation output/cursor semantics`](https://github.com/agent-teams-ai/agent-runtime/blob/4bdc93a43b58469f60ca10c0dca512824650c8ac/docs/architecture/agent-runtime-greenfield-foundation-plan.md#L250-L259).
+
+## Pass 9: owner-specific deep follow-through and foundation extraction — 2026-11-27
+
+This is a candidate delta to the existing docket, not accepted product
+implementation. The [deep source/incident study](../studies/composition-and-scale-evidence.md#deep-follow-up-live-plugin-custody-and-openclaw-failure-history--2026-11-27)
+and [extension](../technologies/modularity-and-extension-contracts.md#deep-extension-lifecycle-candidate-screen--2026-11-27)
+and [execution](../technologies/agent-execution-and-sandboxes.md#pass-8-additional-fleet-and-recovery-candidate-discrimination--2026-11-27)
+catalog screens supply evidence. No source observation implies our existing
+design is deficient. The earlier baseline already covers most fundamentals;
+this pass prioritizes specific decisions and adverse cases that could change
+an expensive implementation boundary.
+
+### Product and foundation decisions to settle first
+
+| Priority / owner | Existing direction, precise delta and rejecting evidence |
+| --- | --- |
+| P0 — Orchestrator OD-033, OD-038/039 and Platform/AR placement owners | [OD-033](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/3dccf2c53bf11f3939a19734a58f5e64d96673d0/docs/open-decisions/OD-033-ooda-convergence-and-context-activation.md#L246-L255) already separates placement from stable identity, causal quotas and current writer. Before choosing schemas/routing keys, select the actual semantic partition and authority directory, the minimum transferable group and how a large tenant spans partitions without splitting one Run/aggregate. Compare tenant-affine cells, tenant+owned-group placement and one initial cell. Specify migration/restore before and after authority transfer; source loss, delayed old writes, partial copy, conflicting rehome and stale directory, plus inability to reach global Platform. Reject global hot-path lock or Platform lookup for every operation. |
+| P0 — Orchestrator OD-033, OD-032, OD-024 | Existing classification, no-op fingerprints, causal bounds and safety lanes are strong. Add Paperclip-derived fixtures for unknown error codes, SQL selector versus domain decision disagreement (if SQL prefilters), user-owned stops, wake from a self-authored message, stop/approve race, and external acceptance uncertain. Persist original wait reason and cause/budget; sleeping child/parent do not spawn unbounded wakeups or mint quota. Keep stable business identity, operation attempt and effect identity separate. |
+| P0 — Agent Runtime [generation model](https://github.com/agent-teams-ai/agent-runtime/blob/cae4d350c947cd9f74bc04130531527c9a36baeb/docs/architecture/execution-generation-model.md), [capacity plan](https://github.com/agent-teams-ai/agent-runtime/blob/cae4d350c947cd9f74bc04130531527c9a36baeb/docs/architecture/capacity-admission-delivery-plan.md#L118-L210), C0–C3 | Already specifies atomic grant/accounting, tombstones, bounded fairness, control reserve and physical reclaim. Add comparison of storage fence vs lease-only provider, actual receiver stale-write rejection, cold resume of approved tool input, logical operation distinct from physical process/workspace, exact resource-specific receipts. Test a hot tenant, sustained arrival while warm pool replenishes, throttling at provider/API, stop after a new owner admitted, grant vs cancellation and old observer vs new session. Use exact provider capability/profile admission instead of one deceptive uniform guarantee. |
+| P0 — Platform [managed installation](https://github.com/agent-teams-ai/agent-teams-platform/blob/76fc9734f6128b78c7a8b1bc858859fb1cbe835a/docs/architecture/managed-installation-control.md#L22-L156) | Already separates eight authority dimensions, signed plan, desired/accepted/observed state and offline/restore rules. Preserve those. Explicitly evaluate placement directory ownership, partition-move receipt and authority anchor, gradual per-cell version rollout, stale grant/revocation freshness, budget distribution and lost Platform connectivity. Preserve local/self-hosted independence. Use hierarchical allowance only with exact conservation and reconciliation; temporary grant expiration alone never frees still-occupied physical capacity. |
+| P0 — Extension Foundation | Add conformance case inventory to existing admitted host safety/profile gates: verified import closure including native assets; disallow unknown executable ingress; grants bound to instance and effect target; explicit same-process trusted vs disposable worker vs hostile isolated host profiles; stable digest is not authorization. Cold catalog/installed vs actual active vs useful capability must not collapse. Test late lazy import, premature GC and accumulated artifact quota, selective plugin update and remote UI bridge access. Do not require hot reload for pure/built-in modules. |
+| P0 — LMU | Existing Programme C and operation contract already address most of these laws. Add specific negative fixtures: independent Hosts with same plugin ID; unaffected plugin remains live; old callback cannot delete successor resource; explicit borrowed dependency; handover/self-update during active call; retained lazy import; event-loop stall and original disposal completion; failed prepare plus subsequent replacement; repeated updates exhaust retiring bytes and reject admission safely. Distinguish API response, actual useful new generation and physical old-code reclamation. Apply in existing C1–C7 scope where supported, not a new all-product gate. |
+| P1 — Get Modular and Engineering Foundation | GM owns deterministic closure/bindings and qualified resource mechanisms. For large graph, test incremental affected-set correctness against full recomputation before optimizing; avoid global resolution/state. Engineering Foundation remains development-only: qualify authoring restrictions and negative runtime contracts with existing executable capability/evidence routes, not a second runtime checker. Use meaningful installed consumer tests and mutation cases, not folder counts. |
+
+### Fleet envelope and decision criteria
+
+The target is now hundreds of thousands of *actually admitted concurrent
+executions* across independent Runs, not idle identities or merely queued work.
+Retain the existing Orchestrator V1 distinction: per-Run capacity and local
+one-agent qualification are separate. An illustrative 300k active execution
+scenario with a 30s heartbeat creates 10k heartbeat observations/s; with 1
+event/s and 1 KiB each it yields 300k events/s and about 26.54 decimal TB/day
+before replication/indexes. Changing event rate by 10x changes raw bytes
+by 10x. This is arithmetic, not measurement or an assumption that every
+profile uses per-agent heartbeat. Avoid per-agent connection/subscription/sidecar.
+Separate control, domain commands, journal, token/output streaming, artifacts
+and metrics. Define work rates, resident worker/agent memory, provider quota,
+backpressure, largest tenant and Run, retention and hardware explicitly.
+
+**Choice sequence:** establish semantic owner partition and directory/revision
+contract now; use one logical cell and owner-local transactions first; prove
+duplicate, unknown result, restore and handoff via controlled fixtures before
+real multi-cell deployment; then scale through 1, 1k, 10k, 100k and 300k+ in
+existing qualification plans. These are proposed experimental increments, not
+extra global release prerequisites. Do not split a Run or weaken semantic
+invariants to meet a capacity number. Define negative proof (stale writer,
+one hot partition, slow store, reconnect storm, quota exhaustion, cold recovery,
+partial rollout) before choosing implementation. Real provider runs, simulated
+sessions, scheduler fixtures and end-to-end concurrent agents remain separate.
+
+### Potential reusable libraries — no speculative repository creation
+
+The following are candidates for a mechanism with named intended consumers,
+not a new umbrella Foundation runtime. Follow the organization's existing
+library-first extraction/admission rule. Estimates are incremental design,
+adapter and fixture effort for a *small discriminating slice* reusing existing
+primitives, excluding production fleet delivery, generated code and vendor
+code. Value / complexity / confidence (1–10) are ordinal judgments. A
+reliability gain is expected only after qualification; no new code exists here.
+
+| Candidate seam | Intended consumer / existing owner | Value / complexity / confidence | Proposed discriminating slice / decision |
+| --- | --- | --- | --- |
+| Resumable subscription application contract | AR output, Orchestrator SDK, ReviewRouter/client streams; existing Centrifugo, GM/Effect | 9 / 5 / 8 | 100–350 TS adapter + 250–700 fixture LOC. Separate transport position from committed application state, atomic snapshot+watermark, replay overlap, slow apply, cancel/resnapshot and stale tenant/generation. Compare existing SDK recovery first; extract narrow owner-neutral reducer/cursor law only if distinct consumers fit. |
+| Durable operation receipt and reconciliation helpers | LMU updates, Platform installation, AR provider effects; domain owners retain state and policy | 9 / 7 / 7 | 150–450 adapter + 300–900 fixture LOC for one unknown-commit case. Reuse existing storage CAS/outbox/workflow engine; generic receipt lookup/retry classification only if semantics genuinely common. Do not share domain enums, add a canonical ledger or create another durable engine. |
+| Bounded work/control and resource-limit laws | AR admission, Orchestrator dispatch, background jobs and gateway; existing Effect and AR | 9 / 7 / 7 | 100–350 adapter + 300–800 fixture LOC. Compare native semaphore/queue/rate limiter with typed count/bytes/resource-vector budget and reserved control path. Local primitive cannot implement global fairness or financial quota; initially share contracts and tests, not a universal allocator. |
+| Generation-aware rollout / resource custody | LMU, GM Resources, EF artifact admission, Platform/AR native custody | 10 / 8 / 9 | Existing projects already own it. No new library. Add selective replacement, old callback, retained artifact, observed stop and cleanup debt tests inside the proper owner. |
+| Contract/failure-model fixture kit | Engineering Foundation dev-only, EF/GM/LMU conformance and product owners | 9 / 5 / 8 | 100–300 harness + 300–800 fixtures LOC for one deterministic clock/scheduling/replay scenario. Reuse fast-check/native runner/Testcontainers/Toxiproxy; allow independent model/oracle, seed, real adapter evidence and negative mutation. No runtime import or mandatory DSL. |
+| Typed API evolution / compatibility | Engineering Foundation, product-owned SDK/ports | 8 / 4 / 8 | Existing Buf/JSON-schema/API compatibility capabilities first. Reuse only exact available checks; no additional schema registry or global DTO library. |
+| Credential/authorization and metering mechanisms | Existing identity/account gateway, Payments SDK, Platform and Orchestrator owners | 8 / 8 / 6 | No new universal IAM/billing library. Existing qualified owners, policy-specific authorization and exact quantities; compare a narrow adapter only when real duplication exists. |
+
+### Pass 10: critical counter-review and stop conditions
+
+This is an author counter-review (not independent reviewer approval). The
+counterarguments narrow the proposals, and remain part of the record:
+
+- **Overengineering critic:** a cell router, workflow engine, dynamic module
+  host and resource scheduler for every local feature would sacrifice small
+  profile usability. Keep static composition and one logical cell; only
+  replaceable/independently owned capabilities need the applicable boundaries.
+- **DRY critic:** sharing a generic Run/Task/Generation state machine creates
+  cross-product ownership coupling. Keep semantic domain models independent;
+  reuse tested technical operations and conformance laws. No second lifecycle,
+  scheduler or authorization authority.
+- **Security critic:** cooperative local scope, signed artifact, process-local
+  refcount or successful lease check cannot prove tenant isolation, receiver
+  fencing or external effect safety. Use exact profile evidence, durable
+  receiver enforcement and fail-closed unsupported operations.
+- **Performance critic:** per-agent objects, global sequencing, fanout and
+  unbounded caches can hide cost in a modular design. Measure per-hot-key
+  work, serialized transaction latency, queue bytes, control progress and
+  retention; bound the affected graph, avoid blanket recomposition.
+- **Evidence critic:** historical issues do not prove current defects; source
+  tests were inspected, not executed. Source excerpts identify mechanisms and
+  hypotheses, not comprehensive competitor correctness. No independent review,
+  production benchmark, license verification or installed compatibility was
+  performed. Do not refresh ranked competitor scores from these unequal
+  scenarios. Recheck exact sources before owner acceptance.
+- **Delivery critic:** existing C0–C3, D/E, S1–S5, OD and Foundation plans
+  already own the important work. Route discriminating additions into those
+  plans only after owner review. Stop an extraction/adoption experiment when
+  the existing primitive already covers the law, the second consumer does not
+  fit, or complexity/operating cost exceeds demonstrated benefit.
+
+The next action is owner review of the concrete delta and existing fixture
+coverage, prioritizing partition/authority, LMU generation/retention, and
+bounded execution. No accepted ADR, production code, runtime dependencies,
+release gate, or existing qualification receipt was modified by this research.
