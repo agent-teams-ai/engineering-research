@@ -554,10 +554,10 @@ generation/epoch, bounded buffer and replay position. Compare native
 Effect scoped streams and GM Resources first. Borrowed observation is not
 an event ledger. Do not add a second lifetime library.
 
-Self-update requires the management intent to outlive the current callback:
-a capability submits a typed request and observes acceptance, not synchronous
-waiting for its own retirement. The actual management executor acquires
-authority after the caller can finish; preflight detects known reentry cycles.
+Self-update uses a separately owned management executor and request lifetime.
+A capability may observe acceptance of a typed request; it cannot wait for its
+own retirement. The executor owns completion independently of the caller;
+preflight detects known reentry cycles.
 The existing Host management/invocation boundary should remain narrow.
 For old-work saturation, retain current LMU semantics (adoption observation
 may be refused); evaluate bounded reserved control/observation capacity or
@@ -616,16 +616,18 @@ and fault domain only when the hosted profile needs it.
 | GM: root closure vs affected closure | A->B->C and A->D; replace/remove A, mutate binding/ordered-many and compare old/new plan; D cannot be missed just because root C excludes it; unchanged shared resource not blindly recreated | use existing public plan and LMU planner, benchmark full pipeline vs incremental only if required |
 | Orchestrator / AR / Platform: stale authority and lost ACK | after committed dispatch before receipt, after source freeze/copy/transfer, stale route, restore old database, expired lease, duplicate original ID and conflicting digest; actual receiver refuses stale mutation; no implicit Run relocation | cross-owner conformance experiment for selected topology; one authoritative writer in each existing boundary; no global epoch authority for all domains |
 | AR: quota/custody under hot shard and partition | two distinct partitions simultaneously consume last slot; expire without stopping process; cancellation/fan-out/renewal and unknown settlement; no over-allocation under the promised hard cap; control lane progresses at saturated data capacity | real bounded PostgreSQL/native-provider test in existing capacity/contained-turn qualification; compare indexed/batched vs scanning adapters |
-| Orchestrator: durable activity and replay | late old result, duplicate task/event, persisted receipt and pending writes before snapshot/restore; old command ID/digest is recovered or explicitly unresolved; old writer cannot restart on stale observation | route to OD-033 and OD-005/035 tests; use existing queue and chosen durability engine before another platform |
+| Orchestrator: durable activity and replay | late old result, duplicate task/event, persisted receipt and pending writes before snapshot/restore; old command ID/digest is recovered or explicitly unresolved; old writer cannot restart on stale observation | route to OD-033 and OD-005 tests under accepted ADR-0116; OD-035's engine selection is resolved. Use the existing delivery boundary and selected native Temporal engine |
 | Platform: installation rollout mixed versions | stale controller, reconnect with previous configuration, ACK/NACK, old worker still draining, invalid artifact, rollback to compatible content with new authority; observed state cannot grant permissions | owner-specific conformance in managed-installation control; no replacement of actual admission receipts by deployment status |
 
 Counter-review conclusions:
 - Keep GM static graph bounded; kernel tests and local measurements do not
   justify incremental compiler infrastructure or composition per agent.
-- Keep existing GM Resources, Observation and Effect integration; only
-  extract a narrowly repeated technical law after verifying at least two
-  actual consumers and existing conformance capabilities. Shared lifecycle
-  test fixtures are more promising than another runtime dependency.
+- Keep existing GM Resources, Observation and Effect integration. Apply the
+  existing [Foundation extraction invariant](https://github.com/agent-teams-ai/engineering-foundation/blob/2a70fe1ccc6f223c2da1a9ec0324ac5d071662b6/docs/architecture/executable-capabilities.md#extraction-admission-invariant)
+  to a shared technical law: name intended reuse, verify common semantics and
+  existing coverage, and qualify with disposable fixtures and at least one
+  real consumer. Current consumer count is not an admission gate. Shared
+  lifecycle fixtures are more promising than another runtime dependency.
 - Compare shared budget locking versus escrow by measured serialized
   transaction rate, oldest eligible age, reconciliation debt and idle
   stranded capacity. A safe but permanently blocked model is not sufficient.
