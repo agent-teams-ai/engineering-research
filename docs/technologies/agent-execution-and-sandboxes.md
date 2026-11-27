@@ -136,3 +136,31 @@ Do not select a tool because another product imported it. Use a small
 capability-specific proof with accepted failure semantics and compare against
 the simpler existing mechanism. Freeze concrete version/license and support
 envelope only in the adopting owner; this catalog does not lock dependencies.
+
+## Pass 8: additional fleet and recovery candidate discrimination — 2026-11-27
+
+Extend the earlier capability screen, not the dependency graph. See
+[the pinned source comparison](../studies/composition-and-scale-evidence.md#pass-5-additional-competitor-source-audit--coordination-and-operational-recovery)
+and [controller evidence](../studies/composition-and-scale-evidence.md#pass-6-fleet-controller-behavior-admission-and-backpressure).
+Scores are proposed fit/confidence for named scopes (1–10), not a global
+ranking or installed qualification.
+
+| Candidate | Fit / confidence | Use / limitation | First acceptance discriminator |
+| --- | --- | --- | --- |
+| [Kubernetes Agent Sandbox](https://github.com/kubernetes-sigs/agent-sandbox) | 9 / 8 for a Kubernetes AR provider | Warm pools, claims, sandbox lifecycle and controller reconciliation may avoid writing a new Kubernetes operator. Does not replace AR session/custody, commercial policy, local providers or hostile-code network security. | Real current harness, cold/warm creation, sustained refill, stop/reattach, UID fence, egress, hard resource enforcement; compare direct Pod/Job adapter plus Kueue. Check version and license. |
+| [Hatchet](https://github.com/hatchet-dev/hatchet) | 8 / 7 for queue/worker scheduling evidence; 5 / 6 as a full engine alternative | Tenant-scoped lease and atomic batch assignment are useful examples. Task scheduler does not own session or arbitrary external effect. | Compare existing PG/NATS path, Temporal, local worker queue; queue admission and crash before/after external dispatch; verify hosting/license/edition, operational footprint and exact TS SDK before selecting. |
+| [Mastra](https://github.com/mastra-ai/mastra) | 8 / 8 as a durability/profile reference, 4 / 7 as AR core dependency | Typed agent/harness and workflow recovery; current source explicitly differentiates storage fencing from lease-only/no-op guarantees. Adds overlapping loop, memory, state and workflow authority. | Optional harness/provider only where an actual integration has fit; prove cold resume, versioned approval, detached observer and stale writer; do not substitute all provider APIs. |
+| [Vercel Open Agents](https://github.com/vercel-labs/open-agents) | 8 / 8 as reference app, 4 / 7 as reusable runtime | Separates workflow and sandbox and shows independent hibernation/reconnect. Vercel-specific managed services and inspected read-then-update lifecycle path require scrutiny. | Workspace lifecycle/receipt conformance; compare alternative sandbox provider with no managed dependency. |
+| [Graphile Worker](https://github.com/graphile/worker), [pg-boss](https://github.com/timgit/pg-boss) | 7 / 5 as local PG background-job candidates | Discovery-only, not source/benchmark-qualified in this pass. Consider if a simple durable local queue fits OD-035; ordinary job execution is not arbitrary durable agent continuation, fairness or external-effect exactly-once. | Pin licenses/versions; transaction enqueue, crash and retry, queue bounds, concurrency key, timer and cancellation; compare existing chosen local path before introducing another queue. |
+| [Dapr Actors](https://docs.dapr.io/developing-applications/building-blocks/actors/actors-features-concepts/), [Orleans request scheduling](https://learn.microsoft.com/dotnet/orleans/grains/request-scheduling) | 8 / 7 as design references, 3 / 6 as new default infrastructure | Lazy logical identities, activation and per-identity serialized turns. Circular calls and one hot identity can block progress; no automatic safe external effects. Orleans source retrieval failed, documentation only. | Use keyed local admission with durable waits; prove recursive/self-call, two-agent cycle, parent waiting for child and activation after failure. Do not equate virtual actor with one OS agent process or mandate a sidecar per agent. |
+| [OpenTelemetry](https://opentelemetry.io/docs/concepts/signals/metrics/), existing [Centrifugo](https://centrifugal.dev/docs/) | 9 / 8 for existing observation and client recovery | Distinct observation/stream transport; not authoritative business journal. Reconnect, label cardinality and memory use remain consumer obligations. | Bounded sample/export queue, independent control metrics, resnapshot overlap/lag, authorization epoch change and reconnect burst; reuse existing detailed Centrifugo study. |
+
+Highest-value next candidates: real Agent Sandbox provider experiment if the
+hosted owner chooses Kubernetes; one bounded PG/JetStream versus selected
+durability engine proof inside existing OD-005/035; native Effect and GM
+resource contracts at eligible modules; independent generative/mutation test
+fixtures. Reject an additional global agent framework, workflow engine,
+actor cluster, DB or broker solely because its interface looks familiar.
+The chosen one-agent fully local profile must not require a cloud runtime or
+the hosted scheduler. Evaluate incremental maintenance, licensing, failure
+semantics, delivery size, portability and performance before adoption.
