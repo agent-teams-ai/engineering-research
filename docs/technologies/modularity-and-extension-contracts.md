@@ -121,6 +121,46 @@ failure semantics are qualified. Before adding any package, check actual
 supported runtime/TS versions, license, dependency surface, release and
 current consumer qualification; none was adopted here.
 
+## Operational plugin parity and friction — source follow-up, 2026-11-28
+
+This follow-up compares **implemented or documented competitor behavior** with
+Agent Teams' **selected finite implementation and proposed stronger profiles**.
+Upstream artifacts below were inspected; their complete E2E and our product E2E
+were not rerun here. An upstream incident already closed is a historical
+failure pattern, not a claim that the current release still has that bug.
+
+| Source and evidence class | Current useful behavior or failure lesson | Specific Agent Teams discriminator and owner |
+| --- | --- | --- |
+| [OpenClaw exact source `8ae0874`: reload cleanup](https://github.com/openclaw/openclaw/blob/8ae087424063b63845cfb94a096d21ede85300c7/src/gateway/server-plugin-reload-cleanup.ts#L110-L215) and [agent handoff](https://github.com/openclaw/openclaw/blob/8ae087424063b63845cfb94a096d21ede85300c7/src/agents/tools/plugins-tool.ts#L164-L180), inspected implementation | Admitted-work drain separates timeout from actual settlement; agent-triggered self-reload ends the holding turn and delegates reload/resume to a separate owner. Neither pattern is a unique future LMU feature. | LMU F4/F5 plus the actual Agent/Host owner: qualify a self-update intent, old-turn release, exact success/unknown receipt and resumed same user work; do not let an old callback await its own retirement or invent durable replay. |
+| [OpenClaw plugin management](https://docs.openclaw.ai/plugins/manage-plugins), maintained product docs; [historical closed missing-generation issue #153290](https://github.com/openclaw/openclaw/issues/153290) | Separate installed/active/usable state, runtime inspection, changed-capability consent and old-source retention. An old source or companion asset deleted while an external holder still uses it is a credible historical failure pattern. | EF E4/E5/E6 and LMU: compare consent before effects, preserve real source/asset holders, expose actionable unknown/cleanup debt, and demonstrate unrelated plugin continuity. Signed bytes never grant permission. |
+| [VS Code extension hosts](https://code.visualstudio.com/api/advanced-topics/extension-host) and [activation events](https://code.visualstudio.com/api/references/activation-events), official behavior | Local, browser and remote placement and lazy capability activation are explicit; an extension can be usable without eager expensive startup. | EF/Host: keep headless core and optional UI/placement independent. Measure first useful call, cold discovery, extra deps and unrelated startup latency. Do not require one process per internal module. |
+| [Grafana plugin lifecycle](https://grafana.com/developers/plugin-tools/key-concepts/plugin-lifecycle) and [backend SDK](https://grafana.com/developers/plugin-tools/key-concepts/backend-plugins), official behavior | Lifecycle stages distinguish discovery, validation, registration, backend process and lazy UI load; managed instance state can retain pools until configuration changes. A subprocess avoids a crash taking down the host, but alone is not a hostile-code containment proof. | EF E4/E6: make an authored plugin's public journey and placement understandable, with owner-scoped state, real failure recovery and no implicit runtime-global service bag. |
+| [JetBrains dynamic plugins](https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html), official qualification rules; [OSGi R8 wiring](https://docs.osgi.org/specification/osgi.core/8.0.0/framework.wiring.html), specification | Dynamic eligibility and classloader/resource leaks are checked explicitly; OSGi retains old in-use wiring and refreshes dependent closure. | GM + LMU: the old/new affected set and retained consumers matter more than the selected-root graph; reject unsupported live modes and report required restart rather than simulate unloading. |
+| [Temporal worker versioning](https://docs.temporal.io/best-practices/worker), official deployment guidance; [Envoy xDS](https://www.envoyproxy.io/docs/envoy/v1.40.0/api-docs/xds_protocol), protocol spec | Pinned workflow versions retain workers while active; config ACK/NACK and dependency warming are not the same as a useful application result. | Orchestrator/Platform/LMU: distinguish staged, accepted, active, observed and useful; keep old workers and compatible state until obligations finish. Do not build a second controller. |
+| [Kubernetes Agent Sandbox exact warm-pool code `6242490`](https://github.com/kubernetes-sigs/agent-sandbox/blob/6242490fac541912665243d67c42405be0cb692d/extensions/controllers/sandboxwarmpool_controller.go#L58-L165), inspected implementation | Cache-lag expectations, per-pool indexing, readiness grace, jitter and refill pacing distinguish desired warm members from actually claimable capacity; repeated delay under sustained arrivals can starve refill. | Runtime C0-C3 hosted adapter, conditional on selecting warm pools: reject double-credit of pending creates/claims; prove sustained useful admission, bounded refill and control progress; keep application authority in its existing owner. |
+| [OpenTelemetry metric cardinality](https://opentelemetry.io/docs/concepts/signals/metrics/), SDK guidance; [Kubernetes API priority/fairness](https://kubernetes.io/docs/concepts/cluster-administration/flow-control/), operational guidance | Unbounded unique labels and unbounded queues consume resources; priority and fairness need separate, measured budget behavior. | Runtime C0-C3 already specifies limits and fairness. Verify actual metric labels and control capacity at saturation rather than adding another generic scheduler. |
+| [WASI 0.3 component-model release](https://component-model.bytecodealliance.org/reference/faq.html), evolving standard | Native async functions, streams and futures have a portable interface model; cross-language type compatibility does not imply safe plugin unloading, isolation or native custody. | EF/Runtime: preserve narrow host ports; qualify a concrete Wasm/WIT profile only for a selected real consumer, not as a mandatory TypeScript kernel. |
+
+**Potential competitive advantage is an independently demonstrated whole user
+journey**, not the count of frameworks. A useful external headless plugin should
+have a short typed authoring path and understandable failure; the selected Host
+should show *what will change*, actual grant/consent consequences, affected
+dependency and retained-work scope, restart or incompatibility requirements,
+and the difference between accepted and useful activation. A preview is
+read-only information, not admission, authority or a universal new API.
+Reject an incomplete or stale preview at the real owner decision; keep the
+actual Host's public surface small. Use existing EF/GM/LMU facts rather than
+inventing a second resolver or update coordinator.
+
+A fair comparison needs the **same fixed useful workload**: initial install,
+first effective invocation, update while unrelated work runs, denied capability
+expansion, malformed update, late old callback, cleanup failure, restart and
+state retention, plus cold discovery and runtime cost. Measure author steps,
+dependencies and failure diagnosis as well as correctness. Product adoption,
+hostile isolation, long-running streams, multiple cells and scale each have
+their separate claimed profile and native evidence; passing one does not
+certify the others.
+
 ## Plan-level plugin parity target, 2026-11-27
 
 Compare planned guarantees with planned guarantees and executed behavior with
