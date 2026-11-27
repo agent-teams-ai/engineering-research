@@ -8,21 +8,61 @@ summary: Concrete alternatives and priorities inside existing Runtime, Orchestra
 
 # Preimplementation Decisions
 
-These decisions are bounded refinements inside existing product plans. They are proposed research follow-through, not a new cross-product release gate or a request to reopen accepted choices. The evidence is the [Paperclip dossier](../competitors/paperclip.md); the three local draft PRs retain applicability and acceptance ownership.
+These decisions are bounded refinements inside existing product plans. They are proposed research follow-through, not a new cross-product release gate or a request to reopen accepted choices. Evidence is maintained in the [Paperclip dossier](../competitors/paperclip.md) and [composition and scale study](../studies/composition-and-scale-evidence.md); each product retains applicability and acceptance ownership.
 
 ## Priorities before the affected implementation
 
-| Priority | Concrete work | Existing owner and smallest useful output |
-| --- | --- | --- |
-| P0: preserve authority | Freeze the actual runtime capability/outcome, identity/revocation and aggregate/transaction meanings needed by the selected feature | OD-004, OD-006, OD-012 and OD-032; one explicit owner contract and rejecting trace, not a universal abstraction |
-| P0: define the workload | State active executions, Runs, tenants, pools, provider limits, pending bytes, output/history and cleanup debt | Runtime C0 and existing deployment profiles; one large tenant and equivalent multi-tenant distribution |
-| P0: preserve consumption semantics | Separate durable usage facts, rating/views and authoritative hard reservations; state estimates, periods and permitted overshoot | Accepted ADR-0045 and open OD-024; D1 below |
-| P1: make queue and storage work bounded | Identify current claim/append transaction work, shared counters and actual source ordering | Runtime C1/C2/S2; D2/D3 below; measurements at the existing seam |
-| P1: prove safety under load | Exercise cancellation/renewal/cleanup while ordinary output, storage and provider work are saturated | Existing C2/C3 and native custody owners; retain identity and honest unknown outcomes |
-| P1: integrate a real slice | Use actual accepted role/process/store boundaries and one real harness/consumer | Existing S1–S5 and product feature owners; no wholesale framework build |
-| P2: qualify the complete profile | Run the actual Fully Local, self-hosted and managed compositions against their declared workload and failures | Existing profile/C3 owners; publish only the measured envelope |
+Current consolidation: **2026-11-27**, from the source-backed D/E cards and
+[A9/A10 follow-through](#second-campaign-discriminate-the-remaining-design-decisions)
+at [research checkpoint 9f5c0cbc](https://github.com/agent-teams-ai/engineering-research/tree/9f5c0cbc7581d74c28a331f33bc6a1b14d1956ee).
+This is the short action index; the linked records retain alternatives and evidence.
+P0 means before offering the affected guarantee, not before every unrelated delivery.
 
-Do not make every unresolved product decision block every library. Resolve the contract required by the current slice, preserve separate ordinary-runtime progress, and reconcile proposed cases with existing coverage before adding work. The central research itself creates no implementation approval ritual.
+| Priority and boundary | Existing baseline | Remaining bounded action and owner |
+| --- | --- | --- |
+| P0: effect authority and recovery | Execution generations, unknown outcomes and one canonical writer already have owners. | Runtime/provider and Orchestrator OD-032 owners name the actual receiver fence and supported failure profile; retain original command ID/receipt through lost ACK, restore and stale-writer attempts. A lease-only provider cannot advertise receiver-enforced safety. See E2/E5 and A10. |
+| P0: hard admission and physical release | C0-C3 already owns atomic grants, bounded fairness, control capacity and reclaim debt; Consumption Governance owns money. | Inventory each quota scope, transaction or finite share, physical resource and release receipt. Cover lease expiry while the process lives. When the selected scope spans independently admitted partitions, cover two partitions spending the last shared slot. Reuse C0-C3/D2; commercial reservations remain D1/OD-024. |
+| P0: causal activation and bounded data | OD-033 and output/event owners already describe causal budgets, durable waits, replay and backpressure. | Choose the dependent wait/wake protocol; cover self-wake without progress, explicit user stop, unknown effect and stale replay. Name count/byte/time limits and real DB/RPC/provider resources reserved for cancel/renew/reclaim. Owners: OD-033/026/027, output owners and Runtime S2/C0-C3; D3/A10. |
+| P0 when extending live-update profiles | The finite cooperative LMU profile is retained; streams, self-handover and recyclable realms are separate extensions. | LMU and the EF loader/Host owner select the relevant A9 mode. Specify lifetime through actual stream consumption, detached self-update intent, original cleanup and cumulative evaluation budgets. Logical retirement does not promise Node ESM unloading. |
+| P0 before selective replacement | GM owns composition facts; LMU owns the replacement plan. The finite whole-composition profile does not require minimal-subgraph replacement. | The LMU planner compares old/new dependencies, bindings, resource owners and compatibility. Preserve unrelated/shared owners; include affected dependants outside one root closure. Use A10's A/B/C/D case; no second graph compiler. |
+| P0 before durable plugin/state contracts | Artifact identity, installation permission, runtime authority and versioned state are separate; owner invariants remain authoritative. | State and extension owners define the compatibility horizon, old readers/writers, replay/cleanup paths and allowed migration. Rollback uses fresh authority. Name actual containment for an untrusted profile; a signature or Worker alone is insufficient. Use E6, EF OD-003 and Orchestrator OD-043. |
+| P0 before hosted partition/routing schemas | ADR-0079/0048/0065 retain placement, logical transfer and successor ownership. | Orchestration Scope retains project-to-runtime binding authority. Record stable logical identity, initial placement scope and hot-tenant workload before physical keys. A future cross-cell move separately preserves receipts, deduplication, custody and pending obligations; no implicit active-Run relocation. Owners: deployment/OD-038/039, Platform installation and AR C0; A9. |
+
+### Smallest documentation handoff
+
+Close an item by linking existing owner coverage when it already specifies the
+law and rejecting scenario. Add only a missing decision, parameter, supported
+profile or counterexample to the existing plan/OD; preserve accepted ADR bytes.
+Research records a proposal and cannot accept a new runtime, isolation policy,
+public SPI, distributed topology or product capability.
+
+For each applicable item, leave one owner-local record with: selected scope;
+accepted invariant versus open mechanism; canonical owner; negative scenario;
+implementation trigger; and a link back to D/E or A9/A10. A current source
+inventory comes before any implementation estimate. Stop an extraction when
+the existing primitive and conformance already cover the case.
+
+**Documentation sizing:** about 40-65 changed/added Markdown lines for this
+compact entrypoint, then roughly 150-250 lines across existing owner plans
+for minimal routes and missing acceptance details after checking coverage.
+The combined planning envelope is about 200-320 lines, not a requirement to
+fill that many lines. Confidence is 6/10; editorial complexity is 3/10.
+This excludes fully designing a new streaming, realm, transfer or quota profile.
+Such a decision keeps its own contract, alternatives and estimate with its owner.
+
+**Current code delta: 0 production/integration LOC and 0 new test LOC.**
+Finite-profile iterator/self-wait probes, ESM retention and GM root-closure
+semantics are not newly demonstrated defects of a supported consumer profile.
+Do not add completed EF/LMU work or the existing S1-S5/C0-C3 programs to this
+research as new implementation cost. D1-D3 implementation sizing remains
+unestimated (confidence 2/10); overlapping alternatives are not summed.
+
+P1 follow-through is a simple author-facing SPI and narrowly reusable
+conformance after checking existing coverage. Reuse GM Resources/Observation,
+Effect and the selected durable engine before proposing another shared runtime,
+stream library, scheduler, analyzer or global lifecycle state machine.
+Preserve the real one-agent local profile; qualify only the claimed workload.
+The current index creates no new release gate and does not block unrelated work.
 
 ## Three bounded implementation questions within existing owner decisions
 
