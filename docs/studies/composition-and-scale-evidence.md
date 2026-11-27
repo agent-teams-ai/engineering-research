@@ -966,12 +966,26 @@ designing new primitives. Tests inspected, not executed against PostgreSQL.
 
 For Orchestrator, the previous exact OD-033/OD-005/035 review remains
 applicable: no new broker or workflow engine is needed to settle these
-semantics. Attach placement to a stable owned execution partition, preserve
-one authoritative aggregate writer; Platform assigns and revokes placement,
-Orchestrator owns domain acceptance, AR owns execution/physical custody.
-Keep pure business logic free of cluster dependencies. A partition map and
-bounded cell-local transactions are choices for the affected owners, not a
-new universal distributed aggregate framework.
+semantics. Keep one authoritative writer for each owned aggregate. The exact
+[Orchestrator ADR-0079 ownership matrix](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/3dccf2c53bf11f3939a19734a58f5e64d96673d0/docs/decisions/0079-runtime-authority-binding-cutoff-and-disposition.md#L84-L205)
+is controlling: Platform or Standalone Authority owns external product
+lifecycle/membership/entitlement; Orchestration Scope owns project-level
+runtime placement and binding generation; Run Orchestration owns the Run
+plan/authority and work placement; AR owns technical receiver fences and
+physical custody. Deployment topology/routing is not the binding generation.
+Do not introduce Platform as a second placement writer. ADR-0079 already
+distinguishes endpoint discovery, rebinding, observed authority and receiver
+admission; an existing Run never moves to a new binding implicitly.
+[ADR-0065](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/3dccf2c53bf11f3939a19734a58f5e64d96673d0/docs/decisions/0065-immutable-run-plan-and-work-placement.md#L43-L69)
+defers rolling migration of active placements, preferring a staged successor
+plus atomic promotion and a quiesced fallback.
+[ADR-0048](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/3dccf2c53bf11f3939a19734a58f5e64d96673d0/docs/decisions/0048-single-persistence-authority-and-logical-transfer.md#L31-L79)
+requires one authoritative persistence profile per context and explicit
+logical transfer with stable identities/checksums/idempotent receipts.
+The model below concerns a future explicitly selected physical/authority
+transfer capability, not a mandate to reopen these decisions. Keep pure
+business logic free of cluster dependencies; no universal distributed
+aggregate framework.
 
 ### A8 — Executed bounded adversarial models for fleet moves and shared budgets
 
@@ -996,7 +1010,7 @@ two live operations for one slot when expiry returns physical capacity.
 A conservative reservation keeps the slot until confirmed stop; expiry
 may close admission but cannot manufacture physical release. The third
 allows all interleavings respecting read-before-commit for each partition;
-read_A/read_B/commit_A/commit_B demonstrates write skew. The fourth
+read_A/read_B/commit_A/commit_B demonstrates write skew. The fourth assumes no registered intent for an unaccepted command and
 copies the state but intentionally omits the dedup record in the naive
 variant: a lost response followed by retry can apply X twice or accept a
 conflicting digest.
