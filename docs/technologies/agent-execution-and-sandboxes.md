@@ -103,3 +103,92 @@ Reuse the existing runtime/provider and effect-admission boundary. Preserve boun
 [ag-stage]: https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/blocks/stagehand/blocks.py
 [stage-browser]: https://docs.stagehand.dev/v4/configuration/browser
 [stage-migration]: https://docs.stagehand.dev/v4/migrations/v3
+
+## Fleet infrastructure candidate screen — 2026-11-27
+
+This capability-oriented screen accompanies the [fleet-scale source study](../studies/composition-and-scale-evidence.md#fleet-scale-foundation-first-follow-up--2026-11-27).
+It is a discovery/selection aid, not a dependency list, implementation
+assignment, or evidence of installed compatibility. Current choices retain
+their owning ADRs. The source study pins inspected competitor code; the
+official library documentation links below are rolling unless versioned.
+Licensing, security posture, exact releases, support matrix and representative
+integration tests must be checked before adoption. Prefer existing accepted
+infrastructure and narrow product-owned ports over new universal libraries.
+
+The current Orchestrator baseline is native PostgreSQL for local and server
+state ([ADR-0114](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/3dccf2c53bf11f3939a19734a58f5e64d96673d0/docs/decisions/0114-canonical-backend-stack-and-distributed-role-adoption.md)),
+Fully Local in V1 ([ADR-0115](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/3dccf2c53bf11f3939a19734a58f5e64d96673d0/docs/decisions/0115-canonical-fully-local-v1-adoption.md)),
+and full native Temporal for local durable workflows ([ADR-0116](https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/3dccf2c53bf11f3939a19734a58f5e64d96673d0/docs/decisions/0116-native-temporal-for-fully-local-durable-workflows.md)).
+OD-035's engine selection is resolved; OD-005 retains owned workflow contracts,
+placement and reconciliation. Alternatives below are discovery/reference
+material; replacing the selected engine requires an accepted successor decision.
+
+| Mechanism and candidate | Where it may fit | What it does not supply / first discriminator |
+| --- | --- | --- |
+| [NATS JetStream](https://docs.nats.io/learn/jetstream/pull-consumers) — existing selected broker family | Orchestrator integration delivery, bounded pull consumers and replay. Tune maximum in-flight messages, bytes and wait. | Not a canonical business scheduler, tenant fairness, semantic effect deduplication or unbounded history. Qualify total retained bytes, lost ACK, duplicate, slow consumer and partitioned topology. |
+| [KEDA NATS JetStream scaler](https://keda.sh/docs/2.21/scalers/nats-jetstream/) — 2.21 documented integration | Kubernetes role/worker autoscaling from consumer lag; optional operations adapter, not domain code. | Queue lag alone ignores resource fit, age, provider throttles, drain and cleanup. Compare HPA/custom metrics; never scale required lease/control/recovery roles to zero merely because ordinary backlog is empty. |
+| [Kubernetes Kueue](https://github.com/kubernetes-sigs/kueue), [fair-sharing design](https://github.com/kubernetes-sigs/kueue/blob/main/keps/4136-admission-fair-sharing/README.md) | Candidate if managed AR actually schedules Kubernetes workload resources. Quota cohorts and usage-based ordering are worth a small comparative experiment. | Does not own business budget, external provider account limits, session custody, cancellation of an external process, or non-Kubernetes local pools. Compare with existing C0–C3 before adding a scheduler. |
+| [Temporal](https://docs.temporal.io/best-practices/worker), [worker versioning](https://temporal.io/changelog/worker-versioning-continue-as-new-worker-controller) | Accepted workflow engine family, including full native Fully Local under ADR-0116; OD-005 owns the first workflow, versioned contracts, placement and reconciliation. | Not AR custody or exactly-once external effects. Verify accepted workflow boundary, effect identity and idempotency, non-deterministic changes, replay, old version drain, and local footprint. Keep Restate/Cadence as references in the retained durability study; an engine replacement requires an accepted successor decision. |
+| [Restate invoker source](https://github.com/restatedev/restate/blob/5fb156a12983b0e7e02308ff6d59e5c5c5c1e866/crates/invoker-impl/src/invocation_state_machine.rs) | Concrete generation-fence, bounded invocation memory and journal-ack-before-retry reference. Reference-only for the present Orchestrator baseline; any replacement adapter requires an accepted successor decision. | The inspected server source declares Business Source License; verify exact terms and hosting rights, not an assumed Apache-2.0 release. Journal replay is not exactly-once arbitrary effects. No second workflow authority alongside Temporal. |
+| [PgBouncer](https://www.pgbouncer.org/features) | Candidate PostgreSQL connection budget for hosted roles, with distinct pool and migration owner. | Transaction pooling does not preserve LISTEN, session locks, temp state or arbitrary session settings; prepared statements require correct client/server configuration. Qualify actual PostgreSQL adapter and transaction semantics instead of adopting transparent pooling. Not a sharding solution. |
+| [Centrifugo](https://centrifugal.dev/docs/) | Already researched real-time transport; bounded client subscriptions and recoverable projections, not durable owner authority. | Qualify exact chosen recovery and history profile and slow/reconnect burst; no global broadcast or tenant cross-read. Keep existing Orchestrator transport decision. |
+| [OpenTelemetry](https://opentelemetry.io/docs/concepts/signals/metrics/) | Existing observability direction; SDK Views/cardinality limits and low-cardinality role metrics. | Exact agent/Run/tenant identities belong in bounded diagnostic traces/logs, not default metric labels. Overflow is observable but can change grouped-query accuracy; qualify actual JS SDK/export pipeline and control availability during failure. |
+| [gVisor](https://gvisor.dev/docs/architecture_guide/security/) | Optional Linux container defense-in-depth profile for untrusted workload; compare real harness syscall compatibility, CPU/memory, startup, filesystem, egress and cleanup. | Does not implement provider/session identity, network authorization, resource limits or side-channel immunity. Host isolation and cgroups/egress are separate. No claim that Docker alone or gVisor alone creates a hostile tenant boundary. |
+| [Firecracker](https://github.com/firecracker-microvm/firecracker), [Kata Containers](https://github.com/kata-containers/kata-containers), [E2B](https://github.com/e2b-dev/runtime), existing Substrate study | Candidates for stronger or alternative isolated execution profile; compare disposable and persistent workspace/restore, control API and provider custody. | No assumption of equal local/macOS/Windows support, exact session recovery or cost advantage. Firecracker/Kata reviewed here only as discovery candidates; E2B/Substrate retain their existing scoped evidence. |
+| [OpenHands software-agent-sdk](https://github.com/OpenHands/software-agent-sdk), [AgentField](https://github.com/Agent-Field/agentfield) | Optional independently deployed agent/harness integration and typed capability discovery if an actual provider contract fits. | Do not add a second session/operation/capacity authority, reimplement our coordination domain in Python/Go, or infer provider portability from a wrapper. Prove launch/stop/uncertain result, stream replay, identity and admission for the exact profile. |
+| [Kubernetes client-go workqueue](https://github.com/kubernetes/client-go/tree/master/util/workqueue) | Reference implementation or direct use inside a Go Kubernetes reconciler; local keyed reconciliation, rate limiting and drain. | In-memory queue cannot replace durable Runtime admission, nor do we need a TS port merely because it is good code. Reuse existing queue/owner primitives if semantics fit. |
+| [FoundationDB simulation](https://github.com/apple/foundationdb/blob/main/documentation/sphinx/source/testing.rst), [fast-check](https://github.com/dubzzz/fast-check), [Testcontainers](https://github.com/testcontainers/testcontainers-node), [Toxiproxy](https://github.com/Shopify/toxiproxy) | Deterministic property/model tests, actual infrastructure fixture and fault injection; candidate evaluation within existing EF and product fixture contracts. | FoundationDB is a methodology reference, not a replacement database. Discovery-only for the latter three in this increment; verify installed versions, clocks, replay seeds and failure modes. Fault simulation cannot substitute for actual multi-host provider tests. |
+| Get Modular, Extension Foundation, LMU, Effect/GM adapter | Prefer qualified in-house composition, extension trust, resource and update mechanisms at the real product seam. Effect may be a scoped adapter for cancellation/resource lifetime/concurrency when its profile is qualified. | Do not add a parallel DI container, public plugin loader, module updater, universal retry library or runtime import of Engineering Foundation. Existing accepted exact pins and owner qualification govern adoption. |
+
+Do not select a tool because another product imported it. Use a small
+capability-specific proof with accepted failure semantics and compare against
+the simpler existing mechanism. Freeze concrete version/license and support
+envelope only in the adopting owner; this catalog does not lock dependencies.
+
+## Pass 8: additional fleet and recovery candidate discrimination — 2026-11-27
+
+Extend the earlier capability screen, not the dependency graph. See
+[the pinned source comparison](../studies/composition-and-scale-evidence.md#pass-5-additional-competitor-source-audit--coordination-and-operational-recovery)
+and [controller evidence](../studies/composition-and-scale-evidence.md#pass-6-fleet-controller-behavior-admission-and-backpressure).
+Scores are proposed fit/confidence for named scopes (1–10), not a global
+ranking or installed qualification.
+
+| Candidate | Fit / confidence | Use / limitation | First acceptance discriminator |
+| --- | --- | --- | --- |
+| [Kubernetes Agent Sandbox](https://github.com/kubernetes-sigs/agent-sandbox) | 9 / 8 for a Kubernetes AR provider | Warm pools, claims, sandbox lifecycle and controller reconciliation may avoid writing a new Kubernetes operator. Does not replace AR session/custody, commercial policy, local providers or hostile-code network security. | Real current harness, cold/warm creation, sustained refill, stop/reattach, UID fence, egress, hard resource enforcement; compare direct Pod/Job adapter plus Kueue. Check version and license. |
+| [Hatchet](https://github.com/hatchet-dev/hatchet) | 8 / 7 for queue/worker scheduling evidence; 5 / 6 as a full engine alternative | Tenant-scoped lease and atomic batch assignment are useful examples. Task scheduler does not own session or arbitrary external effect. | Compare scheduling mechanisms at the owned PostgreSQL/JetStream delivery and selected Temporal workflow boundaries; queue admission and crash before/after external dispatch. Any proposed adoption retains owner approval and exact hosting/license/edition, footprint and TS SDK qualification. |
+| [Mastra](https://github.com/mastra-ai/mastra) | 8 / 8 as a durability/profile reference, 4 / 7 as AR core dependency | Typed agent/harness and workflow recovery; current source explicitly differentiates storage fencing from lease-only/no-op guarantees. Adds overlapping loop, memory, state and workflow authority. | Optional harness/provider only where an actual integration has fit; prove cold resume, versioned approval, detached observer and stale writer; do not substitute all provider APIs. |
+| [Vercel Open Agents](https://github.com/vercel-labs/open-agents) | 8 / 8 as reference app, 4 / 7 as reusable runtime | Separates workflow and sandbox and shows independent hibernation/reconnect. Vercel-specific managed services and inspected read-then-update lifecycle path require scrutiny. | Workspace lifecycle/receipt conformance; compare alternative sandbox provider with no managed dependency. |
+| [Graphile Worker](https://github.com/graphile/worker), [pg-boss](https://github.com/timgit/pg-boss) | 7 / 5 as local PG background-job candidates | Discovery-only, not source/benchmark-qualified in this pass. Use as PostgreSQL background-job references; ADR-0116 already resolves OD-035's workflow engine selection. Ordinary job execution is not arbitrary durable agent continuation, fairness or external-effect exactly-once. | Pin licenses/versions; transaction enqueue, crash and retry, queue bounds, concurrency key, timer and cancellation; compare the accepted owner-local delivery and native Temporal workflow boundaries before proposing another queue. |
+| [Dapr Actors](https://docs.dapr.io/developing-applications/building-blocks/actors/actors-features-concepts/), [Orleans request scheduling](https://learn.microsoft.com/dotnet/orleans/grains/request-scheduling) | 8 / 7 as design references, 3 / 6 as new default infrastructure | Lazy logical identities, activation and per-identity serialized turns. Circular calls and one hot identity can block progress; no automatic safe external effects. Orleans source retrieval failed, documentation only. | Use keyed local admission with durable waits; prove recursive/self-call, two-agent cycle, parent waiting for child and activation after failure. Do not equate virtual actor with one OS agent process or mandate a sidecar per agent. |
+| [OpenTelemetry](https://opentelemetry.io/docs/concepts/signals/metrics/), existing [Centrifugo](https://centrifugal.dev/docs/) | 9 / 8 for existing observation and client recovery | Distinct observation/stream transport; not authoritative business journal. Reconnect, label cardinality and memory use remain consumer obligations. | Bounded sample/export queue, independent control metrics, resnapshot overlap/lag, authorization epoch change and reconnect burst; reuse existing detailed Centrifugo study. |
+
+Highest-value next candidates: real Agent Sandbox provider experiment if the
+hosted owner chooses Kubernetes; bounded qualification of PostgreSQL/JetStream
+delivery and the selected native Temporal workflow boundary under OD-005 and
+ADR-0116; native Effect and GM
+resource contracts at eligible modules; independent generative/mutation test
+fixtures. Reject an additional global agent framework, workflow engine,
+actor cluster, DB or broker solely because its interface looks familiar.
+The chosen one-agent fully local profile must not require a cloud runtime or
+the hosted scheduler. Evaluate incremental maintenance, licensing, failure
+semantics, delivery size, portability and performance before adoption.
+
+## Distributed admission and versioning source follow-through — second campaign
+
+See [A6 pinned control-plane implementations](../studies/composition-and-scale-evidence.md#a6--rollout-version-selection-and-runtime-custody-in-mature-control-planes)
+and A7/A8 in the same study. These are mechanism references and bounded
+qualification cases for OD-005 and capacity-admission owners, not a dependency
+decision or a reopening of ADR-0114/0115/0116 and resolved OD-035.
+
+| Candidate | Priority and fit | Discriminating proof |
+| --- | --- | --- |
+| Existing Postgres/JetStream and owner-local operations | Accepted owner-local PostgreSQL authority in both local and server profiles; preserve the separate JetStream delivery role and selected native Temporal workflow engine. | End-to-end acceptance/receipt and durable replay, two distinct partitions competing for a shared hard cap, reservation stays charged after expiry until physical release; quantify contention and recovery. |
+| DBOS Transact TS | SQL claim/admission reference; any engine replacement requires an explicit accepted successor decision if the selected engine cannot meet its agreed obligations. | Shared vs partition lock scope, version pin during rolling deploy, fail after claim before effect, stale executor and DB failover. Measure transaction rate and cost; verify installed TS/Node compatibility/license. |
+| Temporal | Selected durable workflow engine family; ADR-0116 resolves Fully Local engine selection while OD-005 retains production workflow and adapter contracts. | Pinned vs supported auto-upgrade, old history queries, late drainage signals, incompatible worker, lost external receipt and graceful/forced retirement; qualify startup, recovery and resource budgets for the actual selected native local and server profiles. |
+| LangGraph | Checkpoint/pending-write reference or optional provider/harness where requested. | Resume at declared step boundary and reconstruct pending effects; cannot substitute graph checkpoint for CLI/process custody or external idempotency. |
+| Kubernetes controller-runtime/Agent Sandbox | Reference and possible hosted infrastructure adapter; keep local provider independent. | Actual bounded reconciler queue, claim/UID incarnation, warm pool refill, failure and confirmed physical release; separate global policy/authority from local controller. |
+
+No competitor or new workflow engine owns Orchestrator business state.
+No additional queue, datastore, or per-agent control service is recommended
+solely because a mechanism resembles existing Foundation contracts.

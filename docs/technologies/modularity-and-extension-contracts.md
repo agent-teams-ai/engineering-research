@@ -73,3 +73,77 @@ For a later SDK extraction, first show an installed ordinary TypeScript consumer
 [ag-skills]: https://github.com/Significant-Gravitas/AutoGPT/blob/9cb76f9026d388c9bf2e098af2beae1cc864f055/autogpt_platform/backend/backend/data/skill_package.py#L1-L121
 [extension-safety]: https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/5a8496ce711909e381c5bc817fff5500be9a1761/docs/decisions/0095-extension-safety-and-ownership-invariants.md#L35-L85
 [extension-lifecycle]: https://github.com/agent-teams-ai/agent-teams-orchestrator/blob/5a8496ce711909e381c5bc817fff5500be9a1761/docs/open-decisions/OD-043-extension-lifecycle-catalog-and-hot-update.md
+
+## Deep extension lifecycle candidate screen — 2026-11-27
+
+See [the source and incident study](../studies/composition-and-scale-evidence.md#deep-follow-up-live-plugin-custody-and-openclaw-failure-history--2026-11-27).
+This is pass 7 of the fleet follow-up. Fit is scenario-specific (1–10);
+confidence is evidence confidence, not security certification or measured
+capacity. No package is selected or newly admitted. Rolling documentation
+is distinguished from source snapshots in the linked study.
+
+| Candidate / mechanism | Fit / confidence | Strength and limitation | Recommendation |
+| --- | --- | --- | --- |
+| Qualified Get Modular Resources and [GM/Effect integration](https://github.com/agent-teams-ai/get-modular) | 9 / 8 for trusted composed lifetime | Existing typed graph, resource ownership and optional native Effect profile. Neither handles arbitrary native-code isolation, durable Active Head or external effect settlement. | First choice for the supported owner profile; inspect actual released exports and installed consumer proof. |
+| [OSGi R8 wiring](https://docs.osgi.org/specification/osgi.core/8.0.0/framework.wiring.html), Equinox source in the study | 9 / 9 as design reference, 2 / 9 as direct TS dependency | Mature revision/retained-wiring/dependent-closure semantics. Refresh can stop and restart dependents; service acquisition is not external custody. | Transfer invariants and fixtures, not JVM/OSGi container or global registry. |
+| [IntelliJ dynamic plugins](https://plugins.jetbrains.com/docs/intellij/dynamic-plugins.html), [Disposer](https://plugins.jetbrains.com/docs/intellij/disposers.html) | 9 / 8 as reference | Documented dynamic eligibility, disposable scopes, inspections for unsafe references, restart on failed unload, explicit native-library limits. A parent/child tree alone cannot express borrowed shared resources or remote settlement. | Add authoring-time negative fixtures for unsupported dynamic profiles and runtime leak tests to existing EF/LMU qualification. No copy of singleton disposer. |
+| [VS Code extension host](https://code.visualstudio.com/api/advanced-topics/extension-host) and [remote extension guidance](https://code.visualstudio.com/api/advanced-topics/remote-extensions) | 9 / 8 as host profile reference | UI, workspace and browser/remote host placement, lazy activation. Remote host placement does not automatically prevent effects on local client through host APIs. | Model execution location separately from permission scope, API/wire compatibility and client capabilities. Test local/remote/browser parity only for declared profiles. No new Electron requirement. |
+| [OpenClaw source generation/retirement](../studies/composition-and-scale-evidence.md#passes-13-ownership-live-update-and-adversarial-lifetime-review) | 9 / 8 for test scenarios, 3 / 8 as dependency | Exact instance authority, cache custody, lazy source retention, history of difficult reload bugs. Single-process/global maps and cooperative trust assumptions. | Preserve useful instances and bound retention; reject entire-Gateway/global-registry dependency. |
+| [Node ESM](https://nodejs.org/api/esm.html), [worker threads](https://nodejs.org/api/worker_threads.html), [child processes](https://nodejs.org/api/child_process.html) | 9 / 8 for ordinary TS and disposable execution | Native loading and isolated execution mechanisms. Loader cache invalidation, termination request and external child/descendant cleanup are distinct. Workers are not hostile-tenant security boundaries. | Use native mechanisms inside qualified adapters; test actual post-await/stream/lazy-import and physical disposal. |
+| [Effect](https://effect.website/) native scope, interruption, concurrency and layers | 9 / 8 where Effect semantics chosen | Mature resource and cancellation primitives, typed errors; native scope closure does not prove external effects stopped. | Reuse existing GM integration and existing Effect research. Don't introduce another neutral scope wrapper or force Effect into ordinary portable domain contracts. |
+| [fast-check](https://github.com/dubzzz/fast-check), [model-based testing](https://fast-check.dev/docs/advanced/model-based-testing/) | 9 / 7 for EF development fixtures | Generated command sequences and reproducible shrinking are useful for ownership/state machine laws. The model can repeat implementation errors, and simulated scheduling does not prove real OS cleanup. | Small exact-version pilot using independent oracle, actual owner adapters and replay seed; use existing EF capabilities and native tests, not a new test framework. |
+| [TLA+](https://github.com/tlaplus/tlaplus) / TLC | 8 / 6 for narrow distributed protocol design | Explicit safety/liveness and state-space exploration for handoff, stale writers and unknown commit. Model abstraction, state explosion and translation to implementation require discipline. | Optional bounded model for one cross-cell handoff or LMU publish/retire law; no mandatory spec DSL, no general model-checking gate. |
+
+Avoid a second universal plugin runtime, service locator, state machine DSL or
+dependency graph. Compare each ready mechanism with the actual existing
+foundation and consumer. Node, browser, isolated-process and remote profiles
+retain their separate evidence. Native Federation, MF, SystemJS, Piral, Extism,
+Wasm and other previously evaluated mechanisms remain in the existing
+[Extension Foundation execution profile register](https://github.com/agent-teams-ai/extension-foundation/blob/a1b5007ae4777bb5b01adab35a9ee83546a62333/docs/architecture/live-extension-system-map.md#L166-L198);
+do not treat them as newly researched/selected here. Check exact releases,
+license, native/TS7 support, installation and security before admission.
+
+## Continuous-update candidate refinement — second campaign
+
+The [exact LMU, GM and EF source probes](../studies/composition-and-scale-evidence.md#second-deep-campaign-executable-lmu-boundary-and-competitor-implementation-review--2026-11-27)
+change the qualification priority, not the accepted profile or package pins.
+
+| Candidate | Adopt now / evaluate next | Reject as default |
+| --- | --- | --- |
+| GM Resources + native Effect scope/Stream | First compare existing released, installed consumer capabilities for finite ownership and separately qualified streaming. Keep native errors, cancellation, original cleanup and owned stream scope. | New universal scope, event emitter, or wrapper that erases native lifetime. |
+| LMU + EF verified artifact | Keep cooperative finite profile; evaluate cumulative per-realm budgets, mixed-version contract, explicit handover and continuous-service retirement. | Unlimited in-process ESM cache-busting or advertised unloading. |
+| Node worker/process with typed RPC, HashiCorp go-plugin as reference | Bounded recyclable realm shared by compatible trusted modules. Compare actual startup, memory, call/stream cost, exit/cleanup receipts and reattach proof. | One process per pure module/agent; PID-only reattach; treating worker as hostile-code sandbox; adopting Go plugin library as TS runtime. |
+| Envoy xDS patterns | Reference for staged/active/observed version, stale ACK/nonce and delta reconciliation; use existing product outbox/feed where possible. | New universal distribution control plane, global snapshot lock, ACK as applied authority. |
+| TLA+/TLC or fast-check | Existing [four bounded model experiments](../studies/composition-and-scale-evidence.md#a8--executed-bounded-adversarial-models-for-fleet-moves-and-shared-budgets) demonstrate why an independent oracle matters. Evaluate generator with real adapter, fault injection and mutation tests. | Model success as substitute for runtime/SQL qualification or mandatory DSL. |
+
+A worker or subprocess boundary is valuable only if its full ownership and
+failure semantics are qualified. Before adding any package, check actual
+supported runtime/TS versions, license, dependency surface, release and
+current consumer qualification; none was adopted here.
+
+## Plan-level plugin parity target, 2026-11-27
+
+Compare planned guarantees with planned guarantees and executed behavior with
+executed behavior. The owner requires competitive modularity, plugins and live
+updates across the greenfield products. This is a delivery target, not a claim
+that the current finite profiles already implement every mode.
+
+| Reference and evidence class | Relevant baseline and comparison boundary |
+| --- | --- |
+| [Paperclip plugin specification at c72c4687](https://github.com/paperclipai/paperclip/blob/c72c4687083db82348baa03a7d57cb6963245f44/doc/plugins/PLUGIN_SPEC.md), inspected target specification with implementation caveats | Specifies out-of-process workers, capability-gated worker-side host calls, UI contributions, SDK compatibility and install/uninstall/upgrade/config changes without a server restart. Its upgrade sequence drains/stops the old worker before starting the successor; this is not a promise of arbitrary old/new overlap. |
+| Paperclip deployment and trust scope, same pinned specification | Core assumptions are instance-global installation and single-tenant/self-hosted use; companies are not plugin trust boundaries and same-origin plugin UI is trusted. Managed image packages have a separate restricted resolver; that section does not establish coordinated multi-server plugin rollout. No competitor runtime was executed for this comparison. |
+| [OpenClaw replacement and turn handover](../studies/composition-and-scale-evidence.md#a3--openclaw-resolves-these-precise-problems-at-management-seams), pinned implementation source | Generation retention, self-reload refusal, bounded drain, declared overlap and safe-step turn handover already have concrete mechanisms. Generation naming or a generic hot-reload claim is therefore not a differentiator. Use the exact qualified trust/state/resource scope when comparing. |
+| [OSGi retained wiring and dependent closure](../studies/composition-and-scale-evidence.md#pass-4-mature-modular-systems--osgi-versus-js-generation-replacement), specification and source reference | Mature modular systems already distinguish revisions, retained users and affected dependents. Reuse those invariants; JS code residency, product state and external custody still need their own owners. |
+
+The practical target is one connected install/use/live-update/disable/uninstall/
+restart journey, with useful successor behavior, coherent permitted old work,
+original cleanup, recovery of uncertain effects and bounded cumulative
+retention. Qualify only the applicable overlap, stream, transfer, realm and
+isolation profile; a successful import or readiness response proves less.
+Keep a useful external headless plugin, optional UI and actionable diagnostics
+in the authoring proof, including the necessary glue and upgrade steps.
+
+EF and LMU own the shared artifact and update contracts; GM supplies composition
+facts and resource mechanisms. Products retain state, authorization and physical
+custody. Their owner-local plans decide mechanisms and qualification, without a
+second plugin engine or a fleet-capacity promise from this comparison.
