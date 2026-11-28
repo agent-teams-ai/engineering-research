@@ -1,0 +1,14 @@
+--- a/docs/architecture/platform-orchestrator-review/03-principal-delegation-model.md
++++ b/docs/architecture/platform-orchestrator-review/03-principal-delegation-model.md
+@@ -36,8 +36,9 @@
+   (Platform ADR-0002 and Platform ADR-0007).
+ - `CONFIRMED`: OAuth client is not a principal unless an explicit service-principal binding
+   grants that identity (Platform ADR-0007).
+-- `PROPOSED`: `AgentProfileId` is not a principal in Orchestrator authority; the
+-  separation is directionally agreed but has no accepted owning ADR yet.
++- `CONFIRMED`: Agent identity is distinct from principal, credential, Run
++  participant, and runtime session under Orchestrator ADR-0100. Exact principal
++  bindings and provider topology remain open under Orchestrator OD-012.
+ - `CONFIRMED`: Email and display name cannot auto-link identities (Platform
+   ADR-0002 and Platform ADR-0007).
+ - `PROPOSED`: One Platform principal may map to a different tenant-scoped
