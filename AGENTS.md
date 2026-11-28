@@ -5,6 +5,12 @@ own accepted decisions, domain models, implementation plans and qualification.
 Start with [the documentation map](docs/README.md); load the relevant dossier
 and its linked owner record instead of reading the whole corpus.
 
+For long-lived architecture or omission audits, use the
+[decade-scale follow-through](docs/studies/decade-scale-architecture-follow-through-2026-11-28.md#agent-start-here).
+It distinguishes existing coverage from missing first acceptance evidence and
+routes each applicable question to its current owner; it is not a new product
+authority or a task list for unrelated work.
+
 <!-- agent-teams-docs:route/v1 begin -->
 Use [.agents/skills/docs-authoring/SKILL.md](.agents/skills/docs-authoring/SKILL.md) for documentation.
 <!-- agent-teams-docs:route/v1 end -->

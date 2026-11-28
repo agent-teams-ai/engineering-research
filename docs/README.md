@@ -26,6 +26,7 @@ This map routes readers and agents by task. The repository separates shared sour
 | Typed LLM outputs and evidence-testing libraries | [Technology record](technologies/observability-and-prompts.md#structured-output-and-evidence-testing--2026-11-23) — reuse candidates, not adoption. |
 | Architecture or competitor investigation | [Dossiers](competitors/README.md) and [topic-grouped studies](studies/README.md). |
 | A concrete product change | [Owner-linked preimplementation priorities](lessons/preimplementation-decisions.md); the owning repository retains implementation authority. |
+| Long-lived architecture and omissions | [Decade-scale follow-through](studies/decade-scale-architecture-follow-through-2026-11-28.md#agent-start-here) — inspected baselines, already-covered principles, specific missing acceptance evidence and current owner routes. |
 
 ## Research selection and decision follow-through
 

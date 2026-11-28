@@ -41,6 +41,7 @@ Grouped by research topic.
 
 ### Cross-product architecture and historical comparisons
 
+- [Decade Scale Architecture Follow Through 2026-11-28](decade-scale-architecture-follow-through-2026-11-28.md) — Current-source audit of costly-to-change contracts, existing coverage, first acceptance scenarios and bounded product-owner follow-through; includes agent start route and primary literature.
 - [One Agent Through Enterprise Execution](one-agent-through-enterprise-execution.md) — Industry mechanisms, native Temporal parity and qualification of both the minimum useful deployment and sustainable large-fleet execution, reviewed 2026-11-05.
 - [Architecture Follow Through from AutoGPT and Memory](architecture-follow-through-from-autogpt-and-memory.md) — Proposed owner-specific clarifications, already-covered requirements and rejected expansion.
 - [Initial Paperclip Comparison](initial-paperclip-comparison.md) — Historical prospective scores from the preceding comparison under its original five-group rubric.
